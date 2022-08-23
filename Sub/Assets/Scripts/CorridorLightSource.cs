@@ -48,7 +48,7 @@ public class CorridorLightSource : MonoBehaviour
             timeDelay = Random.Range(0.01f, 0.2f);
         }
 
-        if (timeDelay >= timeDelayCounter)
+        if (timeDelayCounter >= timeDelay)
         {
             if (!isFlickering)
             {
