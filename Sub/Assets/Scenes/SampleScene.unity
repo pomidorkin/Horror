@@ -4299,6 +4299,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueElement: {fileID: 745583379}
   dialogueText: {fileID: 1850784899}
+  radius: 3
+  player: {fileID: 1028167397}
+  interactionText: {fileID: 725129916}
 --- !u!4 &1007196116
 Transform:
   m_ObjectHideFlags: 0
@@ -4307,7 +4310,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1007196114}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.72, y: 0.6494225, z: -1.64}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4417,6 +4420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 963194228}
   playerInteractDistance: 3
+  dialogueElement: {fileID: 745583379}
   promptText: {fileID: 725129918}
 --- !u!1 &1029976182
 GameObject:

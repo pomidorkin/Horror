@@ -9,6 +9,7 @@ public class PlayerActions : MonoBehaviour
 {
     [SerializeField] private Transform cam;
     [SerializeField] private float playerInteractDistance = 3f;
+    [SerializeField] private GameObject dialogueElement;
     bool active = false;
     PlyerInputActions plyerInputActions;
     RaycastHit hit;
@@ -32,13 +33,13 @@ public class PlayerActions : MonoBehaviour
         active = Physics.Raycast(cam.position, cam.transform.TransformDirection(Vector3.forward), out hit, playerInteractDistance);
 
         // Prompt text toggle
-        if (active && !isPromptTextActive && (hit.transform.GetComponent<IInteractable>() != null) && promptText.text != hit.transform.GetComponent<IInteractable>().GetInteractionText())
+        if (active && !isPromptTextActive && (hit.transform.GetComponent<IInteractable>() != null) && promptText.text != hit.transform.GetComponent<IInteractable>().GetInteractionText() && !dialogueElement.activeInHierarchy)
         {
             promptText.gameObject.SetActive(true);
             isPromptTextActive = true;
             promptText.text = hit.transform.GetComponent<IInteractable>().GetInteractionText();
         }
-        else if (active && isPromptTextActive && (hit.transform.GetComponent<IInteractable>() != null) && promptText.text != hit.transform.GetComponent<IInteractable>().GetInteractionText())
+        else if (active && isPromptTextActive && (hit.transform.GetComponent<IInteractable>() != null) && promptText.text != hit.transform.GetComponent<IInteractable>().GetInteractionText() && !dialogueElement.activeInHierarchy)
         {
             promptText.gameObject.SetActive(true);
             promptText.text = hit.transform.GetComponent<IInteractable>().GetInteractionText();

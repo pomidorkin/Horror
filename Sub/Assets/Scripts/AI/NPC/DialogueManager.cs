@@ -8,18 +8,35 @@ public class DialogueManager : MonoBehaviour
 {
     private Queue<string> sentences;
     private Dialogue currentDialogue;
+    private DialogueTrigger currentDialogueTrigger;
     [SerializeField] GameObject dialogueElement;
     [SerializeField] TMP_Text dialogueText;
+    [SerializeField] float radius = 3f;
+    [SerializeField] GameObject player;
+    [SerializeField] GameObject interactionText;
+    private float radiusSqrd;
 
     void Start()
     {
         sentences = new Queue<string>();
+        radiusSqrd = radius * radius;
     }
 
-    public void StartDialogue(Dialogue dialogue)
+    private void Update()
+    {
+        if (currentDialogueTrigger != null && radiusSqrd < Mathf.Pow((currentDialogueTrigger.transform.position.x - player.transform.position.x), 2) && dialogueElement.activeInHierarchy)
+        {
+            dialogueElement.SetActive(false);
+        }
+        
+    }
+
+    public void StartDialogue(Dialogue dialogue, DialogueTrigger trigger)
     {
         dialogueElement.SetActive(true);
+        interactionText.SetActive(false);
         currentDialogue = dialogue;
+        currentDialogueTrigger = trigger;
         // Make Dialogue canvas element active
         sentences.Clear();
         if (dialogue.wasTalkedTo)
@@ -39,6 +56,7 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
+        interactionText.SetActive(true);
         currentDialogue.wasTalkedTo = true;
         dialogueElement.SetActive(false);
         // Make Dialogue canvas element inactive
