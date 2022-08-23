@@ -48,7 +48,7 @@ MonoBehaviour:
   pointOfInterest: {fileID: 0}
   radius: 10
   retargetSpeed: 5
-  maxAngle: 55
+  maxAngle: 90
   headRig: {fileID: 3299426685546052477}
 --- !u!1 &538859409
 GameObject:
@@ -92,6 +92,9 @@ GameObject:
   - component: {fileID: 3299426683898526297}
   - component: {fileID: 3299426683898526296}
   - component: {fileID: 3299426683898526299}
+  - component: {fileID: 780036142}
+  - component: {fileID: 780036143}
+  - component: {fileID: 780036144}
   m_Layer: 0
   m_Name: GenericNPC
   m_TagString: Untagged
@@ -152,6 +155,47 @@ MonoBehaviour:
   - m_Rig: {fileID: 3299426685546052477}
     m_Active: 1
   m_Effectors: []
+--- !u!136 &780036142
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3299426683898526298}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &780036143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3299426683898526298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7c7ed3115558ef45a2dc3cf15dcf1fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerActions: {fileID: 0}
+  dialogueTrigger: {fileID: 780036144}
+--- !u!114 &780036144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3299426683898526298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa1ec5dbfe40344468c7e301eab538ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue: {fileID: 11400000, guid: 1fccbc38325518b47a2522f07c354a6c, type: 2}
 --- !u!1 &3299426685498749168
 GameObject:
   m_ObjectHideFlags: 0
