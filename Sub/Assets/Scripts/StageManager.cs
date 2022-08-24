@@ -45,6 +45,7 @@ public class StageManager : MonoBehaviour
         }
         else
         {
+            // TODO: Implement saving here
             currentStage = stages[currentStageId];
             if (!progress.currentStage)
             {
@@ -57,6 +58,7 @@ public class StageManager : MonoBehaviour
 
     private void GoToNextStage()
     {
+        // TODO: Update saving file here
         currentStageId++;
         currentStage = stages[currentStageId];
         progress.currentStage = currentStage;

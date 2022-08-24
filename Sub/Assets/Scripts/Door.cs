@@ -27,16 +27,18 @@ public class Door : MonoBehaviour, IInteractable
 
     public void OpenDoor(RaycastHit hit)
     {
-        
         // TODO: Toggle the boolean field (Open/Closed)
         if (hit.transform == this.transform)
         {
-            allDoorController.CloseAllDoors();
-            if (!isOpened && canBeOpened)
+            
+            Debug.Log("isOpened " + isOpened);
+
+            if (isOpened == false && canBeOpened == true)
             {
+                allDoorController.CloseAllDoors();
                 animator.Play("OpenAnimation");
-                isOpened = true;
-                Debug.Log("I am the door and I am being opened...");
+                this.isOpened = true;
+                Debug.Log("I am the door and I am being opened..." + " isOpened " + isOpened);
                 doorManager.DoorOpened(roomPosition, isRightDoor);
             }
             else if (!isOpened && !canBeOpened)
@@ -45,8 +47,7 @@ public class Door : MonoBehaviour, IInteractable
             }
             else
             {
-                animator.Play("CloseAnimation");
-                isOpened = false;
+                CloseDoor();
             }
             
         }
@@ -54,11 +55,13 @@ public class Door : MonoBehaviour, IInteractable
 
     public void CloseDoor()
     {
-        if (this.isOpened)
+        if (isOpened)
         {
-            animator.Play("CloseAnimation");
             isOpened = false;
+            animator.Play("CloseAnimation");
+            Debug.Log("CloseAnimation");
         }
+        
     }
 
     private void OnEnable()
