@@ -31,7 +31,7 @@ public class Segment : MonoBehaviour
         foreach (CorridorLightSource lamp in lamps)
         {
             lamp.triggeredFlickering = false;
-            int rnd = Random.Range(0, 10/*0*/);
+            int rnd = Random.Range(0, 100);
             if (rnd < 5)
             {
                 lamp.triggeredFlickering = true;
