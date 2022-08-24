@@ -13,6 +13,8 @@ public class Door : MonoBehaviour, IInteractable
     string interactionText = "Open Door";
     string closeInteractionText = "Close Door";
 
+    private AllDoorController allDoorController;
+
     [SerializeField] public bool isOpened = false;
     [SerializeField] public bool canBeOpened = false;
     [SerializeField] public bool isInteractable = true;
@@ -20,13 +22,16 @@ public class Door : MonoBehaviour, IInteractable
     private void Start()
     {
         playerActions = FindObjectOfType<PlayerActions>();
+        allDoorController = FindObjectOfType<AllDoorController>();
     }
 
     public void OpenDoor(RaycastHit hit)
     {
+        
         // TODO: Toggle the boolean field (Open/Closed)
         if (hit.transform == this.transform)
         {
+            allDoorController.CloseAllDoors();
             if (!isOpened && canBeOpened)
             {
                 animator.Play("OpenAnimation");
