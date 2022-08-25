@@ -6,5 +6,6 @@ using UnityEngine;
 public class SavingData
 {
     public bool firstStart = false;
+    public int currentStage = 0;
 
 }

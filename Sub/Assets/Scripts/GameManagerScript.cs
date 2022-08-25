@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class GameManagerScript : MonoBehaviour
 {
-    [SerializeField] Progress progress;
+    //[SerializeField] Progress progress;
     public SaveManager saveManager;
-    public Stage savedStage;
+    //public Stage savedStage;
+    public int savedStageId;
+
     /*void Start()
     {
         saveManager = SaveManager.Instance;
@@ -25,7 +27,8 @@ public class GameManagerScript : MonoBehaviour
         SaveManager.Instance.Load();
         if (!saveManager.State.firstStart)
         {
-            savedStage = progress.currentStage;
+            //savedStage = progress.currentStage; // Test
+            savedStageId = saveManager.State.currentStage; // Test
         }
 
         ResumeGame();

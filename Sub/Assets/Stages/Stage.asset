@@ -20,5 +20,5 @@ MonoBehaviour:
     requiredAmount: 0
     currentAmount: 0
     wasInteracted: 0
-    playerLeftTheRoom: 0
+    playerLeftTheRoom: 1
   questText: 'Stage one: Escape the room'
