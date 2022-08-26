@@ -6,11 +6,13 @@ public class Segment : MonoBehaviour
 {
     [SerializeField] GameObject[] segmentDecorations;
     [SerializeField] CorridorLightSource[] lamps;
+    [SerializeField] Door[] myDoors;
     public void ChangePosition(Vector3 newPosition)
     {
         transform.position = newPosition;
         SpawnRandomDecoration();
         LampFlickerTriggerRandom();
+        CloseMyDoors();
     }
 
     private void SpawnRandomDecoration()
@@ -36,6 +38,14 @@ public class Segment : MonoBehaviour
             {
                 lamp.triggeredFlickering = true;
             }
+        }
+    }
+
+    private void CloseMyDoors()
+    {
+        foreach (Door door in myDoors)
+        {
+            door.CloseDoor();
         }
     }
 }

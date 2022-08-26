@@ -706,6 +706,9 @@ MonoBehaviour:
   lamps:
   - {fileID: 8711617005350101068}
   - {fileID: 8711617006728784188}
+  myDoors:
+  - {fileID: 241010987}
+  - {fileID: 224900412}
 --- !u!1 &8711617004889259267
 GameObject:
   m_ObjectHideFlags: 0
