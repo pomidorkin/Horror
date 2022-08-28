@@ -25,7 +25,7 @@ public class PlayerActions : MonoBehaviour
         plyerInputActions = new PlyerInputActions();
         plyerInputActions.Player.Enable();
         /// Player -> Action Map; Jump, Movement -> Actions; performed -> state
-        plyerInputActions.Player.Interaction.performed += Interact;
+        plyerInputActions.Player.Interaction.performed += Interact; // On Enable/Disable надо
     }
 
     private void Update()

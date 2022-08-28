@@ -9,6 +9,7 @@ public class AiAgent : MonoBehaviour
     public AiStateId initialState;
     public NavMeshAgent navMeshAgent;
     [SerializeField] public Transform followObject;
+    [SerializeField] public JumpScare jumpScare;
     public AiAgentConfig config;
     //public Ragdoll ragdoll;
     public AiSensor sensor;

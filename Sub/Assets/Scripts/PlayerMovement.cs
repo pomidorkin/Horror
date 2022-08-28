@@ -48,6 +48,9 @@ public class PlayerMovement : MonoBehaviour
 
     private bool jumpPerformed = false;
 
+    private bool canMove = true;
+    [SerializeField] JumpScare jumpScare;
+
 
     Vector3 velocity;
     bool isGrounded;
@@ -57,7 +60,22 @@ public class PlayerMovement : MonoBehaviour
         plyerInputActions = new PlyerInputActions();
         plyerInputActions.Player.Enable();
         /// Player -> Action Map; Jump, Movement -> Actions; performed -> state
-        plyerInputActions.Player.Jump.performed += Jump;
+        plyerInputActions.Player.Jump.performed += Jump; // On Enable/Disable надо
+    }
+
+    private void OnEnable()
+    {
+        jumpScare.OnJumpScareEvent += DisablePlayerMovement;
+    }
+
+    private void OnDisable()
+    {
+        jumpScare.OnJumpScareEvent -= DisablePlayerMovement;
+    }
+
+    private void DisablePlayerMovement(object source, JumpScare.JumpScareEventArgs args)
+    {
+        canMove = false;
     }
 
     private void Start()
@@ -70,57 +88,59 @@ public class PlayerMovement : MonoBehaviour
     {
         // Jumping
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-
-        if (jumpPerformed) // NOT WORKING PROPERLY
+        if (canMove)
         {
-            jumpPerformed = false;
+            if (jumpPerformed) // NOT WORKING PROPERLY
+            {
+                jumpPerformed = false;
+            }
+
+            if (isGrounded && velocity.y < 0)
+            {
+                velocity.y = -2f;
+            }
+
+            if (!isGrounded)
+            {
+                velocity.y += gravity * Time.deltaTime;
+            }
+
+            controller.Move(velocity * Time.deltaTime);
+
+            // Moving
+            Vector2 inputVector = plyerInputActions.Player.Movement.ReadValue<Vector2>();
+            float x = inputVector.x;
+            float z = inputVector.y;
+            Vector3 move = transform.right * x + transform.forward * z;
+            controller.Move(move * speed * Time.deltaTime);
+
+            // FMOD_TEST
+            GroundedCheck();
+            if (PlayerTouchingGround && jumpPerformed)    // If the player is touching the ground AND the player presses the button to jump at the same time, we knoe that the player character is about to jump, therefore we perform our method to play a sound.
+            {
+                MaterialCheck();                                               // Before we play a jumping sound, we need to know what material the player has jumped off of. This
+                PlayJumpOrLand(true);                                          // The 'PlayJumpOrLand' method is perfomred, triggering our 'Jump & Land' event in FMOD to play. We also pass through it's parameter brackets the 'true' boolean value for our method to store inside a vaiable and use to play a jump sound with.
+            }
+            if (!PreviosulyTouchingGround && PlayerTouchingGround)             // If the player wasn't touching the ground during the last frame, but is touching the ground during the current frame, then that means they must have just landed on the ground, therefore we perform out methods and play a sound.
+            {
+                MaterialCheck();                                               // Before we play a landing sound, we need to know what material the player has landed on.
+                PlayJumpOrLand(false);                                         // The 'PlayJumpOrLand' method is perfomred, triggering our 'Jump & Land' event in FMOD to play. We also pass through it's parameter brackets the 'false' boolean value for our method to store inside a vaiable and use to play a landing sound with.
+            }
+            PreviosulyTouchingGround = PlayerTouchingGround; // Finally, we update the 'PreviosulyTouchingGround' variable by setting it to the value of whatever our 'PlayerTouchingGround' variable is. Then when the next frame is run, 'PlayerTouchingGround' will be updated, allowing us to compare it with 'PreviosulyTouchingGround', which still holds the value of it from the last frame.
+
+
+            TimeTakenSinceStep += Time.deltaTime;
+            DistanceTravelled += (transform.position - PrevPos).magnitude;
+            if (DistanceTravelled >= StepDistance + StepRandom)                  // If the distance the player has travlled is greater than or equal to the StepDistance plus the StepRandom, then we can perform our methods.
+            {
+                MaterialCheck();                                                 // The MaterialCheck method is perfomred. This checks for a material value and updates the 'F_MaterialValue' variable with for our 'PlayFootstep()' method to use.
+                SpeedCheck();                                                    // The SpeedCheck method is performed. This checks for the time it took between this step and the last tot hen update the 'F_PlayerRunning' variable with for our 'PlayFootstep()' method to use.
+                PlayFootstep();                                                  // The PlayFootstep method is performed and a footstep audio file from FMOD is played!
+                StepRandom = Random.Range(0f, 0.5f);                             // Now that our footstep has been played, this will reset 'StepRandom' and give it a new random value between 0 and 0.5, in order to make the distance the player has to travel to hear a footstep different from what it previously was.
+                DistanceTravelled = 0f;                                          // Since the player has just taken a step, we need to set the 'DistanceTravelled' float back to 0.
+            }
+            PrevPos = transform.position;
         }
-
-        if (isGrounded && velocity.y < 0)
-        {
-            velocity.y = -2f;
-        }
-
-        if (!isGrounded)
-        {
-            velocity.y += gravity * Time.deltaTime;
-        }
-
-        controller.Move(velocity * Time.deltaTime);
-
-        // Moving
-        Vector2 inputVector = plyerInputActions.Player.Movement.ReadValue<Vector2>();
-        float x = inputVector.x;
-        float z = inputVector.y;
-        Vector3 move = transform.right * x + transform.forward * z;
-        controller.Move(move * speed * Time.deltaTime);
-
-        // FMOD_TEST
-        GroundedCheck();
-        if (PlayerTouchingGround && jumpPerformed)    // If the player is touching the ground AND the player presses the button to jump at the same time, we knoe that the player character is about to jump, therefore we perform our method to play a sound.
-        {
-            MaterialCheck();                                               // Before we play a jumping sound, we need to know what material the player has jumped off of. This
-            PlayJumpOrLand(true);                                          // The 'PlayJumpOrLand' method is perfomred, triggering our 'Jump & Land' event in FMOD to play. We also pass through it's parameter brackets the 'true' boolean value for our method to store inside a vaiable and use to play a jump sound with.
-        }
-        if (!PreviosulyTouchingGround && PlayerTouchingGround)             // If the player wasn't touching the ground during the last frame, but is touching the ground during the current frame, then that means they must have just landed on the ground, therefore we perform out methods and play a sound.
-        {
-            MaterialCheck();                                               // Before we play a landing sound, we need to know what material the player has landed on.
-            PlayJumpOrLand(false);                                         // The 'PlayJumpOrLand' method is perfomred, triggering our 'Jump & Land' event in FMOD to play. We also pass through it's parameter brackets the 'false' boolean value for our method to store inside a vaiable and use to play a landing sound with.
-        }
-        PreviosulyTouchingGround = PlayerTouchingGround; // Finally, we update the 'PreviosulyTouchingGround' variable by setting it to the value of whatever our 'PlayerTouchingGround' variable is. Then when the next frame is run, 'PlayerTouchingGround' will be updated, allowing us to compare it with 'PreviosulyTouchingGround', which still holds the value of it from the last frame.
-
-
-        TimeTakenSinceStep += Time.deltaTime;
-        DistanceTravelled += (transform.position - PrevPos).magnitude;
-        if (DistanceTravelled >= StepDistance + StepRandom)                  // If the distance the player has travlled is greater than or equal to the StepDistance plus the StepRandom, then we can perform our methods.
-        {
-            MaterialCheck();                                                 // The MaterialCheck method is perfomred. This checks for a material value and updates the 'F_MaterialValue' variable with for our 'PlayFootstep()' method to use.
-            SpeedCheck();                                                    // The SpeedCheck method is performed. This checks for the time it took between this step and the last tot hen update the 'F_PlayerRunning' variable with for our 'PlayFootstep()' method to use.
-            PlayFootstep();                                                  // The PlayFootstep method is performed and a footstep audio file from FMOD is played!
-            StepRandom = Random.Range(0f, 0.5f);                             // Now that our footstep has been played, this will reset 'StepRandom' and give it a new random value between 0 and 0.5, in order to make the distance the player has to travel to hear a footstep different from what it previously was.
-            DistanceTravelled = 0f;                                          // Since the player has just taken a step, we need to set the 'DistanceTravelled' float back to 0.
-        }
-        PrevPos = transform.position;
     }
 
     // FMOD_TEST

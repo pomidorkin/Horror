@@ -45,6 +45,15 @@ public class AiChasePlayerScript : AiState
                     agent.navMeshAgent.destination = agent.followObject.position;
                 }
             }
+            /*else if (5f > agent.config.maxDistance * agent.config.maxDistance)
+            {
+                agent.jumpScare.JumpScareActivated(agent.transform);
+            }*/
+            else
+            {
+                agent.jumpScare.JumpScareActivated(agent.transform);
+                // Play anim; Change State to JumpScare; Disable Player Movement etc...
+            }
             timer = agent.config.maxTime;
         }
     }
