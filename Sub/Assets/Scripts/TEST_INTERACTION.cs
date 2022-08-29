@@ -23,13 +23,13 @@ public class TEST_INTERACTION : MonoBehaviour, IInteractable
     private void Start()
     {
         stageManager = FindObjectOfType<StageManager>();
+        Debug.Log("Mask");
     }
 
     private void CheckInteracted(RaycastHit hit)
     {
         if (hit.transform == this.transform)
         {
-            Debug.Log("I am the cube and I am being interacted with...");
             stageManager.currentStage.stageGoal.MarkAsInteracted();
         }
     }

@@ -9,7 +9,7 @@ public class AiChasePlayerScript : AiState
     private float sqrdJumpscareActivationDistance;
     public void Enter(AiAgent agent)
     {
-        sqrdJumpscareActivationDistance = (agent.navMeshAgent.stoppingDistance * agent.navMeshAgent.stoppingDistance) + 1f;
+        sqrdJumpscareActivationDistance = (agent.navMeshAgent.stoppingDistance * agent.navMeshAgent.stoppingDistance) + 2f;
     }
 
     public void Exit(AiAgent agent)
@@ -54,6 +54,7 @@ public class AiChasePlayerScript : AiState
                 agent.jumpScare.JumpScareActivated(agent.targetLookPosition);
             }
             timer = agent.config.maxTime;
+
         }
     }
 

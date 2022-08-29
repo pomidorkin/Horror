@@ -5,10 +5,10 @@ using UnityEngine;
 public class CorridorStageOne : MonoBehaviour
 {
     [SerializeField] AllDoorController allDoorController;
-    [SerializeField] GameObject audioPlayer;
+    [SerializeField] GameObject corridorStageObject;
     private void OnEnable()
     {
-        audioPlayer.gameObject.SetActive(true);
+        corridorStageObject.gameObject.SetActive(true);
     }
 
     private void Start()

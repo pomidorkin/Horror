@@ -20,6 +20,7 @@ public class RoomEnteringSensor : MonoBehaviour
             allDoorController.CloseAllDoors();
             roomLeavingSensor.gameObject.SetActive(true);
             this.gameObject.SetActive(false);
+            stageManager.currentStage.stageGoal.CheckIfGoalIsReached();
         }
     }
 }
