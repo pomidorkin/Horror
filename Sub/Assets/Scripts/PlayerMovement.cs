@@ -60,17 +60,18 @@ public class PlayerMovement : MonoBehaviour
         plyerInputActions = new PlyerInputActions();
         plyerInputActions.Player.Enable();
         /// Player -> Action Map; Jump, Movement -> Actions; performed -> state
-        plyerInputActions.Player.Jump.performed += Jump; // On Enable/Disable надо
     }
 
     private void OnEnable()
     {
         jumpScare.OnJumpScareEvent += DisablePlayerMovement;
+        plyerInputActions.Player.Jump.performed += Jump;
     }
 
     private void OnDisable()
     {
         jumpScare.OnJumpScareEvent -= DisablePlayerMovement;
+        plyerInputActions.Player.Jump.performed -= Jump;
     }
 
     private void DisablePlayerMovement(object source, JumpScare.JumpScareEventArgs args)

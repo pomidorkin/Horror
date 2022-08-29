@@ -2575,7 +2575,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: -0.024223581, y: -0, z: 9.313226e-10, w: 0.9997066}
-  m_LocalPosition: {x: 0, y: 0.7, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3531,7 +3531,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1295768328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4157,7 +4157,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1668612355}
   m_LocalRotation: {x: -0.024223581, y: -0, z: 9.313226e-10, w: 0.9997066}
-  m_LocalPosition: {x: 0, y: 0.7, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5519,10 +5519,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AiAgent
       objectReference: {fileID: 0}
-    - target: {fileID: 518258254880493073, guid: 9f58407e18b4d2d4785096ebf7c83a64, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 518258254880493082, guid: 9f58407e18b4d2d4785096ebf7c83a64, type: 3}
       propertyPath: jumpScare
       value: 
@@ -5639,10 +5635,6 @@ PrefabInstance:
     - target: {fileID: 3299426683898526298, guid: 28ae4061dfae9944db843d9b9923d2a0, type: 3}
       propertyPath: m_Name
       value: GenericNPC
-      objectReference: {fileID: 0}
-    - target: {fileID: 3299426683898526298, guid: 28ae4061dfae9944db843d9b9923d2a0, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28ae4061dfae9944db843d9b9923d2a0, type: 3}
