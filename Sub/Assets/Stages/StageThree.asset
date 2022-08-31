@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentStage: 2
   goalType: 1
-  stageLocationType: 0
+  stageLocationType: 1
   stageGoal:
-    stage: {fileID: 11400000, guid: f6e825e7d9c1c344fae1a7739afd062b, type: 2}
+    stage: {fileID: 11400000}
     requiredAmount: 0
     currentAmount: 0
     wasInteracted: 0

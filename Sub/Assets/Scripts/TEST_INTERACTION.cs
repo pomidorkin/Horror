@@ -7,6 +7,7 @@ using TMPro;
 public class TEST_INTERACTION : MonoBehaviour, IInteractable
 {
     [SerializeField] private PlayerActions playerActions;
+    [SerializeField] private bool hideAfterInteraction = false;
     StageManager stageManager;
     string interactionText = "Interact";
 
@@ -30,7 +31,16 @@ public class TEST_INTERACTION : MonoBehaviour, IInteractable
     {
         if (hit.transform == this.transform)
         {
-            stageManager.currentStage.stageGoal.MarkAsInteracted();
+            ActivateInteractable();
+        }
+    }
+
+    private void ActivateInteractable()
+    {
+        stageManager.currentStage.stageGoal.MarkAsInteracted();
+        if (hideAfterInteraction)
+        {
+            gameObject.SetActive(false);
         }
     }
 

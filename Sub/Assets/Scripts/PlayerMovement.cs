@@ -117,11 +117,12 @@ public class PlayerMovement : MonoBehaviour
 
             // FMOD_TEST
             GroundedCheck();
-            if (PlayerTouchingGround && jumpPerformed)    // If the player is touching the ground AND the player presses the button to jump at the same time, we knoe that the player character is about to jump, therefore we perform our method to play a sound.
-            {
-                MaterialCheck();                                               // Before we play a jumping sound, we need to know what material the player has jumped off of. This
-                PlayJumpOrLand(true);                                          // The 'PlayJumpOrLand' method is perfomred, triggering our 'Jump & Land' event in FMOD to play. We also pass through it's parameter brackets the 'true' boolean value for our method to store inside a vaiable and use to play a jump sound with.
-            }
+            // Почему-то не работает
+            //if (PlayerTouchingGround && jumpPerformed)    // If the player is touching the ground AND the player presses the button to jump at the same time, we knoe that the player character is about to jump, therefore we perform our method to play a sound.
+            //{
+            //    MaterialCheck();                                               // Before we play a jumping sound, we need to know what material the player has jumped off of. This
+            //    PlayJumpOrLand(true);                                          // The 'PlayJumpOrLand' method is perfomred, triggering our 'Jump & Land' event in FMOD to play. We also pass through it's parameter brackets the 'true' boolean value for our method to store inside a vaiable and use to play a jump sound with.
+            //}
             if (!PreviosulyTouchingGround && PlayerTouchingGround)             // If the player wasn't touching the ground during the last frame, but is touching the ground during the current frame, then that means they must have just landed on the ground, therefore we perform out methods and play a sound.
             {
                 MaterialCheck();                                               // Before we play a landing sound, we need to know what material the player has landed on.
@@ -212,6 +213,7 @@ public class PlayerMovement : MonoBehaviour
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             jumpPerformed = true;
+            PlayJumpOrLand(true);
         }
         
     }

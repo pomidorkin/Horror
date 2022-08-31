@@ -15,10 +15,10 @@ MonoBehaviour:
   Path: FMOD_Horror_Prototype/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637967140642291478
+  lastModified: 637974143140453517
   FileSizes:
   - Name: Desktop
-    Value: 1166
+    Value: 1162
   Exists: 1
 --- !u!114 &-3861602935001575652
 MonoBehaviour:
@@ -115,7 +115,7 @@ MonoBehaviour:
   Path: FMOD_Horror_Prototype/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637967140642281499
+  lastModified: 637974143140433579
   FileSizes:
   - Name: Desktop
     Value: 3164512
@@ -146,7 +146,7 @@ MonoBehaviour:
   - {fileID: -1499487012314171898}
   StringsBanks:
   - {fileID: -7989928531807606700}
-  cacheTime: 637967140642291478
+  cacheTime: 637974143140453517
   cacheVersion: 131591
 --- !u!114 &5866298322772691916
 MonoBehaviour:
@@ -212,9 +212,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Jump and Land/Parameter 1
+  m_Name: parameter:/Jump and Land/JumpLand
   m_EditorClassIdentifier: 
-  Name: Parameter 1
+  Name: JumpLand
   StudioPath: 
   Min: 0
   Max: 1
