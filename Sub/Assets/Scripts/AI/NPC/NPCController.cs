@@ -31,4 +31,9 @@ public class NPCController : MonoBehaviour, IInteractable
     {
         return interactionText;
     }
+
+    public bool GetInteractable()
+    {
+        return true;
+    }
 }

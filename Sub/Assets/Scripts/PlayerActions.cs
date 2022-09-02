@@ -41,13 +41,13 @@ public class PlayerActions : MonoBehaviour
         active = Physics.Raycast(cam.position, cam.transform.TransformDirection(Vector3.forward), out hit, playerInteractDistance);
 
         // Prompt text toggle
-        if (active && !isPromptTextActive && (hit.transform.GetComponent<IInteractable>() != null) && promptText.text != hit.transform.GetComponent<IInteractable>().GetInteractionText() && !dialogueElement.activeInHierarchy)
+        if (active && !isPromptTextActive && (hit.transform.GetComponent<IInteractable>() != null) && promptText.text != hit.transform.GetComponent<IInteractable>().GetInteractionText() && !dialogueElement.activeInHierarchy && hit.transform.GetComponent<IInteractable>().GetInteractable())
         {
             promptText.gameObject.SetActive(true);
             isPromptTextActive = true;
             promptText.text = hit.transform.GetComponent<IInteractable>().GetInteractionText();
         }
-        else if (active && isPromptTextActive && (hit.transform.GetComponent<IInteractable>() != null) && promptText.text != hit.transform.GetComponent<IInteractable>().GetInteractionText() && !dialogueElement.activeInHierarchy)
+        else if (active && isPromptTextActive && (hit.transform.GetComponent<IInteractable>() != null) && promptText.text != hit.transform.GetComponent<IInteractable>().GetInteractionText() && !dialogueElement.activeInHierarchy && hit.transform.GetComponent<IInteractable>().GetInteractable())
         {
             promptText.gameObject.SetActive(true);
             promptText.text = hit.transform.GetComponent<IInteractable>().GetInteractionText();

@@ -4,12 +4,13 @@ using UnityEngine;
 using System;
 using TMPro;
 
-public class TEST_INTERACTION : MonoBehaviour, IInteractable
+public class InteractionParent : MonoBehaviour, IInteractable
 {
     [SerializeField] private PlayerActions playerActions;
     [SerializeField] private bool hideAfterInteraction = false;
     StageManager stageManager;
-    string interactionText = "Interact";
+    protected bool interactable = true;
+    protected string interactionText = "Interact";
 
     private void OnEnable()
     {
@@ -27,15 +28,20 @@ public class TEST_INTERACTION : MonoBehaviour, IInteractable
         Debug.Log("Mask");
     }
 
-    private void CheckInteracted(RaycastHit hit)
+    public string GetInteractionText()
     {
-        if (hit.transform == this.transform)
+        return interactionText;
+    }
+
+    public void CheckInteracted(RaycastHit hit)
+    {
+        if (hit.transform == this.transform && interactable)
         {
             ActivateInteractable();
         }
     }
 
-    private void ActivateInteractable()
+    public virtual void ActivateInteractable()
     {
         stageManager.currentStage.stageGoal.MarkAsInteracted();
         if (hideAfterInteraction)
@@ -44,8 +50,8 @@ public class TEST_INTERACTION : MonoBehaviour, IInteractable
         }
     }
 
-    public string GetInteractionText()
+    public bool GetInteractable()
     {
-        return interactionText;
+        return interactable;
     }
 }

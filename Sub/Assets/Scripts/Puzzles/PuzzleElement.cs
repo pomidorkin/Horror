@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public interface IInteractable
+public class PuzzleElement : MonoBehaviour
 {
-    string GetInteractionText();
-    bool GetInteractable();
+    [SerializeField] public string storyText;
 }

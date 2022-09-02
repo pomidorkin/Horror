@@ -90,4 +90,9 @@ public class Door : MonoBehaviour, IInteractable
             return "";
         }
     }
+
+    public bool GetInteractable()
+    {
+        return true;
+    }
 }
