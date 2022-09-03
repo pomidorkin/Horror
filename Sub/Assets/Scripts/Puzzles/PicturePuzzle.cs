@@ -14,6 +14,7 @@ public class PicturePuzzle : MonoBehaviour
     [SerializeField] PuzzleManager puzzleManager;
     [SerializeField] TMP_Text[] storyTexts;
     [SerializeField] MakeActiveInteractable picture;
+    [SerializeField] GameObject plushBear;
     StageManager stageManager;
 
     private void Start()
@@ -52,6 +53,7 @@ public class PicturePuzzle : MonoBehaviour
             stageManager.currentStage.stageGoal.MarkAsInteracted();
             animator.Play("ChestOpenAnimation");
             picture.MakeUninteractable();
+            plushBear.SetActive(true);
             Debug.Log("Combination is correct");
         }
     }
