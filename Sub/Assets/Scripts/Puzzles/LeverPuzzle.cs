@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class LeverPuzzle : MonoBehaviour
 {
-    [SerializeField] Lever[] levers;
+
+    [SerializeField] public Lever[] levers;
     int nextLever;
     public bool solved = false;
 
     public void CheckCorrectLever(Lever lever)
     {
+        Debug.Log("CheckCorrectLever");
         if (!solved)
         {
             if (levers[nextLever] == lever)
@@ -27,9 +30,20 @@ public class LeverPuzzle : MonoBehaviour
             }
             else
             {
-                // Deasctivate all levers
                 nextLever = 0;
+                CloseAllLevers();
                 Debug.Log("Incorrect");
+            }
+        }
+    }
+
+    public void CloseAllLevers()
+    {
+        foreach (Lever _lever in levers)
+        {
+            if (_lever.turnedDown)
+            {
+                _lever.CloseLever();
             }
         }
     }

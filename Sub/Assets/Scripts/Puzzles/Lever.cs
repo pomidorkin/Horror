@@ -1,17 +1,44 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Lever : InteractionParent
 {
-    [SerializeField] LeverPuzzle leverPuzzle;
+    [SerializeField] private LeverPuzzle leverPuzzle;
+    private Animator animator;
+    public bool turnedDown = false;
+    private bool firstLever = false;
+
     public Lever()
     {
         this.interactionText = "Activate";
     }
 
+    private void Start()
+    {
+        firstLever = leverPuzzle.levers[0] == this;
+        animator = gameObject.GetComponentInChildren<Animator>();
+    }
+
     public override void ActivateInteractable()
     {
-        leverPuzzle.CheckCorrectLever(this);
+        Debug.Log("ActivateInteractable");
+        if (!leverPuzzle.solved)
+        {
+            if (firstLever)
+            {
+                leverPuzzle.CloseAllLevers();
+            }
+            animator.Play("LeverOpenAnimation");
+            leverPuzzle.CheckCorrectLever(this);
+            turnedDown = true;
+        }
+    }
+
+    public void CloseLever()
+    {
+        turnedDown = false;
+        animator.Play("LeverCloseAnimation");
     }
 }
