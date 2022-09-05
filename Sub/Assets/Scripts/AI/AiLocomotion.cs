@@ -6,12 +6,8 @@ using UnityEngine.AI;
 public class AiLocomotion : MonoBehaviour
 {
     NavMeshAgent agent;
-    [SerializeField] Animator animator;/*
-    [SerializeField] Transform playerTransform;
-    [SerializeField] float maxTime = 1f;
-    [SerializeField] float maxDistance = 1f;
-
-    float timer = 0;*/
+    [SerializeField] Animator animator;
+    private bool following = false;
 
     void Start()
     {
@@ -20,27 +16,20 @@ public class AiLocomotion : MonoBehaviour
 
     void Update()
     {
-        /*timer -= Time.deltaTime;
-        if (timer < 0f)
-        {
-            float sqDistance = (playerTransform.position - agent.destination).sqrMagnitude;
-            if (sqDistance > maxDistance * maxDistance)
-            {
-                agent.destination = playerTransform.position;
-            }
-            timer = maxTime;
-            
-        }*/
-
-        //animator.SetFloat("Speed", /*agent.velocity.magnitude*/ agent.speed);
-
         if (agent.hasPath)
         {
-            animator.SetFloat("Speed", /*agent.velocity.magnitude*/ agent.desiredVelocity.magnitude);
+            if (!following)
+            {
+                //animator.SetFloat("Speed", /*agent.velocity.magnitude*/ agent.desiredVelocity.magnitude);
+                animator.SetBool("Follow", true);
+                following = true;
+            }
         }
         else
         {
-            animator.SetFloat("Speed", 0);
+            //animator.SetFloat("Speed", 0);
+            //animator.SetBool("Follow", false);
+            following = false;
         }
     }
 }

@@ -13,6 +13,7 @@ public class AiSensor : MonoBehaviour
     public int scanFrequency = 30;
     public LayerMask layers;
     public LayerMask occlusionLayers;
+    [SerializeField] Animator animator;
     //[SerializeField] AiAgent agent; // MY_TEST
     public List<GameObject> Objects
     {
@@ -88,7 +89,16 @@ public class AiSensor : MonoBehaviour
         // MY_TEST
         if (obj.gameObject.tag == "Player")
         {
-            this.GetComponent<AiAgent>().stateMachine.ChangeState(AiStateId.ChasePlayer);
+            //this.GetComponent<AiAgent>().stateMachine.ChangeState(AiStateId.ChasePlayer);
+            if (!this.GetComponent<AiAgent>().noticedPlayer)
+            {
+                this.GetComponent<AiAgent>().stateMachine.ChangeState(AiStateId.Transition);
+                animator.SetBool("Follow", true);
+                this.GetComponent<AiAgent>().noticedPlayer = true;
+            }
+            
+
+            Debug.Log("Case Player State");
             //agent.stateMachine.ChangeState(AiStateId.ChasePlayer);
         }
         // END_MY_TEST

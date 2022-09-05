@@ -26,13 +26,21 @@ public class Lever : InteractionParent
         Debug.Log("ActivateInteractable");
         if (!leverPuzzle.solved)
         {
-            if (firstLever)
+            if (!turnedDown)
             {
-                leverPuzzle.CloseAllLevers();
+                if (firstLever)
+                {
+                    leverPuzzle.CloseAllLevers();
+                }
+                animator.Play("LeverOpenAnimation");
+                leverPuzzle.CheckCorrectLever(this);
+                turnedDown = true;
             }
-            animator.Play("LeverOpenAnimation");
-            leverPuzzle.CheckCorrectLever(this);
-            turnedDown = true;
+            else
+            {
+                CloseLever();
+            }
+            
         }
     }
 
