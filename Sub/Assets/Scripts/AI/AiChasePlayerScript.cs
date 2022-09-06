@@ -23,7 +23,6 @@ public class AiChasePlayerScript : AiState
 
     public void Update(AiAgent agent)
     {
-        Debug.Log("AiChasePlayerScript");
         if (!agent.enabled)
         {
             

@@ -38,7 +38,7 @@ public class Lever : InteractionParent
             }
             else
             {
-                CloseLever();
+                //CloseLever();
             }
             
         }

@@ -89,17 +89,23 @@ public class AiSensor : MonoBehaviour
         // MY_TEST
         if (obj.gameObject.tag == "Player")
         {
-            //this.GetComponent<AiAgent>().stateMachine.ChangeState(AiStateId.ChasePlayer);
+                
             if (!this.GetComponent<AiAgent>().noticedPlayer)
             {
-                this.GetComponent<AiAgent>().stateMachine.ChangeState(AiStateId.Transition);
+                if (this.GetComponent<AiAgent>().hasTransitionState)
+                {
+                    this.GetComponent<AiAgent>().stateMachine.ChangeState(AiStateId.Transition);
+                }
+                else
+                {
+                    this.GetComponent<AiAgent>().stateMachine.ChangeState(AiStateId.ChasePlayer);
+                }
                 animator.SetBool("Follow", true);
                 this.GetComponent<AiAgent>().noticedPlayer = true;
             }
-            
 
             Debug.Log("Case Player State");
-            //agent.stateMachine.ChangeState(AiStateId.ChasePlayer);
+            this.enabled = false;
         }
         // END_MY_TEST
 

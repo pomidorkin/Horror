@@ -11,11 +11,18 @@ public class AiAgent : MonoBehaviour
     [SerializeField] public Transform followObject;
     [SerializeField] public Transform targetLookPosition;
     [SerializeField] public JumpScare jumpScare;
+    [SerializeField] public bool hasTransitionState;
+    [SerializeField] public EnemyType enemyType;
+    [SerializeField] public GameObject characterModel;
     public AiAgentConfig config;
     public bool transitionAnimationCompleted = false; // Crabwalk enemy
     //public Ragdoll ragdoll;
     public AiSensor sensor;
     public bool noticedPlayer = false;
+
+
+    public enum EnemyType { Crabwalk, Other};
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,7 +46,7 @@ public class AiAgent : MonoBehaviour
 
     public void SetTransitionAnimationCompleted(int value)
     {
-        transitionAnimationCompleted = value == 1 ? true :false;
+        transitionAnimationCompleted = value == 1 ? true : false;
         Debug.Log("SetTransitionAnimationCompleted");
     }
 }
