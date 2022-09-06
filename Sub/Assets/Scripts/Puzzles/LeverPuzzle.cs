@@ -24,6 +24,9 @@ public class LeverPuzzle : MonoBehaviour
                 else
                 {
                     solved = true;
+                    // Open dorr here
+                    // Test below...
+                    FindObjectOfType<StageManager>().currentStage.stageGoal.MarkAsInteracted();
                 }
                 Debug.Log("Correct");
                 Debug.Log("nextLever: " + nextLever + " levers.Length: " + levers.Length);

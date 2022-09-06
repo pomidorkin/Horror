@@ -7,7 +7,7 @@ public class AiScreamerController : MonoBehaviour
 {
     [SerializeField] Animator animator;
     [SerializeField] JumpScare jumpScare;
-    [SerializeField] Transform jumpscarePositionOnPlayer;
+    //[SerializeField] Transform jumpscarePositionOnPlayer;
 
     private void OnEnable()
     {
@@ -27,11 +27,15 @@ public class AiScreamerController : MonoBehaviour
 
     private void PlayJumpscareAnim()
     {
-        if (GetComponent<AiAgent>().enemyType == AiAgent.EnemyType.Crabwalk)
+        AiAgent agent = GetComponent<AiAgent>();
+        agent.stateMachine.ChangeState(AiStateId.Jumpscare);
+        if (agent.enemyType == AiAgent.EnemyType.Crabwalk)
         {
-            GetComponent<AiAgent>().characterModel.transform.rotation = Quaternion.Euler(0,-90,0);
+            agent.modelRotator.transform.rotation = Quaternion.Euler(0,-90,0);
+            //agent.characterModel.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
         animator.SetTrigger("JumpscareActivate");
+        //agent.characterModel.transform.position = jumpscarePositionOnPlayer.position;
         //transform.position = jumpscarePositionOnPlayer.position;
     }
 }

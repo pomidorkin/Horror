@@ -7,7 +7,8 @@ public enum AiStateId
     ChasePlayer,
     Transition,
     Death,
-    Idle
+    Idle,
+    Jumpscare
 }
 public interface AiState
 {

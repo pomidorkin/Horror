@@ -48,8 +48,10 @@ public class AiChasePlayerScript : AiState
                     agent.navMeshAgent.destination = agent.followObject.position;
                 }
             }
-            else if (sqrdJumpscareActivationDistance > (agent.gameObject.transform.position - agent.followObject.position).sqrMagnitude)
+            if (sqrdJumpscareActivationDistance > (agent.gameObject.transform.position - agent.followObject.position).sqrMagnitude)
             {
+                //agent.GetComponent<AgentLinkMover>().enabled = false;
+                //agent.GetComponent<NavMeshAgent>().enabled = false;
                 // Play anim; Change State to JumpScare; Disable Player Movement etc...
                 agent.jumpScare.JumpScareActivated(agent.targetLookPosition);
             }

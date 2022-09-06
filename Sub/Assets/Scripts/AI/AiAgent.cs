@@ -10,9 +10,11 @@ public class AiAgent : MonoBehaviour
     public NavMeshAgent navMeshAgent;
     [SerializeField] public Transform followObject;
     [SerializeField] public Transform targetLookPosition;
+    [SerializeField] public Transform eyesForNpc;
     [SerializeField] public JumpScare jumpScare;
     [SerializeField] public bool hasTransitionState;
     [SerializeField] public EnemyType enemyType;
+    [SerializeField] public GameObject modelRotator;
     [SerializeField] public GameObject characterModel;
     public AiAgentConfig config;
     public bool transitionAnimationCompleted = false; // Crabwalk enemy
@@ -35,6 +37,7 @@ public class AiAgent : MonoBehaviour
         stateMachine.RegisterState(new AiTransitionState());
         stateMachine.RegisterState(new AiDeathState());
         stateMachine.RegisterState(new AiIdleState());
+        stateMachine.RegisterState(new AiJumpscareState());
         stateMachine.ChangeState(initialState);
     }
 
