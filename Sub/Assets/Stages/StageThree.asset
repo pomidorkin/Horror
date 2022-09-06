@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentStage: 2
   goalType: 1
-  stageLocationType: 1
+  stageLocationType: 0
   stageGoal:
     stage: {fileID: 11400000}
     requiredAmount: 0
