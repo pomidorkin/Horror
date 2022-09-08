@@ -43,6 +43,13 @@ public class Door : MonoBehaviour, IInteractable
             }
             else if (!isOpened && !canBeOpened)
             {
+                // The Code below runs when we try to oped a locked door and
+                // the corridor stage goal is set to Stage.GoalType.doorsAndAmount
+                if (allDoorController.stageManager.currentStage.goalType == Stage.GoalType.doorsAndAmount && !allDoorController.WasLastUsedDoor(this))
+                {
+                    allDoorController.SetLastUsedDoor(this);
+                    allDoorController.stageManager.currentStage.stageGoal.AddDoorsInteractionNumber();
+                }
                 animator.Play("DoorLockedAnimation");
             }
             else

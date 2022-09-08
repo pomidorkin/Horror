@@ -8,7 +8,9 @@ public class StageGoal
 {
     public Stage stage;
     public int requiredAmount;
-    public int currentAmount;
+    public float currentAmount;
+    public int requiredDoorsInteractionNumber;
+    public int currentDoorsInteractionNumber;
     public bool wasInteracted;
     public bool playerLeftTheRoom;
 
@@ -18,13 +20,14 @@ public class StageGoal
 
     public void CheckIfGoalIsReached()
     {
+        Debug.Log("CheckIfGoalIsReached");
         // HERE WE HAVE TO DEFINE CONDITIONS THAT WOULD BE NEEDED TO REACH THE GOAL
 
         if (stage.goalType == Stage.GoalType.amountGoal)
         {
             if (stage.stageLocationType == Stage.StageLocationType.room)
             {
-                if (currentAmount >= requiredAmount && playerLeftTheRoom)
+                if ((int)currentAmount >= requiredAmount && playerLeftTheRoom)
                 {
                     SetGoalsToDefault();
                     ReachTheGoal();
@@ -32,7 +35,7 @@ public class StageGoal
             }
             else if (stage.stageLocationType == Stage.StageLocationType.corridor)
             {
-                if (currentAmount >= requiredAmount)
+                if ((int)currentAmount >= requiredAmount)
                 {
                     SetGoalsToDefault();
                     ReachTheGoal();
@@ -66,7 +69,7 @@ public class StageGoal
         {
             if (stage.stageLocationType == Stage.StageLocationType.room)
             {
-                if (wasInteracted && playerLeftTheRoom && currentAmount >= requiredAmount)
+                if (wasInteracted && playerLeftTheRoom && (int)currentAmount >= requiredAmount)
                 {
                     SetGoalsToDefault();
                     ReachTheGoal();
@@ -74,7 +77,7 @@ public class StageGoal
             }
             else if (stage.stageLocationType == Stage.StageLocationType.corridor)
             {
-                if (wasInteracted && currentAmount >= requiredAmount)
+                if (wasInteracted && (int)currentAmount >= requiredAmount)
                 {
                     SetGoalsToDefault();
                     ReachTheGoal();
@@ -82,10 +85,31 @@ public class StageGoal
             }
 
         }
+
+        else if (stage.goalType == Stage.GoalType.doorsAndAmount)
+        {
+            if (stage.stageLocationType == Stage.StageLocationType.room)
+            {
+                if (playerLeftTheRoom && (int)currentAmount >= requiredAmount && currentDoorsInteractionNumber >= requiredDoorsInteractionNumber)
+                {
+                    SetGoalsToDefault();
+                    ReachTheGoal();
+                }
+            }
+            else if (stage.stageLocationType == Stage.StageLocationType.corridor)
+            {
+                if ((int)currentAmount >= requiredAmount && currentDoorsInteractionNumber >= requiredDoorsInteractionNumber)
+                {
+                    SetGoalsToDefault();
+                    ReachTheGoal();
+                }
+            }
+        }
     }
 
     private void SetGoalsToDefault()
     {
+        currentDoorsInteractionNumber = 0;
         currentAmount = 0;
         wasInteracted = false;
         playerLeftTheRoom = false;
@@ -101,9 +125,15 @@ public class StageGoal
         OnActionChanged();
     }
 
-    public void AddCurrentAmount()
+    public void SetCurrentAmount(float value)
     {
-        currentAmount++;
+        currentAmount = value;
+        CheckIfGoalIsReached();
+    }
+
+    public void AddDoorsInteractionNumber()
+    {
+        currentDoorsInteractionNumber++;
         CheckIfGoalIsReached();
     }
 

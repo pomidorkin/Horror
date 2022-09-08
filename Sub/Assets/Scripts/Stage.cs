@@ -11,6 +11,6 @@ public class Stage : ScriptableObject
     public StageGoal stageGoal;
     public string questText;
     public enum StageType { stageOne, stageTwo, stageThree, stageFour, stageFive, stageSix, stageSeven };
-    public enum GoalType { amountGoal, interactGoal, bothAmountInteract};
+    public enum GoalType { amountGoal, interactGoal, bothAmountInteract, doorsAndAmount};
     public enum StageLocationType { room, corridor }
 }

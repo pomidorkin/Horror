@@ -53,7 +53,9 @@ public class AiChasePlayerScript : AiState
                 //agent.GetComponent<AgentLinkMover>().enabled = false;
                 //agent.GetComponent<NavMeshAgent>().enabled = false;
                 // Play anim; Change State to JumpScare; Disable Player Movement etc...
-                agent.jumpScare.JumpScareActivated(agent.targetLookPosition);
+
+
+                agent.jumpScare.JumpScareActivated(agent.targetLookPosition); // Commented out for testing
             }
             timer = agent.config.maxTime;
 
