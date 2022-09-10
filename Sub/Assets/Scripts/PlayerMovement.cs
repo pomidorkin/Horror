@@ -51,6 +51,11 @@ public class PlayerMovement : MonoBehaviour
     private bool canMove = true;
     [SerializeField] JumpScare jumpScare;
 
+    // Noise Measuring Logic
+    [SerializeField] NoiseMeter noiseMeter;
+    [SerializeField] float maxNoiseMeterTime = 1f;
+    private float noiseMeaterTimer;
+
 
     Vector3 velocity;
     bool isGrounded;
@@ -114,6 +119,15 @@ public class PlayerMovement : MonoBehaviour
             float z = inputVector.y;
             Vector3 move = transform.right * x + transform.forward * z;
             controller.Move(move * speed * Time.deltaTime);
+
+            // Noise Measuring Logic
+            noiseMeaterTimer += Time.deltaTime;
+            if (noiseMeter.enabled && controller.velocity.x != 0f && noiseMeaterTimer >= maxNoiseMeterTime)
+            {
+                noiseMeter.NoiseMade();
+                noiseMeaterTimer = 0f;
+            }
+            // Noise Measuring Logic End
 
             // FMOD_TEST
             GroundedCheck();
