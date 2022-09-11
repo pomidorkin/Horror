@@ -9,7 +9,8 @@ public class AiChasePlayerScript : AiState
     private float sqrdJumpscareActivationDistance;
     public void Enter(AiAgent agent)
     {
-        sqrdJumpscareActivationDistance = (agent.navMeshAgent.stoppingDistance * agent.navMeshAgent.stoppingDistance) + 2f;
+        //sqrdJumpscareActivationDistance = (agent.navMeshAgent.stoppingDistance * agent.navMeshAgent.stoppingDistance) + 2f;
+        sqrdJumpscareActivationDistance = agent.navMeshAgent.stoppingDistance + .5f;
     }
 
     public void Exit(AiAgent agent)
@@ -40,24 +41,33 @@ public class AiChasePlayerScript : AiState
             
             Vector3 direction = (agent.followObject.position - agent.navMeshAgent.destination);
             direction.y = 0;
-            if (direction.sqrMagnitude > agent.config.maxDistance * agent.config.maxDistance)
+            
+            if (sqrdJumpscareActivationDistance >= Vector3.Distance(agent.followObject.position, agent.gameObject.transform.position))
+            {
+                agent.jumpScare.JumpScareActivated(agent.targetLookPosition); // Commented out for testing
+            }
+            else if (sqrdJumpscareActivationDistance < Vector3.Distance(agent.followObject.position, agent.gameObject.transform.position))
+            {
+                if (agent.navMeshAgent.pathStatus != NavMeshPathStatus.PathPartial)
+                {
+
+                    agent.navMeshAgent.destination = agent.followObject.position;
+                }
+            }
+            //if (Vector3.Distance(agent.followObject.position, agent.gameObject.transform.position) > (sqrdJumpscareActivationDistance - 2f))
+            //if ((sqrdJumpscareActivationDistance) < Vector3.Distance(agent.followObject.position, agent.gameObject.transform.position))
+            /*if (direction.sqrMagnitude > agent.config.maxDistance * agent.config.maxDistance)
             {
                 if (agent.navMeshAgent.pathStatus != NavMeshPathStatus.PathPartial)
                 {
                     
                     agent.navMeshAgent.destination = agent.followObject.position;
                 }
-            }
-            if (sqrdJumpscareActivationDistance > (agent.gameObject.transform.position - agent.followObject.position).sqrMagnitude)
-            {
-                //agent.GetComponent<AgentLinkMover>().enabled = false;
-                //agent.GetComponent<NavMeshAgent>().enabled = false;
-                // Play anim; Change State to JumpScare; Disable Player Movement etc...
-
-
-                agent.jumpScare.JumpScareActivated(agent.targetLookPosition); // Commented out for testing
-            }
+            }*/
+            
             timer = agent.config.maxTime;
+
+            Debug.Log("Vector3.Distance(agent.followObject.position, agent.navMeshAgent.destination); " + Vector3.Distance(agent.followObject.position, agent.gameObject.transform.position) + " direction.sqrMagnitude: " + direction.sqrMagnitude + " (sqrdJumpscareActivationDistance - 2f): " + (sqrdJumpscareActivationDistance - 2f) + " sqrdJumpscareActivationDistance: " + sqrdJumpscareActivationDistance);
 
         }
     }
