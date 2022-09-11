@@ -92,9 +92,13 @@ public class AiSensor : MonoBehaviour
                 
             if (!this.GetComponent<AiAgent>().noticedPlayer)
             {
-                if (this.GetComponent<AiAgent>().hasTransitionState)
+                if (this.GetComponent<AiAgent>().enemyType == AiAgent.EnemyType.Crabwalk)
                 {
                     this.GetComponent<AiAgent>().stateMachine.ChangeState(AiStateId.Transition);
+                }
+                else if (this.GetComponent<AiAgent>().enemyType == AiAgent.EnemyType.EvilGirl)
+                {
+                    GetComponent<SpawnEffect>().DoFade(0f, 2f, 2f);
                 }
                 else
                 {

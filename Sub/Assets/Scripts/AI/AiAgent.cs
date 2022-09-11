@@ -23,7 +23,7 @@ public class AiAgent : MonoBehaviour
     public bool noticedPlayer = false;
 
 
-    public enum EnemyType { Crabwalk, Other};
+    public enum EnemyType { Crabwalk, EvilGirl, Other};
 
     // Start is called before the first frame update
     void Start()
