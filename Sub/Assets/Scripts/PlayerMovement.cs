@@ -48,8 +48,8 @@ public class PlayerMovement : MonoBehaviour
 
     private bool jumpPerformed = false;
 
-    private bool canMove = true;
-    [SerializeField] JumpScare jumpScare;
+    [SerializeField] private bool canMove = true;
+    [SerializeField] CameraLookController jumpScare;
 
     // Noise Measuring Logic
     [SerializeField] NoiseMeter noiseMeter;
@@ -69,19 +69,24 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnEnable()
     {
-        jumpScare.OnJumpScareEvent += DisablePlayerMovement;
+        jumpScare.OnCameraLookControllerEvent += DisablePlayerMovement;
         plyerInputActions.Player.Jump.performed += Jump;
     }
 
     private void OnDisable()
     {
-        jumpScare.OnJumpScareEvent -= DisablePlayerMovement;
+        jumpScare.OnCameraLookControllerEvent -= DisablePlayerMovement;
         plyerInputActions.Player.Jump.performed -= Jump;
     }
 
-    private void DisablePlayerMovement(object source, JumpScare.JumpScareEventArgs args)
+    private void DisablePlayerMovement(object source, CameraLookController.CameraLookControllerEventArgs args)
     {
         canMove = false;
+    }
+
+    public void EnablePlayerMovement()
+    {
+        canMove = true;
     }
 
     private void Start()
@@ -155,6 +160,10 @@ public class PlayerMovement : MonoBehaviour
                 StepRandom = Random.Range(0f, 0.5f);                             // Now that our footstep has been played, this will reset 'StepRandom' and give it a new random value between 0 and 0.5, in order to make the distance the player has to travel to hear a footstep different from what it previously was.
                 DistanceTravelled = 0f;                                          // Since the player has just taken a step, we need to set the 'DistanceTravelled' float back to 0.
             }
+            PrevPos = transform.position;
+        }
+        else
+        {
             PrevPos = transform.position;
         }
     }

@@ -8,7 +8,8 @@ public enum AiStateId
     Transition,
     Death,
     Idle,
-    Jumpscare
+    Jumpscare,
+    Wander
 }
 public interface AiState
 {

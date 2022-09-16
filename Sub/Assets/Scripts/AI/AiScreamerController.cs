@@ -6,20 +6,20 @@ using System;
 public class AiScreamerController : MonoBehaviour
 {
     [SerializeField] Animator animator;
-    [SerializeField] JumpScare jumpScare;
+    [SerializeField] CameraLookController jumpScare;
     //[SerializeField] Transform jumpscarePositionOnPlayer;
 
     private void OnEnable()
     {
-        jumpScare.OnJumpScareEvent += PlayJumpscareANimAndSound;
+        jumpScare.OnCameraLookControllerEvent += PlayJumpscareANimAndSound;
     }
 
     private void OnDisable()
     {
-        jumpScare.OnJumpScareEvent -= PlayJumpscareANimAndSound;
+        jumpScare.OnCameraLookControllerEvent -= PlayJumpscareANimAndSound;
     }
 
-    private void PlayJumpscareANimAndSound(object source, JumpScare.JumpScareEventArgs args)
+    private void PlayJumpscareANimAndSound(object source, CameraLookController.CameraLookControllerEventArgs args)
     {
         PlayJumpscareAnim();
         // TODO: Play scary sound

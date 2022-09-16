@@ -12,8 +12,8 @@ public class MouseLook : MonoBehaviour
     private Vector2 MouseMoveInput;
     float xRot;
 
-    private bool canMoveCamera = true;
-    [SerializeField] JumpScare jumpScare;
+    [SerializeField] private bool canMoveCamera = true;
+    [SerializeField] CameraLookController jumpScare;
     [SerializeField] GameObject virtualCamera;
 
     [Header("Camera clamp settings")]
@@ -31,18 +31,24 @@ public class MouseLook : MonoBehaviour
 
     private void OnEnable()
     {
-        jumpScare.OnJumpScareEvent += DisableCameraMovement;
+        jumpScare.OnCameraLookControllerEvent += DisableCameraMovement;
     }
 
     private void OnDisable()
     {
-        jumpScare.OnJumpScareEvent -= DisableCameraMovement;
+        jumpScare.OnCameraLookControllerEvent -= DisableCameraMovement;
     }
 
-    private void DisableCameraMovement(object source, JumpScare.JumpScareEventArgs args)
+    private void DisableCameraMovement(object source, CameraLookController.CameraLookControllerEventArgs args)
     {
         virtualCamera.gameObject.SetActive(true);
         canMoveCamera = false;
+    }
+
+    public void EnableCameraMovement()
+    {
+        //virtualCamera.gameObject.SetActive(false);
+        canMoveCamera = true;
     }
 
     private void Look(InputAction.CallbackContext obj)
@@ -56,6 +62,10 @@ public class MouseLook : MonoBehaviour
 
             playerBody.Rotate(0f, NonNormalizedDelta.x * mouseSensitivity, 0f);
             transform.localRotation = Quaternion.Euler(xRot, 0f, 0f);
+        }
+        else
+        {
+            transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
         }
     }
 

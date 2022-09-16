@@ -21,15 +21,16 @@ public class AiLocomotion : MonoBehaviour
             if (!following)
             {
                 //animator.SetFloat("Speed", /*agent.velocity.magnitude*/ agent.desiredVelocity.magnitude);
-                animator.SetBool("Follow", true);
-                following = true;
+
+                //animator.SetBool("Follow", true);
+                //ollowing = true;
             }
         }
         else
         {
             //animator.SetFloat("Speed", 0);
             //animator.SetBool("Follow", false);
-            following = false;
+            //following = false;
         }
     }
 }

@@ -11,9 +11,10 @@ public class AiAgent : MonoBehaviour
     [SerializeField] public Transform followObject;
     [SerializeField] public Transform targetLookPosition;
     [SerializeField] public Transform eyesForNpc;
-    [SerializeField] public JumpScare jumpScare;
+    [SerializeField] public CameraLookController jumpScare;
     [SerializeField] public bool hasTransitionState;
     [SerializeField] public EnemyType enemyType;
+    [SerializeField] public WanderType wanderType;
     [SerializeField] public GameObject modelRotator;
     [SerializeField] public GameObject characterModel;
     public AiAgentConfig config;
@@ -22,8 +23,11 @@ public class AiAgent : MonoBehaviour
     public AiSensor sensor;
     public bool noticedPlayer = false;
 
+    public Transform[] followPositions;
 
-    public enum EnemyType { Crabwalk, EvilGirl, Other};
+
+    public enum EnemyType { Crabwalk, EvilGirl, Wanderer, Other};
+    public enum WanderType { Random, Predetermined};
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +42,7 @@ public class AiAgent : MonoBehaviour
         stateMachine.RegisterState(new AiDeathState());
         stateMachine.RegisterState(new AiIdleState());
         stateMachine.RegisterState(new AiJumpscareState());
+        stateMachine.RegisterState(new AiWanderState());
         stateMachine.ChangeState(initialState);
     }
 
