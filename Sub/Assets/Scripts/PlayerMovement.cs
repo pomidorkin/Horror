@@ -84,6 +84,11 @@ public class PlayerMovement : MonoBehaviour
         canMove = false;
     }
 
+    public void DisablePlayerMovement()
+    {
+        canMove = false;
+    }
+
     public void EnablePlayerMovement()
     {
         canMove = true;

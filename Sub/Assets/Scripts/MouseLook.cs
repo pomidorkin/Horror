@@ -45,6 +45,12 @@ public class MouseLook : MonoBehaviour
         canMoveCamera = false;
     }
 
+    public void DisableCameraMovement()
+    {
+        //virtualCamera.gameObject.SetActive(true);
+        canMoveCamera = false;
+    }
+
     public void EnableCameraMovement()
     {
         //virtualCamera.gameObject.SetActive(false);

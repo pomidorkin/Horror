@@ -52,4 +52,9 @@ public class ScreamerLookTarget : MonoBehaviour
         float fractionOfJourney = distCovered / journeyLength;
         transform.position = Vector3.Lerp(posBeggin, activeLookPos.position, fractionOfJourney);
     }
+
+    public void LookAtTarget(Vector3 position)
+    {
+        transform.position = position;
+    }
 }

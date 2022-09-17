@@ -32,10 +32,7 @@ public class AiScreamerController : MonoBehaviour
         if (agent.enemyType == AiAgent.EnemyType.Crabwalk)
         {
             agent.modelRotator.transform.rotation = Quaternion.Euler(0,-90,0);
-            //agent.characterModel.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
         animator.SetTrigger("JumpscareActivate");
-        //agent.characterModel.transform.position = jumpscarePositionOnPlayer.position;
-        //transform.position = jumpscarePositionOnPlayer.position;
     }
 }

@@ -12,15 +12,15 @@ public class LibraryIntro : MonoBehaviour
 
     private void OnEnable()
     {
-        introCutscene.stopped += myFunc;
+        introCutscene.stopped += OnCutsceneFinishedHandler;
     }
 
     private void OnDisable()
     {
-        introCutscene.stopped -= myFunc;
+        introCutscene.stopped -= OnCutsceneFinishedHandler;
     }
 
-    private void myFunc(PlayableDirector obj)
+    private void OnCutsceneFinishedHandler(PlayableDirector obj)
     {
         playerMovement.EnablePlayerMovement();
         mouseLook.EnableCameraMovement();
