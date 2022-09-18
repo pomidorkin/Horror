@@ -107,8 +107,14 @@ public class HideInteraction : MonoBehaviour, IInteractable
 
         playerActions.transform.position = lookPosition.position;
         playerActions.GetComponent<PlayerMovement>().EnablePlayerMovement();
-        virtualCameras[0].LookAt = lookAtSphere.transform;
         mouseLook.EnableCameraMovement();
-        
+        virtualCameras[0].LookAt = lookAtSphere.transform;
+        foreach (CinemachineVirtualCamera virtualCamera in virtualCameras)
+        {
+            virtualCamera.gameObject.SetActive(false);
+        }
+
+
+
     }
 }
