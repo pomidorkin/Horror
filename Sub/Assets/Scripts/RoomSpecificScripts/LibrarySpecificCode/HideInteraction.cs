@@ -71,17 +71,10 @@ public class HideInteraction : MonoBehaviour, IInteractable
     public void ExitHidingPlace()
     {
         exitActivateor.SetActive(false);
-        playerActions.transform.position = lookPosition.position;
-        virtualCameras[0].LookAt = lookAtSphere.transform;
-        mouseLook.EnableCameraMovement();
-        //playerActions.GetComponent<PlayerMovement>().EnablePlayerMovement();
+        StartCoroutine(LerpPosition(lookPosition.position, 0.8f));
 
     }
 
-    public void EnablePlayerMovement()
-    {
-        playerActions.GetComponent<PlayerMovement>().EnablePlayerMovement();
-    }
     public string GetInteractionText()
     {
         return interactionText;
@@ -98,5 +91,24 @@ public class HideInteraction : MonoBehaviour, IInteractable
     public bool GetInteractable()
     {
         return interactable;
+    }
+
+    IEnumerator LerpPosition(Vector3 targetPosition, float duration)
+    {
+        float time = 0;
+        Vector3 startPosition = /*hidingPosition.position*/playerActions.transform.position;
+        while (time < duration)
+        {
+            playerActions.transform.position = Vector3.Lerp(startPosition, targetPosition, time / duration);
+            time += Time.deltaTime;
+            yield return null;
+        }
+        playerActions.transform.position = targetPosition;
+
+        playerActions.transform.position = lookPosition.position;
+        playerActions.GetComponent<PlayerMovement>().EnablePlayerMovement();
+        virtualCameras[0].LookAt = lookAtSphere.transform;
+        mouseLook.EnableCameraMovement();
+        
     }
 }

@@ -25,9 +25,4 @@ public class ShelfHidingDoor : MonoBehaviour
     {
         GetComponentInParent<HideInteraction>().ExitHidingPlace();
     }
-
-    public void EnableWalking()
-    {
-        GetComponentInParent<HideInteraction>().EnablePlayerMovement();
-    }
 }

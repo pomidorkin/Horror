@@ -45,8 +45,8 @@ AnimationClip:
         inWeight: {x: 0.33333334, y: 0.22248486, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
-        time: 0.6666667
-        value: {x: 0, y: 90, z: 0}
+        time: 0.8333333
+        value: {x: 0, y: 90.68976, z: 0}
         inSlope: {x: 0, y: 61.30421, z: 0}
         outSlope: {x: 0, y: 61.30421, z: 0}
         tangentMode: 0
@@ -54,14 +54,14 @@ AnimationClip:
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.26312438, z: 0.33333334}
       - serializedVersion: 3
-        time: 0.8
+        time: 0.93333334
         value: {x: 0, y: 29.07581, z: 0}
-        inSlope: {x: 0, y: -417.33386, z: 0}
-        outSlope: {x: 0, y: -417.33386, z: 0}
+        inSlope: {x: 0, y: -1066.2554, z: 0}
+        outSlope: {x: 0, y: -1066.2554, z: 0}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.897309, z: 0.33333334}
       - serializedVersion: 3
         time: 1
         value: {x: 0, y: 0, z: 0}
@@ -174,8 +174,8 @@ AnimationClip:
         inWeight: 0.22248486
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.6666667
-        value: 90
+        time: 0.8333333
+        value: 90.68976
         inSlope: 61.30421
         outSlope: 61.30421
         tangentMode: 0
@@ -183,14 +183,14 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.26312438
       - serializedVersion: 3
-        time: 0.8
+        time: 0.93333334
         value: 29.07581
-        inSlope: -417.33386
-        outSlope: -417.33386
+        inSlope: -1066.2554
+        outSlope: -1066.2554
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.33333334
+        outWeight: 0.897309
       - serializedVersion: 3
         time: 1
         value: 0
@@ -271,13 +271,6 @@ AnimationClip:
   m_Events:
   - time: 0.33333334
     functionName: ExitShelf
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.5
-    functionName: EnableWalking
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
