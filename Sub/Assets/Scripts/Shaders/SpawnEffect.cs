@@ -6,7 +6,7 @@ public class SpawnEffect : MonoBehaviour
 {
     // First model
     [SerializeField] GameObject firstModel;
-    [SerializeField] GameObject hair;
+    [SerializeField] GameObject[] accesoirs;
     [SerializeField] private Renderer _renderer;
     [SerializeField] private Material originalMaterial;
     //[SerializeField] private Material dissolveMaterial;
@@ -41,7 +41,11 @@ public class SpawnEffect : MonoBehaviour
     {
         firstModel.SetActive(true);
         secondModel.SetActive(true);
-        hair.SetActive(false);
+        foreach (GameObject accesoir in accesoirs)
+        {
+            accesoir.SetActive(false);
+        }
+        //accesoirs.SetActive(false);
         if (fadeBackwards)
         {
             //_renderer.material = secondModelPhaseMaterial;
@@ -54,7 +58,11 @@ public class SpawnEffect : MonoBehaviour
             //_secondRenderer.material = secondModelPhaseMaterial;
             _secondRenderer.material = secondModelReversePhase;
             _renderer.material = phaseMaterial;
-            hair.SetActive(false);
+            //accesoirs.SetActive(false);
+            foreach (GameObject accesoir in accesoirs)
+            {
+                accesoir.SetActive(false);
+            }
         }
         iTween.ValueTo(gameObject, iTween.Hash(
             "from", start, "to", dest, "time", time, "onupdatetarget", gameObject,
@@ -74,7 +82,11 @@ public class SpawnEffect : MonoBehaviour
         {
             _renderer.material = originalMaterial;
             firstModel.SetActive(true);
-            hair.SetActive(true);
+            //accesoirs.SetActive(true);
+            foreach (GameObject accesoir in accesoirs)
+            {
+                accesoir.SetActive(true);
+            }
             secondModel.SetActive(false);
             //_secondRenderer.material = 
         }

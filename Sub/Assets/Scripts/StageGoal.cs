@@ -14,8 +14,8 @@ public class StageGoal
     public bool wasInteracted;
     public bool playerLeftTheRoom;
 
-    public delegate void ReachGoalActiom();
-    public static event ReachGoalActiom OnActionChanged;
+    public delegate void ReachGoalAction();
+    public static event ReachGoalAction OnActionChanged;
 
 
     public void CheckIfGoalIsReached()

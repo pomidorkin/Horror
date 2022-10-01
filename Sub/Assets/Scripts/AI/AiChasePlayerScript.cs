@@ -46,7 +46,9 @@ public class AiChasePlayerScript : AiState
             if (sqrdJumpscareActivationDistance >= distance)
             {
                 agent.jumpScare.CameraLookControllerActivated(agent.targetLookPosition); // Commented out for testing
+                agent.followObject.GetComponent<PlayerManager>().SetPlayerScared(true);
             }
+                
             else if (sqrdJumpscareActivationDistance < distance)
             {
                 if (agent.navMeshAgent.pathStatus != NavMeshPathStatus.PathPartial)
@@ -55,16 +57,6 @@ public class AiChasePlayerScript : AiState
                     agent.navMeshAgent.destination = agent.followObject.position;
                 }
             }
-            //if (Vector3.Distance(agent.followObject.position, agent.gameObject.transform.position) > (sqrdJumpscareActivationDistance - 2f))
-            //if ((sqrdJumpscareActivationDistance) < Vector3.Distance(agent.followObject.position, agent.gameObject.transform.position))
-            /*if (direction.sqrMagnitude > agent.config.maxDistance * agent.config.maxDistance)
-            {
-                if (agent.navMeshAgent.pathStatus != NavMeshPathStatus.PathPartial)
-                {
-                    
-                    agent.navMeshAgent.destination = agent.followObject.position;
-                }
-            }*/
             
             timer = agent.config.maxTime;
         }

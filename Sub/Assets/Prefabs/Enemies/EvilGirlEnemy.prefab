@@ -53,7 +53,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstModel: {fileID: 8264042864212282076}
-  hair: {fileID: 7638920233525742325}
+  accesoirs:
+  - {fileID: 4053716218792299746}
+  - {fileID: 7638920233525742325}
   _renderer: {fileID: 8264042864198617038}
   originalMaterial: {fileID: 2100000, guid: 823ac0e34852f1946b70b81aa0a7763c, type: 2}
   phaseMaterial: {fileID: 2100000, guid: 1bfd0db3c404ded4a929b88a6fe4e409, type: 2}
@@ -126,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 141f40b8ff55ae0458546cb56bda8957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 10
+  distance: 5.926
   angle: 30
   height: 1
   meshColor: {r: 1, g: 0, b: 0, a: 1}
@@ -197,13 +199,14 @@ MonoBehaviour:
   jumpScare: {fileID: 0}
   hasTransitionState: 0
   enemyType: 1
+  wanderType: 0
   modelRotator: {fileID: 0}
   characterModel: {fileID: 4054641136541091933}
-  isEnemyGirl: 1
   config: {fileID: 11400000, guid: e28a3fa530dc48d429ee8c18c6c13aaa, type: 2}
   transitionAnimationCompleted: 0
   sensor: {fileID: 4053716217384014800}
   noticedPlayer: 0
+  followPositions: []
 --- !u!1 &4053716217588560602
 GameObject:
   m_ObjectHideFlags: 0

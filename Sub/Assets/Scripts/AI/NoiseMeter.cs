@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class NoiseMeter : MonoBehaviour
 {
@@ -17,6 +18,9 @@ public class NoiseMeter : MonoBehaviour
     // TEST
     float timeInterpolator = 0f;
 
+    public delegate void NoiceMadeAction();
+    public event NoiceMadeAction OnVoiceMade;
+
     private void Start()
     {
         noiseMeterEnabled = true;
@@ -27,6 +31,11 @@ public class NoiseMeter : MonoBehaviour
         noiseValue = currentNoiseValue + noiseIncrementValue;
         Debug.Log("noiseValue: " + noiseValue);
         timeInterpolator = 0f;
+        if (noiseValue >= maxNoiseValue)
+        {
+            OnVoiceMade();
+            Debug.Log("OnVoiceMade();");
+        }
     }
 
     private void Update()

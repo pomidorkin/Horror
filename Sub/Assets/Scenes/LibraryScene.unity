@@ -155,7 +155,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &215866099
 Transform:
   m_ObjectHideFlags: 0
@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1dcccc9378683945bca44dbf0c75c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  introCutscene: {fileID: 0}
+  introCutscene: {fileID: 1127463866}
   playerMovement: {fileID: 1127463864}
   mouseLook: {fileID: 758495959}
 --- !u!4 &228296164 stripped
@@ -234,6 +234,10 @@ PrefabInstance:
       propertyPath: jumpScare
       value: 
       objectReference: {fileID: 79684596}
+    - target: {fileID: 2099437368767845566, guid: ef06b90c31e34ed4dace374051a5bec9, type: 3}
+      propertyPath: canMoveCamera
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2099437368814281216, guid: ef06b90c31e34ed4dace374051a5bec9, type: 3}
       propertyPath: cameraLookController
       value: 
@@ -250,6 +254,10 @@ PrefabInstance:
       propertyPath: dialogueElement
       value: 
       objectReference: {fileID: 2016122926}
+    - target: {fileID: 2099437368837091107, guid: ef06b90c31e34ed4dace374051a5bec9, type: 3}
+      propertyPath: canMove
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2099437368837091107, guid: ef06b90c31e34ed4dace374051a5bec9, type: 3}
       propertyPath: jumpScare
       value: 
@@ -280,7 +288,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2099437368837091116, guid: ef06b90c31e34ed4dace374051a5bec9, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2099437368837091116, guid: ef06b90c31e34ed4dace374051a5bec9, type: 3}
       propertyPath: m_LocalRotation.y
@@ -288,7 +296,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2099437368837091116, guid: ef06b90c31e34ed4dace374051a5bec9, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2099437368837091116, guid: ef06b90c31e34ed4dace374051a5bec9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -319,6 +327,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea9dcd02e2bdf8d4c9568259832a166f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &744804059 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2099437368593896120, guid: ef06b90c31e34ed4dace374051a5bec9, type: 3}
+  m_PrefabInstance: {fileID: 731957614}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &758495949 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2099437368767845562, guid: ef06b90c31e34ed4dace374051a5bec9, type: 3}
@@ -808,13 +821,40 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 463adb6e58ec63c45a2d9563b61a25d3, type: 2}
-  m_InitialState: 1
+  m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
-  m_SceneBindings: []
+  m_SceneBindings:
+  - key: {fileID: 7403846241490885667, guid: 463adb6e58ec63c45a2d9563b61a25d3, type: 2}
+    value: {fileID: 1127463869}
   m_ExposedReferences:
     m_References: []
+--- !u!4 &1127463867 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2099437368837091116, guid: ef06b90c31e34ed4dace374051a5bec9, type: 3}
+  m_PrefabInstance: {fileID: 731957614}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1127463869
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1127463862}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1201942043
 GameObject:
   m_ObjectHideFlags: 0
@@ -1243,6 +1283,11 @@ Transform:
   m_Father: {fileID: 1604182275}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1911617361 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7416554824784097581, guid: e3491a938dc53e5488947dea66331027, type: 3}
+  m_PrefabInstance: {fileID: 7416554825883924421}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2016122926
 GameObject:
   m_ObjectHideFlags: 0
@@ -2348,7 +2393,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7416554824784097569, guid: e3491a938dc53e5488947dea66331027, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7416554824784097570, guid: e3491a938dc53e5488947dea66331027, type: 3}
       propertyPath: jumpScare
@@ -2357,11 +2402,11 @@ PrefabInstance:
     - target: {fileID: 7416554824784097570, guid: e3491a938dc53e5488947dea66331027, type: 3}
       propertyPath: eyesForNpc
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 744804059}
     - target: {fileID: 7416554824784097570, guid: e3491a938dc53e5488947dea66331027, type: 3}
       propertyPath: followObject
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1127463867}
     - target: {fileID: 7416554824784097570, guid: e3491a938dc53e5488947dea66331027, type: 3}
       propertyPath: followPositions.Array.data[0]
       value: 
@@ -2422,9 +2467,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7416554824784097583, guid: e3491a938dc53e5488947dea66331027, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1911617361}
     - target: {fileID: 7416554824985434884, guid: e3491a938dc53e5488947dea66331027, type: 3}
       propertyPath: pointOfInterest
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 744804059}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3491a938dc53e5488947dea66331027, type: 3}

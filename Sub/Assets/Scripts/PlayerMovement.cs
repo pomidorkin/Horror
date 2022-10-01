@@ -131,6 +131,7 @@ public class PlayerMovement : MonoBehaviour
             controller.Move(move * speed * Time.deltaTime);
 
             // Noise Measuring Logic
+            // Do not make noise when the player is moving slowly (while pressing alt)
             noiseMeaterTimer += Time.deltaTime;
             if (noiseMeter.enabled && controller.velocity.x != 0f && noiseMeaterTimer >= maxNoiseMeterTime)
             {
