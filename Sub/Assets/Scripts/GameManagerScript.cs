@@ -4,22 +4,11 @@ using UnityEngine;
 
 public class GameManagerScript : MonoBehaviour
 {
-    //[SerializeField] Progress progress;
+    [SerializeField] MouseLook mouseLook;
+    [SerializeField] PlayerMovement playerMovement;
     public SaveManager saveManager;
-    //public Stage savedStage;
     public int savedStageId;
 
-    /*void Start()
-    {
-        saveManager = SaveManager.Instance;
-        SaveManager.Instance.Load();
-        if (!saveManager.State.firstStart)
-        {
-            savedStage = progress.currentStage;
-        }
-
-        ResumeGame();
-    }*/
 
     private void OnEnable()
     {
@@ -27,8 +16,7 @@ public class GameManagerScript : MonoBehaviour
         SaveManager.Instance.Load();
         if (!saveManager.State.firstStart)
         {
-            //savedStage = progress.currentStage; // Test
-            savedStageId = saveManager.State.currentStage; // Test
+            savedStageId = saveManager.State.currentStage;
         }
 
         ResumeGame();
@@ -42,5 +30,19 @@ public class GameManagerScript : MonoBehaviour
     public void ResumeGame()
     {
         Time.timeScale = 1;
+    }
+
+    public void DisablePlayerActions()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        mouseLook.DisableCameraMovement();
+        playerMovement.DisablePlayerMovement();
+    }
+
+    public void EnablePlayerActions()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        mouseLook.EnableCameraMovement();
+        playerMovement.EnablePlayerMovement();
     }
 }

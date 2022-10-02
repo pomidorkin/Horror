@@ -22,6 +22,7 @@ public class MouseLook : MonoBehaviour
     [Range(0, 90)]
     [SerializeField] float cameraMinLook = 60f;
 
+
     private void Awake()
     {
         plyerInputActions = new PlyerInputActions();
@@ -37,6 +38,7 @@ public class MouseLook : MonoBehaviour
     private void OnDisable()
     {
         jumpScare.OnCameraLookControllerEvent -= DisableCameraMovement;
+        plyerInputActions.Player.Look.performed -= Look;
     }
 
     private void DisableCameraMovement(object source, CameraLookController.CameraLookControllerEventArgs args)
@@ -66,7 +68,17 @@ public class MouseLook : MonoBehaviour
             xRot -= NonNormalizedDelta.y * mouseSensitivity;
             xRot = Mathf.Clamp(xRot, cameraMaxLook, cameraMinLook);
 
-            playerBody.Rotate(0f, NonNormalizedDelta.x * mouseSensitivity, 0f);
+            if (playerBody != null)
+            {
+                playerBody.Rotate(0f, NonNormalizedDelta.x * mouseSensitivity, 0f);
+            }
+            else
+            {
+                playerBody = FindObjectOfType<PlayerMovement>().gameObject.transform;
+                playerBody.Rotate(0f, NonNormalizedDelta.x * mouseSensitivity, 0f);
+            }
+
+            //playerBody.Rotate(0f, NonNormalizedDelta.x * mouseSensitivity, 0f);
             transform.localRotation = Quaternion.Euler(xRot, 0f, 0f);
         }
         else
@@ -81,7 +93,7 @@ public class MouseLook : MonoBehaviour
     }
     void Start()
     {
-        //Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked;
 
     }
 }

@@ -16,11 +16,13 @@ public class PicturePuzzle : MonoBehaviour
     [SerializeField] MakeActiveInteractable picture;
     [SerializeField] GameObject plushBear;
     StageManager stageManager;
+    GameManagerScript gameManager;
 
     private void Start()
     {
         playerComblination = new int[correctCombination.Length];
         stageManager = FindObjectOfType<StageManager>();
+        gameManager = FindObjectOfType<GameManagerScript>();
     }
 
     private void OnEnable()
@@ -43,6 +45,7 @@ public class PicturePuzzle : MonoBehaviour
     {
         CompareCombination();
         gameObject.SetActive(false);
+        gameManager.EnablePlayerActions();
     }
 
     private void CompareCombination()
