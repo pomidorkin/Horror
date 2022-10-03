@@ -9,7 +9,7 @@ public class ElevatorLibraryScene : MonoBehaviour
 
     private void Start()
     {
-        animator.Play("ElevatorDoorsOpenAnim");
+        animator.Play("ElevatorDoorsOpenAnimSecondScene");
     }
 
     public void ActivateCutscene()
