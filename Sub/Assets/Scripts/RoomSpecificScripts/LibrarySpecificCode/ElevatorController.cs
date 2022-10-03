@@ -16,6 +16,11 @@ public class ElevatorController : InteractionParent
         animator.Play("ElevatorDoorsOpenAnim");
     }
 
+    public void CloseElevatorDoors()
+    {
+        animator.Play("ElevatorDoorsCloseAnim");
+    }
+
     public void MakeUninteractable()
     {
         this.interactable = false;

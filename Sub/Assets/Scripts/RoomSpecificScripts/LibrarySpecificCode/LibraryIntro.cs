@@ -29,7 +29,7 @@ public class LibraryIntro : MonoBehaviour
 
     void Start()
     {
-        MovePlayerIntro();
+        //MovePlayerIntro();
     }
 
     public void MovePlayerIntro()
