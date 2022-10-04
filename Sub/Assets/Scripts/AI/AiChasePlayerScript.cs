@@ -45,7 +45,7 @@ public class AiChasePlayerScript : AiState
             float distance = Vector3.Distance(agent.followObject.position, agent.gameObject.transform.position);
             if (sqrdJumpscareActivationDistance >= distance)
             {
-                agent.jumpScare.CameraLookControllerActivated(agent.targetLookPosition); // Commented out for testing
+                agent.jumpScare.CameraLookControllerActivated(agent.targetLookPosition);
                 agent.followObject.GetComponent<PlayerManager>().SetPlayerScared(true);
             }
                 
