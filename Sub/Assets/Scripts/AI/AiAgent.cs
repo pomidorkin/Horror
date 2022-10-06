@@ -29,6 +29,13 @@ public class AiAgent : MonoBehaviour
     public enum EnemyType { Crabwalk, EvilGirl, Wanderer, Other};
     public enum WanderType { Random, Predetermined};
 
+    public void Init(Transform followObject, CameraLookController jumpScare)
+    {
+        this.followObject = followObject;
+        eyesForNpc = followObject;
+        this.jumpScare = jumpScare;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +50,8 @@ public class AiAgent : MonoBehaviour
         stateMachine.RegisterState(new AiIdleState());
         stateMachine.RegisterState(new AiJumpscareState());
         stateMachine.RegisterState(new AiWanderState());
+        stateMachine.RegisterState(new AiFollowTargetState());
+        stateMachine.RegisterState(new AiAttackState());
         stateMachine.ChangeState(initialState);
     }
 

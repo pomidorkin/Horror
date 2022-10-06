@@ -9,7 +9,9 @@ public enum AiStateId
     Death,
     Idle,
     Jumpscare,
-    Wander
+    Wander,
+    FollowTarget,
+    Attack
 }
 public interface AiState
 {
