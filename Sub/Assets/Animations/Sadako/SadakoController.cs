@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SadakoController : MonoBehaviour
+public class SadakoGeneral : MonoBehaviour
 {
     [SerializeField] TVSpawner TVSpawner;
     public void SpawnEnemy()

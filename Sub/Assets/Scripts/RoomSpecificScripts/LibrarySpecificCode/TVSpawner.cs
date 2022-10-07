@@ -9,6 +9,7 @@ public class TVSpawner : MonoBehaviour
     [SerializeField] GameObject sadako;
     [SerializeField] GameObject sadakoEnemy;
     [SerializeField] GameObject sadakoPrefab;
+    [SerializeField] GameObject[] sadakoSkins;
     [SerializeField] GameObject parentEnemies;
     [SerializeField] ParticleSystem particleSystem;
 
@@ -22,6 +23,7 @@ public class TVSpawner : MonoBehaviour
     public bool crossIsPlaced = false;
     float maxTime = 5f;
     float counter = 0;
+    int sadakoSkinId = 0;
 
     private void OnEnable()
     {
@@ -30,7 +32,7 @@ public class TVSpawner : MonoBehaviour
 
     private void OnDisable()
     {
-        
+        TVSpawnerParent.OnCrossPlaced -= OnCrossPlacedHandler;
     }
 
     private void OnCrossPlacedHandler(object source, TVSpawnerParent.CrossPlacedEventArgs args)
@@ -71,6 +73,14 @@ public class TVSpawner : MonoBehaviour
             interactionCollider.enabled = false;
             sadako.transform.position = initialSadakoPosition;
             sadako.SetActive(true);
+            foreach (GameObject sadakoSkin in sadakoSkins)
+            {
+                sadakoSkin.SetActive(false);
+            }
+            //sadakoSkins[UnityEngine.Random.Range(0, sadakoSkins.Length)].SetActive(true);
+            sadakoSkinId = UnityEngine.Random.Range(0, sadakoSkins.Length);
+            sadakoSkins[sadakoSkinId].SetActive(true);
+            
         }
     }
 
@@ -90,5 +100,6 @@ public class TVSpawner : MonoBehaviour
         GameObject obj = Instantiate(sadakoPrefab, sadakoEnemy.transform.position, sadakoEnemy.transform.rotation);
         obj.transform.SetParent(parentEnemies.transform);
         obj.GetComponent<AiAgent>().Init(followObject, jumpScare);
+        obj.GetComponent<SadakoGeneralController>().ActivateSadakoSkin(sadakoSkinId);
     }
 }

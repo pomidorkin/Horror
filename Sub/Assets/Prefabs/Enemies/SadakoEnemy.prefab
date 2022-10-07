@@ -110,6 +110,7 @@ GameObject:
   - component: {fileID: 818143859}
   - component: {fileID: 818143860}
   - component: {fileID: 818143861}
+  - component: {fileID: 387101819620622758}
   m_Layer: 8
   m_Name: SadakoEnemy
   m_TagString: Untagged
@@ -226,6 +227,24 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &387101819620622758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7070683914180388438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74004446c1d7ae54b9dd876470791ed3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sadakoSkins:
+  - {fileID: 7072522820612750936}
+  - {fileID: 7070973831015560348}
+  - {fileID: 7071677523605701052}
+  - {fileID: 7071157003681639792}
+  TVSpawner: {fileID: 0}
 --- !u!1 &7070687173227213044
 GameObject:
   m_ObjectHideFlags: 0
@@ -1328,7 +1347,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7076721150463436694
 Transform:
   m_ObjectHideFlags: 0
