@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,12 +10,41 @@ public class TVSpawner : MonoBehaviour
     [SerializeField] GameObject sadakoEnemy;
     [SerializeField] GameObject sadakoPrefab;
     [SerializeField] GameObject parentEnemies;
+    [SerializeField] ParticleSystem particleSystem;
 
+    [SerializeField] public TVSpawnerParent TVSpawnerParent;
     [SerializeField] public Transform followObject;
     [SerializeField] public CameraLookController jumpScare;
 
+    [SerializeField] BoxCollider interactionCollider;
+
+    bool isAnimaPlaying = false;
+    public bool crossIsPlaced = false;
     float maxTime = 5f;
     float counter = 0;
+
+    private void OnEnable()
+    {
+        TVSpawnerParent.OnCrossPlaced += OnCrossPlacedHandler;
+    }
+
+    private void OnDisable()
+    {
+        
+    }
+
+    private void OnCrossPlacedHandler(object source, TVSpawnerParent.CrossPlacedEventArgs args)
+    {
+        if (args.IsCrossPlaced)
+        {
+            interactionCollider.enabled = false;
+        }
+        else
+        {
+            interactionCollider.enabled = true;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,21 +54,36 @@ public class TVSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (counter < maxTime)
+    }
+
+    public void AvtivateSpawnerSequence()
+    {
+        particleSystem.Play();
+        StartCoroutine(SadakoRealeaser());
+        //ReleaseSadako();
+    }
+
+    private void ReleaseSadako()
+    {
+        if (!isAnimaPlaying && !crossIsPlaced)
         {
-            counter += Time.deltaTime;
-        }
-        else
-        {
-            counter = 0;
-            //sadako.SetActive(false);
+            isAnimaPlaying = true;
+            interactionCollider.enabled = false;
             sadako.transform.position = initialSadakoPosition;
             sadako.SetActive(true);
         }
     }
 
+    private IEnumerator SadakoRealeaser()
+    {
+        yield return new WaitForSeconds(4);
+        ReleaseSadako();
+    }
+
     public void SpawnSadakoEnemy()
     {
+        isAnimaPlaying = false;
+        interactionCollider.enabled = true;
         sadako.SetActive(false);
         // TODO: need to spawn here
         //sadakoEnemy.SetActive(true);

@@ -57,7 +57,7 @@ public class AiFollowTargetState : AiState
                 }
             }
 
-            Debug.Log("attackActivationDistance: " + attackActivationDistance + " distance: " + distance);
+            //Debug.Log("attackActivationDistance: " + attackActivationDistance + " distance: " + distance);
 
             timer = 1f;
         }
