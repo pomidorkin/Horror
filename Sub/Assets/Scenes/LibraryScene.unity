@@ -1702,6 +1702,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1091379308351306, guid: 35766b28d8e49b145a31be45abb3077c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1529366667462550, guid: 35766b28d8e49b145a31be45abb3077c, type: 3}
       propertyPath: m_Name
       value: Character_Father_01 (1)
