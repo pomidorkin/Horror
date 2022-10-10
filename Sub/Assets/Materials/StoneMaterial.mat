@@ -44,7 +44,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _InitialTexture:
-        m_Texture: {fileID: 2800000, guid: 25910c7682625154aae7ed1530ffb187, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3ff3041d26e84b247b1a900206562e65, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -55,6 +55,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _MetallicMap:
+        m_Texture: {fileID: 2800000, guid: 414d49db8a9dc1b4c884ddcd07bfa01f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -63,12 +67,20 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_662dc40b24c8463e8734013b89c3758a_Texture_1:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _StoneNormalMap:
+        m_Texture: {fileID: 2800000, guid: ee6707ccb1c5ee743970263a4f7bdf5c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _StoneTexture:
-        m_Texture: {fileID: 2800000, guid: 94e4c621c7f73fb488c58d8f11185bf5, type: 3}
+        m_Texture: {fileID: 2800000, guid: 03f12a2628471b741808e0feb050bac7, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -88,7 +100,7 @@ Material:
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
-    - _ChangeValue: 0.5
+    - _ChangeValue: 0.73
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
     - _Cull: 2
