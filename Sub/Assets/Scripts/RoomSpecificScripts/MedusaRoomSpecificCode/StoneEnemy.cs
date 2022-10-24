@@ -14,7 +14,7 @@ public class StoneEnemy : MonoBehaviour
     private float destValue = -.1f;
     private bool inProcess = false;
     public bool isStone = true;
-    public bool morphingTriggered = true;
+    private bool morphingTriggered = true;
 
     private AiAgent aiAgent;
 
@@ -69,6 +69,8 @@ public class StoneEnemy : MonoBehaviour
     {
         morphingTriggered = true;
         isStone = false;
+        aiAgent.navMeshAgent.speed = aiAgent.defaultSpeed;
+        animator.enabled = true;
         Debug.Log("I noticed the player");
         if (!aiAgent.noticedPlayer)
         {

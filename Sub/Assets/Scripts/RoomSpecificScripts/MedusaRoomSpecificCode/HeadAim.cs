@@ -7,39 +7,44 @@ public class HeadAim : MonoBehaviour
     [SerializeField] StoneEnemy[] targetObject;
     [SerializeField] float spellCastDuration = 2.0f;
     private float spellTimer = 0f;
-    private int currentTarget = 0;
+    public int currentTarget = 0;
     private bool isInFocus = false;
+    public bool headActivated = false;
 
     void Update()
     {
-        if (!targetObject[currentTarget].isStone)
+        if (headActivated)
         {
-            if (!isInFocus)
+            if (!targetObject[currentTarget].isStone)
             {
-                isInFocus = true;
-                StartCoroutine(LerpPosition(targetObject[currentTarget].transform.position, .2f));
-
-            }
-            else
-            {
-                if (spellTimer < spellCastDuration)
+                if (!isInFocus)
                 {
-                    spellTimer += Time.deltaTime;
-                    transform.position = targetObject[currentTarget].transform.position;
+                    isInFocus = true;
+                    StartCoroutine(LerpPosition(targetObject[currentTarget].transform.position, .2f));
+
                 }
                 else
                 {
-                    targetObject[currentTarget].TurnToStone();
-                    spellTimer = 0f;
-                    if (currentTarget < targetObject.Length - 1)
+                    if (spellTimer < spellCastDuration)
                     {
-                        currentTarget++;
+                        spellTimer += Time.deltaTime;
+                        transform.position = targetObject[currentTarget].transform.position;
                     }
-                    isInFocus = false;
+                    else
+                    {
+                        targetObject[currentTarget].TurnToStone();
+                        spellTimer = 0f;
+                        if (currentTarget < targetObject.Length - 1)
+                        {
+                            currentTarget++;
+                        }
+                        isInFocus = false;
+                    }
                 }
-            }
 
+            }
         }
+        
     }
 
     IEnumerator LerpPosition(Vector3 targetPosition, float duration)

@@ -646,7 +646,6 @@ MonoBehaviour:
   guardsActivator: {fileID: 1825688866}
   fadeTime: 2
   isStone: 0
-  morphingTriggered: 0
 --- !u!95 &443245645 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 2687273871617360854, guid: 7446fc63649c2ee48b182b2009c99608, type: 3}
@@ -782,7 +781,6 @@ MonoBehaviour:
   guardsActivator: {fileID: 1825688866}
   fadeTime: 2
   isStone: 0
-  morphingTriggered: 0
 --- !u!114 &685877270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1630,8 +1628,7 @@ MonoBehaviour:
   phaseMaterial: {fileID: 2100000, guid: 9df7989b7c18efc44a15f655c9f5770b, type: 2}
   guardsActivator: {fileID: 1825688866}
   fadeTime: 2
-  isStone: 0
-  morphingTriggered: 0
+  isStone: 1
 --- !u!1 &1028294197
 GameObject:
   m_ObjectHideFlags: 0
@@ -1774,7 +1771,6 @@ MonoBehaviour:
   guardsActivator: {fileID: 1825688866}
   fadeTime: 2
   isStone: 0
-  morphingTriggered: 0
 --- !u!95 &1179832779 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 2687273871617360854, guid: 7446fc63649c2ee48b182b2009c99608, type: 3}
@@ -2124,7 +2120,6 @@ MonoBehaviour:
   guardsActivator: {fileID: 1825688866}
   fadeTime: 2
   isStone: 0
-  morphingTriggered: 0
 --- !u!95 &1371073186 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 2687273871617360854, guid: 7446fc63649c2ee48b182b2009c99608, type: 3}
@@ -2158,7 +2153,6 @@ MonoBehaviour:
   guardsActivator: {fileID: 1825688866}
   fadeTime: 2
   isStone: 0
-  morphingTriggered: 0
 --- !u!114 &1378426213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3223,6 +3217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afe6de499a0100c4e97291e2cf145061, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  headAim: {fileID: 1847981334}
   trigger: 0
 --- !u!4 &1825688867
 Transform:
@@ -3298,6 +3293,8 @@ MonoBehaviour:
   - {fileID: 1937553769}
   - {fileID: 443245644}
   spellCastDuration: 2
+  currentTarget: 0
+  headActivated: 0
 --- !u!1001 &1873816857
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3507,7 +3504,6 @@ MonoBehaviour:
   guardsActivator: {fileID: 1825688866}
   fadeTime: 2
   isStone: 0
-  morphingTriggered: 0
 --- !u!95 &1937553770 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 2687273871617360854, guid: 7446fc63649c2ee48b182b2009c99608, type: 3}
