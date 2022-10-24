@@ -7,6 +7,12 @@ public class BlindEnemy : MonoBehaviour
 {
     [SerializeField] private NoiseMeter noiseMeter;
     [SerializeField] private Animator animator;
+    private AiAgent aiAgent;
+
+    private void Start()
+    {
+        aiAgent = this.GetComponent<AiAgent>();
+    }
 
     private void OnEnable()
     {
@@ -21,22 +27,22 @@ public class BlindEnemy : MonoBehaviour
     private void OnVoiceMadeHandler()
     {
         Debug.Log("I noticed the player");
-        if (!this.GetComponent<AiAgent>().noticedPlayer)
+        if (!aiAgent.noticedPlayer)
         {
-            if (this.GetComponent<AiAgent>().enemyType == AiAgent.EnemyType.Crabwalk)
+            if (aiAgent.enemyType == AiAgent.EnemyType.Crabwalk)
             {
-                this.GetComponent<AiAgent>().stateMachine.ChangeState(AiStateId.Transition);
+                aiAgent.stateMachine.ChangeState(AiStateId.Transition);
             }
-            else if (this.GetComponent<AiAgent>().enemyType == AiAgent.EnemyType.EvilGirl)
+            else if (aiAgent.enemyType == AiAgent.EnemyType.EvilGirl)
             {
                 GetComponent<SpawnEffect>().DoFade(0f, 2f, 2f);
             }
             else
             {
-                this.GetComponent<AiAgent>().stateMachine.ChangeState(AiStateId.ChasePlayer);
+                aiAgent.stateMachine.ChangeState(AiStateId.ChasePlayer);
             }
             animator.SetBool("Follow", true);
-            this.GetComponent<AiAgent>().noticedPlayer = true;
+            aiAgent.noticedPlayer = true;
         }
     }
 

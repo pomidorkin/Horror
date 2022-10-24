@@ -29,7 +29,7 @@ public class HeadAim : MonoBehaviour
                 }
                 else
                 {
-                    targetObject[currentTarget].isStone = true;
+                    targetObject[currentTarget].TurnToStone();
                     spellTimer = 0f;
                     if (currentTarget < targetObject.Length - 1)
                     {

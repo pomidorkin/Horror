@@ -22,6 +22,7 @@ public class AiAgent : MonoBehaviour
     //public Ragdoll ragdoll;
     public AiSensor sensor;
     public bool noticedPlayer = false;
+    public float defaultSpeed;
 
     public Transform[] followPositions;
 
@@ -53,6 +54,8 @@ public class AiAgent : MonoBehaviour
         stateMachine.RegisterState(new AiFollowTargetState());
         stateMachine.RegisterState(new AiAttackState());
         stateMachine.ChangeState(initialState);
+
+        defaultSpeed = navMeshAgent.speed;
     }
 
     // Update is called once per frame
