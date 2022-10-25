@@ -8,6 +8,7 @@ public class GuardsActivator : MonoBehaviour
     public delegate void GuardsActivatedAction();
     public event GuardsActivatedAction OnGuardsActivate;
     [SerializeField] HeadAim headAim;
+    public bool activated = false;
 
     public bool trigger = false;
     private void Start()
@@ -19,6 +20,7 @@ public class GuardsActivator : MonoBehaviour
         OnGuardsActivate();
         headAim.headActivated = true;
         headAim.currentTarget = 0;
+        activated = true;
     }
 
     

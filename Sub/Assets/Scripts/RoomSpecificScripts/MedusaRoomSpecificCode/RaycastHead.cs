@@ -6,7 +6,10 @@ public class RaycastHead : MonoBehaviour
 {
     [SerializeField] Transform laserOrigin;
     [SerializeField] Transform aim;
+    [SerializeField] GuardsActivator guardsActivator;
+    [SerializeField] GameObject particle;
     private float laserRange = 50f;
+    private bool laserActivated = false;
 
     LineRenderer laserLine;
 
@@ -17,17 +20,19 @@ public class RaycastHead : MonoBehaviour
 
     private void Update()
     {
-        laserLine.SetPosition(0, laserOrigin.position);
-        Vector3 rayOrigin = laserOrigin.forward;
-        RaycastHit hit;
-        /*if (Physics.Raycast(rayOrigin, laserOrigin.forward, out hit, laserRange))
+        if (guardsActivator.activated && !laserActivated)
         {
-            laserLine.SetPosition(1, hit.point);
+            laserActivated = true;
+            laserLine.enabled = true;
+            particle.SetActive(true);
         }
-        else
+        if (laserActivated)
         {
-            laserLine.SetPosition(1, rayOrigin + (laserOrigin.forward * laserRange));
-        }*/
-        laserLine.SetPosition(1, aim.position);
+            laserLine.SetPosition(0, laserOrigin.position);
+            Vector3 rayOrigin = laserOrigin.forward;
+            RaycastHit hit;
+            laserLine.SetPosition(1, aim.position);
+        }
+        
     }
 }

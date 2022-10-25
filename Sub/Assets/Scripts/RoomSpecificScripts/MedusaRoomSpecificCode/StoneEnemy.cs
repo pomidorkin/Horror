@@ -9,6 +9,9 @@ public class StoneEnemy : MonoBehaviour
     [SerializeField] private Material phaseMaterial;
     [SerializeField] private GuardsActivator guardsActivator;
     [SerializeField] private float fadeTime = 5f;
+    [SerializeField] public Transform TargetLookPosition;
+    [SerializeField] GameObject[] stoneProps;
+    [SerializeField] GameObject[] normalProps;
     private bool fadeBackwards = false;
     private float startValue = 1.1f;
     private float destValue = -.1f;
@@ -44,6 +47,14 @@ public class StoneEnemy : MonoBehaviour
         aiAgent.navMeshAgent.speed = 0f;
         animator.SetBool("Follow", false);
         animator.enabled = false;
+        foreach (GameObject stoneProp in stoneProps)
+        {
+            stoneProp.SetActive(true);
+        }
+        foreach (GameObject normalProp in normalProps)
+        {
+            normalProp.SetActive(false);
+        }
     }
 
     public void DoFade(float start, float dest, float time)
@@ -67,27 +78,39 @@ public class StoneEnemy : MonoBehaviour
 
     private void OnMorphedToHuman()
     {
-        morphingTriggered = true;
-        isStone = false;
-        aiAgent.navMeshAgent.speed = aiAgent.defaultSpeed;
-        animator.enabled = true;
-        Debug.Log("I noticed the player");
-        if (!aiAgent.noticedPlayer)
+        if (isStone)
         {
-            if (aiAgent.enemyType == AiAgent.EnemyType.Crabwalk)
+            morphingTriggered = true;
+            isStone = false;
+            aiAgent.navMeshAgent.speed = aiAgent.defaultSpeed;
+            animator.enabled = true;
+            Debug.Log("I noticed the player");
+            if (!aiAgent.noticedPlayer)
             {
-                aiAgent.stateMachine.ChangeState(AiStateId.Transition);
+                if (aiAgent.enemyType == AiAgent.EnemyType.Crabwalk)
+                {
+                    aiAgent.stateMachine.ChangeState(AiStateId.Transition);
+                }
+                else if (aiAgent.enemyType == AiAgent.EnemyType.EvilGirl)
+                {
+                    GetComponent<SpawnEffect>().DoFade(0f, 2f, 2f);
+                }
+                else
+                {
+                    aiAgent.stateMachine.ChangeState(AiStateId.ChasePlayer);
+                }
+                animator.SetBool("Follow", true);
+                aiAgent.noticedPlayer = true;
             }
-            else if (aiAgent.enemyType == AiAgent.EnemyType.EvilGirl)
-            {
-                GetComponent<SpawnEffect>().DoFade(0f, 2f, 2f);
-            }
-            else
-            {
-                aiAgent.stateMachine.ChangeState(AiStateId.ChasePlayer);
-            }
-            animator.SetBool("Follow", true);
-            aiAgent.noticedPlayer = true;
+        }
+
+        foreach (GameObject stoneProp in stoneProps)
+        {
+            stoneProp.SetActive(false);
+        }
+        foreach (GameObject normalProp in normalProps)
+        {
+            normalProp.SetActive(true);
         }
     }
 

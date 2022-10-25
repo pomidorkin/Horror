@@ -17599,6 +17599,7 @@ MonoBehaviour:
   transitionAnimationCompleted: 0
   sensor: {fileID: 0}
   noticedPlayer: 0
+  defaultSpeed: 0
   followPositions: []
 --- !u!1001 &2092541222
 PrefabInstance:

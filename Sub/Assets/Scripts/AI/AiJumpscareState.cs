@@ -6,8 +6,6 @@ public class AiJumpscareState : AiState
 {
     public void Enter(AiAgent agent)
     {
-        agent.jumpScare.CameraLookControllerActivated(agent.targetLookPosition);
-        agent.followObject.GetComponent<PlayerManager>().SetPlayerScared(true);
     }
 
     public void Exit(AiAgent agent)

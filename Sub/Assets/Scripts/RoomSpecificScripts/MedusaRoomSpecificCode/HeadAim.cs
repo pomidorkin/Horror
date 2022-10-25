@@ -20,7 +20,7 @@ public class HeadAim : MonoBehaviour
                 if (!isInFocus)
                 {
                     isInFocus = true;
-                    StartCoroutine(LerpPosition(targetObject[currentTarget].transform.position, .2f));
+                    StartCoroutine(LerpPosition(targetObject[currentTarget].TargetLookPosition.position, .2f));
 
                 }
                 else
@@ -28,7 +28,7 @@ public class HeadAim : MonoBehaviour
                     if (spellTimer < spellCastDuration)
                     {
                         spellTimer += Time.deltaTime;
-                        transform.position = targetObject[currentTarget].transform.position;
+                        transform.position = targetObject[currentTarget].TargetLookPosition.position;
                     }
                     else
                     {
