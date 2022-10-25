@@ -79,6 +79,25 @@ public class PlayerMovement : MonoBehaviour
         plyerInputActions.Player.Jump.performed -= Jump;
     }
 
+    public PlyerInputActions GetPlayerInputActions()
+    {
+        return plyerInputActions;
+    }
+    public void ChangeInputActionMap(bool returnToDefault, string actionMapName)
+    {
+        if (returnToDefault)
+        {
+            plyerInputActions.Player.Enable();
+            plyerInputActions.asset.FindActionMap(actionMapName).Disable();
+        }
+        else
+        {
+            plyerInputActions.Player.Disable();
+            plyerInputActions.asset.FindActionMap(actionMapName).Enable();
+            
+        }
+    }
+
     private void DisablePlayerMovement(object source, CameraLookController.CameraLookControllerEventArgs args)
     {
         canMove = false;

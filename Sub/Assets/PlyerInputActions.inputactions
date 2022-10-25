@@ -187,6 +187,54 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "MedusaMiniGame",
+            "id": "3abb18b4-b8bf-4b01-a4b6-7d140004d99d",
+            "actions": [
+                {
+                    "name": "Up",
+                    "type": "Button",
+                    "id": "1f64d383-4c2d-42fd-ba12-3f1c222b8655",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Down",
+                    "type": "Button",
+                    "id": "601c2d05-dab9-4770-a21b-8cc3d8c19b9f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "3da1de5d-5fcf-4fae-88d8-c809293efd78",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Up",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b4d3c459-b100-440e-9eb9-a7e19d001a01",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Down",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

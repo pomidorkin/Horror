@@ -209,6 +209,54 @@ public partial class @PlyerInputActions : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""MedusaMiniGame"",
+            ""id"": ""3abb18b4-b8bf-4b01-a4b6-7d140004d99d"",
+            ""actions"": [
+                {
+                    ""name"": ""Up"",
+                    ""type"": ""Button"",
+                    ""id"": ""1f64d383-4c2d-42fd-ba12-3f1c222b8655"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Down"",
+                    ""type"": ""Button"",
+                    ""id"": ""601c2d05-dab9-4770-a21b-8cc3d8c19b9f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""3da1de5d-5fcf-4fae-88d8-c809293efd78"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b4d3c459-b100-440e-9eb9-a7e19d001a01"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -258,6 +306,10 @@ public partial class @PlyerInputActions : IInputActionCollection2, IDisposable
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Interaction = m_Player.FindAction("Interaction", throwIfNotFound: true);
+        // MedusaMiniGame
+        m_MedusaMiniGame = asset.FindActionMap("MedusaMiniGame", throwIfNotFound: true);
+        m_MedusaMiniGame_Up = m_MedusaMiniGame.FindAction("Up", throwIfNotFound: true);
+        m_MedusaMiniGame_Down = m_MedusaMiniGame.FindAction("Down", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -370,6 +422,47 @@ public partial class @PlyerInputActions : IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // MedusaMiniGame
+    private readonly InputActionMap m_MedusaMiniGame;
+    private IMedusaMiniGameActions m_MedusaMiniGameActionsCallbackInterface;
+    private readonly InputAction m_MedusaMiniGame_Up;
+    private readonly InputAction m_MedusaMiniGame_Down;
+    public struct MedusaMiniGameActions
+    {
+        private @PlyerInputActions m_Wrapper;
+        public MedusaMiniGameActions(@PlyerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Up => m_Wrapper.m_MedusaMiniGame_Up;
+        public InputAction @Down => m_Wrapper.m_MedusaMiniGame_Down;
+        public InputActionMap Get() { return m_Wrapper.m_MedusaMiniGame; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MedusaMiniGameActions set) { return set.Get(); }
+        public void SetCallbacks(IMedusaMiniGameActions instance)
+        {
+            if (m_Wrapper.m_MedusaMiniGameActionsCallbackInterface != null)
+            {
+                @Up.started -= m_Wrapper.m_MedusaMiniGameActionsCallbackInterface.OnUp;
+                @Up.performed -= m_Wrapper.m_MedusaMiniGameActionsCallbackInterface.OnUp;
+                @Up.canceled -= m_Wrapper.m_MedusaMiniGameActionsCallbackInterface.OnUp;
+                @Down.started -= m_Wrapper.m_MedusaMiniGameActionsCallbackInterface.OnDown;
+                @Down.performed -= m_Wrapper.m_MedusaMiniGameActionsCallbackInterface.OnDown;
+                @Down.canceled -= m_Wrapper.m_MedusaMiniGameActionsCallbackInterface.OnDown;
+            }
+            m_Wrapper.m_MedusaMiniGameActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Up.started += instance.OnUp;
+                @Up.performed += instance.OnUp;
+                @Up.canceled += instance.OnUp;
+                @Down.started += instance.OnDown;
+                @Down.performed += instance.OnDown;
+                @Down.canceled += instance.OnDown;
+            }
+        }
+    }
+    public MedusaMiniGameActions @MedusaMiniGame => new MedusaMiniGameActions(this);
     private int m_KeyboardSchemeIndex = -1;
     public InputControlScheme KeyboardScheme
     {
@@ -403,5 +496,10 @@ public partial class @PlyerInputActions : IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnInteraction(InputAction.CallbackContext context);
+    }
+    public interface IMedusaMiniGameActions
+    {
+        void OnUp(InputAction.CallbackContext context);
+        void OnDown(InputAction.CallbackContext context);
     }
 }

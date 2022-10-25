@@ -36,6 +36,18 @@ public class PlayerActions : MonoBehaviour
         plyerInputActions.Player.Interaction.performed -= Interact; // On Enable/Disable надо
     }
 
+    public void EnableInputActions(bool enable)
+    {
+        if (enable)
+        {
+            plyerInputActions.Player.Enable();
+        }
+        else
+        {
+            plyerInputActions.Player.Disable();
+        }
+    }
+
     private void Update()
     {
         active = Physics.Raycast(cam.position, cam.transform.TransformDirection(Vector3.forward), out hit, playerInteractDistance);

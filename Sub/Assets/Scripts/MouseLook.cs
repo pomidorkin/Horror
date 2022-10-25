@@ -41,6 +41,18 @@ public class MouseLook : MonoBehaviour
         plyerInputActions.Player.Look.performed -= Look;
     }
 
+    public void EnableInputActions(bool enable)
+    {
+        if (enable)
+        {
+            plyerInputActions.Player.Enable();
+        }
+        else
+        {
+            plyerInputActions.Player.Disable();
+        }
+    }
+
     private void DisableCameraMovement(object source, CameraLookController.CameraLookControllerEventArgs args)
     {
         virtualCamera.gameObject.SetActive(true);
