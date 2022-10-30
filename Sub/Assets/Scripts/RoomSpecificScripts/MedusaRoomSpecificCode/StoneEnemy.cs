@@ -12,6 +12,10 @@ public class StoneEnemy : MonoBehaviour
     [SerializeField] public Transform TargetLookPosition;
     [SerializeField] GameObject[] stoneProps;
     [SerializeField] GameObject[] normalProps;
+    [SerializeField] GameObject particleEffect;
+
+    private Vector3 initialPosition;
+
     private bool fadeBackwards = false;
     private float startValue = 1.1f;
     private float destValue = -.1f;
@@ -36,6 +40,7 @@ public class StoneEnemy : MonoBehaviour
     {
         _renderer.material = phaseMaterial;
         aiAgent = this.GetComponent<AiAgent>();
+        initialPosition = transform.position;
     }
 
     public void TurnToStone()
@@ -55,6 +60,7 @@ public class StoneEnemy : MonoBehaviour
         {
             normalProp.SetActive(false);
         }
+        StartCoroutine(ReturnToInitialPosition());
     }
 
     public void DoFade(float start, float dest, float time)
@@ -144,5 +150,13 @@ public class StoneEnemy : MonoBehaviour
             fadeBackwards = !fadeBackwards;
             morphingTriggered = false;
         }
+    }
+
+    private IEnumerator ReturnToInitialPosition()
+    {
+        yield return new WaitForSeconds(3);
+        Instantiate(particleEffect, transform.position, Quaternion.identity);
+        transform.position = initialPosition;
+        //animator.Play("EmptyIdle");
     }
 }

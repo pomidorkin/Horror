@@ -215,46 +215,70 @@ public partial class @PlyerInputActions : IInputActionCollection2, IDisposable
             ""id"": ""3abb18b4-b8bf-4b01-a4b6-7d140004d99d"",
             ""actions"": [
                 {
-                    ""name"": ""Up"",
-                    ""type"": ""Button"",
+                    ""name"": ""Movement"",
+                    ""type"": ""Value"",
                     ""id"": ""1f64d383-4c2d-42fd-ba12-3f1c222b8655"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Down"",
-                    ""type"": ""Button"",
-                    ""id"": ""601c2d05-dab9-4770-a21b-8cc3d8c19b9f"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
                 {
-                    ""name"": """",
-                    ""id"": ""3da1de5d-5fcf-4fae-88d8-c809293efd78"",
+                    ""name"": ""2D Vector"",
+                    ""id"": ""b7c2b05f-8159-45b0-9ef4-21d5594015a0"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""65985a78-f759-42fa-9b5b-a38fc4db69b4"",
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Up"",
+                    ""action"": ""Movement"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": false
+                    ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""b4d3c459-b100-440e-9eb9-a7e19d001a01"",
+                    ""name"": ""down"",
+                    ""id"": ""69475a48-180a-4259-828c-63b2bbf68b0e"",
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Down"",
+                    ""action"": ""Movement"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": false
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""03a988f6-fecc-4739-8396-0ee10e4f9713"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""5eb95f09-98fe-41d4-a509-780942bc885f"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -308,8 +332,7 @@ public partial class @PlyerInputActions : IInputActionCollection2, IDisposable
         m_Player_Interaction = m_Player.FindAction("Interaction", throwIfNotFound: true);
         // MedusaMiniGame
         m_MedusaMiniGame = asset.FindActionMap("MedusaMiniGame", throwIfNotFound: true);
-        m_MedusaMiniGame_Up = m_MedusaMiniGame.FindAction("Up", throwIfNotFound: true);
-        m_MedusaMiniGame_Down = m_MedusaMiniGame.FindAction("Down", throwIfNotFound: true);
+        m_MedusaMiniGame_Movement = m_MedusaMiniGame.FindAction("Movement", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -426,14 +449,12 @@ public partial class @PlyerInputActions : IInputActionCollection2, IDisposable
     // MedusaMiniGame
     private readonly InputActionMap m_MedusaMiniGame;
     private IMedusaMiniGameActions m_MedusaMiniGameActionsCallbackInterface;
-    private readonly InputAction m_MedusaMiniGame_Up;
-    private readonly InputAction m_MedusaMiniGame_Down;
+    private readonly InputAction m_MedusaMiniGame_Movement;
     public struct MedusaMiniGameActions
     {
         private @PlyerInputActions m_Wrapper;
         public MedusaMiniGameActions(@PlyerInputActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Up => m_Wrapper.m_MedusaMiniGame_Up;
-        public InputAction @Down => m_Wrapper.m_MedusaMiniGame_Down;
+        public InputAction @Movement => m_Wrapper.m_MedusaMiniGame_Movement;
         public InputActionMap Get() { return m_Wrapper.m_MedusaMiniGame; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -443,22 +464,16 @@ public partial class @PlyerInputActions : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_MedusaMiniGameActionsCallbackInterface != null)
             {
-                @Up.started -= m_Wrapper.m_MedusaMiniGameActionsCallbackInterface.OnUp;
-                @Up.performed -= m_Wrapper.m_MedusaMiniGameActionsCallbackInterface.OnUp;
-                @Up.canceled -= m_Wrapper.m_MedusaMiniGameActionsCallbackInterface.OnUp;
-                @Down.started -= m_Wrapper.m_MedusaMiniGameActionsCallbackInterface.OnDown;
-                @Down.performed -= m_Wrapper.m_MedusaMiniGameActionsCallbackInterface.OnDown;
-                @Down.canceled -= m_Wrapper.m_MedusaMiniGameActionsCallbackInterface.OnDown;
+                @Movement.started -= m_Wrapper.m_MedusaMiniGameActionsCallbackInterface.OnMovement;
+                @Movement.performed -= m_Wrapper.m_MedusaMiniGameActionsCallbackInterface.OnMovement;
+                @Movement.canceled -= m_Wrapper.m_MedusaMiniGameActionsCallbackInterface.OnMovement;
             }
             m_Wrapper.m_MedusaMiniGameActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Up.started += instance.OnUp;
-                @Up.performed += instance.OnUp;
-                @Up.canceled += instance.OnUp;
-                @Down.started += instance.OnDown;
-                @Down.performed += instance.OnDown;
-                @Down.canceled += instance.OnDown;
+                @Movement.started += instance.OnMovement;
+                @Movement.performed += instance.OnMovement;
+                @Movement.canceled += instance.OnMovement;
             }
         }
     }
@@ -499,7 +514,6 @@ public partial class @PlyerInputActions : IInputActionCollection2, IDisposable
     }
     public interface IMedusaMiniGameActions
     {
-        void OnUp(InputAction.CallbackContext context);
-        void OnDown(InputAction.CallbackContext context);
+        void OnMovement(InputAction.CallbackContext context);
     }
 }

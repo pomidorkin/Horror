@@ -6,6 +6,8 @@ public class HeadAim : MonoBehaviour
 {
     [SerializeField] StoneEnemy[] targetObject;
     [SerializeField] float spellCastDuration = 2.0f;
+    [SerializeField] RaycastHead raycastHead;
+    [SerializeField] GuardsActivator guardsActivator;
     private float spellTimer = 0f;
     public int currentTarget = 0;
     private bool isInFocus = false;
@@ -38,7 +40,15 @@ public class HeadAim : MonoBehaviour
                         {
                             currentTarget++;
                         }
+                        else
+                        {
+                            //raycastHead.MakeLaserActive(false);
+                            //guardsActivator.DisableMedusaCollider();
+                            //guardsActivator.activated = false;
+                            guardsActivator.DeactivateMedusaLaser();
+                        }
                         isInFocus = false;
+
                     }
                 }
 

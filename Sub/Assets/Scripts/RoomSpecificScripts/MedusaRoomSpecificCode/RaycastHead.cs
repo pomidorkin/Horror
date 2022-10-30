@@ -35,4 +35,10 @@ public class RaycastHead : MonoBehaviour
         }
         
     }
+
+    public void MakeLaserActive(bool value)
+    {
+        laserLine.enabled = value;
+        particle.SetActive(value);
+    }
 }
