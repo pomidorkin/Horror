@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class TestMiniGameController : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class TestMiniGameController : MonoBehaviour
     [SerializeField] InputManager inputManager;
     [SerializeField] TestPlayer2D player2d;
     [SerializeField] GuardsActivator guardsActivator;
+    [SerializeField] TMP_Text miniGameGoalText;
 
     private float timer = 0f;
     [SerializeField] private float timeToWin = 10f;
@@ -29,12 +31,14 @@ public class TestMiniGameController : MonoBehaviour
         //plyerInputActions.MedusaMiniGame.Down.performed += MoveDown;
         inputManager.EnableInputActionMap(false, "MedusaMiniGame");
         timer = 0f;
+        miniGameGoalText.gameObject.SetActive(true);
     }
 
     private void OnDisable()
     {
         //plyerInputActions.MedusaMiniGame.Up.performed -= MoveUp;
         //plyerInputActions.MedusaMiniGame.Down.performed -= MoveDown;
+        miniGameGoalText.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -44,6 +48,10 @@ public class TestMiniGameController : MonoBehaviour
         {
             timer = 0f;
             MiniGameWin();
+        }
+        else
+        {
+            miniGameGoalText.text = "Survive for " + (int)timer + " out of " + (int)timeToWin;
         }
     }
 
