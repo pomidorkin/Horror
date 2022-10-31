@@ -11,6 +11,7 @@ public class AiIdleState : AiState
     }
     public void Enter(AiAgent agent)
     {
+        //agent.GetComponent<AiScreamerController>().animator.SetBool("Reset", false);
     }
 
     public void Exit(AiAgent agent)

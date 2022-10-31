@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class GameManagerScript : MonoBehaviour
 {
     [SerializeField] MouseLook mouseLook;
     [SerializeField] PlayerMovement playerMovement;
+    [SerializeField] CinemachineVirtualCamera virtualCamera;
     public SaveManager saveManager;
     public int savedStageId;
 
@@ -44,5 +46,14 @@ public class GameManagerScript : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         mouseLook.EnableCameraMovement();
         playerMovement.EnablePlayerMovement();
+    }
+
+    public void EnablePlayerActionsAndDisableVirtualCamera()
+    {
+        virtualCamera.gameObject.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        mouseLook.EnableCameraMovement();
+        playerMovement.EnablePlayerMovement();
+        // TODO: resetSpherePosition
     }
 }

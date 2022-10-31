@@ -25,7 +25,7 @@ public class ScreamerLookTarget : MonoBehaviour
 
     private void Start()
     {
-        initialPosition = transform.position;
+        initialPosition = transform.localPosition;
     }
 
     private void ActivateCamLookPosition(object source, CameraLookController.CameraLookControllerEventArgs args)
@@ -56,5 +56,11 @@ public class ScreamerLookTarget : MonoBehaviour
     public void LookAtTarget(Vector3 position)
     {
         transform.position = position;
+    }
+
+    public void Respawn()
+    {
+        jumpScareActivated = false;
+        transform.localPosition = initialPosition;
     }
 }

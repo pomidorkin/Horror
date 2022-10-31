@@ -786,6 +786,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2099437368814281222, guid: ef06b90c31e34ed4dace374051a5bec9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2099437368814281223, guid: ef06b90c31e34ed4dace374051a5bec9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2099437368837091106, guid: ef06b90c31e34ed4dace374051a5bec9, type: 3}
       propertyPath: promptText
       value: 

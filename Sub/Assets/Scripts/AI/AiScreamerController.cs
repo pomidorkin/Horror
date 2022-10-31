@@ -5,8 +5,9 @@ using System;
 
 public class AiScreamerController : MonoBehaviour
 {
-    [SerializeField] Animator animator;
+    [SerializeField] public Animator animator;
     [SerializeField] CameraLookController jumpScare;
+    [SerializeField] GameObject respawnManager;
     //[SerializeField] Transform jumpscarePositionOnPlayer;
 
     private void OnEnable()
@@ -23,6 +24,7 @@ public class AiScreamerController : MonoBehaviour
     {
         PlayJumpscareAnim();
         // TODO: Play scary sound
+        
     }
 
     private void PlayJumpscareAnim()
@@ -34,5 +36,13 @@ public class AiScreamerController : MonoBehaviour
             agent.modelRotator.transform.rotation = Quaternion.Euler(0,-90,0);
         }
         animator.SetTrigger("JumpscareActivate");
+        // TEST
+        StartCoroutine(Respawn());
+    }
+
+    private IEnumerator Respawn()
+    {
+        yield return new WaitForSeconds(5);
+        respawnManager.GetComponent<IRespawnManager>().Respawn(this);
     }
 }
