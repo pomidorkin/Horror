@@ -34,4 +34,12 @@ public class RoomManager : MonoBehaviour
         }
 
     }
+
+    public void DespawnAllRooms()
+    {
+        foreach (RoomParent rp in parentRooms)
+        {
+            rp.SpawnRoom(false);
+        }
+    }
 }

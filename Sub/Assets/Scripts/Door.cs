@@ -25,7 +25,7 @@ public class Door : MonoBehaviour, IInteractable
         allDoorController = FindObjectOfType<AllDoorController>();
     }
 
-    public void OpenDoor(RaycastHit hit)
+    public void OpenDoor(RaycastHit hit, bool isRespawningStage)
     {
         // TODO: Toggle the boolean field (Open/Closed)
         if (hit.transform == this.transform)
@@ -33,7 +33,7 @@ public class Door : MonoBehaviour, IInteractable
             
             Debug.Log("isOpened " + isOpened);
 
-            if (isOpened == false && canBeOpened == true)
+            if (isOpened == false && canBeOpened == true && !isRespawningStage)
             {
                 allDoorController.CloseAllDoors();
                 animator.Play("OpenAnimation");
@@ -41,7 +41,7 @@ public class Door : MonoBehaviour, IInteractable
                 Debug.Log("I am the door and I am being opened..." + " isOpened " + isOpened);
                 doorManager.DoorOpened(roomPosition, isRightDoor);
             }
-            else if (!isOpened && !canBeOpened)
+            else if (!isOpened && !canBeOpened && !isRespawningStage)
             {
                 // The Code below runs when we try to oped a locked door and
                 // the corridor stage goal is set to Stage.GoalType.doorsAndAmount
@@ -51,6 +51,12 @@ public class Door : MonoBehaviour, IInteractable
                     allDoorController.stageManager.currentStage.stageGoal.AddDoorsInteractionNumber();
                 }
                 animator.Play("DoorLockedAnimation");
+            }
+            else if (!isOpened && isRespawningStage)
+            {
+                allDoorController.CloseAllDoors();
+                animator.Play("OpenAnimation");
+                this.isOpened = true;
             }
             else
             {
@@ -101,5 +107,15 @@ public class Door : MonoBehaviour, IInteractable
     public bool GetInteractable()
     {
         return true;
+    }
+
+    public Transform GetRoomPosition()
+    {
+        return roomPosition;
+    }
+
+    public bool IsRightDoor()
+    {
+        return isRightDoor;
     }
 }

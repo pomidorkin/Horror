@@ -10,6 +10,7 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] private Transform cam;
     [SerializeField] private float playerInteractDistance = 3f;
     [SerializeField] private GameObject dialogueElement;
+    [SerializeField] GameManagerScript gameManager;
     bool active = false;
     PlyerInputActions plyerInputActions;
     RaycastHit hit;
@@ -17,7 +18,7 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] TMP_Text promptText;
     private bool isPromptTextActive = false;
 
-    public delegate void InteractedAction(RaycastHit hit);
+    public delegate void InteractedAction(RaycastHit hit, bool isRespawnStage = false);
     public event InteractedAction OnInteractedAction;
 
     private void Awake()
@@ -88,7 +89,7 @@ public class PlayerActions : MonoBehaviour
         {
             if (hit.transform.GetComponent<Collider>() != null)
             {
-                OnInteractedAction(hit);
+                OnInteractedAction(hit, gameManager.GetIsRespawningStage());
                 Debug.Log("Interacting...");
             }
         }

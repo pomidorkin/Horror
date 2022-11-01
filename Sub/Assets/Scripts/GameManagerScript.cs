@@ -8,6 +8,7 @@ public class GameManagerScript : MonoBehaviour
     [SerializeField] MouseLook mouseLook;
     [SerializeField] PlayerMovement playerMovement;
     [SerializeField] CinemachineVirtualCamera virtualCamera;
+    private bool isRespawningStage = false;
     public SaveManager saveManager;
     public int savedStageId;
 
@@ -22,6 +23,16 @@ public class GameManagerScript : MonoBehaviour
         }
 
         ResumeGame();
+    }
+
+    public void SetRespawningStage(bool value)
+    {
+        isRespawningStage = value;
+    }
+
+    public bool GetIsRespawningStage()
+    {
+        return isRespawningStage;
     }
 
     public void PauseGame()

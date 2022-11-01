@@ -18,7 +18,7 @@ public class NPCController : MonoBehaviour, IInteractable
         playerActions.OnInteractedAction -= CheckInteracted;
     }
 
-    private void CheckInteracted(RaycastHit hit)
+    private void CheckInteracted(RaycastHit hit, bool val)
     {
         if (hit.transform == this.transform)
         {

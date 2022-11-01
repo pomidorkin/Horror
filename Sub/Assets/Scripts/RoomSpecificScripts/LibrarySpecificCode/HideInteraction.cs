@@ -80,7 +80,7 @@ public class HideInteraction : MonoBehaviour, IInteractable
         return interactionText;
     }
 
-    public void CheckInteracted(RaycastHit hit)
+    public void CheckInteracted(RaycastHit hit, bool val)
     {
         if (hit.transform == this.transform && interactable)
         {

@@ -10,14 +10,26 @@ public class MainSceneRespawnManager : MonoBehaviour, IRespawnManager
     [SerializeField] GameObject player;
     [SerializeField] GameManagerScript gameManager;
     [SerializeField] ScreamerLookTarget lookTarget;
+    [SerializeField] SegmentsParent segmentsParent;
+    [SerializeField] RoomManager roomManager;
+    private Segment centerSegment;
     public void Respawn(AiScreamerController enemy)
     {
+        centerSegment = segmentsParent.FindMiddleSegment();
+        roomManager.DespawnAllRooms();
+        gameManager.SetRespawningStage(true);
+
         // TODO: Set respawnRoom position to the middle coridor segment
         // Play dying & waking up animation
         // Собака глючит при повторной встрече
         gameManager.DisablePlayerActions();
         respawnRoom.SpawnRoom(true);
-        player.transform.position = respawnRoom.transform.position; // Create a spawning position
+        if (centerSegment.GetComponentInChildren<Door>().IsRightDoor())
+        {
+            respawnRoom.transform.eulerAngles = new Vector3(0, -180, 0);
+        }
+        respawnRoom.transform.position = centerSegment.GetComponentInChildren<Door>().GetRoomPosition().position;
+        player.transform.position = new Vector3(respawnRoom.transform.position.x, respawnRoom.transform.position.y, respawnRoom.transform.position.z -2f); // Create a spawning position
         enemy.gameObject.GetComponent<AiAgent>().stateMachine.ChangeState(AiStateId.Idle);
         enemy.gameObject.GetComponent<AiAgent>().noticedPlayer = false;
         enemy.gameObject.GetComponent<AiSensor>().enabled = true; // Not going to work with the blind enemy and other types of enemies
