@@ -6,14 +6,16 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class AiSensor : MonoBehaviour
 {
-    public float distance = 10.0f;
-    public float angle = 30.0f;
-    public float height = 1.0f;
+    public float distance = 16.0f;
+    public float angle = 20.0f;
+    public float height = 5.0f;
     public Color meshColor = Color.red;
     public int scanFrequency = 30;
     public LayerMask layers;
     public LayerMask occlusionLayers;
     [SerializeField] Animator animator;
+
+    [SerializeField] GameObject enemyCopy;
     //[SerializeField] AiAgent agent; // MY_TEST
     public List<GameObject> Objects
     {
@@ -104,6 +106,11 @@ public class AiSensor : MonoBehaviour
                 {
                     this.GetComponent<AiAgent>().stateMachine.ChangeState(AiStateId.ChasePlayer);
                 }
+
+                if (this.GetComponent<AiAgent>().enemyType != AiAgent.EnemyType.Wanderer)
+                {
+                    enemyCopy.SetActive(false);
+                }
                 animator.SetBool("Follow", true);
                 this.GetComponent<AiAgent>().noticedPlayer = true;
             }
@@ -114,6 +121,12 @@ public class AiSensor : MonoBehaviour
         // END_MY_TEST
 
         return true;
+    }
+
+    public void EnableSecondEnemy()
+    {
+        Debug.Log("EnableSecondEnemy");
+        enemyCopy.SetActive(true);
     }
 
     Mesh CreateWedgeMesh()
