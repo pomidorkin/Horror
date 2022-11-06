@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class SavingData
 {
-    public bool firstStart = false;
+    public bool firstStart = true;
     public int currentStage = 0;
 
 }

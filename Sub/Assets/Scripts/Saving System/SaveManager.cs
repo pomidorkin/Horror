@@ -42,16 +42,21 @@ public class SaveManager : MonoBehaviour
 
     private void Awake()
     {
-        saveFileName = Application.persistentDataPath + "/saveData.ss";
+        //saveFileName = Application.persistentDataPath + "/saveData.ss";
         formatter = new BinaryFormatter();
         DontDestroyOnLoad(this.gameObject);
 
-        if (loadOnStart)
+        /*if (loadOnStart)
         {
             Load();
-        }
+        }*/
 
-        Debug.Log(Application.persistentDataPath + "/saveData.ss");
+        //Debug.Log(Application.persistentDataPath + "/saveData.ss");
+    }
+
+    public void SetSaveFileName(string newSaveFileName)
+    {
+        saveFileName = newSaveFileName;
     }
 
     public void Save()
@@ -85,5 +90,30 @@ public class SaveManager : MonoBehaviour
             // Function Save(); saves the inventory or creates a new one
             Save();
         }
+    }
+
+    public void Load(string loadFileName)
+    {
+
+        try
+        {
+            // Open a physical file on your disk to hold te save
+            var file = new FileStream(loadFileName, FileMode.Open, FileAccess.Read);
+            // If we found the file, open and read it
+            State = (SavingData)formatter.Deserialize(file);
+            file.Close();
+        }
+        catch
+        {
+
+            Debug.Log("No save fie found, creating a new entry...");
+            // Function Save(); saves the inventory or creates a new one
+            Save();
+        }
+    }
+
+    public string GetSaveFileName()
+    {
+        return saveFileName;
     }
 }

@@ -56,6 +56,7 @@ public class StageManager : MonoBehaviour
 
     private void UpdateAndSaveStage()
     {
+        gameManager.saveManager.State.firstStart = false;
         gameManager.saveManager.State.currentStage = currentStageId;
         gameManager.saveManager.Save();
     }

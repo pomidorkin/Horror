@@ -16,7 +16,7 @@ public class GameManagerScript : MonoBehaviour
     private void OnEnable()
     {
         saveManager = SaveManager.Instance;
-        SaveManager.Instance.Load();
+        SaveManager.Instance.Load(saveManager.GetSaveFileName());
         if (!saveManager.State.firstStart)
         {
             savedStageId = saveManager.State.currentStage;
