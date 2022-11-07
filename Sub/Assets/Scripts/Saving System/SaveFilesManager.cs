@@ -12,6 +12,8 @@ public class SaveFilesManager : MonoBehaviour
     [SerializeField] SaveManager saveManager;
     [SerializeField] TMP_Dropdown dropdown;
     [SerializeField] Button loadButton;
+    [SerializeField] Button deleteButton;
+    [SerializeField] ConfirmationWindow confirmationWindow;
     private string path;
     private DirectoryInfo info;
     private FileInfo[] fileInfos;
@@ -20,6 +22,9 @@ public class SaveFilesManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        confirmationWindow.yesButton.onClick.AddListener(ConfirmatinYesClicked);
+        confirmationWindow.noButton.onClick.AddListener(ConfirmatinNoClicked);
+
         saveFileNames = new List<string>();
         filenameDictionary = new Dictionary<string, string>();
 
@@ -40,6 +45,7 @@ public class SaveFilesManager : MonoBehaviour
         fileInfos = null;
         saveFileNames.Clear();
         filenameDictionary.Clear();
+        dropdown.ClearOptions();
         fileInfos = info.GetFiles();
         if (fileInfos.Length > 0)
         {
@@ -54,6 +60,7 @@ public class SaveFilesManager : MonoBehaviour
             saveFileNames.Add("Empty");
             dropdown.interactable = false;
             loadButton.interactable = false;
+            deleteButton.interactable = false;
         }
 
         dropdown.AddOptions(saveFileNames);
@@ -88,8 +95,31 @@ public class SaveFilesManager : MonoBehaviour
 
     public void DeleteSavingFile()
     {
-        File.Delete(Application.persistentDataPath + "/savings/" + filenameDictionary[dropdown.captionText.text]);
+        OpenConfirmationWindow("Are you sure you want to delete saving \"" + dropdown.captionText.text + "\"?");
+        // ...
+        /*File.Delete(Application.persistentDataPath + "/savings/" + filenameDictionary[dropdown.captionText.text]);
         dropdown.ClearOptions();
+        ResetDropdown();*/
+    }
+
+    private void OpenConfirmationWindow(string message)
+    {
+        confirmationWindow.gameObject.SetActive(true);
+        confirmationWindow.messageText.text = message;
+        
+    }
+
+    private void ConfirmatinYesClicked()
+    {
+        confirmationWindow.gameObject.SetActive(false);
+        File.Delete(Application.persistentDataPath + "/savings/" + filenameDictionary[dropdown.captionText.text]);
+        Debug.Log("Deletenig file: " + filenameDictionary[dropdown.captionText.text]);
+        //dropdown.ClearOptions();
         ResetDropdown();
+    }
+
+    private void ConfirmatinNoClicked()
+    {
+        confirmationWindow.gameObject.SetActive(false);
     }
 }
