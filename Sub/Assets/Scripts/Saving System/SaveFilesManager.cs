@@ -16,10 +16,12 @@ public class SaveFilesManager : MonoBehaviour
     private DirectoryInfo info;
     private FileInfo[] fileInfos;
     private List<string> saveFileNames;
+    private Dictionary<string, string> filenameDictionary;
     // Start is called before the first frame update
     void Start()
     {
         saveFileNames = new List<string>();
+        filenameDictionary = new Dictionary<string, string>();
 
         if (!Directory.Exists(Application.persistentDataPath + "/savings/"))
         {
@@ -37,14 +39,14 @@ public class SaveFilesManager : MonoBehaviour
         info = new DirectoryInfo(path);
         fileInfos = null;
         saveFileNames.Clear();
+        filenameDictionary.Clear();
         fileInfos = info.GetFiles();
         if (fileInfos.Length > 0)
         {
             foreach (FileInfo item in fileInfos)
             {
-                saveFileNames.Add(item.Name);
-                //saveFileNames.Add(DateTime.FromFileTimeUtc());
-                Debug.Log(item.Name);
+                saveFileNames.Add(FilenameToStringConverter(item.Name));
+                filenameDictionary.Add(FilenameToStringConverter(item.Name), item.Name);
             }
         }
         else
@@ -57,6 +59,11 @@ public class SaveFilesManager : MonoBehaviour
         dropdown.AddOptions(saveFileNames);
     }
 
+    private string FilenameToStringConverter(string filename)
+    {
+        return DateTime.FromFileTimeUtc(Convert.ToInt64(filename.Remove(filename.Length - 3))).ToString();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -65,10 +72,7 @@ public class SaveFilesManager : MonoBehaviour
 
     public void LoadGame()
     {
-        saveManager.SetSaveFileName(Application.persistentDataPath + "/savings/" + dropdown.captionText.text);
-        //saveManager.Load(dropdown.captionText.text);
-
-
+        saveManager.SetSaveFileName(Application.persistentDataPath + "/savings/" + filenameDictionary[dropdown.captionText.text]);
         SceneManager.LoadScene(0);
         
     }
@@ -76,6 +80,7 @@ public class SaveFilesManager : MonoBehaviour
     public void NewGame()
     {
         saveManager.SetSaveFileName(Application.persistentDataPath + "/savings/" + DateTime.Now.ToFileTime() + ".ss");
+        
         //saveManager.Load(dropdown.captionText.text);
 
         SceneManager.LoadScene(0);
@@ -83,7 +88,7 @@ public class SaveFilesManager : MonoBehaviour
 
     public void DeleteSavingFile()
     {
-        File.Delete(Application.persistentDataPath + "/savings/" + dropdown.captionText.text);
+        File.Delete(Application.persistentDataPath + "/savings/" + filenameDictionary[dropdown.captionText.text]);
         dropdown.ClearOptions();
         ResetDropdown();
     }
