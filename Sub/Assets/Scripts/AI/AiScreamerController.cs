@@ -37,6 +37,7 @@ public class AiScreamerController : MonoBehaviour
         }
         animator.SetTrigger("JumpscareActivate");
         // TEST
+        respawnManager.GetComponent<IRespawnManager>().PlayRespawnUIAnim();
         StartCoroutine(Respawn());
     }
 

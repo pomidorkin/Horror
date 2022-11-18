@@ -6,4 +6,5 @@ using System;
 interface IRespawnManager
 {
     void Respawn(AiScreamerController enemy);
+    void PlayRespawnUIAnim();
 }

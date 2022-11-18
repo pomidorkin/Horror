@@ -15,9 +15,12 @@ public class MainSceneRespawnManager : MonoBehaviour, IRespawnManager
     [SerializeField] RespawnEvenrBroadcaster respawnEvenrBroadcaster;
     private Segment centerSegment;
 
+    [SerializeField] GameObject respawnUI;
+    [SerializeField] GameObject WakeUPUI;
+    //[SerializeField] Animator WakeUpUIAnimator;
+
     public void Respawn(AiScreamerController enemy)
     {
-
         // Rooms
         centerSegment = segmentsParent.FindMiddleSegment();
         roomManager.DespawnAllRooms();
@@ -45,7 +48,32 @@ public class MainSceneRespawnManager : MonoBehaviour, IRespawnManager
         enemy.animator.SetBool("Reset", true); // Тут тоже какая-то хуета
         respawnEvenrBroadcaster.InvokeRespawnAction();
 
+        //StartCoroutine(EnablePlayerActions());
+        PlayWakeUPAnim();
+
+        respawnUI.SetActive(false);
+    }
+
+    public void PlayRespawnUIAnim()
+    {
+        // UI TEST
+        respawnUI.SetActive(true);
+        // END UI TEST
+    }
+
+    private void PlayWakeUPAnim()
+    {
+        WakeUPUI.SetActive(true);
+        StartCoroutine(WakeUpCoroutine());
+
+    }
+
+    private IEnumerator WakeUpCoroutine()
+    {
+        // По хорошему не корутиной делать, а ивентом из анимации
+        yield return new WaitForSeconds(1);
         StartCoroutine(EnablePlayerActions());
+        WakeUPUI.SetActive(false);
     }
 
     private IEnumerator EnablePlayerActions()
