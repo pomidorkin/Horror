@@ -13,6 +13,7 @@ public class MainSceneRespawnManager : MonoBehaviour, IRespawnManager
     [SerializeField] SegmentsParent segmentsParent;
     [SerializeField] RoomManager roomManager;
     [SerializeField] RespawnEvenrBroadcaster respawnEvenrBroadcaster;
+    [SerializeField] Transform respawnPosition;
     private Segment centerSegment;
 
     [SerializeField] GameObject respawnUI;
@@ -38,7 +39,8 @@ public class MainSceneRespawnManager : MonoBehaviour, IRespawnManager
             respawnRoom.transform.eulerAngles = new Vector3(0, -180, 0);
         }
         respawnRoom.transform.position = centerSegment.GetComponentInChildren<Door>().GetRoomPosition().position;
-        player.transform.position = new Vector3(respawnRoom.transform.position.x, respawnRoom.transform.position.y, respawnRoom.transform.position.z -2f); // Create a spawning position
+        //player.transform.position = new Vector3(respawnRoom.transform.position.x, respawnRoom.transform.position.y, respawnRoom.transform.position.z -2f); // Create a spawning position
+        player.transform.position = respawnPosition.position;
 
         // Enemies
         enemy.gameObject.GetComponent<AiAgent>().stateMachine.ChangeState(AiStateId.Idle);
@@ -49,6 +51,8 @@ public class MainSceneRespawnManager : MonoBehaviour, IRespawnManager
         respawnEvenrBroadcaster.InvokeRespawnAction();
 
         //StartCoroutine(EnablePlayerActions());
+        lookTarget.Respawn();
+        player.transform.rotation = respawnPosition.rotation;
         PlayWakeUPAnim();
 
         respawnUI.SetActive(false);
@@ -80,6 +84,6 @@ public class MainSceneRespawnManager : MonoBehaviour, IRespawnManager
     {
         yield return new WaitForFixedUpdate();
         gameManager.EnablePlayerActionsAndDisableVirtualCamera();
-        lookTarget.Respawn();
+        //lookTarget.Respawn();
     }
 }

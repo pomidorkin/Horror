@@ -3320,6 +3320,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4771017598533834554, guid: be9da1315eb6f4043aaa4dd38242bf34, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4771017598533834556, guid: be9da1315eb6f4043aaa4dd38242bf34, type: 3}
       propertyPath: playerActions
       value: 
@@ -4411,7 +4415,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7416554824784097569, guid: e3491a938dc53e5488947dea66331027, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7416554824784097570, guid: e3491a938dc53e5488947dea66331027, type: 3}
       propertyPath: jumpScare
