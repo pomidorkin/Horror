@@ -7,8 +7,10 @@ public class AiChasePlayerScript : AiState
 {
     private float timer = 0.0f;
     private float sqrdJumpscareActivationDistance;
+    //private bool isStopped = false;
     public void Enter(AiAgent agent)
     {
+        agent.navMeshAgent.speed = agent.defaultSpeed;
         //sqrdJumpscareActivationDistance = (agent.navMeshAgent.stoppingDistance * agent.navMeshAgent.stoppingDistance) + 2f;
         sqrdJumpscareActivationDistance = agent.navMeshAgent.stoppingDistance + .5f;
     }
@@ -45,6 +47,13 @@ public class AiChasePlayerScript : AiState
             float distance = Vector3.Distance(agent.followObject.position, agent.gameObject.transform.position);
             if (sqrdJumpscareActivationDistance >= distance)
             {
+                agent.navMeshAgent.speed = 0;
+                agent.navMeshAgent.isStopped = true;
+                //agent.navMeshAgent.destination = agent.gameObject.transform.position; // TEST FOR STOPPING
+                //agent.navMeshAgent.isStopped = true;// TEST FOR STOPPING
+                //agent.navMeshAgent.enabled = false;
+                
+
                 agent.jumpScare.CameraLookControllerActivated(agent.targetLookPosition);
                 agent.followObject.GetComponent<PlayerManager>().SetPlayerScared(true);
             }

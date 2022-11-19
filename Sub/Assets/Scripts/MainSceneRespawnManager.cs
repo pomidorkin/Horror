@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Cinemachine;
 
 public class MainSceneRespawnManager : MonoBehaviour, IRespawnManager
 {
@@ -19,6 +17,11 @@ public class MainSceneRespawnManager : MonoBehaviour, IRespawnManager
     [SerializeField] GameObject respawnUI;
     [SerializeField] GameObject WakeUPUI;
     //[SerializeField] Animator WakeUpUIAnimator;
+
+    private void Start()
+    {
+        Respawn();
+    }
 
     public void Respawn(AiScreamerController enemy)
     {
@@ -43,8 +46,10 @@ public class MainSceneRespawnManager : MonoBehaviour, IRespawnManager
         player.transform.position = respawnPosition.position;
 
         // Enemies
-        enemy.gameObject.GetComponent<AiAgent>().stateMachine.ChangeState(AiStateId.Idle);
-        enemy.gameObject.GetComponent<AiAgent>().noticedPlayer = false;
+        AiAgent agent = enemy.gameObject.GetComponent<AiAgent>();
+        agent.stateMachine.ChangeState(AiStateId.Idle);
+        agent.noticedPlayer = false;
+        //enemy.gameObject.GetComponent<NavMeshAgent>().speed = agent.defaultSpeed;
         enemy.gameObject.GetComponent<AiSensor>().enabled = true; // Not going to work with the blind enemy and other types of enemies
         enemy.animator.SetBool("Follow", false);
         enemy.animator.SetBool("Reset", true); // Тут тоже какая-то хуета
@@ -52,6 +57,36 @@ public class MainSceneRespawnManager : MonoBehaviour, IRespawnManager
 
         //StartCoroutine(EnablePlayerActions());
         lookTarget.Respawn();
+        player.transform.rotation = respawnPosition.rotation;
+        PlayWakeUPAnim();
+
+        respawnUI.SetActive(false);
+    }
+
+    public void Respawn()
+    {
+        // Rooms
+        centerSegment = segmentsParent.FindMiddleSegment();
+        roomManager.DespawnAllRooms();
+        gameManager.SetRespawningStage(true);
+
+
+        // Play dying & waking up animation
+        // Собака глючит при повторной встрече
+        gameManager.DisablePlayerActions();
+        respawnRoom.SpawnRoom(true);
+
+        //Player
+        if (centerSegment.GetComponentInChildren<Door>().IsRightDoor())
+        {
+            respawnRoom.transform.eulerAngles = new Vector3(0, -180, 0);
+        }
+        respawnRoom.transform.position = centerSegment.GetComponentInChildren<Door>().GetRoomPosition().position;
+        player.transform.position = respawnPosition.position;
+        respawnEvenrBroadcaster.InvokeRespawnAction();
+
+        //StartCoroutine(EnablePlayerActions());
+        //lookTarget.Respawn();
         player.transform.rotation = respawnPosition.rotation;
         PlayWakeUPAnim();
 

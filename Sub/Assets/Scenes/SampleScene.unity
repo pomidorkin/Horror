@@ -6704,6 +6704,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2593315663351339480, guid: 82aa7b3ddc0122c4797b72b80439d27b, type: 3}
+      propertyPath: m_AutoBraking
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2593315663351339480, guid: 82aa7b3ddc0122c4797b72b80439d27b, type: 3}
+      propertyPath: m_Acceleration
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 2593315663351339483, guid: 82aa7b3ddc0122c4797b72b80439d27b, type: 3}
       propertyPath: jumpScare
       value: 
@@ -20453,6 +20461,14 @@ PrefabInstance:
     - target: {fileID: 2593315663319529875, guid: 82aa7b3ddc0122c4797b72b80439d27b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2593315663351339480, guid: 82aa7b3ddc0122c4797b72b80439d27b, type: 3}
+      propertyPath: m_AutoBraking
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2593315663351339480, guid: 82aa7b3ddc0122c4797b72b80439d27b, type: 3}
+      propertyPath: m_Acceleration
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2593315663351339483, guid: 82aa7b3ddc0122c4797b72b80439d27b, type: 3}
       propertyPath: jumpScare
