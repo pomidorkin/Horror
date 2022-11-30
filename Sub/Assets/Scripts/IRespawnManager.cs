@@ -7,4 +7,5 @@ interface IRespawnManager
 {
     void Respawn(AiScreamerController enemy);
     void PlayRespawnUIAnim();
+    void RespawnRoom();
 }

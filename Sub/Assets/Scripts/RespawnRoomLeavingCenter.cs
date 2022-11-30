@@ -11,9 +11,11 @@ public class RespawnRoomLeavingCenter : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            respawnRoom.SetActive(false);
             allDoorController.CloseAllDoors();
             gameManager.SetRespawningStage(false);
+            this.gameObject.SetActive(false);
+            respawnRoom.SetActive(false);
+            Debug.Log("RespawnRoomLeavingSensor Has Been Triggered");
         }
     }
 }

@@ -12,6 +12,10 @@ public class GameManagerScript : MonoBehaviour
     public SaveManager saveManager;
     public int savedStageId;
 
+    /*private void Update()
+    {
+        Debug.Log("isRespawningStage: " + isRespawningStage);
+    }*/
 
     private void OnEnable()
     {

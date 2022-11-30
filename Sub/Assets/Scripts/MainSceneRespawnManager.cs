@@ -5,6 +5,7 @@ public class MainSceneRespawnManager : MonoBehaviour, IRespawnManager
 {
     //[SerializeField] RoomManager roomManager;
     [SerializeField] RoomParent respawnRoom;
+    [SerializeField] GameObject respawnRoomLeavingSensor;
     [SerializeField] GameObject player;
     [SerializeField] GameManagerScript gameManager;
     [SerializeField] ScreamerLookTarget lookTarget;
@@ -12,6 +13,7 @@ public class MainSceneRespawnManager : MonoBehaviour, IRespawnManager
     [SerializeField] RoomManager roomManager;
     [SerializeField] RespawnEvenrBroadcaster respawnEvenrBroadcaster;
     [SerializeField] Transform respawnPosition;
+    [SerializeField] AllDoorController allDoorController;
     private Segment centerSegment;
 
     [SerializeField] GameObject respawnUI;
@@ -25,72 +27,41 @@ public class MainSceneRespawnManager : MonoBehaviour, IRespawnManager
 
     public void Respawn(AiScreamerController enemy)
     {
-        // Rooms
-        centerSegment = segmentsParent.FindMiddleSegment();
-        roomManager.DespawnAllRooms();
-        gameManager.SetRespawningStage(true);
-
-        
-        // Play dying & waking up animation
-        // Собака глючит при повторной встрече
-        gameManager.DisablePlayerActions();
-        respawnRoom.SpawnRoom(true);
-
-        //Player
-        if (centerSegment.GetComponentInChildren<Door>().IsRightDoor())
-        {
-            respawnRoom.transform.eulerAngles = new Vector3(0, -180, 0);
-        }
-        respawnRoom.transform.position = centerSegment.GetComponentInChildren<Door>().GetRoomPosition().position;
-        //player.transform.position = new Vector3(respawnRoom.transform.position.x, respawnRoom.transform.position.y, respawnRoom.transform.position.z -2f); // Create a spawning position
-        player.transform.position = respawnPosition.position;
+        // Respawn when the player dies
+        Respawn();
 
         // Enemies
         AiAgent agent = enemy.gameObject.GetComponent<AiAgent>();
         agent.stateMachine.ChangeState(AiStateId.Idle);
         agent.noticedPlayer = false;
-        //enemy.gameObject.GetComponent<NavMeshAgent>().speed = agent.defaultSpeed;
         enemy.gameObject.GetComponent<AiSensor>().enabled = true; // Not going to work with the blind enemy and other types of enemies
         enemy.animator.SetBool("Follow", false);
         enemy.animator.SetBool("Reset", true); // Тут тоже какая-то хуета
         respawnEvenrBroadcaster.InvokeRespawnAction();
 
-        //StartCoroutine(EnablePlayerActions());
         lookTarget.Respawn();
-        player.transform.rotation = respawnPosition.rotation;
-        PlayWakeUPAnim();
-
-        respawnUI.SetActive(false);
     }
 
     public void Respawn()
     {
-        // Rooms
+        // Respawn when the stage is started
+
         centerSegment = segmentsParent.FindMiddleSegment();
-        roomManager.DespawnAllRooms();
-        gameManager.SetRespawningStage(true);
-
-
-        // Play dying & waking up animation
-        // Собака глючит при повторной встрече
         gameManager.DisablePlayerActions();
-        respawnRoom.SpawnRoom(true);
+        gameManager.SetRespawningStage(true);
+        allDoorController.CloseAllDoors();
+        roomManager.DespawnAllRooms();
+        respawnRoom.SpawnRespawnRoom();
 
-        //Player
-        if (centerSegment.GetComponentInChildren<Door>().IsRightDoor())
-        {
-            respawnRoom.transform.eulerAngles = new Vector3(0, -180, 0);
-        }
         respawnRoom.transform.position = centerSegment.GetComponentInChildren<Door>().GetRoomPosition().position;
+        respawnRoom.transform.eulerAngles = new Vector3(0, -180, 0);
+
         player.transform.position = respawnPosition.position;
-        respawnEvenrBroadcaster.InvokeRespawnAction();
-
-        //StartCoroutine(EnablePlayerActions());
-        //lookTarget.Respawn();
         player.transform.rotation = respawnPosition.rotation;
-        PlayWakeUPAnim();
 
-        respawnUI.SetActive(false);
+        StartCoroutine(RespawnRoomCoroutine());
+        
+        PlayWakeUPAnim();
     }
 
     public void PlayRespawnUIAnim()
@@ -102,6 +73,7 @@ public class MainSceneRespawnManager : MonoBehaviour, IRespawnManager
 
     private void PlayWakeUPAnim()
     {
+        respawnUI.SetActive(false);
         WakeUPUI.SetActive(true);
         StartCoroutine(WakeUpCoroutine());
 
@@ -119,6 +91,18 @@ public class MainSceneRespawnManager : MonoBehaviour, IRespawnManager
     {
         yield return new WaitForFixedUpdate();
         gameManager.EnablePlayerActionsAndDisableVirtualCamera();
-        //lookTarget.Respawn();
+    }
+
+
+
+    private IEnumerator RespawnRoomCoroutine()
+    {
+        yield return new WaitForFixedUpdate();
+        respawnRoomLeavingSensor.SetActive(true);
+    }
+
+    public void RespawnRoom()
+    {
+        respawnRoom.SpawnRespawnRoom();
     }
 }

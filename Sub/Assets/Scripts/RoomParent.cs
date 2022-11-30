@@ -6,7 +6,7 @@ public class RoomParent : MonoBehaviour
 {
     [SerializeField] public Stage.StageType myStageType;
     [SerializeField] private StageManager stageManager;
-    [SerializeField] private GameObject childRoom;
+    [SerializeField] public GameObject childRoom;
     [SerializeField] private DoorManager doorManager;
     bool isRotated = false;
     private void OnEnable()
@@ -43,13 +43,31 @@ public class RoomParent : MonoBehaviour
 
     private void CheckChangedStage(object source, StageManager.StangeChangedActionEventArgs args)
     {
-        SpawnRoom(args.CurrentStage);
         Debug.Log("CheckChangedStage();");
+        SpawnRoom(args.CurrentStage);
     }
 
     public void SpawnRoom(Stage stage)
     {
-        if (stage.currentStage == myStageType)
+            Debug.Log("SpawnRoom");
+            if (stage.currentStage == myStageType)
+            {
+                childRoom.SetActive(true);
+            }
+            else
+            {
+                if (childRoom.activeInHierarchy)
+                {
+                    childRoom.SetActive(false);
+                }
+            }
+        
+    }
+
+    public void SpawnRespawnRoom()
+    {
+        Debug.Log("SpawnRespawnRoom");
+        /*if (myStageType == Stage.StageType.respawnStage)
         {
             childRoom.SetActive(true);
         }
@@ -59,9 +77,8 @@ public class RoomParent : MonoBehaviour
             {
                 childRoom.SetActive(false);
             }
-        }
-
-        Debug.Log("SpawnRoom(stage);");
+        }*/
+        childRoom.SetActive(true);
     }
 
     public void SpawnRoom(bool active)

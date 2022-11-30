@@ -20,19 +20,19 @@ public class RoomManager : MonoBehaviour
     }
     private void SpawnRoom(object source, DoorManager.DoorOpenedEventArgs args)
     {
-        foreach (RoomParent rp in parentRooms)
-        {
-
-            if (rp.myStageType == stageManager.currentStage.currentStage)
+            Debug.Log("SpawnRoom(); From RoomManager");
+            foreach (RoomParent rp in parentRooms)
             {
-                rp.SpawnRoom(true);
-            }
-            else
-            {
-                rp.SpawnRoom(false);
-            }
-        }
+                if (rp.myStageType == stageManager.currentStage.currentStage)
+                {
+                    rp.SpawnRoom(true);
+                }
+                else
+                {
+                    rp.SpawnRoom(false);
+                }
 
+            }
     }
 
     public void DespawnAllRooms()
