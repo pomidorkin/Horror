@@ -73,8 +73,8 @@ public class Door : MonoBehaviour, IInteractable
             isOpened = false;
             animator.Play("CloseAnimation");
             Debug.Log("CloseAnimation");
+            doorManager.stageManager.currentStage.stageGoal.CheckIfGoalIsReached(); // DECORATION STAGE
         }
-        
     }
 
     private void OnEnable()

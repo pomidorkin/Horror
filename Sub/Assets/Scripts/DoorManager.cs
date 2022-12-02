@@ -5,6 +5,8 @@ using System;
 
 public class DoorManager : MonoBehaviour
 {
+    [SerializeField] public StageManager stageManager;
+    [SerializeField] StageGoal stageGoal;
     public class DoorOpenedEventArgs : EventArgs
     {
         public Transform PositinToSpawnTheRoom { get; set; }

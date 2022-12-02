@@ -23,7 +23,13 @@ public class StageGoal
         Debug.Log("CheckIfGoalIsReached");
         // HERE WE HAVE TO DEFINE CONDITIONS THAT WOULD BE NEEDED TO REACH THE GOAL
 
-        if (stage.goalType == Stage.GoalType.amountGoal)
+        if (stage.stageLocationType == Stage.StageLocationType.decoration) // DECORATION STAGE
+        {
+            SetGoalsToDefault();
+            ReachTheGoal();
+        }
+        
+        else if (stage.goalType == Stage.GoalType.amountGoal)
         {
             if (stage.stageLocationType == Stage.StageLocationType.room)
             {
