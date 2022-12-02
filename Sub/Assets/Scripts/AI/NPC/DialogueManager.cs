@@ -15,6 +15,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] GameObject interactionText;
     [SerializeField] InputManager inputManager;
+    [SerializeField] Animator animator;
     private float radiusSqrd;
 
     void Start()
@@ -36,6 +37,7 @@ public class DialogueManager : MonoBehaviour
     {
         dialogueElement.SetActive(true);
         interactionText.SetActive(false);
+        animator.Play("DialogueOpen");
         currentDialogue = dialogue;
         currentDialogueTrigger = trigger;
         // Make Dialogue canvas element active
@@ -57,11 +59,20 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
+        animator.Play("DialogueClosed");
+        /*interactionText.SetActive(true);
+        currentDialogue.wasTalkedTo = true;
+        dialogueElement.SetActive(false);
+        inputManager.MakeMouseVisible(false);*/
+        // Make Dialogue canvas element inactive
+    }
+
+    public void HideDialogue()
+    {
         interactionText.SetActive(true);
         currentDialogue.wasTalkedTo = true;
         dialogueElement.SetActive(false);
         inputManager.MakeMouseVisible(false);
-        // Make Dialogue canvas element inactive
     }
 
     public void DisplayNextSentence()
@@ -73,8 +84,20 @@ public class DialogueManager : MonoBehaviour
         }
 
         string sentence = sentences.Dequeue();
-        dialogueText.text = sentence;
+        //dialogueText.text = sentence;
+        StopAllCoroutines();
+        StartCoroutine(TypeSentence(sentence));
 
         Debug.Log(sentence);
+    }
+
+    private IEnumerator TypeSentence (string sentence)
+    {
+        dialogueText.text = "";
+        foreach (char letter in sentence.ToCharArray())
+        {
+            dialogueText.text += letter;
+            yield return null;
+        }
     }
 }

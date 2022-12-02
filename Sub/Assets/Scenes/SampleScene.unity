@@ -5975,6 +5975,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 745583380}
+  - component: {fileID: 745583381}
+  - component: {fileID: 745583382}
   m_Layer: 5
   m_Name: DialogueMenu
   m_TagString: Untagged
@@ -6001,9 +6003,42 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00099182, y: -0.00061321}
+  m_AnchoredPosition: {x: 0, y: -548}
   m_SizeDelta: {x: 902.8, y: 407.6}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &745583381
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745583379}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9e08ae33f5a828a46aae400a401b2270, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &745583382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745583379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7c7684dd1071744b8e3a6aa654ecb31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueManager: {fileID: 1007196115}
 --- !u!4 &746741445 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4850563503459104, guid: e4459095f8919e54bbbdaa5a802340ba, type: 3}
@@ -9433,6 +9468,7 @@ MonoBehaviour:
   player: {fileID: 1028167397}
   interactionText: {fileID: 725129916}
   inputManager: {fileID: 1240661131}
+  animator: {fileID: 745583381}
 --- !u!4 &1007196116
 Transform:
   m_ObjectHideFlags: 0

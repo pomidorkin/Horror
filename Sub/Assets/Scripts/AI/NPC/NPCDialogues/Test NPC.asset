@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf820371f8cba2f4880edd0cca3d669a, type: 3}
   m_Name: Test NPC
   m_EditorClassIdentifier: 
-  wasTalkedTo: 0
+  wasTalkedTo: 1
   NPCName: Rick
   sentences:
   - Hey!
