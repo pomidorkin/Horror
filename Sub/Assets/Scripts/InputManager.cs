@@ -22,6 +22,27 @@ public class InputManager : MonoBehaviour
 
     }
 
+    public void MakeMouseVisible(bool value)
+    {
+        LockPlayerMovement(!value);
+        if (value)
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        Cursor.visible = value;
+    }
+
+    private void LockPlayerMovement(bool value)
+    {
+        playerActions.EnableInputActions(value);
+        mouseLook.EnableInputActions(value);
+        playerMovement.EnablePlayerMovement(value);
+    }
+
     public PlyerInputActions GetPlayerInputActions()
     {
         return plyerInputActions;

@@ -113,6 +113,11 @@ public class PlayerMovement : MonoBehaviour
         canMove = true;
     }
 
+    public void EnablePlayerMovement(bool value)
+    {
+        canMove = value;
+    }
+
     private void Start()
     {
         StepRandom = Random.Range(0f, 0.5f);        // 'Step Random' now holds a value. It could be anywhere between 0 and 0.5.

@@ -14,6 +14,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] float radius = 3f;
     [SerializeField] GameObject player;
     [SerializeField] GameObject interactionText;
+    [SerializeField] InputManager inputManager;
     private float radiusSqrd;
 
     void Start()
@@ -59,6 +60,7 @@ public class DialogueManager : MonoBehaviour
         interactionText.SetActive(true);
         currentDialogue.wasTalkedTo = true;
         dialogueElement.SetActive(false);
+        inputManager.MakeMouseVisible(false);
         // Make Dialogue canvas element inactive
     }
 
