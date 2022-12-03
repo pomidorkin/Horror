@@ -11,6 +11,7 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] private float playerInteractDistance = 3f;
     [SerializeField] private GameObject dialogueElement;
     [SerializeField] GameManagerScript gameManager;
+    public GameObject lastLookedAtObject = null;
     bool active = false;
     PlyerInputActions plyerInputActions;
     RaycastHit hit;
@@ -70,7 +71,6 @@ public class PlayerActions : MonoBehaviour
             promptText.gameObject.SetActive(false);
             promptText.text = "";
             isPromptTextActive = false;
-            
         }
 
         else if (active && isPromptTextActive && (hit.transform.GetComponent<IInteractable>() == null))
@@ -79,6 +79,11 @@ public class PlayerActions : MonoBehaviour
             promptText.text = "";
             isPromptTextActive = false;
 
+        }
+
+        if (active && lastLookedAtObject != hit.transform.gameObject)
+        {
+            lastLookedAtObject = hit.transform.gameObject;
         }
 
     }
