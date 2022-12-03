@@ -5006,6 +5006,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CorridorSegmentDecorated (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8711617005729607535, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: allDoorController
+      value: 
+      objectReference: {fileID: 1072533455}
     - target: {fileID: 9060180853541588608, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
       propertyPath: doorManager
       value: 
@@ -15805,6 +15809,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CorridorSegmentDecorated (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8711617005729607535, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: allDoorController
+      value: 
+      objectReference: {fileID: 1072533455}
     - target: {fileID: 9060180853541588608, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
       propertyPath: doorManager
       value: 
@@ -17417,6 +17425,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CorridorSegmentDecorated (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8711617005729607535, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: allDoorController
+      value: 
+      objectReference: {fileID: 1072533455}
     - target: {fileID: 9060180853541588608, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
       propertyPath: doorManager
       value: 
@@ -17862,6 +17874,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CorridorSegmentDecorated (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8711617005729607535, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: allDoorController
+      value: 
+      objectReference: {fileID: 1072533455}
     - target: {fileID: 9060180853541588608, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
       propertyPath: doorManager
       value: 

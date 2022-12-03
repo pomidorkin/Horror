@@ -1302,6 +1302,10 @@ MonoBehaviour:
   myDoors:
   - {fileID: 241010987}
   - {fileID: 224900412}
+  - {fileID: 3063239531200275914}
+  - {fileID: 5797429735765324022}
+  - {fileID: 9060180853541588608}
+  - {fileID: 3648590282868773182}
 --- !u!1 &8711617004889259267
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Segment : MonoBehaviour
 {
     [SerializeField] GameObject[] segmentDecorations;
+    //[SerializeField] AllDoorController allDoorController;
     [SerializeField] CorridorLightSource[] lamps;
     [SerializeField] Door[] myDoors;
     public void ChangePosition(Vector3 newPosition)
@@ -12,6 +13,7 @@ public class Segment : MonoBehaviour
         transform.position = newPosition;
         SpawnRandomDecoration();
         LampFlickerTriggerRandom();
+        //allDoorController.CloseAllDoors();
         CloseMyDoors();
     }
 
