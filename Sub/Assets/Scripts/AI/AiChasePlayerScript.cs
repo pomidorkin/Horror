@@ -54,7 +54,7 @@ public class AiChasePlayerScript : AiState
                 //agent.navMeshAgent.enabled = false;
                 
 
-                agent.jumpScare.CameraLookControllerActivated(agent.targetLookPosition);
+                agent.jumpScare.CameraLookControllerActivated(agent.targetLookPosition, agent.gameObject);
                 agent.followObject.GetComponent<PlayerManager>().SetPlayerScared(true);
             }
                 

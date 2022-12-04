@@ -22,7 +22,15 @@ public class AiScreamerController : MonoBehaviour
 
     private void PlayJumpscareANimAndSound(object source, CameraLookController.CameraLookControllerEventArgs args)
     {
-        PlayJumpscareAnim();
+        if (args.TriggerEnemy == this.gameObject)
+        {
+            PlayJumpscareAnim();
+        }
+        else
+        {
+            // If another enemy has played the jumpscare anim, but it's not me
+            // For example, set to idle animation state
+        }
         // TODO: Play scary sound
         
     }
@@ -36,7 +44,6 @@ public class AiScreamerController : MonoBehaviour
             agent.modelRotator.transform.rotation = Quaternion.Euler(0,-90,0);
         }
         animator.SetTrigger("JumpscareActivate");
-        // TEST
         respawnManager.GetComponent<IRespawnManager>().PlayRespawnUIAnim();
         StartCoroutine(Respawn());
     }
