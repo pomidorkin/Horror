@@ -39,7 +39,7 @@ public class StageManager : MonoBehaviour
 
             // Saving_Test
             currentStage = stages[gameManager.saveManager.State.currentStage];
-            InvokeStageCheck(stages[gameManager.savedStageId]);
+            //InvokeStageCheck(stages[gameManager.savedStageId]);
         }
         else
         {
@@ -58,7 +58,10 @@ public class StageManager : MonoBehaviour
     {
         gameManager.saveManager.State.firstStart = false;
         gameManager.saveManager.State.currentStage = currentStageId;
-        gameManager.saveManager.Save();
+        if (currentStage.stageLocationType != Stage.StageLocationType.corridor && currentStage.stageLocationType != Stage.StageLocationType.decoration)
+        {
+            gameManager.saveManager.Save();
+        }
     }
 
     private void GoToNextStage()

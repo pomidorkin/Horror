@@ -34,6 +34,14 @@ public class GetFMODSpectrumData : MonoBehaviour
         _samples = new float[_windowSize];
     }
 
+    private void OnDisable()
+    {
+        for (int i = 0; i < 8; i++)
+        {
+            bandBuffer[i] = 0;
+        }
+    }
+
     private void PrepareFMODeventInstance()
     {
         _event = FMODUnity.RuntimeManager.CreateInstance(_eventPath);
