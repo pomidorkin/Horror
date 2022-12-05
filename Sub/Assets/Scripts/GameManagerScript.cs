@@ -67,6 +67,7 @@ public class GameManagerScript : MonoBehaviour
     {
         virtualCamera.gameObject.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         mouseLook.EnableCameraMovement();
         playerMovement.EnablePlayerMovement();
         // TODO: resetSpherePosition
