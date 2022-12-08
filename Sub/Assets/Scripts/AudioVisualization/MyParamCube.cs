@@ -8,26 +8,47 @@ public class MyParamCube : MonoBehaviour
     [SerializeField] [Range(0f, 10f)] float animTriggerValue = 1.6f;
     private PlayerActions playerActions;
     private Door myChildDoor;
-    private GameManagerScript gameManager;
+    /*private GameManagerScript gameManager;
     float elapsedTime;
-    float timeLimit = 0.1f;
+    float timeLimit = 0.1f;*/
+
+    private AudioVisualizerManager audioVisualizerManager;
+    private void OnEnable()
+    {
+        audioVisualizerManager = FindObjectOfType<AudioVisualizerManager>();
+        audioVisualizerManager.OnPeakReachedAction += PeakReachedHandler;
+    }
+
+    private void OnDisable()
+    {
+        audioVisualizerManager.OnPeakReachedAction -= PeakReachedHandler;
+    }
+
     private void Start()
     {
         playerActions = FindObjectOfType<PlayerActions>();
         myChildDoor = GetComponentInChildren<Door>();
-        gameManager = FindObjectOfType<GameManagerScript>();
+        //gameManager = FindObjectOfType<GameManagerScript>();
     }
-    void Update()
+
+    private void PeakReachedHandler()
     {
-        elapsedTime += Time.deltaTime;
-        /*if (AudioPeer.bandBuffer[band] > animTriggerValue)
+        if (playerActions.lastLookedAtObject != myChildDoor.gameObject)
         {
             gameObject.GetComponent<Animator>().Play("SlammAnimation");
-        }*/
+        }
+    }
+    /*void Update()
+    {
+        elapsedTime += Time.deltaTime;
+        *//*if (AudioPeer.bandBuffer[band] > animTriggerValue)
+        {
+            gameObject.GetComponent<Animator>().Play("SlammAnimation");
+        }*//*
         if ( elapsedTime >= timeLimit && GetFMODSpectrumData.bandBuffer[band] > animTriggerValue && playerActions.lastLookedAtObject != myChildDoor.gameObject && !gameManager.GetIsRespawningStage())
         {
             elapsedTime = 0;
             gameObject.GetComponent<Animator>().Play("SlammAnimation");
         }
-    }
+    }*/
 }
