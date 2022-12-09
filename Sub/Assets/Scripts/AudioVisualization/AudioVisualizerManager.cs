@@ -14,7 +14,6 @@ public class AudioVisualizerManager : MonoBehaviour
 
     public delegate void PeakReachedAction();
     public event PeakReachedAction OnPeakReachedAction;
-
     private void Start()
     {
         gameManager = FindObjectOfType<GameManagerScript>();
@@ -22,19 +21,17 @@ public class AudioVisualizerManager : MonoBehaviour
     void Update()
     {
         elapsedTime += Time.deltaTime;
-        /*if (AudioPeer.bandBuffer[band] > animTriggerValue)
-        {
-            gameObject.GetComponent<Animator>().Play("SlammAnimation");
-        }*/
-
-        
 
         if (elapsedTime >= timeLimit && GetFMODSpectrumData.bandBuffer[band] > animTriggerValue && !gameManager.GetIsRespawningStage())
         {
             elapsedTime = 0;
             OnPeakReachedAction();
-            //MMFeedbacks.PlayFeedbacks();
             Debug.Log("AudioVisualizerManager triggered");
         }
+    }
+
+    public void RaiseDoorSlammedEvent()
+    {
+        MMFeedbacks.PlayFeedbacks();
     }
 }

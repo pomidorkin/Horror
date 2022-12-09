@@ -8,6 +8,7 @@ public class MyParamCube : MonoBehaviour
     [SerializeField] [Range(0f, 10f)] float animTriggerValue = 1.6f;
     private PlayerActions playerActions;
     private Door myChildDoor;
+    [SerializeField] bool checker = false;
     /*private GameManagerScript gameManager;
     float elapsedTime;
     float timeLimit = 0.1f;*/
@@ -33,22 +34,25 @@ public class MyParamCube : MonoBehaviour
 
     private void PeakReachedHandler()
     {
-        if (playerActions.lastLookedAtObject != myChildDoor.gameObject)
+        if (!checker)
+        {
+            if (playerActions.lastLookedAtObject != myChildDoor.gameObject)
+            {
+                gameObject.GetComponent<Animator>().Play("SlammAnimation");
+            }
+        }
+        else
         {
             gameObject.GetComponent<Animator>().Play("SlammAnimation");
+        }
+        
+    }
+
+    public void SlamAnimationPlayed()
+    {
+        if (checker)
+        {
+            audioVisualizerManager.RaiseDoorSlammedEvent();
         }
     }
-    /*void Update()
-    {
-        elapsedTime += Time.deltaTime;
-        *//*if (AudioPeer.bandBuffer[band] > animTriggerValue)
-        {
-            gameObject.GetComponent<Animator>().Play("SlammAnimation");
-        }*//*
-        if ( elapsedTime >= timeLimit && GetFMODSpectrumData.bandBuffer[band] > animTriggerValue && playerActions.lastLookedAtObject != myChildDoor.gameObject && !gameManager.GetIsRespawningStage())
-        {
-            elapsedTime = 0;
-            gameObject.GetComponent<Animator>().Play("SlammAnimation");
-        }
-    }*/
 }
