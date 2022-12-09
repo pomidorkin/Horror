@@ -5,6 +5,7 @@ using UnityEngine;
 public class Segment : MonoBehaviour
 {
     [SerializeField] GameObject[] segmentDecorations;
+    [SerializeField] GameObject[] staticDecorations;
     //[SerializeField] AllDoorController allDoorController;
     [SerializeField] CorridorLightSource[] lamps;
     [SerializeField] Door[] myDoors;
@@ -24,9 +25,19 @@ public class Segment : MonoBehaviour
             foreach (GameObject segmentDecoration in segmentDecorations)
             {
                 segmentDecoration.SetActive(false);
+
             }
 
-            segmentDecorations[Random.Range(0, segmentDecorations.Length)].SetActive(true);
+            foreach (GameObject staticDecoration in staticDecorations)
+            {
+                staticDecoration.SetActive(false);
+
+            }
+
+            int rng = Random.Range(0, segmentDecorations.Length);
+
+            segmentDecorations[rng].SetActive(true);
+            staticDecorations[rng].SetActive(true);
         }
     }
 
