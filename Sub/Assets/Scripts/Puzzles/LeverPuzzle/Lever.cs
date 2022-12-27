@@ -9,6 +9,7 @@ public class Lever : InteractionParent
     private Animator animator;
     public bool turnedDown = false;
     private bool firstLever = false;
+    [SerializeField] int leverPuzzleIndex;
 
     public Lever()
     {
@@ -17,28 +18,29 @@ public class Lever : InteractionParent
 
     private void Start()
     {
-        firstLever = leverPuzzle.levers[0] == this;
+        //firstLever = leverPuzzle.levers_1[0] == this;
+        firstLever = leverPuzzle.leversArray[leverPuzzleIndex][0] == this;
         animator = gameObject.GetComponentInChildren<Animator>();
     }
 
     public override void ActivateInteractable()
     {
         Debug.Log("ActivateInteractable");
-        if (!leverPuzzle.solved)
+        if (!leverPuzzle.solved[leverPuzzleIndex])
         {
             if (!turnedDown)
             {
                 if (firstLever)
                 {
-                    leverPuzzle.CloseAllLevers();
+                    leverPuzzle.CloseAllLevers(leverPuzzleIndex);
                 }
                 animator.Play("LeverOpenAnimation");
-                leverPuzzle.CheckCorrectLever(this);
+                leverPuzzle.CheckCorrectLever(this, leverPuzzleIndex);
                 turnedDown = true;
             }
             else
             {
-                //CloseLever();
+                CloseLever();
             }
             
         }
