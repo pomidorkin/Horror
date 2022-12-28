@@ -27,6 +27,7 @@ public class IndependentLeverController : MonoBehaviour
             {
                 solved = true;
                 // Puzzle solved
+                FindObjectOfType<StageManager>().currentStage.stageGoal.MarkAsInteracted();
             }
         }
     }

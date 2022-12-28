@@ -11,13 +11,16 @@ public class AiWanderState : AiState
     private int positionCounter = 0;
     public void Enter(AiAgent agent)
     {
+        agent.navMeshAgent.speed = 0.5f;
+        positionCounter = 0;
     }
 
     public void Exit(AiAgent agent)
     {
         // TODO: Change value here when you decide which animation to use
+        // TODO: Fix this logic. Speed changing code does not work
         agent.navMeshAgent.speed = 0.871f;
-        agent.navMeshAgent.stoppingDistance = 2f;
+        agent.navMeshAgent.stoppingDistance = 2f; // ???
     }
 
     public AiStateId GetId()
@@ -50,10 +53,11 @@ public class AiWanderState : AiState
     {
         if (agent.wanderType == AiAgent.WanderType.Predetermined)
         {
-            if (agent.navMeshAgent.remainingDistance < 0.1f || !agent.navMeshAgent.hasPath)
+            if (agent.navMeshAgent.remainingDistance < 0.1f /*|| !agent.navMeshAgent.hasPath*/)
             {
                 if (positionCounter < agent.followPositions.Length)
                 {
+                    Debug.Log("positionCounter: " + positionCounter);
                     agent.navMeshAgent.destination = agent.followPositions[positionCounter].position;
                     positionCounter++;
                 }

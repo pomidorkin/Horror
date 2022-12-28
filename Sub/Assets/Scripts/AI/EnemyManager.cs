@@ -6,9 +6,10 @@ using UnityEngine.AI;
 public class EnemyManager : MonoBehaviour
 {
     [SerializeField] GameObject enemy;
-    //private Vector3 initialSpawnPosition;
+    [SerializeField] bool isWanderer = false;
+    private Vector3 initialSpawnPosition;
     private Vector3 initialSpawnRotation;
-    [SerializeField ]private NavMeshAgent navMeshAgent;
+    [SerializeField] private NavMeshAgent navMeshAgent;
     [SerializeField] private RespawnEvenrBroadcaster respawnEvenrBroadcaster;
     [SerializeField] Transform[] respawnPositions;
     [SerializeField] AiSensor aiSensor;
@@ -19,17 +20,26 @@ public class EnemyManager : MonoBehaviour
 
         navMeshAgent.enabled = false;
         initialSpawnRotation = enemy.transform.eulerAngles;
+        initialSpawnPosition = enemy.transform.position;
         //if (enemy.transform.eulerAngles.y > 175)
-        if (initialSpawnRotation.y > 175)
+        if (!isWanderer)
         {
-            // Left enemy
-            enemy.transform.position = respawnPositions[1].position;
+            if (initialSpawnRotation.y > 175)
+            {
+                // Left enemy
+                enemy.transform.position = respawnPositions[1].position;
+            }
+            else
+            {
+                // Right Enemy
+                enemy.transform.position = respawnPositions[0].position;
+            }
         }
         else
         {
-            // Right Enemy
-            enemy.transform.position = respawnPositions[0].position;
+            enemy.transform.position = initialSpawnPosition;
         }
+        
         navMeshAgent.enabled = true;
     }
 
@@ -55,18 +65,25 @@ public class EnemyManager : MonoBehaviour
 
     public void RespawnEnemy()
     {
-        aiSensor.EnableSecondEnemy();
         Debug.Log("EnemyIsBeingRespawned");
         navMeshAgent.enabled = false;
-        if (enemy.transform.eulerAngles.y > 175)
+        if (!isWanderer)
         {
-            // Left enemy
-            enemy.transform.position = respawnPositions[1].position;
+            aiSensor.EnableSecondEnemy();
+            if (enemy.transform.eulerAngles.y > 175)
+            {
+                // Left enemy
+                enemy.transform.position = respawnPositions[1].position;
+            }
+            else
+            {
+                // Right Enemy
+                enemy.transform.position = respawnPositions[0].position;
+            }
         }
         else
         {
-            // Right Enemy
-            enemy.transform.position = respawnPositions[0].position;
+            enemy.transform.position = initialSpawnPosition;
         }
         //enemy.transform.position = initialSpawnPosition;
         enemy.transform.eulerAngles = initialSpawnRotation;

@@ -69,4 +69,9 @@ public class AiAgent : MonoBehaviour
         transitionAnimationCompleted = value == 1 ? true : false;
         Debug.Log("SetTransitionAnimationCompleted");
     }
+
+    public void SetSpeedToDefault()
+    {
+        navMeshAgent.speed = defaultSpeed;
+    }
 }
