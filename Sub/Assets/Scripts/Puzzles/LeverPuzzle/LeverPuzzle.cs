@@ -48,6 +48,7 @@ public class LeverPuzzle : MonoBehaviour
                             break;
                         case 1:
                             Debug.Log("secod sequence worked out");
+                            // Open door 2 and start moving the cealing
                             break;
                         default:
                             // code block
@@ -79,5 +80,16 @@ public class LeverPuzzle : MonoBehaviour
                 _lever.CloseLever();
             }
         }
+    }
+
+    public void ResetPuzzle()
+    {
+        nextLever = 0;
+        for (int i = 0; i < leversArray.GetLength(0); i++)
+        {
+            solved[i] = false;
+            CloseAllLevers(i);
+        }
+        // TODO: Reset doors
     }
 }

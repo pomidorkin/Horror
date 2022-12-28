@@ -21043,6 +21043,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movingSpeed: -0.1
+  respawnManager: {fileID: 86940314}
+  roomLeavingSensor: {fileID: 3157405490410814608}
+  roomEnteringSensor: {fileID: 3157405491629199004}
+  leverPuzzle: {fileID: 685819365}
 --- !u!4 &1964103741 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4979240818478456, guid: 95fd9e3f69275a3439203b02ca33d782, type: 3}
