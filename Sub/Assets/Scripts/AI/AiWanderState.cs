@@ -18,9 +18,8 @@ public class AiWanderState : AiState
     public void Exit(AiAgent agent)
     {
         // TODO: Change value here when you decide which animation to use
-        // TODO: Fix this logic. Speed changing code does not work
-        agent.navMeshAgent.speed = 0.871f;
-        agent.navMeshAgent.stoppingDistance = 2f; // ???
+        agent.SetSpeed(0.871f);
+        agent.navMeshAgent.stoppingDistance = 2f;
     }
 
     public AiStateId GetId()

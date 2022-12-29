@@ -70,8 +70,8 @@ public class AiAgent : MonoBehaviour
         Debug.Log("SetTransitionAnimationCompleted");
     }
 
-    public void SetSpeedToDefault()
+    public void SetSpeed(float value)
     {
-        navMeshAgent.speed = defaultSpeed;
+        navMeshAgent.speed = value;
     }
 }

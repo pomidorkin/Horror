@@ -10,7 +10,10 @@ public class AiChasePlayerScript : AiState
     //private bool isStopped = false;
     public void Enter(AiAgent agent)
     {
-        agent.navMeshAgent.speed = agent.defaultSpeed;
+        if (agent.enemyType != AiAgent.EnemyType.Wanderer)
+        {
+            agent.navMeshAgent.speed = agent.defaultSpeed;
+        }
         //sqrdJumpscareActivationDistance = (agent.navMeshAgent.stoppingDistance * agent.navMeshAgent.stoppingDistance) + 2f;
         sqrdJumpscareActivationDistance = agent.navMeshAgent.stoppingDistance + .5f;
     }
