@@ -13,6 +13,9 @@ public class AiWanderState : AiState
     {
         agent.navMeshAgent.speed = 0.5f;
         positionCounter = 0;
+        // TODO: Somehow reset the target and movement anim
+        //agent.navMeshAgent.destination = agent.followPositions[positionCounter].position;
+        //positionCounter++;
     }
 
     public void Exit(AiAgent agent)
@@ -67,6 +70,10 @@ public class AiWanderState : AiState
                     positionCounter++;
                 }
 
+            }
+            else if (!agent.navMeshAgent.hasPath)
+            {
+                agent.navMeshAgent.destination = agent.followPositions[positionCounter].position;
             }
         }
         else

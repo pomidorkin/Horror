@@ -19,6 +19,8 @@ public class HideInteraction : MonoBehaviour, IInteractable
     [SerializeField] private GameObject lookAtSphere;
     [SerializeField] private GameObject exitActivateor;
 
+    [SerializeField] EventsBroadcaster eventsBroadcaster;
+
     protected bool interactable = true;
     protected string interactionText = "Hide";
 
@@ -51,6 +53,7 @@ public class HideInteraction : MonoBehaviour, IInteractable
         // Hide Character Mesh
         animator.Play("ShelfDoorOpeningAnimation");
         mouseLook.DisableCameraMovement();
+        eventsBroadcaster.HidePerformed();
     }
 
     public void OnAnimFinished()
