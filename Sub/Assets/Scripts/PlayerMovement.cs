@@ -270,4 +270,9 @@ public class PlayerMovement : MonoBehaviour
         }
         
     }
+
+    public bool GetIsPlayerGrounded()
+    {
+        return isGrounded;
+    }
 }
