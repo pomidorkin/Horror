@@ -12,6 +12,8 @@ public class Golem : MonoBehaviour
     [SerializeField] MainSceneRespawnManager respawnManager;
     [SerializeField] Transform[] respawnPositions;
     [SerializeField] private RespawnEvenrBroadcaster respawnEvenrBroadcaster;
+    [SerializeField] private bool isRight = false;
+    [SerializeField] GolemSensor golemSensor;
 
     // Attack logic
     [SerializeField] AnimationClip attackClip;
@@ -23,7 +25,9 @@ public class Golem : MonoBehaviour
 
     private void OnEnable()
     {
+        //animator.SetTrigger("Reset");
         //timeAndAnimDifference = notificationTime - attackClip.length;
+        golemSensor.enabled = true;
         respawnEvenrBroadcaster.OnRespawnTriggeredAction += RespawnEnemy;
         SetGolemsPositionToDefault();
     }
@@ -96,25 +100,38 @@ public class Golem : MonoBehaviour
         if (playerMovement.GetIsPlayerGrounded())
         {
             // Kill player & respawn self
+            animator.SetTrigger("Reset");
             Respawn();
         }
     }
 
     private void Respawn()
     {
-        SetEnemyCopyActive(true);
+        // It would be good to add a coroutine of some sort and an animation
+        
         respawnManager.Respawn();
+        SetEnemyCopyActive(true);
         // Set yourself to the enemyRespawn Position
     }
 
     private void RespawnEnemy()
     {
+        //SetEnemyCopyActive(true);
         SetGolemsPositionToDefault();
     }
 
     private void SetGolemsPositionToDefault()
     {
-        this.gameObject.transform.position = respawnPositions[1].position;
-        enemyCopy.gameObject.transform.position = respawnPositions[0].position;
+        if (isRight)
+        {
+            this.gameObject.transform.position = respawnPositions[1].position;
+            //enemyCopy.gameObject.transform.position = respawnPositions[0].position;
+        }
+        else
+        {
+            this.gameObject.transform.position = respawnPositions[0].position;
+            //enemyCopy.gameObject.transform.position = respawnPositions[1].position;
+        }
+        
     }
 }
