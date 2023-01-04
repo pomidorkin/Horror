@@ -94,29 +94,8 @@ public class GolemSensor : MonoBehaviour
                 golem.SetNoticedPlayer(true);
                 golem.SetEnemyCopyActive(false);
                 golem.animator.SetTrigger("NoticedPlayer");
-               /* if (this.GetComponent<AiAgent>().enemyType == AiAgent.EnemyType.Crabwalk)
-                {
-                    this.GetComponent<AiAgent>().stateMachine.ChangeState(AiStateId.Transition);
-                }
-                else if (this.GetComponent<AiAgent>().enemyType == AiAgent.EnemyType.EvilGirl)
-                {
-                    GetComponent<SpawnEffect>().DoFade(0f, 2f, 2f);
-                }
-                else
-                {
-                    this.GetComponent<AiAgent>().stateMachine.ChangeState(AiStateId.ChasePlayer);
-                }
-
-                if (this.GetComponent<AiAgent>().enemyType != AiAgent.EnemyType.Wanderer)
-                {
-                    golem.SetEnemyCopyActive(false);
-                }
-                //animator.SetBool("Follow", true);
-                this.GetComponent<AiAgent>().noticedPlayer = true;*/
             }
-
-            Debug.Log("Case Player State");
-            this.enabled = false;
+            //this.enabled = false;
         }
         // END_MY_TEST
 

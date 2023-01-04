@@ -2,10 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Golem : MonoBehaviour
 {
-    private bool noticedPlayer = false;
+    [SerializeField] private bool noticedPlayer = false;
     [SerializeField] GameObject enemyCopy;
     [SerializeField] public Animator animator;
     [SerializeField] PlayerMovement playerMovement;
@@ -14,6 +15,11 @@ public class Golem : MonoBehaviour
     [SerializeField] private RespawnEvenrBroadcaster respawnEvenrBroadcaster;
     [SerializeField] private bool isRight = false;
     [SerializeField] GolemSensor golemSensor;
+    private bool respawned = true;
+
+
+    private bool isjumpCounterTextEnabled = false;
+    [SerializeField] TMP_Text jumpCounterText;
 
     // Attack logic
     [SerializeField] AnimationClip attackClip;
@@ -39,12 +45,17 @@ public class Golem : MonoBehaviour
 
     private void Update()
     {
-        timer += Time.deltaTime;
-        if (timer >= attackFrequency - attackClip.length && !isAttacking)
+        if (noticedPlayer)
         {
-            isAttacking = true;
-            // Play Attack animation
-            animator.SetTrigger("Attack");
+            timer += Time.deltaTime;
+            if (timer >= attackFrequency - attackClip.length && !isAttacking)
+            {
+                isAttacking = true;
+                // Play Attack animation
+                animator.SetTrigger("Attack");
+
+            }
+
             if (timer >= attackFrequency)
             {
                 //Update Timer From Animation
@@ -52,21 +63,52 @@ public class Golem : MonoBehaviour
                 // Hide text if not hidden
             }
 
-            if (timer < 3.0f && timer > 2.0f)
+
+            if (timer > ((attackFrequency - attackClip.length) - 2f) && timer < ((attackFrequency - attackClip.length) - 1f) && !isjumpCounterTextEnabled)
             {
+                jumpCounterText.gameObject.SetActive(true);
                 // Set text to 3
+                jumpCounterText.text = "3";
+                isjumpCounterTextEnabled = true;
             }
-            else if (timer < 2.0f && timer > 1.0f)
+            else if (timer > ((attackFrequency - attackClip.length) - 1f) && timer < (attackFrequency - attackClip.length) && isjumpCounterTextEnabled)
             {
                 // Set text to 2
+                jumpCounterText.text = "2";
             }
-            else if (timer < 1.0f && timer > 0.0f)
+            else if (timer > attackFrequency - attackClip.length && isjumpCounterTextEnabled && timer < 9.9f)
             {
                 // Set text to 1
+                jumpCounterText.text = "Jump!";
+                isjumpCounterTextEnabled = false;
+                StartCoroutine(HideTextCoroutine());
+            }
+
+
+            if (!respawned)
+            {
+                respawned = true;
+                if (isRight)
+                {
+                    gameObject.transform.position = respawnPositions[1].position;
+                }
+                else
+                {
+                    gameObject.transform.position = respawnPositions[0].position;
+                }
             }
         }
+        
+        
 
         
+    }
+
+    private IEnumerator HideTextCoroutine()
+    {
+        Debug.Log("Coroutine Started");
+        yield return new WaitForSeconds(2f);
+        jumpCounterText.gameObject.SetActive(false);
     }
 
     public void SetNoticedPlayer(bool value)
@@ -100,6 +142,7 @@ public class Golem : MonoBehaviour
         if (playerMovement.GetIsPlayerGrounded())
         {
             // Kill player & respawn self
+            respawned = false;
             animator.SetTrigger("Reset");
             Respawn();
         }
@@ -111,6 +154,8 @@ public class Golem : MonoBehaviour
         
         respawnManager.Respawn();
         SetEnemyCopyActive(true);
+        SetNoticedPlayer(false);
+
         // Set yourself to the enemyRespawn Position
     }
 
@@ -118,20 +163,21 @@ public class Golem : MonoBehaviour
     {
         //SetEnemyCopyActive(true);
         SetGolemsPositionToDefault();
+        //golemSensor.enabled = true;
+        //enemyCopy.GetComponent<GolemSensor>().enabled = true;
     }
 
     private void SetGolemsPositionToDefault()
     {
         if (isRight)
         {
-            this.gameObject.transform.position = respawnPositions[1].position;
-            //enemyCopy.gameObject.transform.position = respawnPositions[0].position;
+            gameObject.transform.position = respawnPositions[1].position;
+            enemyCopy.gameObject.transform.position = respawnPositions[0].position;
         }
         else
         {
-            this.gameObject.transform.position = respawnPositions[0].position;
-            //enemyCopy.gameObject.transform.position = respawnPositions[1].position;
+            gameObject.transform.position = respawnPositions[0].position;
+            enemyCopy.gameObject.transform.position = respawnPositions[1].position;
         }
-        
     }
 }
