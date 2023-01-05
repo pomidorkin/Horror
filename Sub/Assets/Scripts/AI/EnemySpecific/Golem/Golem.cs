@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using MoreMountains.Feedbacks;
 
 public class Golem : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class Golem : MonoBehaviour
     [SerializeField] private RespawnEvenrBroadcaster respawnEvenrBroadcaster;
     [SerializeField] private bool isRight = false;
     [SerializeField] GolemSensor golemSensor;
+    [SerializeField] private MMFeedbacks MMFeedbacks;
     private bool respawned = true;
 
 
@@ -83,25 +85,21 @@ public class Golem : MonoBehaviour
                 isjumpCounterTextEnabled = false;
                 StartCoroutine(HideTextCoroutine());
             }
+            
+        }
 
-
-            if (!respawned)
+        if (!respawned)
+        {
+            respawned = true;
+            if (isRight)
             {
-                respawned = true;
-                if (isRight)
-                {
-                    gameObject.transform.position = respawnPositions[1].position;
-                }
-                else
-                {
-                    gameObject.transform.position = respawnPositions[0].position;
-                }
+                gameObject.transform.position = respawnPositions[1].position;
+            }
+            else
+            {
+                gameObject.transform.position = respawnPositions[0].position;
             }
         }
-        
-        
-
-        
     }
 
     private IEnumerator HideTextCoroutine()
@@ -136,6 +134,7 @@ public class Golem : MonoBehaviour
     // Should be called from the animator
     public void CheckIfPlayerIsGrounded()
     {
+        MMFeedbacks.PlayFeedbacks();
         timer = 0.0f;
         isAttacking = false;
         // Play Feel & Sound effects

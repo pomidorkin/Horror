@@ -7851,6 +7851,7 @@ MonoBehaviour:
   respawnEvenrBroadcaster: {fileID: 86940315}
   isRight: 0
   golemSensor: {fileID: 745898173}
+  MMFeedbacks: {fileID: 105769953}
   jumpCounterText: {fileID: 1937453869}
   attackClip: {fileID: 7400000, guid: d12e1a5c870fdf840958cfbbfddd03f7, type: 2}
 --- !u!95 &745898175 stripped
@@ -8880,6 +8881,7 @@ MonoBehaviour:
   respawnEvenrBroadcaster: {fileID: 86940315}
   isRight: 1
   golemSensor: {fileID: 833026566}
+  MMFeedbacks: {fileID: 105769953}
   jumpCounterText: {fileID: 1937453869}
   attackClip: {fileID: 7400000, guid: d12e1a5c870fdf840958cfbbfddd03f7, type: 2}
 --- !u!1 &840598545
@@ -10908,13 +10910,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Version: 1
-  m_UsePipelineSettings: 1
-  m_AdditionalLightsShadowResolutionTier: 2
-  m_LightLayerMask: 1
+  m_Version: 0
+  m_UsePipelineSettings: 0
+  m_AdditionalLightsShadowResolutionTier: 0
+  m_LightLayerMask: 0
   m_CustomShadowLayers: 0
-  m_ShadowLayerMask: 1
-  m_LightCookieSize: {x: 1, y: 1}
+  m_ShadowLayerMask: 0
+  m_LightCookieSize: {x: -9.701283e+20, y: 8.5e-43}
   m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1001 &989859185
 PrefabInstance:
