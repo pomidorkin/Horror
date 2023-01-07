@@ -37,6 +37,9 @@ public class LoopRoomController : MonoBehaviour
                 loopRoomStages[0].gameObject.SetActive(true);
                 break;
             case 3:
+                loopRoomStages[1].gameObject.SetActive(true);
+                break;
+            case 4:
                 frontWallSolid.SetActive(false);
                 frontWallDoor.SetActive(true);
                 break;
