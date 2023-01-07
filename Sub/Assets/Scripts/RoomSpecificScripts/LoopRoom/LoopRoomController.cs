@@ -9,6 +9,7 @@ public class LoopRoomController : MonoBehaviour
     [SerializeField] LoopRoomFrontSensor loopRoomFrontSensor;
     [SerializeField] GameObject frontWallSolid;
     [SerializeField] GameObject frontWallDoor;
+    [SerializeField] GameObject[] loopRoomStages;
     private int loopCounter = 0;
 
     public void AddLoop()
@@ -23,6 +24,8 @@ public class LoopRoomController : MonoBehaviour
             // Level passed
         }
 
+        //DeactivateAllStages();
+
         switch (loopCounter)
         {
             case 1:
@@ -31,6 +34,7 @@ public class LoopRoomController : MonoBehaviour
                 break;
             case 2:
                 // Add some logic after each loop
+                loopRoomStages[0].gameObject.SetActive(true);
                 break;
             case 3:
                 frontWallSolid.SetActive(false);
@@ -46,5 +50,13 @@ public class LoopRoomController : MonoBehaviour
     public void MakeBackSensorACtive()
     {
         loopRoomBackSensor.gameObject.SetActive(true);
+    }
+
+    private void DeactivateAllStages()
+    {
+        foreach (GameObject roomStage in loopRoomStages)
+        {
+            roomStage.gameObject.SetActive(false);
+        }
     }
 }
