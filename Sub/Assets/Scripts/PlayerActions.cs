@@ -94,13 +94,16 @@ public class PlayerActions : MonoBehaviour
         {
             if (hit.transform.GetComponent<Collider>() != null)
             {
-                OnInteractedAction(hit, gameManager.GetIsRespawningStage());
+                if (gameManager == null)
+                {
+                    OnInteractedAction(hit, false);
+                }
+                else
+                {
+                    OnInteractedAction(hit, gameManager.GetIsRespawningStage());
+                }
                 Debug.Log("Interacting...");
             }
         }
     }
-
-
-
-
 }

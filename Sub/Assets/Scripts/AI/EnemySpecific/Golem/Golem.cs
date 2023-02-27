@@ -19,6 +19,7 @@ public class Golem : MonoBehaviour
     [SerializeField] private MMFeedbacks MMFeedbacks;
     private bool respawned = true;
 
+    [SerializeField] ParticleSystem crackParticle;
 
     private bool isjumpCounterTextEnabled = false;
     [SerializeField] TMP_Text jumpCounterText;
@@ -137,6 +138,8 @@ public class Golem : MonoBehaviour
         MMFeedbacks.PlayFeedbacks();
         timer = 0.0f;
         isAttacking = false;
+
+        ActivateParticleSystem();
         // Play Feel & Sound effects
         if (playerMovement.GetIsPlayerGrounded())
         {
@@ -178,5 +181,18 @@ public class Golem : MonoBehaviour
             gameObject.transform.position = respawnPositions[0].position;
             enemyCopy.gameObject.transform.position = respawnPositions[1].position;
         }
+    }
+
+    private void ActivateParticleSystem()
+    {
+        crackParticle.gameObject.SetActive(true);
+        crackParticle.transform.position = new Vector3(playerMovement.transform.position.x, 0, playerMovement.transform.position.z);
+        StartCoroutine(HideParticleSystem());
+    }
+
+    private IEnumerator HideParticleSystem()
+    {
+        yield return new WaitForSeconds(4f);
+        crackParticle.gameObject.SetActive(false);
     }
 }

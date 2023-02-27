@@ -12,7 +12,10 @@ public class GuardsActivator : MonoBehaviour
     [SerializeField] Collider medusaInteractionCollider;
     public bool activated = false;
 
-    public bool trigger = false;
+    public bool canActivateEnemies = true;
+
+    private float activationFrequency = 15f;
+    private float activationTimer = 0f;
     private void Start()
     {
         //OnGuardsActivate();
@@ -45,6 +48,7 @@ public class GuardsActivator : MonoBehaviour
 
     public void DeactivateMedusaLaser()
     {
+        canActivateEnemies = true;
         headAim.headActivated = false;
         headAim.currentTarget = 0;
         activated = false;
@@ -56,12 +60,16 @@ public class GuardsActivator : MonoBehaviour
 
     private void Update()
     {
-        // TEST
-        if (trigger == true)
+
+        if (canActivateEnemies)
         {
-            trigger = false;
-            GuardsActivated();
+            activationTimer += Time.deltaTime;
+            if (activationTimer >= activationFrequency)
+            {
+                canActivateEnemies = false;
+                activationTimer = 0f;
+                GuardsActivated();
+            }
         }
-        //
     }
 }

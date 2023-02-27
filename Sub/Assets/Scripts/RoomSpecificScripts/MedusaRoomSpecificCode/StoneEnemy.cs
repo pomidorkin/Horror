@@ -43,24 +43,49 @@ public class StoneEnemy : MonoBehaviour
         initialPosition = transform.position;
     }
 
-    public void TurnToStone()
+    public void TurnToStone(bool reset = false)
     {
-        this.GetComponent<AiAgent>().stateMachine.ChangeState(AiStateId.Idle);
-        isStone = true;
-        morphingTriggered = true;
-        aiAgent.noticedPlayer = false;
-        aiAgent.navMeshAgent.speed = 0f;
-        animator.SetBool("Follow", false);
-        animator.enabled = false;
-        foreach (GameObject stoneProp in stoneProps)
+        if (reset)
         {
-            stoneProp.SetActive(true);
+            this.GetComponent<AiAgent>().stateMachine.ChangeState(AiStateId.Idle);
+            isStone = true;
+            morphingTriggered = true;
+            aiAgent.noticedPlayer = false;
+            aiAgent.navMeshAgent.speed = 0f;
+            aiAgent.navMeshAgent.enabled = false;
+            animator.SetBool("Follow", false);
+            animator.enabled = false;
+            foreach (GameObject stoneProp in stoneProps)
+            {
+                stoneProp.SetActive(true);
+            }
+            foreach (GameObject normalProp in normalProps)
+            {
+                normalProp.SetActive(false);
+            }
+            transform.position = initialPosition;
         }
-        foreach (GameObject normalProp in normalProps)
+        else
         {
-            normalProp.SetActive(false);
+            this.GetComponent<AiAgent>().stateMachine.ChangeState(AiStateId.Idle);
+            isStone = true;
+            morphingTriggered = true;
+            aiAgent.noticedPlayer = false;
+            aiAgent.navMeshAgent.speed = 0f;
+            aiAgent.navMeshAgent.enabled = false;
+            animator.SetBool("Follow", false);
+            animator.enabled = false;
+            foreach (GameObject stoneProp in stoneProps)
+            {
+                stoneProp.SetActive(true);
+            }
+            foreach (GameObject normalProp in normalProps)
+            {
+                normalProp.SetActive(false);
+            }
+            StartCoroutine(ReturnToInitialPosition());
         }
-        StartCoroutine(ReturnToInitialPosition());
+        
     }
 
     public void DoFade(float start, float dest, float time)
@@ -88,6 +113,7 @@ public class StoneEnemy : MonoBehaviour
         {
             morphingTriggered = true;
             isStone = false;
+            aiAgent.navMeshAgent.enabled = true;
             aiAgent.navMeshAgent.speed = aiAgent.defaultSpeed;
             animator.enabled = true;
             Debug.Log("I noticed the player");
@@ -106,6 +132,7 @@ public class StoneEnemy : MonoBehaviour
                     aiAgent.stateMachine.ChangeState(AiStateId.ChasePlayer);
                 }
                 animator.SetBool("Follow", true);
+                animator.Play("Walk");
                 aiAgent.noticedPlayer = true;
             }
         }

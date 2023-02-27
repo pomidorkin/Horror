@@ -14,6 +14,7 @@ public class MainSceneRespawnManager : MonoBehaviour, IRespawnManager
     [SerializeField] RespawnEvenrBroadcaster respawnEvenrBroadcaster;
     [SerializeField] Transform respawnPosition;
     [SerializeField] AllDoorController allDoorController;
+    [SerializeField] PlayerManager playerManager;
     private Segment centerSegment;
 
     [SerializeField] GameObject respawnUI;
@@ -52,6 +53,7 @@ public class MainSceneRespawnManager : MonoBehaviour, IRespawnManager
         allDoorController.CloseAllDoors();
         roomManager.DespawnAllRooms();
         respawnRoom.SpawnRespawnRoom();
+        playerManager.SetPlayerScared(false);
 
         respawnRoom.transform.position = centerSegment.GetComponentInChildren<Door>().GetRoomPosition().position;
         respawnRoom.transform.eulerAngles = new Vector3(0, -180, 0);

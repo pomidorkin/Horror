@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LibrarySceneRespawnManager : MonoBehaviour, IRespawnManager
+public class MedusaSceneRespawnManager : MonoBehaviour, IRespawnManager
 {
     [SerializeField] GameObject player;
     [SerializeField] GameManagerScript gameManager;
@@ -11,22 +11,37 @@ public class LibrarySceneRespawnManager : MonoBehaviour, IRespawnManager
     [SerializeField] ScreamerLookTarget lookTarget;
     [SerializeField] PlayerManager playerManager;
 
+    // Medusa Scene Logic
+    [SerializeField] RaycastHead raycastHead;
+    [SerializeField] GuardsActivator guardsActivator;
+    [SerializeField] HeadAim headAim;
+    //[SerializeField] MedusaInteractable medusaInteractable;
+
     // UI
     [SerializeField] GameObject respawnUI;
     [SerializeField] GameObject WakeUPUI;
 
     public void Respawn(AiScreamerController enemy)
     {
+        Debug.Log("Respawn Triggered");
         Respawn();
 
         // Enemies
         AiAgent agent = enemy.gameObject.GetComponent<AiAgent>();
-        agent.stateMachine.ChangeState(AiStateId.Wander);
-        agent.noticedPlayer = false;
-        enemy.gameObject.GetComponent<AiSensor>().enabled = true; // Not going to work with the blind enemy and other types of enemies
-        enemy.animator.SetBool("Follow", false);
-        enemy.animator.SetBool("Reset", true); // Тут тоже какая-то хуета
-        respawnEvenrBroadcaster.InvokeRespawnAction();
+        //agent.stateMachine.ChangeState(AiStateId.Wander);
+        //agent.noticedPlayer = false;
+        //enemy.gameObject.GetComponent<AiSensor>().enabled = true; // Not going to work with the blind enemy and other types of enemies
+        //enemy.animator.SetBool("Follow", false);
+        //enemy.animator.SetBool("Reset", true); // Тут тоже какая-то хуета
+        //respawnEvenrBroadcaster.InvokeRespawnAction();
+
+        // Medusa Scene Respawn Logic
+        headAim.ResetHeadAim();
+        headAim.ResetEnemies();
+        raycastHead.MakeLaserActive(false);
+        guardsActivator.DeactivateMedusaLaser();
+        guardsActivator.DisableMedusaCollider();
+        
 
         lookTarget.Respawn();
     }
@@ -34,7 +49,6 @@ public class LibrarySceneRespawnManager : MonoBehaviour, IRespawnManager
     public void Respawn()
     {
         gameManager.DisablePlayerActions();
-        gameManager.SetRespawningStage(true);
         playerManager.SetPlayerScared(false);
         player.transform.position = respawnPosition.position;
         player.transform.rotation = respawnPosition.rotation;

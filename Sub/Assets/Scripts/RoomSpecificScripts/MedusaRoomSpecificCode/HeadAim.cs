@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class HeadAim : MonoBehaviour
 {
-    [SerializeField] StoneEnemy[] targetObject;
+    [SerializeField] StoneEnemy[] targetObjects;
     [SerializeField] float spellCastDuration = 2.0f;
     [SerializeField] RaycastHead raycastHead;
     [SerializeField] GuardsActivator guardsActivator;
+    [SerializeField] GuardsController guardsController;
     private float spellTimer = 0f;
     public int currentTarget = 0;
     private bool isInFocus = false;
@@ -17,12 +18,12 @@ public class HeadAim : MonoBehaviour
     {
         if (headActivated)
         {
-            if (!targetObject[currentTarget].isStone)
+            if (!targetObjects[currentTarget].isStone)
             {
                 if (!isInFocus)
                 {
                     isInFocus = true;
-                    StartCoroutine(LerpPosition(targetObject[currentTarget].TargetLookPosition.position, .2f));
+                    StartCoroutine(LerpPosition(targetObjects[currentTarget].TargetLookPosition.position, .2f));
 
                 }
                 else
@@ -30,13 +31,13 @@ public class HeadAim : MonoBehaviour
                     if (spellTimer < spellCastDuration)
                     {
                         spellTimer += Time.deltaTime;
-                        transform.position = targetObject[currentTarget].TargetLookPosition.position;
+                        transform.position = targetObjects[currentTarget].TargetLookPosition.position;
                     }
                     else
                     {
-                        targetObject[currentTarget].TurnToStone();
+                        targetObjects[currentTarget].TurnToStone();
                         spellTimer = 0f;
-                        if (currentTarget < targetObject.Length - 1)
+                        if (currentTarget < targetObjects.Length - 1)
                         {
                             currentTarget++;
                         }
@@ -70,4 +71,24 @@ public class HeadAim : MonoBehaviour
         transform.position = targetPosition;
     }
 
+    public void ResetHeadAim()
+    {
+     spellTimer = 0f;
+     currentTarget = 0;
+     isInFocus = false;
+     headActivated = false;
     }
+
+    public StoneEnemy[] GetEnemies()
+    {
+        return targetObjects;
+    }
+
+    public void ResetEnemies()
+    {
+        foreach (StoneEnemy enemy in guardsController.GetEnemies())
+        {
+            enemy.TurnToStone(true);
+        }
+    }
+}

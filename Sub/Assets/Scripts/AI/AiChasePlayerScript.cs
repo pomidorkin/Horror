@@ -55,10 +55,12 @@ public class AiChasePlayerScript : AiState
                 //agent.navMeshAgent.destination = agent.gameObject.transform.position; // TEST FOR STOPPING
                 //agent.navMeshAgent.isStopped = true;// TEST FOR STOPPING
                 //agent.navMeshAgent.enabled = false;
-                
 
-                agent.jumpScare.CameraLookControllerActivated(agent.targetLookPosition, agent.gameObject);
-                agent.followObject.GetComponent<PlayerManager>().SetPlayerScared(true);
+                if (!agent.followObject.GetComponent<PlayerManager>().GetPlayerScared())
+                {
+                    agent.jumpScare.CameraLookControllerActivated(agent.targetLookPosition, agent.gameObject);
+                    agent.followObject.GetComponent<PlayerManager>().SetPlayerScared(true);
+                }
             }
                 
             else if (sqrdJumpscareActivationDistance < distance)
