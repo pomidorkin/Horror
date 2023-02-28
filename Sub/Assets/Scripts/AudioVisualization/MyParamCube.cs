@@ -9,6 +9,7 @@ public class MyParamCube : MonoBehaviour
     private PlayerActions playerActions;
     private Door myChildDoor;
     [SerializeField] bool checker = false;
+    private Animator animator;
     /*private GameManagerScript gameManager;
     float elapsedTime;
     float timeLimit = 0.1f;*/
@@ -18,6 +19,7 @@ public class MyParamCube : MonoBehaviour
     {
         audioVisualizerManager = FindObjectOfType<AudioVisualizerManager>();
         audioVisualizerManager.OnPeakReachedAction += PeakReachedHandler;
+        animator = GetComponent<Animator>();
     }
 
     private void OnDisable()
@@ -38,12 +40,12 @@ public class MyParamCube : MonoBehaviour
         {
             if (playerActions.lastLookedAtObject != myChildDoor.gameObject)
             {
-                gameObject.GetComponent<Animator>().Play("SlammAnimation");
+                animator.Play("SlammAnimation");
             }
         }
         else
         {
-            gameObject.GetComponent<Animator>().Play("SlammAnimation");
+            animator.Play("SlammAnimation");
         }
         
     }

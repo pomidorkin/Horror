@@ -32,6 +32,9 @@ public class AudioVisualizerManager : MonoBehaviour
 
     public void RaiseDoorSlammedEvent()
     {
-        MMFeedbacks.PlayFeedbacks();
+        if (MMFeedbacks != null)
+        {
+            MMFeedbacks.PlayFeedbacks();
+        }
     }
 }
