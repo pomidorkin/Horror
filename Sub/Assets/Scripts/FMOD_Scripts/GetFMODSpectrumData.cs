@@ -15,6 +15,7 @@ public class GetFMODSpectrumData : MonoBehaviour
     private FMOD.DSP_PARAMETER_FFT _fftparam;
     [SerializeField] FMODUnity.StudioEventEmitter loudTrack;
     [SerializeField] AnimationClip animationClip;
+    [SerializeField] bool playDelayed = true;
 
     public static float[] bandBuffer = new float[8];
     [SerializeField] public static float[] frequencyBands = new float[8];
@@ -59,15 +60,21 @@ public class GetFMODSpectrumData : MonoBehaviour
 
     private void Update()
     {
-        if (timecCounter < animationClip.length && !isLoudTrackPlaying)
+        if (timecCounter < animationClip.length && !isLoudTrackPlaying && playDelayed)
         {
             timecCounter += Time.deltaTime;
         }
-        else if (timecCounter >= animationClip.length && !isLoudTrackPlaying)
+        else if (timecCounter >= animationClip.length && !isLoudTrackPlaying && playDelayed)
         {
             loudTrack.Play();
             isLoudTrackPlaying = true;
         }
+        else if (!playDelayed && !isLoudTrackPlaying)
+        {
+            loudTrack.Play();
+            isLoudTrackPlaying = true;
+        }
+
         GetSpectrumData();
         MakeFrequencyBands();
         BandBuffer();

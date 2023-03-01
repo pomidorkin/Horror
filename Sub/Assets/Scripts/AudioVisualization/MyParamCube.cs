@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class MyParamCube : MonoBehaviour
 {
-    [SerializeField] [Range(0, 7)] int band = 0;
-    [SerializeField] [Range(0f, 10f)] float animTriggerValue = 1.6f;
     private PlayerActions playerActions;
     private Door myChildDoor;
     [SerializeField] bool checker = false;
     private Animator animator;
-    /*private GameManagerScript gameManager;
-    float elapsedTime;
-    float timeLimit = 0.1f;*/
 
     private AudioVisualizerManager audioVisualizerManager;
     private void OnEnable()
@@ -31,7 +26,6 @@ public class MyParamCube : MonoBehaviour
     {
         playerActions = FindObjectOfType<PlayerActions>();
         myChildDoor = GetComponentInChildren<Door>();
-        //gameManager = FindObjectOfType<GameManagerScript>();
     }
 
     private void PeakReachedHandler()

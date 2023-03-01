@@ -1,15 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TankMusicVisualizer : MonoBehaviour
 {
+    [SerializeField] AudioVisualizerManager audioVisualizerManager;
+    [SerializeField] ParticleSystem cannonShotParticle;
     private Animator animator;
-
-    private AudioVisualizerManager audioVisualizerManager;
     private void OnEnable()
     {
-        audioVisualizerManager = FindObjectOfType<AudioVisualizerManager>();
         audioVisualizerManager.OnPeakReachedAction += PeakReachedHandler;
         animator = GetComponent<Animator>();
     }
@@ -22,5 +22,14 @@ public class TankMusicVisualizer : MonoBehaviour
     private void PeakReachedHandler()
     {
         animator.Play("ShootAnimation");
+        //cannonShotParticle.gameObject.SetActive(true);
+        StartCoroutine(PlayShotParticleSystem());
+    }
+
+    private IEnumerator PlayShotParticleSystem()
+    {
+        cannonShotParticle.gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.33f);
+        cannonShotParticle.gameObject.SetActive(false);
     }
 }
