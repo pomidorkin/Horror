@@ -5,6 +5,8 @@ using UnityEngine;
 public class RotateRoomSegment : MonoBehaviour
 {
     [SerializeField] GameObject[] subRooms;
+    [SerializeField] GameObject[] extraFloors;
+    [SerializeField] GameObject[] nextDoorDecorations;
     [SerializeField] RotatingRoomDoor[] doors;
 
     public void RotateSegment()
@@ -19,6 +21,14 @@ public class RotateRoomSegment : MonoBehaviour
         foreach (GameObject subRoom in subRooms)
         {
             subRoom.SetActive(true);
+        }
+        foreach (GameObject extraFloor in extraFloors)
+        {
+            extraFloor.SetActive(true);
+        }
+        foreach (GameObject nextDoorDecoration in nextDoorDecorations)
+        {
+            nextDoorDecoration.SetActive(false);
         }
     }
 

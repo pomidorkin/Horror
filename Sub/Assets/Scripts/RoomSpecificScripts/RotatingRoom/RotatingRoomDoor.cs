@@ -8,6 +8,8 @@ public class RotatingRoomDoor : MonoBehaviour, IInteractable
     [SerializeField] Animator animator;
     [SerializeField] public bool isOpened = false;
     [SerializeField] GameObject subRoomToHide;
+    [SerializeField] GameObject nextDoorFloor;
+    [SerializeField] GameObject nextRoomDecorations;
     string interactionText = "Open Door";
     string closeInteractionText = "Close Door";
 
@@ -39,6 +41,8 @@ public class RotatingRoomDoor : MonoBehaviour, IInteractable
                 animator.Play("OpenAnimation");
                 this.isOpened = true;
                 subRoomToHide.SetActive(false);
+                nextDoorFloor.SetActive(false);
+                nextRoomDecorations.SetActive(true);
             }
             else
             {
