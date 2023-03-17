@@ -7,7 +7,9 @@ public class RotationLever : MonoBehaviour, IInteractable
 {
     [SerializeField] RotateRoomSegment rotateRoomSegment;
     [SerializeField] private PlayerActions playerActions;
+    [SerializeField] RotatingRoomLever rotatingRoomLever;
     string interactionText = "Rotate";
+    private bool interactable = true;
 
     private void OnEnable()
     {
@@ -21,9 +23,12 @@ public class RotationLever : MonoBehaviour, IInteractable
 
     private void RotateRoom(RaycastHit hit, bool isRespawnStage)
     {
-        if (hit.transform == this.transform)
+        if (hit.transform == this.transform && interactable)
         {
             rotateRoomSegment.RotateSegment();
+            rotatingRoomLever.PlayLeverAnimation();
+            interactable = false;
+            StartCoroutine(ResetInteractable());
         }
         
     }
@@ -34,11 +39,17 @@ public class RotationLever : MonoBehaviour, IInteractable
 
     public bool GetInteractable()
     {
-        return true;
+        return interactable;
     }
 
     private void Start()
     {
         playerActions = FindObjectOfType<PlayerActions>();
+    }
+
+    private IEnumerator ResetInteractable()
+    {
+        yield return new WaitForSeconds(3f);
+        interactable = true;
     }
 }
