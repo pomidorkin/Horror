@@ -15,10 +15,10 @@ MonoBehaviour:
   Path: FMOD_Horror_Prototype/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637974143140453517
+  lastModified: 638147771075741746
   FileSizes:
   - Name: Desktop
-    Value: 1162
+    Value: 1216
   Exists: 1
 --- !u!114 &-3861602935001575652
 MonoBehaviour:
@@ -115,10 +115,10 @@ MonoBehaviour:
   Path: FMOD_Horror_Prototype/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637974143140433579
+  lastModified: 638147771075726685
   FileSizes:
   - Name: Desktop
-    Value: 3164512
+    Value: 3570208
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -141,13 +141,41 @@ MonoBehaviour:
   - {fileID: 8555538434389373767}
   - {fileID: -3064917590280208669}
   - {fileID: 6803720762186419776}
+  - {fileID: 4371064933079107657}
   EditorParameters: []
   MasterBanks:
   - {fileID: -1499487012314171898}
   StringsBanks:
   - {fileID: -7989928531807606700}
-  cacheTime: 637974143140453517
+  cacheTime: 638147771075741746
   cacheVersion: 131591
+--- !u!114 &4371064933079107657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/TestLipSync
+  m_EditorClassIdentifier: 
+  Path: event:/TestLipSync
+  Guid:
+    Data1: 1396668852
+    Data2: 1199243916
+    Data3: -1367145064
+    Data4: 1011703251
+  Banks:
+  - {fileID: -1499487012314171898}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 40000
 --- !u!114 &5866298322772691916
 MonoBehaviour:
   m_ObjectHideFlags: 0

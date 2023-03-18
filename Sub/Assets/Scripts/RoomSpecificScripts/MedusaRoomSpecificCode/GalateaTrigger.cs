@@ -8,7 +8,7 @@ public class GalateaTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("OnTriggerEnter is executed");
-        if (other.tag == "Galatea")
+        if (other.tag == "Galatea" && !galateaController.IsStopped())
         {
             galateaController.StopMotion();
         }

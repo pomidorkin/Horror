@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GalateaController : MonoBehaviour
 {
+    private bool stop = false;
     private Animator animator;
     private void OnEnable()
     {
@@ -12,11 +13,16 @@ public class GalateaController : MonoBehaviour
 
     public void StopMotion()
     {
-        animator.SetTrigger("Stop");
+        animator.SetBool("Stop", true);
     }
 
     public void EnableMotion()
     {
-        animator.Play("catwalk");
+        animator.SetBool("Stop", false);
+    }
+
+    public bool IsStopped()
+    {
+        return stop;
     }
 }
