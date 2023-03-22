@@ -15,6 +15,7 @@ public class MouseLook : MonoBehaviour
     [SerializeField] private bool canMoveCamera = true;
     [SerializeField] CameraLookController jumpScare;
     [SerializeField] GameObject virtualCamera;
+    [SerializeField] PauseMenu pauseMenu;
 
     [Header("Camera clamp settings")]
     [Range(-90, 0)]
@@ -33,12 +34,30 @@ public class MouseLook : MonoBehaviour
     private void OnEnable()
     {
         jumpScare.OnCameraLookControllerEvent += DisableCameraMovement;
+        pauseMenu.OnGamePausedAction += PauseCameraMovement;
     }
 
     private void OnDisable()
     {
         jumpScare.OnCameraLookControllerEvent -= DisableCameraMovement;
         plyerInputActions.Player.Look.performed -= Look;
+        pauseMenu.OnGamePausedAction += PauseCameraMovement;
+    }
+
+
+
+    private void PauseCameraMovement(object source, PauseMenu.GamePausedEventArgs args)
+    {
+        if (!args.IsPaused)
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+            DisableCameraMovement();
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            EnableCameraMovement();
+        }
     }
 
     public void EnableInputActions(bool enable)
