@@ -24,12 +24,15 @@ using UnityEngine;
         {
             set
             {
+            if (PauseMenu.gameIsPaused == false && Application.isPlaying)
+            {
                 if (eyebrows == null)
                 {
                     eyebrows = transform.gameObject;
                 }
                 Debug.Log("FacialExpression called");
                 iTween.MoveTo(eyebrows, iTween.Hash("position", facialAnimsSet.GetEyeBrowPosition(value), "easeType", "easeOutCirc", "islocal", true, "time", .5f));
+            }
         }
         }
     }

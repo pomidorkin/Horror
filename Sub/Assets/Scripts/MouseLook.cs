@@ -16,6 +16,7 @@ public class MouseLook : MonoBehaviour
     [SerializeField] CameraLookController jumpScare;
     [SerializeField] GameObject virtualCamera;
     [SerializeField] PauseMenu pauseMenu;
+    [SerializeField] PlayerManager playerManager;
 
     [Header("Camera clamp settings")]
     [Range(-90, 0)]
@@ -51,12 +52,17 @@ public class MouseLook : MonoBehaviour
         if (!args.IsPaused)
         {
             Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
             DisableCameraMovement();
         }
         else
         {
-            Cursor.lockState = CursorLockMode.Locked;
-            EnableCameraMovement();
+            if (!playerManager.GetPlayerScared())
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+                EnableCameraMovement();
+            }
         }
     }
 
@@ -114,7 +120,7 @@ public class MouseLook : MonoBehaviour
         }
         else
         {
-            transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+            //transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
         }
     }
 
@@ -125,6 +131,7 @@ public class MouseLook : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
 
     }
 }

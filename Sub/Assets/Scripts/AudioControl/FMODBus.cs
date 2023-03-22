@@ -6,13 +6,13 @@ using FMOD.Studio;
 
 public class FMODBus : MonoBehaviour
 {
-    FMOD.Studio.Bus bus;
+    Bus bus;
     [SerializeField] [Range(-80f, 10f)]
     private float busVolume;
 
     private void Start()
     {
-        bus = FMODUnity.RuntimeManager.GetBus("bus:/Master");
+        bus = RuntimeManager.GetBus("bus:/Master");
     }
 
     private void Update()

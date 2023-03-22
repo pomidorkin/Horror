@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Runtime.InteropServices;
+using FMODUnity;
+using FMOD.Studio;
 
 public class GetFMODSpectrumData : MonoBehaviour
 {
-    [FMODUnity.EventRef] public string _eventPath = null;
+    //[FMODUnity.EventRef] public string _eventPath = null; 
+     public EventReference _eventPath;
     public int _windowSize = 512;
     public FMOD.DSP_FFT_WINDOW _windowShape = FMOD.DSP_FFT_WINDOW.RECT;
 

@@ -13,7 +13,7 @@ public class PlayFMODEvent : MonoBehaviour
     private void OnEnable()
     {
         pauseMenu.OnGamePausedAction += GamePausedHandler;
-        Audio = FMODUnity.RuntimeManager.CreateInstance(AudioEventPath);        // If they are, we create an FMOD event instance. We use the event path inside the 'FootstepsEventPath' variable to find the event we want to play.
+        Audio = RuntimeManager.CreateInstance(AudioEventPath);        // If they are, we create an FMOD event instance. We use the event path inside the 'FootstepsEventPath' variable to find the event we want to play.
         RuntimeManager.AttachInstanceToGameObject(Audio, transform, GetComponent<Rigidbody>());     // Next that event instance is told to play at the location that our player is currently at.
         Audio.start();                                                                                        // We then play a footstep!.
         Audio.release();

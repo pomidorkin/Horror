@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: StageTwo
   m_EditorClassIdentifier: 
   currentStage: 2
-  goalType: 1
-  stageLocationType: 2
+  goalType: 3
+  stageLocationType: 1
   stageGoal:
     stage: {fileID: 11400000}
     requiredAmount: 0
-    currentAmount: 0
-    requiredDoorsInteractionNumber: 0
-    currentDoorsInteractionNumber: 0
+    currentAmount: 61.367092
+    requiredDoorsInteractionNumber: 5
+    currentDoorsInteractionNumber: 2
     wasInteracted: 0
     playerLeftTheRoom: 0
   questText: 'Stage two: Hide from the mosnter'

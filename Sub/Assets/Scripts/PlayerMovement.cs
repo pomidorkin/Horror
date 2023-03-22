@@ -15,10 +15,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float groundDistance = 0.4f;
     [SerializeField] LayerMask groundMask;
     PlyerInputActions plyerInputActions;
-
     // FMOD_TEST
-    [SerializeField] [FMODUnity.EventRef] private string FootstepsEventPath;    // Use this in the Editor to select our Footsteps Event.
-    [SerializeField] [FMODUnity.EventRef] private string JumpingEventPath;      // Use this in the Editor to select our Jumping Event.
+    //[SerializeField] [FMODUnity.EventRef] private string FootstepsEventPath;    // Use this in the Editor to select our Footsteps Event.
+    //[SerializeField] [FMODUnity.EventRef] private string JumpingEventPath;      // Use this in the Editor to select our Jumping Event.
+    [SerializeField] private EventReference FootstepsEventPath; 
+    [SerializeField]  private EventReference JumpingEventPath; 
     [SerializeField] private string MaterialParameterName;                      // Use this in the Editor to write the name of the parameter that contorls which material the player is currently walking on.
     [SerializeField] private string SpeedParameterName;                         // Use this in the Editor to write the name of the parameter that contorls which footstep speed needs to be heard.
     [SerializeField] private string JumpOrLandParameterName;                    // Use this in the Editor to write the name of the parameter that contorls whether or not a jumping or a landing sound needs to be heard.
