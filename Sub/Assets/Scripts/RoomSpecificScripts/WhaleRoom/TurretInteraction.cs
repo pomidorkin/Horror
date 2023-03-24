@@ -7,11 +7,6 @@ public class TurretInteraction : InteractionParent
     [SerializeField] GameObject targetObject;
     [SerializeField] TankManager tankManager;
     [SerializeField] AllTankController AllTankController;
-    
-    public TurretInteraction()
-    {
-        this.interactionText = "Put Flower";
-    }
 
     public override void ActivateInteractable()
     {

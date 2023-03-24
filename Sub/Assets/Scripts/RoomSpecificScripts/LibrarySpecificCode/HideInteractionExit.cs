@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Localization;
 
 public class HideInteractionExit : MonoBehaviour, IInteractable
 {
     [SerializeField] private PlayerActions playerActions;
     [SerializeField] HideInteraction hideInteraction;
     protected bool interactable = true;
-    protected string interactionText = "Exit";
+    //protected string interactionText = "Exit";
+    public LocalizedString localizedInteractionText;
     public bool GetInteractable()
     {
         return interactable;
@@ -15,7 +17,7 @@ public class HideInteractionExit : MonoBehaviour, IInteractable
 
     public string GetInteractionText()
     {
-        return interactionText;
+        return localizedInteractionText.GetLocalizedString();
     }
 
     private void OnEnable()

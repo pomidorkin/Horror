@@ -2,13 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Localization;
 
 public class RotationLever : MonoBehaviour, IInteractable
 {
     [SerializeField] RotateRoomSegment rotateRoomSegment;
     [SerializeField] private PlayerActions playerActions;
     [SerializeField] RotatingRoomLever rotatingRoomLever;
-    string interactionText = "Rotate";
+    public LocalizedString localizedInteractionText;
     private bool interactable = true;
 
     private void OnEnable()
@@ -34,7 +35,7 @@ public class RotationLever : MonoBehaviour, IInteractable
     }
     public string GetInteractionText()
     {
-        return interactionText;
+        return localizedInteractionText.GetLocalizedString();
     }
 
     public bool GetInteractable()

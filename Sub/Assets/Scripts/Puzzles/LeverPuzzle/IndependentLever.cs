@@ -8,14 +8,6 @@ public class IndependentLever : InteractionParent
     [SerializeField] IndependentLeverController leverController;
     private Animator animator;
     public bool turnedDown = false;
-    public IndependentLever()
-    {
-        this.interactionText = "Activate";
-    }
-    /*private void OnEnable()
-    {
-        leverController.OnLeverActivatedAction += LaverActivatedHandler;
-    }*/
 
     private void OnDisable()
     {

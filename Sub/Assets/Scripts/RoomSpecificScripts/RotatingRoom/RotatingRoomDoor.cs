@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Localization;
 
 public class RotatingRoomDoor : MonoBehaviour, IInteractable
 {
@@ -10,8 +11,8 @@ public class RotatingRoomDoor : MonoBehaviour, IInteractable
     [SerializeField] GameObject subRoomToHide;
     [SerializeField] GameObject nextDoorFloor;
     [SerializeField] GameObject nextRoomDecorations;
-    string interactionText = "Open Door";
-    string closeInteractionText = "Close Door";
+    public LocalizedString localizedInteractionText;
+    public LocalizedString closeLocalizedInteractionText;
 
     private void OnEnable()
     {
@@ -67,11 +68,11 @@ public class RotatingRoomDoor : MonoBehaviour, IInteractable
         // TODO: Return different text depending on the state of the door (Open/Closed)
         if (!isOpened)
         {
-            return interactionText;
+            return localizedInteractionText.GetLocalizedString();
         }
         else if (isOpened)
         {
-            return closeInteractionText;
+            return closeLocalizedInteractionText.GetLocalizedString();
         }
         else
         {

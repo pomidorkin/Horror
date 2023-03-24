@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using TMPro;
+using UnityEngine.Localization;
 
 public class InteractionParent : MonoBehaviour, IInteractable
 {
@@ -10,7 +11,8 @@ public class InteractionParent : MonoBehaviour, IInteractable
     [SerializeField] private bool hideAfterInteraction = false;
     StageManager stageManager;
     protected bool interactable = true;
-    protected string interactionText = "Interact";
+    //protected string interactionText = "Interact";
+    public LocalizedString localizedInteractionText;
 
     private void OnEnable()
     {
@@ -30,7 +32,7 @@ public class InteractionParent : MonoBehaviour, IInteractable
 
     public string GetInteractionText()
     {
-        return interactionText;
+        return localizedInteractionText.GetLocalizedString();
     }
 
     public void CheckInteracted(RaycastHit hit, bool val)

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 using Cinemachine;
+using UnityEngine.Localization;
 
 public class HideInteraction : MonoBehaviour, IInteractable
 {
@@ -22,7 +23,8 @@ public class HideInteraction : MonoBehaviour, IInteractable
     [SerializeField] EventsBroadcaster eventsBroadcaster;
 
     protected bool interactable = true;
-    protected string interactionText = "Hide";
+    //protected string interactionText = "Hide";
+    public LocalizedString localizedInteractionText;
 
     private void OnEnable()
     {
@@ -80,7 +82,7 @@ public class HideInteraction : MonoBehaviour, IInteractable
 
     public string GetInteractionText()
     {
-        return interactionText;
+        return localizedInteractionText.GetLocalizedString();
     }
 
     public void CheckInteracted(RaycastHit hit, bool val)

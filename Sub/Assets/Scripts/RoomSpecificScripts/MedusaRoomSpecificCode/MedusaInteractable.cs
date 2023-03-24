@@ -7,11 +7,6 @@ public class MedusaInteractable : InteractionParent
     [SerializeField] GameObject targetObject;
     [SerializeField] GameObject interactionTest;
 
-    public MedusaInteractable()
-    {
-        this.interactionText = "Activate Medusa";
-    }
-
     public override void ActivateInteractable()
     {
         targetObject.SetActive(true);

@@ -227,9 +227,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerActions: {fileID: 1818025396}
   hideAfterInteraction: 0
+  localizedInteractionText:
+    m_TableReference:
+      m_TableCollectionName: GUID:4c009285ed8c68a49be616db04ab2bc3
+    m_TableEntryReference:
+      m_KeyId: 21691113390080
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   steamEffect: {fileID: 230338497}
   collisionTrigger: {fileID: 428409103}
   galateaController: {fileID: 4931926829874315529}
+  references:
+    version: 2
+    RefIds: []
 --- !u!65 &48111994
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2809,9 +2821,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerActions: {fileID: 1818025396}
   hideAfterInteraction: 0
+  localizedInteractionText:
+    m_TableReference:
+      m_TableCollectionName: GUID:4c009285ed8c68a49be616db04ab2bc3
+    m_TableEntryReference:
+      m_KeyId: 21691113390080
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   steamEffect: {fileID: 1820311734}
   collisionTrigger: {fileID: 339831010}
   galateaController: {fileID: 4931926829874315529}
+  references:
+    version: 2
+    RefIds: []
 --- !u!65 &506325565
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3156,9 +3180,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerActions: {fileID: 1818025396}
   hideAfterInteraction: 0
+  localizedInteractionText:
+    m_TableReference:
+      m_TableCollectionName: GUID:4c009285ed8c68a49be616db04ab2bc3
+    m_TableEntryReference:
+      m_KeyId: 21691113390080
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   steamEffect: {fileID: 313042722}
   collisionTrigger: {fileID: 347945104}
   galateaController: {fileID: 4931926829874315529}
+  references:
+    version: 2
+    RefIds: []
 --- !u!65 &604959152
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5308,8 +5344,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerActions: {fileID: 1818025396}
   hideAfterInteraction: 0
+  localizedInteractionText:
+    m_TableReference:
+      m_TableCollectionName: GUID:4c009285ed8c68a49be616db04ab2bc3
+    m_TableEntryReference:
+      m_KeyId: 21796583358464
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   targetObject: {fileID: 315351832}
   interactionTest: {fileID: 879719087}
+  references:
+    version: 2
+    RefIds: []
 --- !u!136 &856825390
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8798,9 +8846,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerActions: {fileID: 1818025396}
   hideAfterInteraction: 0
+  localizedInteractionText:
+    m_TableReference:
+      m_TableCollectionName: GUID:4c009285ed8c68a49be616db04ab2bc3
+    m_TableEntryReference:
+      m_KeyId: 21691113390080
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   steamEffect: {fileID: 132944042}
   collisionTrigger: {fileID: 720540691}
   galateaController: {fileID: 4931926829874315529}
+  references:
+    version: 2
+    RefIds: []
 --- !u!65 &1614009353
 BoxCollider:
   m_ObjectHideFlags: 0

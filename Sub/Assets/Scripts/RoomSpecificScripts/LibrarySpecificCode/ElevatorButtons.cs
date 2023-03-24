@@ -5,10 +5,6 @@ using UnityEngine;
 public class ElevatorButtons : InteractionParent
 {
     [SerializeField] ElevatorController elevatorController;
-    public ElevatorButtons()
-    {
-        this.interactionText = "Press the Button";
-    }
     
 
     public override void ActivateInteractable()

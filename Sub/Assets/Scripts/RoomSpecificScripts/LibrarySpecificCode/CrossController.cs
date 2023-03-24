@@ -6,11 +6,6 @@ public class CrossController : InteractionParent
 {
     [SerializeField] TVSpawner TVSpawner;
     [SerializeField] GameObject playerCross;
-
-    public CrossController()
-    {
-        this.interactionText = "Take The Cross";
-    }
     public override void ActivateInteractable()
     {
         TVSpawner.crossIsPlaced = false;

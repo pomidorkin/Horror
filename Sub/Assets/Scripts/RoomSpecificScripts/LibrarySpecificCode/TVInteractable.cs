@@ -7,10 +7,6 @@ public class TVInteractable : InteractionParent
     [SerializeField] GameObject cross;
     [SerializeField] TVSpawner TVSpawner;
     [SerializeField] GameObject playerCross;
-    public TVInteractable()
-    {
-        this.interactionText = "Place The Cross";
-    }
 
 
     public override void ActivateInteractable()

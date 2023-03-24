@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Localization;
 
 public class Lever : InteractionParent
 {
@@ -10,10 +11,12 @@ public class Lever : InteractionParent
     public bool turnedDown = false;
     private bool firstLever = false;
     [SerializeField] int leverPuzzleIndex;
+    public LocalizedString childLocalizedInteractionText;
+
 
     public Lever()
     {
-        this.interactionText = "Activate";
+        this.localizedInteractionText = childLocalizedInteractionText;
     }
 
     private void Start()

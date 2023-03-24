@@ -3482,7 +3482,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerActions: {fileID: 0}
   hideAfterInteraction: 0
+  localizedInteractionText:
+    m_TableReference:
+      m_TableCollectionName: GUID:4c009285ed8c68a49be616db04ab2bc3
+    m_TableEntryReference:
+      m_KeyId: 22066059001856
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   elevatorController: {fileID: 0}
+  references:
+    version: 2
+    RefIds: []
 --- !u!4 &485314619157981305
 Transform:
   m_ObjectHideFlags: 0
@@ -3676,7 +3688,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerActions: {fileID: 0}
   hideAfterInteraction: 0
+  localizedInteractionText:
+    m_TableReference:
+      m_TableCollectionName: GUID:4c009285ed8c68a49be616db04ab2bc3
+    m_TableEntryReference:
+      m_KeyId: 22066059001856
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   elevatorController: {fileID: 0}
+  references:
+    version: 2
+    RefIds: []
 --- !u!33 &485314620191899380
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -4176,6 +4200,14 @@ PrefabInstance:
       propertyPath: playerActions
       value: 
       objectReference: {fileID: 740367429}
+    - target: {fileID: 3036418329389191422, guid: 5e11b907f74b74443a33439b710b3158, type: 3}
+      propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 21922840297472
+      objectReference: {fileID: 0}
+    - target: {fileID: 3036418329389191422, guid: 5e11b907f74b74443a33439b710b3158, type: 3}
+      propertyPath: localizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
     - target: {fileID: 3036418329579565058, guid: 5e11b907f74b74443a33439b710b3158, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -4236,6 +4268,14 @@ PrefabInstance:
       propertyPath: playerActions
       value: 
       objectReference: {fileID: 740367429}
+    - target: {fileID: 3036418329788277209, guid: 5e11b907f74b74443a33439b710b3158, type: 3}
+      propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 22138582712320
+      objectReference: {fileID: 0}
+    - target: {fileID: 3036418329788277209, guid: 5e11b907f74b74443a33439b710b3158, type: 3}
+      propertyPath: localizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
     - target: {fileID: 3036418330422511398, guid: 5e11b907f74b74443a33439b710b3158, type: 3}
       propertyPath: playerCross
       value: 
@@ -4244,6 +4284,14 @@ PrefabInstance:
       propertyPath: playerActions
       value: 
       objectReference: {fileID: 740367429}
+    - target: {fileID: 3036418330422511398, guid: 5e11b907f74b74443a33439b710b3158, type: 3}
+      propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 22138582712320
+      objectReference: {fileID: 0}
+    - target: {fileID: 3036418330422511398, guid: 5e11b907f74b74443a33439b710b3158, type: 3}
+      propertyPath: localizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
     - target: {fileID: 6039096153631430716, guid: 5e11b907f74b74443a33439b710b3158, type: 3}
       propertyPath: jumpScare
       value: 
@@ -4260,6 +4308,14 @@ PrefabInstance:
       propertyPath: playerActions
       value: 
       objectReference: {fileID: 740367429}
+    - target: {fileID: 6039096153631430718, guid: 5e11b907f74b74443a33439b710b3158, type: 3}
+      propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 21922840297472
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039096153631430718, guid: 5e11b907f74b74443a33439b710b3158, type: 3}
+      propertyPath: localizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e11b907f74b74443a33439b710b3158, type: 3}
 --- !u!1001 &3717499521448357036
@@ -4386,6 +4442,14 @@ PrefabInstance:
       propertyPath: virtualCameras.Array.data[0]
       value: 
       objectReference: {fileID: 974729760}
+    - target: {fileID: 4771017597643583837, guid: be9da1315eb6f4043aaa4dd38242bf34, type: 3}
+      propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 16991085379584
+      objectReference: {fileID: 0}
+    - target: {fileID: 4771017597643583837, guid: be9da1315eb6f4043aaa4dd38242bf34, type: 3}
+      propertyPath: localizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
     - target: {fileID: 4771017598068078202, guid: be9da1315eb6f4043aaa4dd38242bf34, type: 3}
       propertyPath: m_Name
       value: HideWardrobe
@@ -4450,6 +4514,14 @@ PrefabInstance:
       propertyPath: playerActions
       value: 
       objectReference: {fileID: 740367429}
+    - target: {fileID: 4771017598533834556, guid: be9da1315eb6f4043aaa4dd38242bf34, type: 3}
+      propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 17146257850368
+      objectReference: {fileID: 0}
+    - target: {fileID: 4771017598533834556, guid: be9da1315eb6f4043aaa4dd38242bf34, type: 3}
+      propertyPath: localizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be9da1315eb6f4043aaa4dd38242bf34, type: 3}
 --- !u!1 &6133961368537163407
@@ -4659,6 +4731,18 @@ MonoBehaviour:
   lookAtSphere: {fileID: 1346830743}
   exitActivateor: {fileID: 6135521284728479805}
   eventsBroadcaster: {fileID: 0}
+  localizedInteractionText:
+    m_TableReference:
+      m_TableCollectionName: GUID:4c009285ed8c68a49be616db04ab2bc3
+    m_TableEntryReference:
+      m_KeyId: 16991085379584
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!114 &6135521283985878383
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -4934,6 +5018,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerActions: {fileID: 740367429}
   hideInteraction: {fileID: 6135521283603367514}
+  localizedInteractionText:
+    m_TableReference:
+      m_TableCollectionName: GUID:4c009285ed8c68a49be616db04ab2bc3
+    m_TableEntryReference:
+      m_KeyId: 17146257850368
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!4 &6135521284728479804
 Transform:
   m_ObjectHideFlags: 0

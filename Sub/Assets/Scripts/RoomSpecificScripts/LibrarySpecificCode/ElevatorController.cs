@@ -6,10 +6,6 @@ using UnityEngine.SceneManagement;
 public class ElevatorController : InteractionParent
 {
     [SerializeField] Animator animator;
-    public ElevatorController()
-    {
-        this.interactionText = "Use";
-    }
 
     public override void ActivateInteractable()
     {

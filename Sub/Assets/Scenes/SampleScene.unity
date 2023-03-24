@@ -408,8 +408,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerActions: {fileID: 1028167401}
   hideAfterInteraction: 0
+  localizedInteractionText:
+    m_TableReference:
+      m_TableCollectionName: GUID:4c009285ed8c68a49be616db04ab2bc3
+    m_TableEntryReference:
+      m_KeyId: 21366541369344
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   leverController: {fileID: 1596712026}
   turnedDown: 0
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &8852029
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,6 +599,27 @@ MonoBehaviour:
   subRoomToHide: {fileID: 152546371}
   nextDoorFloor: {fileID: 799054528}
   nextRoomDecorations: {fileID: 990660806}
+  localizedInteractionText:
+    m_TableReference:
+      m_TableCollectionName: GUID:4c009285ed8c68a49be616db04ab2bc3
+    m_TableEntryReference:
+      m_KeyId: 168688336896
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  closeLocalizedInteractionText:
+    m_TableReference:
+      m_TableCollectionName: GUID:4c009285ed8c68a49be616db04ab2bc3
+    m_TableEntryReference:
+      m_KeyId: 14680233590784
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!95 &14673735
 Animator:
   serializedVersion: 4
@@ -3291,7 +3324,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerActions: {fileID: 1028167401}
   hideAfterInteraction: 0
+  localizedInteractionText:
+    m_TableReference:
+      m_TableCollectionName: GUID:4c009285ed8c68a49be616db04ab2bc3
+    m_TableEntryReference:
+      m_KeyId: 21587128205312
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   lightSwitch: {fileID: 134197324}
+  references:
+    version: 2
+    RefIds: []
 --- !u!4 &134197326 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4437948653010210, guid: 8f32578f828107b4396f7144f4a62a53, type: 3}
@@ -6458,9 +6503,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerActions: {fileID: 1028167401}
   hideAfterInteraction: 0
+  localizedInteractionText:
+    m_TableReference:
+      m_TableCollectionName: GUID:4c009285ed8c68a49be616db04ab2bc3
+    m_TableEntryReference:
+      m_KeyId: 21366541369344
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   leverPuzzle: {fileID: 685819365}
   turnedDown: 0
   leverPuzzleIndex: 1
+  childLocalizedInteractionText:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!95 &431888198
 Animator:
   serializedVersion: 4
@@ -7423,6 +7489,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerActions: {fileID: 1028167401}
   hideAfterInteraction: 1
+  localizedInteractionText:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!1001 &556422746
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8785,8 +8863,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerActions: {fileID: 1028167401}
   hideAfterInteraction: 0
+  localizedInteractionText:
+    m_TableReference:
+      m_TableCollectionName: GUID:4c009285ed8c68a49be616db04ab2bc3
+    m_TableEntryReference:
+      m_KeyId: 21366541369344
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   leverController: {fileID: 1596712026}
   turnedDown: 0
+  references:
+    version: 2
+    RefIds: []
 --- !u!1001 &573821120
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9258,6 +9348,78 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 605491169}
   m_Mesh: {fileID: 4300000, guid: bf66c996903e9c7438f58ae109090762, type: 3}
+--- !u!1 &607571695
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 607571697}
+  - component: {fileID: 607571696}
+  m_Layer: 0
+  m_Name: TeslLocalization
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &607571696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 607571695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  references:
+    version: 2
+    RefIds: []
+--- !u!4 &607571697
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 607571695}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &611658924 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6878723229627966001, guid: 2b77df70fb66f9642b33efc663c38d3d, type: 3}
@@ -9728,6 +9890,22 @@ PrefabInstance:
       propertyPath: playerActions
       value: 
       objectReference: {fileID: 1028167401}
+    - target: {fileID: 224900412, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 168688336896
+      objectReference: {fileID: 0}
+    - target: {fileID: 224900412, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 14680233590784
+      objectReference: {fileID: 0}
+    - target: {fileID: 224900412, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
+    - target: {fileID: 224900412, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
     - target: {fileID: 241010987, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
       propertyPath: doorManager
       value: 
@@ -9736,6 +9914,22 @@ PrefabInstance:
       propertyPath: playerActions
       value: 
       objectReference: {fileID: 1028167401}
+    - target: {fileID: 241010987, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 168688336896
+      objectReference: {fileID: 0}
+    - target: {fileID: 241010987, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 14680233590784
+      objectReference: {fileID: 0}
+    - target: {fileID: 241010987, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
+    - target: {fileID: 241010987, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
     - target: {fileID: 392477523323522956, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
       propertyPath: stageManager
       value: 
@@ -9748,6 +9942,22 @@ PrefabInstance:
       propertyPath: playerActions
       value: 
       objectReference: {fileID: 1028167401}
+    - target: {fileID: 3063239531200275914, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 168688336896
+      objectReference: {fileID: 0}
+    - target: {fileID: 3063239531200275914, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 14680233590784
+      objectReference: {fileID: 0}
+    - target: {fileID: 3063239531200275914, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3063239531200275914, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
     - target: {fileID: 3648590282868773182, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
       propertyPath: doorManager
       value: 
@@ -9756,6 +9966,22 @@ PrefabInstance:
       propertyPath: playerActions
       value: 
       objectReference: {fileID: 1028167401}
+    - target: {fileID: 3648590282868773182, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 168688336896
+      objectReference: {fileID: 0}
+    - target: {fileID: 3648590282868773182, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 14680233590784
+      objectReference: {fileID: 0}
+    - target: {fileID: 3648590282868773182, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3648590282868773182, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
     - target: {fileID: 5797429735765324022, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
       propertyPath: doorManager
       value: 
@@ -9764,6 +9990,22 @@ PrefabInstance:
       propertyPath: playerActions
       value: 
       objectReference: {fileID: 1028167401}
+    - target: {fileID: 5797429735765324022, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 168688336896
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797429735765324022, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 14680233590784
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797429735765324022, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797429735765324022, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
     - target: {fileID: 8275794582203054762, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -9820,6 +10062,22 @@ PrefabInstance:
       propertyPath: playerActions
       value: 
       objectReference: {fileID: 1028167401}
+    - target: {fileID: 9060180853541588608, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 168688336896
+      objectReference: {fileID: 0}
+    - target: {fileID: 9060180853541588608, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 14680233590784
+      objectReference: {fileID: 0}
+    - target: {fileID: 9060180853541588608, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9060180853541588608, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
 --- !u!1 &661333155 stripped
@@ -12460,9 +12718,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerActions: {fileID: 1028167401}
   hideAfterInteraction: 0
+  localizedInteractionText:
+    m_TableReference:
+      m_TableCollectionName: GUID:4c009285ed8c68a49be616db04ab2bc3
+    m_TableEntryReference:
+      m_KeyId: 21366541369344
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   leverPuzzle: {fileID: 685819365}
   turnedDown: 0
   leverPuzzleIndex: 0
+  childLocalizedInteractionText:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!4 &865494904 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4906677306595396, guid: 05a83fa777e16c34ca675fabeca72176, type: 3}
@@ -13703,7 +13982,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerActions: {fileID: 1028167401}
   hideAfterInteraction: 0
+  localizedInteractionText:
+    m_TableReference:
+      m_TableCollectionName: GUID:4c009285ed8c68a49be616db04ab2bc3
+    m_TableEntryReference:
+      m_KeyId: 21587128205312
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   lightSwitch: {fileID: 936334375}
+  references:
+    version: 2
+    RefIds: []
 --- !u!114 &936334375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16380,6 +16671,18 @@ MonoBehaviour:
   rotateRoomSegment: {fileID: 831142238}
   playerActions: {fileID: 1028167401}
   rotatingRoomLever: {fileID: 580844169}
+  localizedInteractionText:
+    m_TableReference:
+      m_TableCollectionName: GUID:4c009285ed8c68a49be616db04ab2bc3
+    m_TableEntryReference:
+      m_KeyId: 17340097609728
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!1001 &1119785309
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18909,6 +19212,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerActions: {fileID: 1028167401}
   hideAfterInteraction: 0
+  localizedInteractionText:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!65 &1295768329
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20128,6 +20443,27 @@ MonoBehaviour:
   subRoomToHide: {fileID: 62810811}
   nextDoorFloor: {fileID: 1203369484}
   nextRoomDecorations: {fileID: 1038866162}
+  localizedInteractionText:
+    m_TableReference:
+      m_TableCollectionName: GUID:4c009285ed8c68a49be616db04ab2bc3
+    m_TableEntryReference:
+      m_KeyId: 168688336896
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  closeLocalizedInteractionText:
+    m_TableReference:
+      m_TableCollectionName: GUID:4c009285ed8c68a49be616db04ab2bc3
+    m_TableEntryReference:
+      m_KeyId: 14680233590784
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &1410492187
 GameObject:
   m_ObjectHideFlags: 0
@@ -20373,9 +20709,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerActions: {fileID: 1028167401}
   hideAfterInteraction: 0
+  localizedInteractionText:
+    m_TableReference:
+      m_TableCollectionName: GUID:4c009285ed8c68a49be616db04ab2bc3
+    m_TableEntryReference:
+      m_KeyId: 21366541369344
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   leverPuzzle: {fileID: 685819365}
   turnedDown: 0
   leverPuzzleIndex: 0
+  childLocalizedInteractionText:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!1001 &1444745994
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21065,8 +21422,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerActions: {fileID: 1028167401}
   hideAfterInteraction: 0
+  localizedInteractionText:
+    m_TableReference:
+      m_TableCollectionName: GUID:4c009285ed8c68a49be616db04ab2bc3
+    m_TableEntryReference:
+      m_KeyId: 21982944673792
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   targetObject: {fileID: 1213571902}
   gameManager: {fileID: 1691485524}
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &1511127277
 GameObject:
   m_ObjectHideFlags: 0
@@ -22887,6 +23256,22 @@ PrefabInstance:
       propertyPath: playerActions
       value: 
       objectReference: {fileID: 1028167401}
+    - target: {fileID: 224900412, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 168688336896
+      objectReference: {fileID: 0}
+    - target: {fileID: 224900412, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 14680233590784
+      objectReference: {fileID: 0}
+    - target: {fileID: 224900412, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
+    - target: {fileID: 224900412, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
     - target: {fileID: 241010987, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
       propertyPath: doorManager
       value: 
@@ -22895,6 +23280,22 @@ PrefabInstance:
       propertyPath: playerActions
       value: 
       objectReference: {fileID: 1028167401}
+    - target: {fileID: 241010987, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 168688336896
+      objectReference: {fileID: 0}
+    - target: {fileID: 241010987, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 14680233590784
+      objectReference: {fileID: 0}
+    - target: {fileID: 241010987, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
+    - target: {fileID: 241010987, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
     - target: {fileID: 392477523323522956, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
       propertyPath: stageManager
       value: 
@@ -22907,6 +23308,22 @@ PrefabInstance:
       propertyPath: playerActions
       value: 
       objectReference: {fileID: 1028167401}
+    - target: {fileID: 3063239531200275914, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 168688336896
+      objectReference: {fileID: 0}
+    - target: {fileID: 3063239531200275914, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 14680233590784
+      objectReference: {fileID: 0}
+    - target: {fileID: 3063239531200275914, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3063239531200275914, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
     - target: {fileID: 3648590282868773182, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
       propertyPath: doorManager
       value: 
@@ -22915,6 +23332,22 @@ PrefabInstance:
       propertyPath: playerActions
       value: 
       objectReference: {fileID: 1028167401}
+    - target: {fileID: 3648590282868773182, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 168688336896
+      objectReference: {fileID: 0}
+    - target: {fileID: 3648590282868773182, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 14680233590784
+      objectReference: {fileID: 0}
+    - target: {fileID: 3648590282868773182, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3648590282868773182, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
     - target: {fileID: 5797429735765324022, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
       propertyPath: doorManager
       value: 
@@ -22923,6 +23356,22 @@ PrefabInstance:
       propertyPath: playerActions
       value: 
       objectReference: {fileID: 1028167401}
+    - target: {fileID: 5797429735765324022, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 168688336896
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797429735765324022, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 14680233590784
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797429735765324022, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797429735765324022, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
     - target: {fileID: 8275794582203054762, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -23015,6 +23464,22 @@ PrefabInstance:
       propertyPath: playerActions
       value: 
       objectReference: {fileID: 1028167401}
+    - target: {fileID: 9060180853541588608, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 168688336896
+      objectReference: {fileID: 0}
+    - target: {fileID: 9060180853541588608, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 14680233590784
+      objectReference: {fileID: 0}
+    - target: {fileID: 9060180853541588608, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9060180853541588608, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
 --- !u!1 &1646445133 stripped
@@ -23501,9 +23966,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerActions: {fileID: 1028167401}
   hideAfterInteraction: 0
+  localizedInteractionText:
+    m_TableReference:
+      m_TableCollectionName: GUID:4c009285ed8c68a49be616db04ab2bc3
+    m_TableEntryReference:
+      m_KeyId: 21366541369344
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   leverPuzzle: {fileID: 685819365}
   turnedDown: 0
   leverPuzzleIndex: 1
+  childLocalizedInteractionText:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!95 &1670634070
 Animator:
   serializedVersion: 4
@@ -25962,9 +26448,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerActions: {fileID: 1028167401}
   hideAfterInteraction: 0
+  localizedInteractionText:
+    m_TableReference:
+      m_TableCollectionName: GUID:4c009285ed8c68a49be616db04ab2bc3
+    m_TableEntryReference:
+      m_KeyId: 21366541369344
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   leverPuzzle: {fileID: 685819365}
   turnedDown: 0
   leverPuzzleIndex: 1
+  childLocalizedInteractionText:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!4 &1856012929 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4979240818478456, guid: 95fd9e3f69275a3439203b02ca33d782, type: 3}
@@ -26137,6 +26644,22 @@ PrefabInstance:
       propertyPath: playerActions
       value: 
       objectReference: {fileID: 1028167401}
+    - target: {fileID: 224900412, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 168688336896
+      objectReference: {fileID: 0}
+    - target: {fileID: 224900412, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 14680233590784
+      objectReference: {fileID: 0}
+    - target: {fileID: 224900412, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
+    - target: {fileID: 224900412, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
     - target: {fileID: 241010987, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
       propertyPath: doorManager
       value: 
@@ -26145,6 +26668,22 @@ PrefabInstance:
       propertyPath: playerActions
       value: 
       objectReference: {fileID: 1028167401}
+    - target: {fileID: 241010987, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 168688336896
+      objectReference: {fileID: 0}
+    - target: {fileID: 241010987, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 14680233590784
+      objectReference: {fileID: 0}
+    - target: {fileID: 241010987, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
+    - target: {fileID: 241010987, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
     - target: {fileID: 392477523323522956, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
       propertyPath: stageManager
       value: 
@@ -26157,6 +26696,22 @@ PrefabInstance:
       propertyPath: playerActions
       value: 
       objectReference: {fileID: 1028167401}
+    - target: {fileID: 3063239531200275914, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 168688336896
+      objectReference: {fileID: 0}
+    - target: {fileID: 3063239531200275914, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 14680233590784
+      objectReference: {fileID: 0}
+    - target: {fileID: 3063239531200275914, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3063239531200275914, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
     - target: {fileID: 3648590282868773182, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
       propertyPath: doorManager
       value: 
@@ -26165,6 +26720,22 @@ PrefabInstance:
       propertyPath: playerActions
       value: 
       objectReference: {fileID: 1028167401}
+    - target: {fileID: 3648590282868773182, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 168688336896
+      objectReference: {fileID: 0}
+    - target: {fileID: 3648590282868773182, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 14680233590784
+      objectReference: {fileID: 0}
+    - target: {fileID: 3648590282868773182, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3648590282868773182, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
     - target: {fileID: 5797429735765324022, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
       propertyPath: doorManager
       value: 
@@ -26173,6 +26744,22 @@ PrefabInstance:
       propertyPath: playerActions
       value: 
       objectReference: {fileID: 1028167401}
+    - target: {fileID: 5797429735765324022, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 168688336896
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797429735765324022, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 14680233590784
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797429735765324022, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797429735765324022, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
     - target: {fileID: 8275794582203054762, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -26265,6 +26852,22 @@ PrefabInstance:
       propertyPath: playerActions
       value: 
       objectReference: {fileID: 1028167401}
+    - target: {fileID: 9060180853541588608, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 168688336896
+      objectReference: {fileID: 0}
+    - target: {fileID: 9060180853541588608, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 14680233590784
+      objectReference: {fileID: 0}
+    - target: {fileID: 9060180853541588608, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9060180853541588608, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
 --- !u!1 &1878418338 stripped
@@ -26486,6 +27089,27 @@ MonoBehaviour:
   subRoomToHide: {fileID: 1247477250}
   nextDoorFloor: {fileID: 1594345121}
   nextRoomDecorations: {fileID: 477241998}
+  localizedInteractionText:
+    m_TableReference:
+      m_TableCollectionName: GUID:4c009285ed8c68a49be616db04ab2bc3
+    m_TableEntryReference:
+      m_KeyId: 168688336896
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  closeLocalizedInteractionText:
+    m_TableReference:
+      m_TableCollectionName: GUID:4c009285ed8c68a49be616db04ab2bc3
+    m_TableEntryReference:
+      m_KeyId: 14680233590784
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!95 &1886585715
 Animator:
   serializedVersion: 4
@@ -26739,6 +27363,22 @@ PrefabInstance:
       propertyPath: playerActions
       value: 
       objectReference: {fileID: 1028167401}
+    - target: {fileID: 224900412, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 168688336896
+      objectReference: {fileID: 0}
+    - target: {fileID: 224900412, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 14680233590784
+      objectReference: {fileID: 0}
+    - target: {fileID: 224900412, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
+    - target: {fileID: 224900412, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
     - target: {fileID: 241010987, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
       propertyPath: doorManager
       value: 
@@ -26747,6 +27387,22 @@ PrefabInstance:
       propertyPath: playerActions
       value: 
       objectReference: {fileID: 1028167401}
+    - target: {fileID: 241010987, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 168688336896
+      objectReference: {fileID: 0}
+    - target: {fileID: 241010987, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 14680233590784
+      objectReference: {fileID: 0}
+    - target: {fileID: 241010987, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
+    - target: {fileID: 241010987, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
     - target: {fileID: 392477523323522956, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
       propertyPath: stageManager
       value: 
@@ -26759,6 +27415,22 @@ PrefabInstance:
       propertyPath: playerActions
       value: 
       objectReference: {fileID: 1028167401}
+    - target: {fileID: 3063239531200275914, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 168688336896
+      objectReference: {fileID: 0}
+    - target: {fileID: 3063239531200275914, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 14680233590784
+      objectReference: {fileID: 0}
+    - target: {fileID: 3063239531200275914, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3063239531200275914, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
     - target: {fileID: 3648590282868773182, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
       propertyPath: doorManager
       value: 
@@ -26767,6 +27439,22 @@ PrefabInstance:
       propertyPath: playerActions
       value: 
       objectReference: {fileID: 1028167401}
+    - target: {fileID: 3648590282868773182, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 168688336896
+      objectReference: {fileID: 0}
+    - target: {fileID: 3648590282868773182, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 14680233590784
+      objectReference: {fileID: 0}
+    - target: {fileID: 3648590282868773182, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3648590282868773182, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
     - target: {fileID: 5797429735765324022, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
       propertyPath: doorManager
       value: 
@@ -26775,6 +27463,22 @@ PrefabInstance:
       propertyPath: playerActions
       value: 
       objectReference: {fileID: 1028167401}
+    - target: {fileID: 5797429735765324022, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 168688336896
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797429735765324022, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 14680233590784
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797429735765324022, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797429735765324022, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
     - target: {fileID: 8275794582203054762, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -26831,6 +27535,22 @@ PrefabInstance:
       propertyPath: playerActions
       value: 
       objectReference: {fileID: 1028167401}
+    - target: {fileID: 9060180853541588608, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 168688336896
+      objectReference: {fileID: 0}
+    - target: {fileID: 9060180853541588608, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 14680233590784
+      objectReference: {fileID: 0}
+    - target: {fileID: 9060180853541588608, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9060180853541588608, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
 --- !u!1 &1919963651 stripped
@@ -26981,8 +27701,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerActions: {fileID: 1028167401}
   hideAfterInteraction: 0
+  localizedInteractionText:
+    m_TableReference:
+      m_TableCollectionName: GUID:4c009285ed8c68a49be616db04ab2bc3
+    m_TableEntryReference:
+      m_KeyId: 21366541369344
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   leverController: {fileID: 1596712026}
   turnedDown: 0
+  references:
+    version: 2
+    RefIds: []
 --- !u!1001 &1930759400
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27744,6 +28476,27 @@ MonoBehaviour:
   subRoomToHide: {fileID: 1113290963}
   nextDoorFloor: {fileID: 42119758}
   nextRoomDecorations: {fileID: 272275370}
+  localizedInteractionText:
+    m_TableReference:
+      m_TableCollectionName: GUID:4c009285ed8c68a49be616db04ab2bc3
+    m_TableEntryReference:
+      m_KeyId: 168688336896
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  closeLocalizedInteractionText:
+    m_TableReference:
+      m_TableCollectionName: GUID:4c009285ed8c68a49be616db04ab2bc3
+    m_TableEntryReference:
+      m_KeyId: 14680233590784
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!95 &1983208581
 Animator:
   serializedVersion: 4
@@ -27852,7 +28605,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1995525446
 Transform:
   m_ObjectHideFlags: 0
@@ -28775,9 +29528,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerActions: {fileID: 1028167401}
   hideAfterInteraction: 0
+  localizedInteractionText:
+    m_TableReference:
+      m_TableCollectionName: GUID:4c009285ed8c68a49be616db04ab2bc3
+    m_TableEntryReference:
+      m_KeyId: 21366541369344
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   leverPuzzle: {fileID: 685819365}
   turnedDown: 0
   leverPuzzleIndex: 0
+  childLocalizedInteractionText:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!1001 &2078100534
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31577,14 +32351,38 @@ PrefabInstance:
       propertyPath: playerActions
       value: 
       objectReference: {fileID: 1028167401}
+    - target: {fileID: 2216699277679151284, guid: d16266e09ee56d249aa80eb8ae456592, type: 3}
+      propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 22066059001856
+      objectReference: {fileID: 0}
+    - target: {fileID: 2216699277679151284, guid: d16266e09ee56d249aa80eb8ae456592, type: 3}
+      propertyPath: localizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
     - target: {fileID: 2216699278687870527, guid: d16266e09ee56d249aa80eb8ae456592, type: 3}
       propertyPath: playerActions
       value: 
       objectReference: {fileID: 1028167401}
+    - target: {fileID: 2216699278687870527, guid: d16266e09ee56d249aa80eb8ae456592, type: 3}
+      propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 22066059001856
+      objectReference: {fileID: 0}
+    - target: {fileID: 2216699278687870527, guid: d16266e09ee56d249aa80eb8ae456592, type: 3}
+      propertyPath: localizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
     - target: {fileID: 2216699279138970187, guid: d16266e09ee56d249aa80eb8ae456592, type: 3}
       propertyPath: playerActions
       value: 
       objectReference: {fileID: 1028167401}
+    - target: {fileID: 2216699279138970187, guid: d16266e09ee56d249aa80eb8ae456592, type: 3}
+      propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 21982944673792
+      objectReference: {fileID: 0}
+    - target: {fileID: 2216699279138970187, guid: d16266e09ee56d249aa80eb8ae456592, type: 3}
+      propertyPath: localizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d16266e09ee56d249aa80eb8ae456592, type: 3}
 --- !u!1001 &2593315664949162681
@@ -35683,6 +36481,14 @@ PrefabInstance:
       propertyPath: playerActions
       value: 
       objectReference: {fileID: 1028167401}
+    - target: {fileID: 780036143, guid: 28ae4061dfae9944db843d9b9923d2a0, type: 3}
+      propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 16571411709952
+      objectReference: {fileID: 0}
+    - target: {fileID: 780036143, guid: 28ae4061dfae9944db843d9b9923d2a0, type: 3}
+      propertyPath: localizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
     - target: {fileID: 780036144, guid: 28ae4061dfae9944db843d9b9923d2a0, type: 3}
       propertyPath: inputManager
       value: 
@@ -35741,7 +36547,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3299426683898526298, guid: 28ae4061dfae9944db843d9b9923d2a0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28ae4061dfae9944db843d9b9923d2a0, type: 3}
@@ -36117,6 +36923,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerActions: {fileID: 1028167401}
   dialogueTrigger: {fileID: 6659794426861992118}
+  localizedInteractionText:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!114 &6659794426861992118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40297,6 +41115,22 @@ PrefabInstance:
       propertyPath: playerActions
       value: 
       objectReference: {fileID: 1028167401}
+    - target: {fileID: 224900412, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 168688336896
+      objectReference: {fileID: 0}
+    - target: {fileID: 224900412, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 14680233590784
+      objectReference: {fileID: 0}
+    - target: {fileID: 224900412, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
+    - target: {fileID: 224900412, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
     - target: {fileID: 241010987, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
       propertyPath: doorManager
       value: 
@@ -40305,6 +41139,22 @@ PrefabInstance:
       propertyPath: playerActions
       value: 
       objectReference: {fileID: 1028167401}
+    - target: {fileID: 241010987, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 168688336896
+      objectReference: {fileID: 0}
+    - target: {fileID: 241010987, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 14680233590784
+      objectReference: {fileID: 0}
+    - target: {fileID: 241010987, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
+    - target: {fileID: 241010987, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
     - target: {fileID: 1339175494, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -40369,6 +41219,22 @@ PrefabInstance:
       propertyPath: playerActions
       value: 
       objectReference: {fileID: 1028167401}
+    - target: {fileID: 3063239531200275914, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 168688336896
+      objectReference: {fileID: 0}
+    - target: {fileID: 3063239531200275914, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 14680233590784
+      objectReference: {fileID: 0}
+    - target: {fileID: 3063239531200275914, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3063239531200275914, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
     - target: {fileID: 3648590282868773182, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
       propertyPath: doorManager
       value: 
@@ -40377,6 +41243,22 @@ PrefabInstance:
       propertyPath: playerActions
       value: 
       objectReference: {fileID: 1028167401}
+    - target: {fileID: 3648590282868773182, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 168688336896
+      objectReference: {fileID: 0}
+    - target: {fileID: 3648590282868773182, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 14680233590784
+      objectReference: {fileID: 0}
+    - target: {fileID: 3648590282868773182, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3648590282868773182, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
     - target: {fileID: 5436520635898268327, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -40389,6 +41271,22 @@ PrefabInstance:
       propertyPath: playerActions
       value: 
       objectReference: {fileID: 1028167401}
+    - target: {fileID: 5797429735765324022, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 168688336896
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797429735765324022, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 14680233590784
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797429735765324022, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797429735765324022, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
     - target: {fileID: 8184991319121446640, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -40501,6 +41399,22 @@ PrefabInstance:
       propertyPath: playerActions
       value: 
       objectReference: {fileID: 1028167401}
+    - target: {fileID: 9060180853541588608, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 168688336896
+      objectReference: {fileID: 0}
+    - target: {fileID: 9060180853541588608, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 14680233590784
+      objectReference: {fileID: 0}
+    - target: {fileID: 9060180853541588608, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: localizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9060180853541588608, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
+      propertyPath: closeLocalizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09c7ce862ece2424fbba057ff8ba061b, type: 3}
 --- !u!1 &8711617005053703336 stripped

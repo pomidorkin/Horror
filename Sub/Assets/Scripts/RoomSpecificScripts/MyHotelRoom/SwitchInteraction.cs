@@ -5,10 +5,6 @@ using UnityEngine;
 public class SwitchInteraction : InteractionParent
 {
     [SerializeField] LightSwitch lightSwitch;
-    public SwitchInteraction()
-    {
-        this.interactionText = "Lights On/Off";
-    }
 
 
     public override void ActivateInteractable()

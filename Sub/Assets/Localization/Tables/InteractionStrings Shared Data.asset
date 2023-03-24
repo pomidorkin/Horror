@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: InteractionStrings Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: InteractionStrings
+  m_TableCollectionNameGuidString: 4c009285ed8c68a49be616db04ab2bc3
+  m_Entries:
+  - m_Id: 168688336896
+    m_Key: Open Door
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14680233590784
+    m_Key: Close Door
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16571411709952
+    m_Key: Talk
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16713208545280
+    m_Key: Interact
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16991085379584
+    m_Key: Hide
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17146257850368
+    m_Key: Exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17340097609728
+    m_Key: Rotate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21366541369344
+    m_Key: Activate (Lever)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21441288060928
+    m_Key: Put Flower
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21587128205312
+    m_Key: Lights On/Off
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21691113390080
+    m_Key: Turn (Valve)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21796583358464
+    m_Key: Activate Medusa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21922840297472
+    m_Key: Place The Cross
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21982944673792
+    m_Key: Use
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22066059001856
+    m_Key: Press the Button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22138582712320
+    m_Key: Take The Cross
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 6469103658796580888
+  references:
+    version: 2
+    RefIds:
+    - rid: 6469103658796580888
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1679651900807

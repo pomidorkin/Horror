@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Localization;
 
 public class NPCController : MonoBehaviour, IInteractable
 {
     [SerializeField] private PlayerActions playerActions;
     [SerializeField] private DialogueTrigger dialogueTrigger;
-    string interactionText = "Talk";
+    //string interactionText = "Talk";
+    public LocalizedString localizedInteractionText;
 
     private void OnEnable()
     {
@@ -29,7 +31,7 @@ public class NPCController : MonoBehaviour, IInteractable
 
     public string GetInteractionText()
     {
-        return interactionText;
+        return localizedInteractionText.GetLocalizedString();
     }
 
     public bool GetInteractable()

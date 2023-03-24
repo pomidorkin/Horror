@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.Localization;
 
 public class Door : MonoBehaviour, IInteractable
 {
@@ -10,8 +11,8 @@ public class Door : MonoBehaviour, IInteractable
     [SerializeField] Transform roomPosition;
     [SerializeField] DoorManager doorManager;
     [SerializeField] Animator animator;
-    string interactionText = "Open Door";
-    string closeInteractionText = "Close Door";
+    public LocalizedString localizedInteractionText;
+    public LocalizedString closeLocalizedInteractionText;
 
     private AllDoorController allDoorController;
 
@@ -92,11 +93,13 @@ public class Door : MonoBehaviour, IInteractable
         // TODO: Return different text depending on the state of the door (Open/Closed)
         if (!isOpened && isInteractable)
         {
-            return interactionText;
+            return localizedInteractionText.GetLocalizedString();
+            //return interactionText;
         }
         else if(isOpened && isInteractable)
         {
-            return closeInteractionText;
+            return closeLocalizedInteractionText.GetLocalizedString();
+            //return closeInteractionText;
         }
         else
         {

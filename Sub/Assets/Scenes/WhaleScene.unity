@@ -405,6 +405,14 @@ PrefabInstance:
       propertyPath: AllTankController
       value: 
       objectReference: {fileID: 61868425}
+    - target: {fileID: 5355837106367182519, guid: effea9768646c1c4cbef1db568736361, type: 3}
+      propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 21441288060928
+      objectReference: {fileID: 0}
+    - target: {fileID: 5355837106367182519, guid: effea9768646c1c4cbef1db568736361, type: 3}
+      propertyPath: localizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
     - target: {fileID: 5355837106510849501, guid: effea9768646c1c4cbef1db568736361, type: 3}
       propertyPath: m_Data.m_SourceObjects.m_Item0.transform
       value: 
@@ -530,6 +538,14 @@ PrefabInstance:
       propertyPath: AllTankController
       value: 
       objectReference: {fileID: 61868425}
+    - target: {fileID: 5355837106367182519, guid: effea9768646c1c4cbef1db568736361, type: 3}
+      propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 21441288060928
+      objectReference: {fileID: 0}
+    - target: {fileID: 5355837106367182519, guid: effea9768646c1c4cbef1db568736361, type: 3}
+      propertyPath: localizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
     - target: {fileID: 5355837106510849501, guid: effea9768646c1c4cbef1db568736361, type: 3}
       propertyPath: m_Data.m_SourceObjects.m_Item0.transform
       value: 
@@ -621,6 +637,14 @@ PrefabInstance:
       propertyPath: AllTankController
       value: 
       objectReference: {fileID: 61868425}
+    - target: {fileID: 5355837106367182519, guid: effea9768646c1c4cbef1db568736361, type: 3}
+      propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 21441288060928
+      objectReference: {fileID: 0}
+    - target: {fileID: 5355837106367182519, guid: effea9768646c1c4cbef1db568736361, type: 3}
+      propertyPath: localizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
     - target: {fileID: 5355837106510849501, guid: effea9768646c1c4cbef1db568736361, type: 3}
       propertyPath: m_Data.m_SourceObjects.m_Item0.transform
       value: 
@@ -6731,6 +6755,14 @@ PrefabInstance:
       propertyPath: AllTankController
       value: 
       objectReference: {fileID: 61868425}
+    - target: {fileID: 5355837106367182519, guid: effea9768646c1c4cbef1db568736361, type: 3}
+      propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 21441288060928
+      objectReference: {fileID: 0}
+    - target: {fileID: 5355837106367182519, guid: effea9768646c1c4cbef1db568736361, type: 3}
+      propertyPath: localizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
     - target: {fileID: 5355837106510849501, guid: effea9768646c1c4cbef1db568736361, type: 3}
       propertyPath: m_Data.m_SourceObjects.m_Item0.transform
       value: 
@@ -7782,6 +7814,14 @@ PrefabInstance:
       propertyPath: AllTankController
       value: 
       objectReference: {fileID: 61868425}
+    - target: {fileID: 5355837106367182519, guid: effea9768646c1c4cbef1db568736361, type: 3}
+      propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 21441288060928
+      objectReference: {fileID: 0}
+    - target: {fileID: 5355837106367182519, guid: effea9768646c1c4cbef1db568736361, type: 3}
+      propertyPath: localizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
     - target: {fileID: 5355837106510849501, guid: effea9768646c1c4cbef1db568736361, type: 3}
       propertyPath: m_Data.m_SourceObjects.m_Item0.transform
       value: 
@@ -10187,9 +10227,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerActions: {fileID: 2145946204}
   hideAfterInteraction: 0
+  localizedInteractionText:
+    m_TableReference:
+      m_TableCollectionName: GUID:4c009285ed8c68a49be616db04ab2bc3
+    m_TableEntryReference:
+      m_KeyId: 21441288060928
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   targetObject: {fileID: 713890425}
   tankManager: {fileID: 700368519}
   AllTankController: {fileID: 61868425}
+  references:
+    version: 2
+    RefIds: []
 --- !u!65 &2077395063
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10272,6 +10324,14 @@ PrefabInstance:
       propertyPath: AllTankController
       value: 
       objectReference: {fileID: 61868425}
+    - target: {fileID: 5355837106367182519, guid: effea9768646c1c4cbef1db568736361, type: 3}
+      propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 21441288060928
+      objectReference: {fileID: 0}
+    - target: {fileID: 5355837106367182519, guid: effea9768646c1c4cbef1db568736361, type: 3}
+      propertyPath: localizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
     - target: {fileID: 5355837106510849501, guid: effea9768646c1c4cbef1db568736361, type: 3}
       propertyPath: m_Data.m_SourceObjects.m_Item0.transform
       value: 
@@ -10473,6 +10533,14 @@ PrefabInstance:
       propertyPath: AllTankController
       value: 
       objectReference: {fileID: 61868425}
+    - target: {fileID: 5355837106367182519, guid: effea9768646c1c4cbef1db568736361, type: 3}
+      propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 21441288060928
+      objectReference: {fileID: 0}
+    - target: {fileID: 5355837106367182519, guid: effea9768646c1c4cbef1db568736361, type: 3}
+      propertyPath: localizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
     - target: {fileID: 5355837106510849501, guid: effea9768646c1c4cbef1db568736361, type: 3}
       propertyPath: m_Data.m_SourceObjects.m_Item0.transform
       value: 

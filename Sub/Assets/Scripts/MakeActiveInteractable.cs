@@ -6,10 +6,6 @@ public class MakeActiveInteractable : InteractionParent
 {
     [SerializeField] GameObject targetObject;
     [SerializeField] GameManagerScript gameManager;
-    public MakeActiveInteractable()
-    {
-        this.interactionText = "Use";
-    }
 
     public override void ActivateInteractable()
     {

@@ -8,11 +8,6 @@ public class Valve : InteractionParent
     [SerializeField] GameObject collisionTrigger;
     [SerializeField] GalateaController galateaController;
 
-    public Valve()
-    {
-        this.interactionText = "Turn";
-    }
-
     public override void ActivateInteractable()
 {
         // Minigame should be initiated
