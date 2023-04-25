@@ -10,6 +10,7 @@ public class LeverPuzzle : MonoBehaviour
     [SerializeField] public Lever[] levers_2;
     public Lever[][] leversArray;
     [SerializeField] private GameObject door;
+    [SerializeField] MovingCeiling movingCeiling;
     int nextLever;
     public bool[] solved;
 
@@ -48,6 +49,7 @@ public class LeverPuzzle : MonoBehaviour
                             break;
                         case 1:
                             Debug.Log("secod sequence worked out");
+                            movingCeiling.EnableMoving();
                             // Open door 2 and start moving the cealing
                             break;
                         default:

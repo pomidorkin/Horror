@@ -191,6 +191,7 @@ MonoBehaviour:
   transitionAnimationCompleted: 0
   sensor: {fileID: 0}
   noticedPlayer: 0
+  defaultSpeed: 0
   followPositions: []
 --- !u!114 &818143860
 MonoBehaviour:
@@ -245,6 +246,7 @@ MonoBehaviour:
   - {fileID: 7071677523605701052}
   - {fileID: 7071157003681639792}
   TVSpawner: {fileID: 0}
+  explosionVFX: {fileID: 8613951377602090149, guid: b6990bb44b6b647408b899eda9cac79c, type: 3}
 --- !u!1 &7070687173227213044
 GameObject:
   m_ObjectHideFlags: 0

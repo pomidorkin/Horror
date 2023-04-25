@@ -82,6 +82,10 @@ MonoBehaviour:
     m_Localized: Take The Cross
     m_Metadata:
       m_Items: []
+  - m_Id: 11575964217360384
+    m_Localized: Try to open
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -79,6 +79,10 @@ MonoBehaviour:
     m_Key: Take The Cross
     m_Metadata:
       m_Items: []
+  - m_Id: 11575964217360384
+    m_Key: Try
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

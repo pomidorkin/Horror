@@ -13,6 +13,7 @@ public class Door : MonoBehaviour, IInteractable
     [SerializeField] Animator animator;
     public LocalizedString localizedInteractionText;
     public LocalizedString closeLocalizedInteractionText;
+    public LocalizedString tryLocalizedInteractionText;
 
     private AllDoorController allDoorController;
 
@@ -100,6 +101,10 @@ public class Door : MonoBehaviour, IInteractable
         {
             return closeLocalizedInteractionText.GetLocalizedString();
             //return closeInteractionText;
+        }
+        else if (!canBeOpened)
+        {
+            return tryLocalizedInteractionText.GetLocalizedString();
         }
         else
         {
