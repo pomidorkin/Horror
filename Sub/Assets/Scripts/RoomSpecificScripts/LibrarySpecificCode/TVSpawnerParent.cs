@@ -47,6 +47,7 @@ public class TVSpawnerParent : MonoBehaviour
 
     public void TargetDamageDealt()
     {
+        Debug.Log("Throwing an event");
         OnDamageDealt();
     }
 
