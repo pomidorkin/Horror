@@ -42,10 +42,10 @@ MonoBehaviour:
   Path: FMOD_Horror_Prototype/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638150971672662545
+  lastModified: 638180326065661529
   FileSizes:
   - Name: Desktop
-    Value: 1438
+    Value: 1536
   Exists: 1
 --- !u!114 &-6649801373924764852
 MonoBehaviour:
@@ -169,7 +169,7 @@ MonoBehaviour:
   Path: FMOD_Horror_Prototype/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638150971672642596
+  lastModified: 638180326065651561
   FileSizes:
   - Name: Desktop
     Value: 3571968
@@ -202,7 +202,7 @@ MonoBehaviour:
   - {fileID: -1499487012314171898}
   StringsBanks:
   - {fileID: -7989928531807606700}
-  cacheTime: 638150971672662545
+  cacheTime: 638180326065661529
   cacheVersion: 131591
 --- !u!114 &1500224720344565338
 MonoBehaviour:

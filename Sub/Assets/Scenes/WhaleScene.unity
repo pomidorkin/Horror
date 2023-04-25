@@ -1648,6 +1648,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Audio
       objectReference: {fileID: 0}
+    - target: {fileID: 7601670436553164833, guid: 4c4549e7bdbf7234192e3125b390572b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7601670436553164835, guid: 4c4549e7bdbf7234192e3125b390572b, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1700,6 +1704,26 @@ PrefabInstance:
       propertyPath: animationClip
       value: 
       objectReference: {fileID: 7400000, guid: 601eb2d2b00d19f428cf41a201cbfd53, type: 2}
+    - target: {fileID: 7601670436553164845, guid: 4c4549e7bdbf7234192e3125b390572b, type: 3}
+      propertyPath: _eventPath.Path
+      value: event:/Music/VisualizationTrack
+      objectReference: {fileID: 0}
+    - target: {fileID: 7601670436553164845, guid: 4c4549e7bdbf7234192e3125b390572b, type: 3}
+      propertyPath: _eventPath.Guid.Data1
+      value: -1708525971
+      objectReference: {fileID: 0}
+    - target: {fileID: 7601670436553164845, guid: 4c4549e7bdbf7234192e3125b390572b, type: 3}
+      propertyPath: _eventPath.Guid.Data2
+      value: 1293063247
+      objectReference: {fileID: 0}
+    - target: {fileID: 7601670436553164845, guid: 4c4549e7bdbf7234192e3125b390572b, type: 3}
+      propertyPath: _eventPath.Guid.Data3
+      value: 1891613071
+      objectReference: {fileID: 0}
+    - target: {fileID: 7601670436553164845, guid: 4c4549e7bdbf7234192e3125b390572b, type: 3}
+      propertyPath: _eventPath.Guid.Data4
+      value: 580935009
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c4549e7bdbf7234192e3125b390572b, type: 3}
 --- !u!1 &372185722 stripped
@@ -8699,21 +8723,61 @@ PrefabInstance:
       propertyPath: noiseMeter
       value: 
       objectReference: {fileID: 1821868619}
+    - target: {fileID: 2099437368837091107, guid: ef06b90c31e34ed4dace374051a5bec9, type: 3}
+      propertyPath: JumpingEventPath.Path
+      value: event:/SFX/Jump and Land
+      objectReference: {fileID: 0}
+    - target: {fileID: 2099437368837091107, guid: ef06b90c31e34ed4dace374051a5bec9, type: 3}
+      propertyPath: FootstepsEventPath.Path
+      value: event:/SFX/Event
+      objectReference: {fileID: 0}
+    - target: {fileID: 2099437368837091107, guid: ef06b90c31e34ed4dace374051a5bec9, type: 3}
+      propertyPath: JumpingEventPath.Guid.Data1
+      value: 2088786223
+      objectReference: {fileID: 0}
+    - target: {fileID: 2099437368837091107, guid: ef06b90c31e34ed4dace374051a5bec9, type: 3}
+      propertyPath: JumpingEventPath.Guid.Data2
+      value: 1175444531
+      objectReference: {fileID: 0}
+    - target: {fileID: 2099437368837091107, guid: ef06b90c31e34ed4dace374051a5bec9, type: 3}
+      propertyPath: JumpingEventPath.Guid.Data3
+      value: 1141937585
+      objectReference: {fileID: 0}
+    - target: {fileID: 2099437368837091107, guid: ef06b90c31e34ed4dace374051a5bec9, type: 3}
+      propertyPath: JumpingEventPath.Guid.Data4
+      value: 1356738082
+      objectReference: {fileID: 0}
+    - target: {fileID: 2099437368837091107, guid: ef06b90c31e34ed4dace374051a5bec9, type: 3}
+      propertyPath: FootstepsEventPath.Guid.Data1
+      value: 678155277
+      objectReference: {fileID: 0}
+    - target: {fileID: 2099437368837091107, guid: ef06b90c31e34ed4dace374051a5bec9, type: 3}
+      propertyPath: FootstepsEventPath.Guid.Data2
+      value: 1126841437
+      objectReference: {fileID: 0}
+    - target: {fileID: 2099437368837091107, guid: ef06b90c31e34ed4dace374051a5bec9, type: 3}
+      propertyPath: FootstepsEventPath.Guid.Data3
+      value: 1245964447
+      objectReference: {fileID: 0}
+    - target: {fileID: 2099437368837091107, guid: ef06b90c31e34ed4dace374051a5bec9, type: 3}
+      propertyPath: FootstepsEventPath.Guid.Data4
+      value: 1203579715
+      objectReference: {fileID: 0}
     - target: {fileID: 2099437368837091116, guid: ef06b90c31e34ed4dace374051a5bec9, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2099437368837091116, guid: ef06b90c31e34ed4dace374051a5bec9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.5450563
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2099437368837091116, guid: ef06b90c31e34ed4dace374051a5bec9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.92
+      value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: 2099437368837091116, guid: ef06b90c31e34ed4dace374051a5bec9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.9370384
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2099437368837091116, guid: ef06b90c31e34ed4dace374051a5bec9, type: 3}
       propertyPath: m_LocalRotation.w
