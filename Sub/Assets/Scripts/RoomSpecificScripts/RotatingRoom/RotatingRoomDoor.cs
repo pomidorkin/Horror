@@ -11,8 +11,12 @@ public class RotatingRoomDoor : MonoBehaviour, IInteractable
     [SerializeField] GameObject subRoomToHide;
     [SerializeField] GameObject nextDoorFloor;
     [SerializeField] GameObject nextRoomDecorations;
+    [SerializeField] bool sendsEvent = false;
     public LocalizedString localizedInteractionText;
     public LocalizedString closeLocalizedInteractionText;
+
+    public delegate void DoorOpenedAction();
+    public event DoorOpenedAction OnRotatingDoorOpened;
 
     private void OnEnable()
     {
@@ -44,6 +48,10 @@ public class RotatingRoomDoor : MonoBehaviour, IInteractable
                 subRoomToHide.SetActive(false);
                 nextDoorFloor.SetActive(false);
                 nextRoomDecorations.SetActive(true);
+                if (sendsEvent)
+                {
+                    OnRotatingDoorOpened();
+                }
             }
             else
             {
