@@ -10,6 +10,9 @@ public class LocationMannequin : MonoBehaviour, IInteractable
     [SerializeField] IndividualMannequin[] correctMannequins;
     public LocalizedString localizedInteractionText;
     private bool interactable = true;
+    [SerializeField] RiddleProgressTracker riddleProgressTracker;
+    [SerializeField] LocationMannequin[] counterparts;
+    public bool placedCorrectly = false;
 
     private void OnEnable()
     {
@@ -32,6 +35,19 @@ public class LocationMannequin : MonoBehaviour, IInteractable
                 if (correctMannequin == riddleController.GetCurrentMannequin())
                 {
                     correctMannequin.SetInteractable(false);
+                    placedCorrectly = true;
+                    foreach (LocationMannequin otherMannequin in counterparts)
+                    {
+                        if (otherMannequin.placedCorrectly)
+                        {
+                            riddleProgressTracker.allSolvedCorrectrly = true;
+                        }
+                        else
+                        {
+                            riddleProgressTracker.allSolvedCorrectrly = false;
+                        }
+                    }
+                    riddleProgressTracker.RiddleStepSolved();
                     break;
                 }
             }

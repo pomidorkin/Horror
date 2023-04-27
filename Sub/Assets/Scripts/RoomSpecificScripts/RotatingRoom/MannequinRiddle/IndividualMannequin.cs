@@ -28,14 +28,17 @@ public class IndividualMannequin : MonoBehaviour, IInteractable
             if (hit.transform == this.transform && interactable)
             {
                 riddleController.PickMannequin(this);
-                //interactable = false;
                 gameObject.SetActive(false);
+                if (locationMannequin != null)
+                {
+                    locationMannequin.gameObject.SetActive(true);
+                    locationMannequin.SetInteractable(true);
+                    locationMannequin.placedCorrectly = false;
+                    locationMannequin = null;
+                    Debug.Log("locationMannequin: " + locationMannequin);
+                }
             }
-            if (locationMannequin != null)
-            {
-                locationMannequin.gameObject.SetActive(true);
-                locationMannequin.SetInteractable(true);
-            }
+            
         }
     }
 
