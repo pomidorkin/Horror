@@ -8,6 +8,9 @@ TagManager:
   - 2dScore
   - 2dPlayer
   - Galatea
+  - FemaleMannequin
+  - MaleMannequin
+  - LoverMannequin
   layers:
   - Default
   - TransparentFX
@@ -23,9 +26,9 @@ TagManager:
   - LoopRoomBody
   - GalateaTrigger
   - Galatea
-  - 
-  - 
-  - 
+  - MaleMannequin
+  - FemaleMannequin
+  - LoverMannequin
   - 
   - 
   - 
