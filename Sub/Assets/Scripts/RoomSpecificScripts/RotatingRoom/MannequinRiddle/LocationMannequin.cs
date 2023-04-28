@@ -43,11 +43,12 @@ public class LocationMannequin : MonoBehaviour, IInteractable
                     {
                         if (otherMannequin.placedCorrectly)
                         {
-                            riddleProgressTracker.allSolvedCorrectrly = true;
+                                //riddleProgressTracker.allSolvedCorrectrly = true;
+                                riddleProgressTracker.solvedCorrectly++;
                         }
                         else
                         {
-                            riddleProgressTracker.allSolvedCorrectrly = false;
+                            //riddleProgressTracker.allSolvedCorrectrly = false;
                         }
                     }
                     riddleProgressTracker.RiddleStepSolved();
