@@ -7,14 +7,13 @@ public class MannequinRiddleController : MonoBehaviour
     private bool mannequinPicked = false;
     private IndividualMannequin individualMannequin;
 
-    public void PlaceMannequin(Vector3 newPos)
+    public void PlaceMannequin(Transform newLoc)
     {
         if (mannequinPicked)
         {
             individualMannequin.gameObject.SetActive(true);
-            individualMannequin.transform.position = newPos;
-            
-            //mannequinPicked = false;
+            individualMannequin.transform.position = newLoc.position;
+            individualMannequin.transform.rotation = newLoc.rotation;
         }
     }
 

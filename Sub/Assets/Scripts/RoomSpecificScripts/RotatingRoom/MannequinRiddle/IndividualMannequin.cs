@@ -32,6 +32,10 @@ public class IndividualMannequin : MonoBehaviour, IInteractable
                 if (locationMannequin != null)
                 {
                     locationMannequin.gameObject.SetActive(true);
+                    if (locationMannequin.marker != null)
+                    {
+                        locationMannequin.marker.SetActive(true);
+                    }
                     locationMannequin.SetInteractable(true);
                     locationMannequin.placedCorrectly = false;
                     locationMannequin = null;

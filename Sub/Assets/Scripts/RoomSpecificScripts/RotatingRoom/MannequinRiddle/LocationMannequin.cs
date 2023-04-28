@@ -13,6 +13,7 @@ public class LocationMannequin : MonoBehaviour, IInteractable
     [SerializeField] RiddleProgressTracker riddleProgressTracker;
     [SerializeField] LocationMannequin[] counterparts;
     public bool placedCorrectly = false;
+    [SerializeField] public GameObject marker;
 
     private void OnEnable()
     {
@@ -27,9 +28,11 @@ public class LocationMannequin : MonoBehaviour, IInteractable
     {
         if (hit.transform == this.transform && interactable)
         {
-            riddleController.PlaceMannequin(this.transform.position);
+            riddleController.PlaceMannequin(this.transform);
             interactable = false;
-            
+
+            if (correctMannequins.Length > 0)
+            {
             foreach (IndividualMannequin correctMannequin in correctMannequins)
             {
                 if (correctMannequin == riddleController.GetCurrentMannequin())
@@ -51,8 +54,13 @@ public class LocationMannequin : MonoBehaviour, IInteractable
                     break;
                 }
             }
+            }
             riddleController.GetCurrentMannequin().SetCurrectLocationMannequin(this);
             riddleController.SetMannequinPicked(false);
+            if (marker != null)
+            {
+                marker.SetActive(false);
+            }
             gameObject.SetActive(false);
         }
     }
