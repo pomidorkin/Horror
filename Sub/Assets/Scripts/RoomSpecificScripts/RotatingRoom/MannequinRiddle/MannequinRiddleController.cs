@@ -14,6 +14,7 @@ public class MannequinRiddleController : MonoBehaviour
             individualMannequin.gameObject.SetActive(true);
             individualMannequin.transform.position = newLoc.position;
             individualMannequin.transform.rotation = newLoc.rotation;
+            individualMannequin.pickedMannequinModel.SetActive(false);
         }
     }
 

@@ -8,6 +8,7 @@ public class IndividualMannequin : MonoBehaviour, IInteractable
 {
     [SerializeField] private PlayerActions playerActions;
     [SerializeField] MannequinRiddleController riddleController;
+    [SerializeField] public GameObject pickedMannequinModel;
     private LocationMannequin locationMannequin;
     public LocalizedString localizedInteractionText;
     private bool interactable = true;
@@ -29,6 +30,7 @@ public class IndividualMannequin : MonoBehaviour, IInteractable
             {
                 riddleController.PickMannequin(this);
                 gameObject.SetActive(false);
+                pickedMannequinModel.SetActive(true);
                 if (locationMannequin != null)
                 {
                     locationMannequin.gameObject.SetActive(true);

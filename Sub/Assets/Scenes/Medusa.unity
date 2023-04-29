@@ -4642,6 +4642,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 8136832652560865188, guid: e180c18642882d24ea76a53c0536e8ec, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8908127224092216606, guid: e180c18642882d24ea76a53c0536e8ec, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -8185,6 +8189,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Chr_Kid_Face_01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8042690276646662174, guid: bbf585d7daf0e034aa351f536f33d470, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8042690276646759934, guid: bbf585d7daf0e034aa351f536f33d470, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -11064,6 +11072,10 @@ PrefabInstance:
     - target: {fileID: 8835612931738529394, guid: e8a5124901d15e84d9277f6fa8f01c67, type: 3}
       propertyPath: m_Layer
       value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8835612931738529394, guid: e8a5124901d15e84d9277f6fa8f01c67, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8a5124901d15e84d9277f6fa8f01c67, type: 3}
@@ -20535,8 +20547,7 @@ MeshRenderer:
   m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 0}
+  m_Materials: []
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
