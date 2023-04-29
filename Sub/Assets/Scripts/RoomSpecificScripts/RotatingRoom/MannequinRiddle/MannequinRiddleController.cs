@@ -7,6 +7,12 @@ public class MannequinRiddleController : MonoBehaviour
     private bool mannequinPicked = false;
     private IndividualMannequin individualMannequin;
 
+    public delegate void MannequinPickedAction();
+    public event MannequinPickedAction OnMannequinPicked;
+
+    public delegate void MannequinPlacedAction();
+    public event MannequinPickedAction OnMannequinPlaced;
+
     public void PlaceMannequin(Transform newLoc)
     {
         if (mannequinPicked)
@@ -15,6 +21,7 @@ public class MannequinRiddleController : MonoBehaviour
             individualMannequin.transform.position = newLoc.position;
             individualMannequin.transform.rotation = newLoc.rotation;
             individualMannequin.pickedMannequinModel.SetActive(false);
+            OnMannequinPlaced();
         }
     }
 
@@ -33,6 +40,8 @@ public class MannequinRiddleController : MonoBehaviour
     {
         individualMannequin = mannequinObject;
         mannequinPicked = true;
+        OnMannequinPicked();
+        Debug.Log("OnMannequinPicked();");
     }
 
     public IndividualMannequin GetCurrentMannequin()

@@ -9,7 +9,7 @@ public class LocationMannequin : MonoBehaviour, IInteractable
     [SerializeField] MannequinRiddleController riddleController;
     [SerializeField] IndividualMannequin[] correctMannequins;
     public LocalizedString localizedInteractionText;
-    private bool interactable = true;
+    private bool interactable = false;
     [SerializeField] RiddleProgressTracker riddleProgressTracker;
     [SerializeField] LocationMannequin[] counterparts;
     public bool placedCorrectly = false;
@@ -18,11 +18,19 @@ public class LocationMannequin : MonoBehaviour, IInteractable
     private void OnEnable()
     {
         playerActions.OnInteractedAction += PlaceMannequin;
+        riddleController.OnMannequinPicked += MannequinPickedHandler;
+        riddleController.OnMannequinPlaced += MannequinPlaceddHandler;
+        if (riddleController.GetMannequinPicked() && !interactable)
+        {
+            interactable = true;
+        }
     }
 
     private void OnDisable()
     {
         playerActions.OnInteractedAction -= PlaceMannequin;
+        riddleController.OnMannequinPicked -= MannequinPickedHandler;
+        riddleController.OnMannequinPlaced -= MannequinPlaceddHandler;
     }
     private void PlaceMannequin(RaycastHit hit, bool isRespawnStage)
     {
@@ -64,6 +72,17 @@ public class LocationMannequin : MonoBehaviour, IInteractable
             }
             gameObject.SetActive(false);
         }
+    }
+
+    private void MannequinPickedHandler()
+    {
+        Debug.Log("MannequinPickedHandler();");
+        interactable = true;
+    }
+
+    private void MannequinPlaceddHandler()
+    {
+        interactable = false;
     }
 
     public void SetInteractable(bool val)
