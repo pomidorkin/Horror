@@ -15,17 +15,19 @@ public class LocationMannequin : MonoBehaviour, IInteractable
     public bool placedCorrectly = false;
     [SerializeField] public GameObject marker;
     private IndividualMannequin myMannequin;
+    public bool solved = false;
 
     private void OnEnable()
     {
         playerActions.OnInteractedAction += PlaceMannequin;
         riddleController.OnMannequinPicked += MannequinPickedHandler;
         riddleController.OnMannequinPlaced += MannequinPlaceddHandler;
+        //riddleProgressTracker.OnStepSolved += OnStepSolvedHandler;
         if (myMannequin != null)
         {
             myMannequin.gameObject.SetActive(true);
         }
-        if (riddleController.GetMannequinPicked() && !interactable)
+        if (riddleController.GetMannequinPicked() && !interactable && !solved)
         {
             interactable = true;
         }
@@ -36,12 +38,18 @@ public class LocationMannequin : MonoBehaviour, IInteractable
         playerActions.OnInteractedAction -= PlaceMannequin;
         riddleController.OnMannequinPicked -= MannequinPickedHandler;
         riddleController.OnMannequinPlaced -= MannequinPlaceddHandler;
+        //riddleProgressTracker.OnStepSolved -= OnStepSolvedHandler;
         Debug.Log("myMannequin is null = " + (myMannequin == null));
         if (myMannequin != null)
         {
             myMannequin.gameObject.SetActive(false);
         }
     }
+
+    /*private void OnStepSolvedHandler()
+    {
+        ClearMyMannequin();
+    }*/
     private void PlaceMannequin(RaycastHit hit, bool isRespawnStage)
     {
         if (hit.transform == this.transform && interactable)
@@ -111,7 +119,10 @@ public class LocationMannequin : MonoBehaviour, IInteractable
 
     public void SetInteractable(bool val)
     {
-        interactable = val;
+        if (!solved)
+        {
+            interactable = val;
+        }
     }
 
     public bool GetInteractable()
