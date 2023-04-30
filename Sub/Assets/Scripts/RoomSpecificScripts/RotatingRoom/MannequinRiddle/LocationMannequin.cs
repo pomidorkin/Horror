@@ -14,12 +14,17 @@ public class LocationMannequin : MonoBehaviour, IInteractable
     [SerializeField] LocationMannequin[] counterparts;
     public bool placedCorrectly = false;
     [SerializeField] public GameObject marker;
+    private IndividualMannequin myMannequin;
 
     private void OnEnable()
     {
         playerActions.OnInteractedAction += PlaceMannequin;
         riddleController.OnMannequinPicked += MannequinPickedHandler;
         riddleController.OnMannequinPlaced += MannequinPlaceddHandler;
+        if (myMannequin != null)
+        {
+            myMannequin.gameObject.SetActive(true);
+        }
         if (riddleController.GetMannequinPicked() && !interactable)
         {
             interactable = true;
@@ -31,6 +36,11 @@ public class LocationMannequin : MonoBehaviour, IInteractable
         playerActions.OnInteractedAction -= PlaceMannequin;
         riddleController.OnMannequinPicked -= MannequinPickedHandler;
         riddleController.OnMannequinPlaced -= MannequinPlaceddHandler;
+        Debug.Log("myMannequin is null = " + (myMannequin == null));
+        if (myMannequin != null)
+        {
+            myMannequin.gameObject.SetActive(false);
+        }
     }
     private void PlaceMannequin(RaycastHit hit, bool isRespawnStage)
     {
@@ -64,14 +74,28 @@ public class LocationMannequin : MonoBehaviour, IInteractable
                 }
             }
             }
+            Debug.Log("riddleController.GetCurrentMannequin() is null = " + riddleController.GetCurrentMannequin() == null);
+            Debug.Log("riddleController.GetMannequinPicked(): " + riddleController.GetMannequinPicked());
+
+            if (riddleController.GetCurrentMannequin() != null && riddleController.GetMannequinPicked())
+            {
+                myMannequin = riddleController.GetCurrentMannequin();
+                Debug.Log("myMannequin = " + myMannequin);
+            }
             riddleController.GetCurrentMannequin().SetCurrectLocationMannequin(this);
             riddleController.SetMannequinPicked(false);
             if (marker != null)
             {
                 marker.SetActive(false);
             }
-            gameObject.SetActive(false);
+            interactable = false; // test
+            //gameObject.SetActive(false);
         }
+    }
+
+    public void ClearMyMannequin()
+    {
+        myMannequin = null;
     }
 
     private void MannequinPickedHandler()

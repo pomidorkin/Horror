@@ -34,6 +34,7 @@ public class IndividualMannequin : MonoBehaviour, IInteractable
                 if (locationMannequin != null)
                 {
                     locationMannequin.gameObject.SetActive(true);
+                    locationMannequin.ClearMyMannequin();
                     if (locationMannequin.marker != null)
                     {
                         locationMannequin.marker.SetActive(true);
