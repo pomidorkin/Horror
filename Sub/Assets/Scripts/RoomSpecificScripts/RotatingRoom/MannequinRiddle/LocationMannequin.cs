@@ -16,6 +16,7 @@ public class LocationMannequin : MonoBehaviour, IInteractable
     [SerializeField] public GameObject marker;
     private IndividualMannequin myMannequin;
     public bool solved = false;
+    private Collider myCollider;
 
     private void OnEnable()
     {
@@ -23,6 +24,10 @@ public class LocationMannequin : MonoBehaviour, IInteractable
         riddleController.OnMannequinPicked += MannequinPickedHandler;
         riddleController.OnMannequinPlaced += MannequinPlaceddHandler;
         //riddleProgressTracker.OnStepSolved += OnStepSolvedHandler;
+        if (myCollider == null)
+        {
+            myCollider = gameObject.GetComponent<Collider>();
+        }
         if (myMannequin != null)
         {
             myMannequin.gameObject.SetActive(true);
@@ -30,7 +35,9 @@ public class LocationMannequin : MonoBehaviour, IInteractable
         if (riddleController.GetMannequinPicked() && !interactable && !solved)
         {
             interactable = true;
+            myCollider.enabled = true;
         }
+        
     }
 
     private void OnDisable()
@@ -56,6 +63,7 @@ public class LocationMannequin : MonoBehaviour, IInteractable
         {
             riddleController.PlaceMannequin(this.transform);
             interactable = false;
+            myCollider.enabled = false;
 
             if (correctMannequins.Length > 0)
             {
@@ -97,6 +105,7 @@ public class LocationMannequin : MonoBehaviour, IInteractable
                 marker.SetActive(false);
             }
             interactable = false; // test
+            myCollider.enabled = false;
             //gameObject.SetActive(false);
         }
     }
@@ -110,11 +119,20 @@ public class LocationMannequin : MonoBehaviour, IInteractable
     {
         Debug.Log("MannequinPickedHandler();");
         interactable = true;
+        if (myCollider != null)
+        {
+            myCollider.enabled = true;
+        }
+        
     }
 
     private void MannequinPlaceddHandler()
     {
         interactable = false;
+        if (myCollider != null)
+        {
+            myCollider.enabled = false;
+        }
     }
 
     public void SetInteractable(bool val)
@@ -122,6 +140,10 @@ public class LocationMannequin : MonoBehaviour, IInteractable
         if (!solved)
         {
             interactable = val;
+            if (myCollider != null)
+            {
+                myCollider.enabled = val;
+            }
         }
     }
 
