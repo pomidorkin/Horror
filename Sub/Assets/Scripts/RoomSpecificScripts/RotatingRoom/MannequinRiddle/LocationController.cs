@@ -5,6 +5,7 @@ using UnityEngine;
 public class LocationController : MonoBehaviour
 {
     [SerializeField] LocationMannequin[] childLocations;
+    [SerializeField] public GameObject cameraSequence;
 
     public void MarkChildLocationsSolved()
     {

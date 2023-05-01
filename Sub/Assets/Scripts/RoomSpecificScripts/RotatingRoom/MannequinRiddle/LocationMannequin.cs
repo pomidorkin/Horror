@@ -119,7 +119,7 @@ public class LocationMannequin : MonoBehaviour, IInteractable
     {
         Debug.Log("MannequinPickedHandler();");
         interactable = true;
-        if (myCollider != null)
+        if (myCollider != null && !solved)
         {
             myCollider.enabled = true;
         }
