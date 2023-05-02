@@ -98,7 +98,7 @@ public class LocationMannequin : MonoBehaviour, IInteractable
                 myMannequin = riddleController.GetCurrentMannequin();
                 Debug.Log("myMannequin = " + myMannequin);
             }
-            riddleController.GetCurrentMannequin().SetCurrectLocationMannequin(this);
+            riddleController.GetCurrentMannequin().SetCurrectLocationMannequin(this); // null reference exception
             riddleController.SetMannequinPicked(false);
             if (marker != null)
             {
