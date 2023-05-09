@@ -13,11 +13,15 @@ public class MazeGameController : MonoBehaviour
     [SerializeField] GameObject cameraTimeline;
     [SerializeField] GameObject cameraResetter;
     int levelId = 0;
+    [SerializeField] GameObject dynamicMonitor;
+    [SerializeField] GameObject staticMonitor;
     private void OnEnable()
     {
         plyerInputActions = inputManager.GetPlayerInputActions();
         inputManager.EnableInputActionMap(false, "MazeMiniGame");
         centerPoint.gameObject.SetActive(false);
+        staticMonitor.SetActive(false);
+        dynamicMonitor.SetActive(true);
     }
 
     private void OnDisable()

@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class CameraResetter : MonoBehaviour
 {
+    [SerializeField] GameManagerScript gameManager;
     private void OnEnable()
     {
+        gameManager.DisablePlayerActions();
         StartCoroutine(TimerDisablerCoroutine());
     }
 
     private IEnumerator TimerDisablerCoroutine()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
+        gameManager.EnablePlayerActions();
         gameObject.SetActive(false);
     }
 }
