@@ -11,6 +11,9 @@ TagManager:
   - FemaleMannequin
   - MaleMannequin
   - LoverMannequin
+  - 2DCollision
+  - 2DFinish
+  - 2DJumpscare
   layers:
   - Default
   - TransparentFX
@@ -31,7 +34,7 @@ TagManager:
   - LoverMannequin
   - SecondCam
   - LocationMarker
-  - 
+  - 2DCollision
   - 
   - 
   - 

@@ -23,6 +23,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-zh
     - Preload
+  - m_GUID: 80339bfd298683c4f9c6bc1f7796f387
+    m_Address: Subtitles_zh
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh
+    - Preload
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 464738495458ac140bc150c72629ca4f, type: 2}
   m_SchemaSet:

@@ -301,6 +301,45 @@ public partial class @PlyerInputActions : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 }
             ]
+        },
+        {
+            ""name"": ""MazeMiniGame"",
+            ""id"": ""620d2000-bcb7-449c-90fb-4faf34ae1616"",
+            ""actions"": [
+                {
+                    ""name"": ""Movement"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""f07a9c47-887b-4f42-8f44-979b7bd5b252"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""84cc9b25-7507-4ae0-b2fc-e137c38c866b"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""90fb01ae-f8e5-41fb-90df-260243a25087"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -354,6 +393,9 @@ public partial class @PlyerInputActions : IInputActionCollection2, IDisposable
         // MedusaMiniGame
         m_MedusaMiniGame = asset.FindActionMap("MedusaMiniGame", throwIfNotFound: true);
         m_MedusaMiniGame_Movement = m_MedusaMiniGame.FindAction("Movement", throwIfNotFound: true);
+        // MazeMiniGame
+        m_MazeMiniGame = asset.FindActionMap("MazeMiniGame", throwIfNotFound: true);
+        m_MazeMiniGame_Movement = m_MazeMiniGame.FindAction("Movement", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -507,6 +549,39 @@ public partial class @PlyerInputActions : IInputActionCollection2, IDisposable
         }
     }
     public MedusaMiniGameActions @MedusaMiniGame => new MedusaMiniGameActions(this);
+
+    // MazeMiniGame
+    private readonly InputActionMap m_MazeMiniGame;
+    private IMazeMiniGameActions m_MazeMiniGameActionsCallbackInterface;
+    private readonly InputAction m_MazeMiniGame_Movement;
+    public struct MazeMiniGameActions
+    {
+        private @PlyerInputActions m_Wrapper;
+        public MazeMiniGameActions(@PlyerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Movement => m_Wrapper.m_MazeMiniGame_Movement;
+        public InputActionMap Get() { return m_Wrapper.m_MazeMiniGame; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MazeMiniGameActions set) { return set.Get(); }
+        public void SetCallbacks(IMazeMiniGameActions instance)
+        {
+            if (m_Wrapper.m_MazeMiniGameActionsCallbackInterface != null)
+            {
+                @Movement.started -= m_Wrapper.m_MazeMiniGameActionsCallbackInterface.OnMovement;
+                @Movement.performed -= m_Wrapper.m_MazeMiniGameActionsCallbackInterface.OnMovement;
+                @Movement.canceled -= m_Wrapper.m_MazeMiniGameActionsCallbackInterface.OnMovement;
+            }
+            m_Wrapper.m_MazeMiniGameActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Movement.started += instance.OnMovement;
+                @Movement.performed += instance.OnMovement;
+                @Movement.canceled += instance.OnMovement;
+            }
+        }
+    }
+    public MazeMiniGameActions @MazeMiniGame => new MazeMiniGameActions(this);
     private int m_KeyboardSchemeIndex = -1;
     public InputControlScheme KeyboardScheme
     {
@@ -543,6 +618,10 @@ public partial class @PlyerInputActions : IInputActionCollection2, IDisposable
         void OnPause(InputAction.CallbackContext context);
     }
     public interface IMedusaMiniGameActions
+    {
+        void OnMovement(InputAction.CallbackContext context);
+    }
+    public interface IMazeMiniGameActions
     {
         void OnMovement(InputAction.CallbackContext context);
     }
