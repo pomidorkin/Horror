@@ -14,6 +14,7 @@ public class CorridorLightSource : MonoBehaviour
     public bool triggeredFlickering = false;
     private float timeDelay = 0f;
     private float timeDelayCounter = 0f;
+    [SerializeField] private float lightIntensity = 1.0f;
 
     private void OnEnable()
     {
@@ -36,7 +37,7 @@ public class CorridorLightSource : MonoBehaviour
         }
         else
         {
-            light.intensity = 1.0f - (Mathf.InverseLerp(0, sqrdLightOffDistance, Mathf.Pow((transform.position.x - player.position.x), 2)));
+            light.intensity = lightIntensity * (1.0f - (Mathf.InverseLerp(0, sqrdLightOffDistance, Mathf.Pow((transform.position.x - player.position.x), 2))));
         }
     }
 
