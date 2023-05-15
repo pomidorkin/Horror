@@ -9,6 +9,7 @@ public class IndependentLeverController : MonoBehaviour
     [SerializeField] int timesToInteract = 15;
     private int interactionCounter;
     [SerializeField] MovingCeiling movingCeiling;
+    private bool thirdDoorActivated = false;
 
     public delegate void LeverActivationTriggeredAction();
     public event LeverActivationTriggeredAction OnLeverActivatedAction;
@@ -16,6 +17,11 @@ public class IndependentLeverController : MonoBehaviour
 
     public void ChangeLastInteractedLever(IndependentLever lastLaver)
     {
+        if (!thirdDoorActivated)
+        {
+            thirdDoorActivated = true;
+            movingCeiling.thirdDoor.SetActive(true);
+        }
         if (lastLaver != lastInteractedLever && !solved)
         {
             lastInteractedLever = lastLaver;
@@ -29,8 +35,20 @@ public class IndependentLeverController : MonoBehaviour
                 solved = true;
                 // Puzzle solved
                 movingCeiling.DisableMoving();
+                movingCeiling.thirdDoor.SetActive(false);
+                thirdDoorActivated = false;
                 FindObjectOfType<StageManager>().currentStage.stageGoal.MarkAsInteracted();
             }
         }
+    }
+
+    public void SetDoorActivated(bool val)
+    {
+        thirdDoorActivated = val;
+    }
+
+    public void ResetInteractionCounter()
+    {
+        interactionCounter = 0;
     }
 }

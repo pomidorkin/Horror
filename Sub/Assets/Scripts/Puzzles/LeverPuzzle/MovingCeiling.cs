@@ -9,11 +9,19 @@ public class MovingCeiling : MonoBehaviour
     [SerializeField] RoomLeavingSensor roomLeavingSensor;
     [SerializeField] RoomEnteringSensor roomEnteringSensor;
     [SerializeField] LeverPuzzle leverPuzzle;
+    [SerializeField] GameObject door;
+    [SerializeField] GameObject secondDoor;
+    [SerializeField] public GameObject thirdDoor;
+    [SerializeField] IndependentLeverController independentLeverController;
+    private Vector3 doorPosition;
+    private Vector3 secondDoorPosition;
     private Vector3 initialPosition;
     private bool movingEnabled = false;
     private void Start()
     {
         initialPosition = transform.localPosition;
+        doorPosition = door.transform.localPosition;
+        secondDoorPosition = secondDoor.transform.localPosition;
     }
     void Update()
     {
@@ -51,10 +59,22 @@ public class MovingCeiling : MonoBehaviour
             Debug.Log("Colliding with player");
             ResetPosition();
             ResetSensors();
+            ResetDoors();
             //leverPuzzle.ResetPuzzle();
             //RespawnPlayer
             respawnManager.Respawn();
         }
+    }
+
+    public void ResetDoors()
+    {
+        door.SetActive(true);
+        secondDoor.SetActive(true);
+        door.transform.localPosition = doorPosition;
+        secondDoor.transform.localPosition = secondDoorPosition;
+        thirdDoor.SetActive(false);
+        independentLeverController.SetDoorActivated(false);
+        independentLeverController.ResetInteractionCounter();
     }
 
     private void ResetSensors()
