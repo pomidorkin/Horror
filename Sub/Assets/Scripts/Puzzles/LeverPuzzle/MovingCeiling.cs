@@ -34,6 +34,11 @@ public class MovingCeiling : MonoBehaviour
         movingEnabled = true;
     }
 
+    public void DisableMoving()
+    {
+        movingEnabled = false;
+    }
+
     private void OnEnable()
     {
         leverPuzzle.ResetPuzzle();

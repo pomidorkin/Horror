@@ -30,11 +30,6 @@ public class InteractionParent : MonoBehaviour, IInteractable
         Debug.Log("Mask");
     }
 
-    public string GetInteractionText()
-    {
-        return localizedInteractionText.GetLocalizedString();
-    }
-
     public void CheckInteracted(RaycastHit hit, bool val)
     {
         if (hit.transform == this.transform && interactable)
@@ -50,6 +45,11 @@ public class InteractionParent : MonoBehaviour, IInteractable
         {
             gameObject.SetActive(false);
         }
+    }
+
+    public string GetInteractionText()
+    {
+        return localizedInteractionText.GetLocalizedString();
     }
 
     public bool GetInteractable()

@@ -10,6 +10,7 @@ public class LeverPuzzle : MonoBehaviour
     [SerializeField] public Lever[] levers_2;
     public Lever[][] leversArray;
     [SerializeField] private GameObject door;
+    [SerializeField] private GameObject secondDoor;
     [SerializeField] MovingCeiling movingCeiling;
     int nextLever;
     public bool[] solved;
@@ -45,10 +46,12 @@ public class LeverPuzzle : MonoBehaviour
                     switch (leverPuzzleIndex)
                     {
                         case 0:
-                            door.gameObject.SetActive(false);
+                            iTween.MoveBy(door, iTween.Hash("y", -5.5f, "easeType", "easeInOutBack", "time", 2.5f, "delay", .4));
+                            StartCoroutine(DoorSetActiveFalse(door));
                             break;
                         case 1:
-                            Debug.Log("secod sequence worked out");
+                            iTween.MoveBy(secondDoor, iTween.Hash("y", -5.5f, "easeType", "easeInOutBack", "time", 2.5f, "delay", .4));
+                            StartCoroutine(DoorSetActiveFalse(secondDoor));
                             movingCeiling.EnableMoving();
                             // Open door 2 and start moving the cealing
                             break;
@@ -71,6 +74,12 @@ public class LeverPuzzle : MonoBehaviour
                 Debug.Log("Incorrect");
             }
         }
+    }
+
+    private IEnumerator DoorSetActiveFalse(GameObject door)
+    {
+        yield return new WaitForSeconds(3.0f);
+        door.SetActive(false);
     }
 
     public void CloseAllLevers(int leverPuzzleIndex)
