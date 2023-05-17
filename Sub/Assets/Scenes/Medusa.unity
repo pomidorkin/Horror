@@ -3099,7 +3099,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300000, guid: dc961f7ca61981944b3fc53f26cd1196, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 12933d148fde7c642b9ea38dff02ac53, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5658,7 +5658,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300000, guid: dc961f7ca61981944b3fc53f26cd1196, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 12933d148fde7c642b9ea38dff02ac53, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -7701,7 +7701,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300000, guid: dc961f7ca61981944b3fc53f26cd1196, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 12933d148fde7c642b9ea38dff02ac53, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -7788,7 +7788,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300000, guid: dc961f7ca61981944b3fc53f26cd1196, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 169c65e3b8c8cf54ea40685d615d1ca4, type: 3}
   m_Color: {r: 1, g: 0.93315375, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -9498,7 +9498,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300000, guid: dc961f7ca61981944b3fc53f26cd1196, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 12933d148fde7c642b9ea38dff02ac53, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -9670,7 +9670,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300000, guid: dc961f7ca61981944b3fc53f26cd1196, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 12933d148fde7c642b9ea38dff02ac53, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -10978,7 +10978,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1825688866
 MonoBehaviour:
   m_ObjectHideFlags: 0

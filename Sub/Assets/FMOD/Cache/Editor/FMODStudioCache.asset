@@ -42,10 +42,10 @@ MonoBehaviour:
   Path: FMOD_Horror_Prototype/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638186612775875034
+  lastModified: 638199319408606942
   FileSizes:
   - Name: Desktop
-    Value: 1438
+    Value: 1532
   Exists: 1
 --- !u!114 &-6649801373924764852
 MonoBehaviour:
@@ -73,6 +73,33 @@ MonoBehaviour:
   - Jump
   - Land
   Exists: 1
+--- !u!114 &-5922477628590221170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/AsianDrums 2
+  m_EditorClassIdentifier: 
+  Path: event:/Music/AsianDrums 2
+  Guid:
+    Data1: 156720888
+    Data2: 1332282708
+    Data3: 273365161
+    Data4: -1716965527
+  Banks:
+  - {fileID: -1499487012314171898}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 144904
 --- !u!114 &-4751727136263204775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,10 +196,10 @@ MonoBehaviour:
   Path: FMOD_Horror_Prototype/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638186612775854537
+  lastModified: 638199319408596967
   FileSizes:
   - Name: Desktop
-    Value: 3292416
+    Value: 6894336
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -197,12 +224,14 @@ MonoBehaviour:
   - {fileID: 4327447444075743123}
   - {fileID: -2681970830658242955}
   - {fileID: -8404524497606278206}
+  - {fileID: 4062795633723020522}
+  - {fileID: -5922477628590221170}
   EditorParameters: []
   MasterBanks:
   - {fileID: -1499487012314171898}
   StringsBanks:
   - {fileID: -7989928531807606700}
-  cacheTime: 638186612775875034
+  cacheTime: 638199319408606942
   cacheVersion: 131591
 --- !u!114 &1500224720344565338
 MonoBehaviour:
@@ -232,6 +261,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 514
+--- !u!114 &4062795633723020522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/AsianTheme 2
+  m_EditorClassIdentifier: 
+  Path: event:/Music/AsianTheme 2
+  Guid:
+    Data1: 870254661
+    Data2: 1326397276
+    Data3: -58741837
+    Data4: 1860241430
+  Banks:
+  - {fileID: -1499487012314171898}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 144904
 --- !u!114 &4327447444075743123
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -101,7 +101,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3299426683898526297
 Transform:
   m_ObjectHideFlags: 0
@@ -183,6 +183,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerActions: {fileID: 0}
   dialogueTrigger: {fileID: 780036144}
+  localizedInteractionText:
+    m_TableReference:
+      m_TableCollectionName: GUID:4c009285ed8c68a49be616db04ab2bc3
+    m_TableEntryReference:
+      m_KeyId: 16571411709952
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!114 &780036144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,6 +207,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa1ec5dbfe40344468c7e301eab538ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputManager: {fileID: 0}
+  dialogueManager: {fileID: 0}
   dialogue: {fileID: 11400000, guid: 1fccbc38325518b47a2522f07c354a6c, type: 2}
 --- !u!1 &3299426685498749168
 GameObject:
