@@ -56,4 +56,14 @@ public class InteractionParent : MonoBehaviour, IInteractable
     {
         return interactable;
     }
+
+    public void MakeInteractable()
+    {
+        this.interactable = true;
+    }
+
+    public void MakeUninteractable()
+    {
+        this.interactable = false;
+    }
 }

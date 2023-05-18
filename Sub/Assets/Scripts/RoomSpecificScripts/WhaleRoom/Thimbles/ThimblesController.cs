@@ -12,20 +12,29 @@ public class ThimblesController : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] GameObject flower;
     [SerializeField] GameObject fan;
+    [SerializeField] GameObject emptyProp;
     Dictionary<string, int> positionDictionary;
     private int newValOne;
     private int newValTwo;
     private float animLength;
     [SerializeField] Vector3[] propsPositions;
+    [SerializeField] GameObject thimblesGroup;
+    [SerializeField] ParticleSystem explpsionParticle;
+    [SerializeField] ThimblesParent thimblesParent;
+    private Vector3 flowerInitialPos;
+    private Vector3 fanInitialPos;
+    private Vector3 emptyInitialPos;
+    [SerializeField] BoxCollider[] propsInteraction;
     void Start()
     {
         animLength = (thimblesAnimations[0].length * 2f) + 0.1f;
-        StartThimblesSequence();
         positionDictionary = new Dictionary<string, int>();
         positionDictionary.Add("one", 1);
         positionDictionary.Add("two", 2);
         positionDictionary.Add("three", 3);
-        //Debug.Log("positionDictionary['one']: " + positionDictionary["one"]);
+        flowerInitialPos = flower.transform.localPosition;
+        fanInitialPos = fan.transform.localPosition;
+        emptyInitialPos = emptyProp.transform.localPosition;
     }
 
     private void Update()
@@ -73,8 +82,7 @@ public class ThimblesController : MonoBehaviour
             {
                 flower.transform.localPosition = propsPositions[positionDictionary["one"]-1];
                 fan.transform.localPosition = propsPositions[positionDictionary["three"]-1];
-                //flower.SetActive(true);
-                //fan.SetActive(true);
+                emptyProp.transform.localPosition = propsPositions[positionDictionary["two"] - 1];
                 StartCoroutine(EnablePopsCoroutine());
                 playAnimTriggered = false;
                 animLenghtCounter = 0.0f;
@@ -88,12 +96,18 @@ public class ThimblesController : MonoBehaviour
         StartCoroutine(PlayBeginAnimCoroutine());
     }
 
+    public void StartEndSequence()
+    {
+        animator.Play("EndAnim");
+    }
+
     private IEnumerator PlayBeginAnimCoroutine()
     {
         animator.Play("BeginAnim");
         yield return new WaitForSeconds(2f);
         flower.SetActive(false);
         fan.SetActive(false);
+        emptyProp.SetActive(false);
         playAnimTriggered = true;
     }
 
@@ -102,5 +116,33 @@ public class ThimblesController : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         flower.SetActive(true);
         fan.SetActive(true);
+        emptyProp.SetActive(true);
+        foreach (BoxCollider interactionProp in propsInteraction)
+        {
+            interactionProp.enabled = true;
+        }
+    }
+
+    public void HideThimblesGroup()
+    {
+        explpsionParticle.gameObject.transform.localPosition = thimblesGroup.transform.localPosition;
+        explpsionParticle.gameObject.SetActive(true);
+        thimblesGroup.SetActive(false);
+        thimblesParent.SetNewPosition();
+    }
+
+    public void ResetThimbles()
+    {
+        flower.transform.localPosition = flowerInitialPos;
+        fan.transform.localPosition = fanInitialPos;
+        emptyProp.transform.localPosition = emptyInitialPos;
+        animator.Play("BeginAnim");
+        positionDictionary["one"] = 1;
+        positionDictionary["two"] = 2;
+        positionDictionary["three"] = 3;
+        foreach (BoxCollider interactionProp in propsInteraction)
+        {
+            interactionProp.enabled = false;
+        }
     }
 }

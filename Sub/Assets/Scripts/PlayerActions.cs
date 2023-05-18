@@ -11,6 +11,7 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] private float playerInteractDistance = 3f;
     [SerializeField] private GameObject dialogueElement;
     [SerializeField] GameManagerScript gameManager;
+    [SerializeField] MouseListener mouseListener;
     public GameObject lastLookedAtObject = null;
     bool active = false;
     PlyerInputActions plyerInputActions;
@@ -32,11 +33,22 @@ public class PlayerActions : MonoBehaviour
 
     private void OnEnable()
     {
-        plyerInputActions.Player.Interaction.performed += Interact; // On Enable/Disable надо
+        plyerInputActions.Player.Interaction.performed += Interact;
+        plyerInputActions.Player.Hit.performed += HitPerformed;
     }
+
     private void OnDisable()
     {
-        plyerInputActions.Player.Interaction.performed -= Interact; // On Enable/Disable надо
+        plyerInputActions.Player.Interaction.performed -= Interact;
+        plyerInputActions.Player.Hit.performed -= HitPerformed;
+    }
+
+    private void HitPerformed(InputAction.CallbackContext obj)
+    {
+        if (mouseListener != null)
+        {
+            mouseListener.LeftButtonPressed();
+        }
     }
 
     public void EnableInputActions(bool enable)

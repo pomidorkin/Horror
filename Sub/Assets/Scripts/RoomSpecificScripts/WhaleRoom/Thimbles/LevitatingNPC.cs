@@ -8,7 +8,7 @@ public class LevitatingNPC : MonoBehaviour
     void Start()
     {
         //iTween.MoveTo(gameObject, iTween.Hash("x", 5, "time", 1, "islocal", true));
-        iTween.MoveTo(gameObject, iTween.Hash("y", .3f, "time", 3f, "looptype", "pingpong", "easetype", iTween.EaseType.easeInOutQuad));
+        iTween.MoveTo(gameObject, iTween.Hash("y", .3f, "islocal", true, "time", 3f, "looptype", "pingpong", "easetype", iTween.EaseType.easeInOutQuad));
     }
 
     // Update is called once per frame
