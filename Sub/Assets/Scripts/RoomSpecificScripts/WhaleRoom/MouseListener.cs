@@ -5,6 +5,9 @@ using UnityEngine;
 public class MouseListener : MonoBehaviour
 {
     [SerializeField] private Animator animator;
+    [SerializeField] PlayerThimblesController playerThimblesController;
+    [SerializeField] GameObject fanObject;
+    [SerializeField] GameObject fanCollider;
     public void LeftButtonPressed()
     {
         Debug.Log("Lefm Mouse Button was Pressed");
@@ -13,6 +16,21 @@ public class MouseListener : MonoBehaviour
 
     private void ActivateFan()
     {
-        animator.Play("Blow");
+        if (playerThimblesController.GetFanPicked())
+        {
+            playerThimblesController.FanPicked(false);
+            fanObject.SetActive(true);
+            fanCollider.SetActive(true);
+            animator.Play("Blow");
+            StartCoroutine(DisableFanObject());
+            playerThimblesController.MakeSenseiInteractable();
+        }
+    }
+
+    private IEnumerator DisableFanObject()
+    {
+        yield return new WaitForSeconds(3f);
+        fanObject.SetActive(false);
+        fanCollider.SetActive(false);
     }
 }
