@@ -524,6 +524,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 61868425}
     - target: {fileID: 5355837106367182519, guid: effea9768646c1c4cbef1db568736361, type: 3}
+      propertyPath: playerThimblesController
+      value: 
+      objectReference: {fileID: 576906268}
+    - target: {fileID: 5355837106367182519, guid: effea9768646c1c4cbef1db568736361, type: 3}
       propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
       value: 21441288060928
       objectReference: {fileID: 0}
@@ -691,6 +695,10 @@ PrefabInstance:
       propertyPath: AllTankController
       value: 
       objectReference: {fileID: 61868425}
+    - target: {fileID: 5355837106367182519, guid: effea9768646c1c4cbef1db568736361, type: 3}
+      propertyPath: playerThimblesController
+      value: 
+      objectReference: {fileID: 576906268}
     - target: {fileID: 5355837106367182519, guid: effea9768646c1c4cbef1db568736361, type: 3}
       propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
       value: 21441288060928
@@ -1008,6 +1016,10 @@ PrefabInstance:
       propertyPath: AllTankController
       value: 
       objectReference: {fileID: 61868425}
+    - target: {fileID: 5355837106367182519, guid: effea9768646c1c4cbef1db568736361, type: 3}
+      propertyPath: playerThimblesController
+      value: 
+      objectReference: {fileID: 576906268}
     - target: {fileID: 5355837106367182519, guid: effea9768646c1c4cbef1db568736361, type: 3}
       propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
       value: 21441288060928
@@ -8106,6 +8118,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 61868425}
     - target: {fileID: 5355837106367182519, guid: effea9768646c1c4cbef1db568736361, type: 3}
+      propertyPath: playerThimblesController
+      value: 
+      objectReference: {fileID: 576906268}
+    - target: {fileID: 5355837106367182519, guid: effea9768646c1c4cbef1db568736361, type: 3}
       propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
       value: 21441288060928
       objectReference: {fileID: 0}
@@ -8194,6 +8210,16 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 5355837107247601463, guid: effea9768646c1c4cbef1db568736361, type: 3}
   m_PrefabInstance: {fileID: 2102094161}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &566974292 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1147428603408960, guid: e7a90f5fc11d2834bad3c1ad1205a3b3, type: 3}
+  m_PrefabInstance: {fileID: 934595853}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &566974296 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4164836245136756, guid: e7a90f5fc11d2834bad3c1ad1205a3b3, type: 3}
+  m_PrefabInstance: {fileID: 934595853}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &575138013 stripped
 Transform:
@@ -8305,6 +8331,7 @@ MonoBehaviour:
   thimblesController: {fileID: 576906267}
   senseiInteractable: {fileID: 1684049383}
   fanObject: {fileID: 1093461400}
+  flowerObject: {fileID: 566974292}
 --- !u!1001 &589403997
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9405,6 +9432,71 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4854446767816226, guid: 83e5f758f79d148b898ca89e7d3207ce, type: 3}
   m_PrefabInstance: {fileID: 166930507}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &934595853
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1497984063}
+    m_Modifications:
+    - target: {fileID: 1147428603408960, guid: e7a90f5fc11d2834bad3c1ad1205a3b3, type: 3}
+      propertyPath: m_Name
+      value: SM_Prop_Flower_Bouquet_Small_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1147428603408960, guid: e7a90f5fc11d2834bad3c1ad1205a3b3, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1147428603408960, guid: e7a90f5fc11d2834bad3c1ad1205a3b3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4164836245136756, guid: e7a90f5fc11d2834bad3c1ad1205a3b3, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4164836245136756, guid: e7a90f5fc11d2834bad3c1ad1205a3b3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.39732945
+      objectReference: {fileID: 0}
+    - target: {fileID: 4164836245136756, guid: e7a90f5fc11d2834bad3c1ad1205a3b3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.19709301
+      objectReference: {fileID: 0}
+    - target: {fileID: 4164836245136756, guid: e7a90f5fc11d2834bad3c1ad1205a3b3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.8904357
+      objectReference: {fileID: 0}
+    - target: {fileID: 4164836245136756, guid: e7a90f5fc11d2834bad3c1ad1205a3b3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.18793753
+      objectReference: {fileID: 0}
+    - target: {fileID: 4164836245136756, guid: e7a90f5fc11d2834bad3c1ad1205a3b3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.20926599
+      objectReference: {fileID: 0}
+    - target: {fileID: 4164836245136756, guid: e7a90f5fc11d2834bad3c1ad1205a3b3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.91942334
+      objectReference: {fileID: 0}
+    - target: {fileID: 4164836245136756, guid: e7a90f5fc11d2834bad3c1ad1205a3b3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.27485988
+      objectReference: {fileID: 0}
+    - target: {fileID: 4164836245136756, guid: e7a90f5fc11d2834bad3c1ad1205a3b3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -35.738
+      objectReference: {fileID: 0}
+    - target: {fileID: 4164836245136756, guid: e7a90f5fc11d2834bad3c1ad1205a3b3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -163.499
+      objectReference: {fileID: 0}
+    - target: {fileID: 4164836245136756, guid: e7a90f5fc11d2834bad3c1ad1205a3b3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 20.292
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e7a90f5fc11d2834bad3c1ad1205a3b3, type: 3}
 --- !u!1 &941937796
 GameObject:
   m_ObjectHideFlags: 0
@@ -10158,7 +10250,6 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  parentFlower: {fileID: 1283836113}
   playerThimblesController: {fileID: 576906268}
   references:
     version: 2
@@ -10828,6 +10919,10 @@ PrefabInstance:
       propertyPath: AllTankController
       value: 
       objectReference: {fileID: 61868425}
+    - target: {fileID: 5355837106367182519, guid: effea9768646c1c4cbef1db568736361, type: 3}
+      propertyPath: playerThimblesController
+      value: 
+      objectReference: {fileID: 576906268}
     - target: {fileID: 5355837106367182519, guid: effea9768646c1c4cbef1db568736361, type: 3}
       propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
       value: 21441288060928
@@ -11664,6 +11759,7 @@ Transform:
   m_Children:
   - {fileID: 941937797}
   - {fileID: 1093461401}
+  - {fileID: 566974296}
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14848,6 +14944,7 @@ MonoBehaviour:
   targetObject: {fileID: 713890425}
   tankManager: {fileID: 700368519}
   AllTankController: {fileID: 61868425}
+  playerThimblesController: {fileID: 576906268}
   references:
     version: 2
     RefIds: []
@@ -14969,6 +15066,10 @@ PrefabInstance:
       propertyPath: AllTankController
       value: 
       objectReference: {fileID: 61868425}
+    - target: {fileID: 5355837106367182519, guid: effea9768646c1c4cbef1db568736361, type: 3}
+      propertyPath: playerThimblesController
+      value: 
+      objectReference: {fileID: 576906268}
     - target: {fileID: 5355837106367182519, guid: effea9768646c1c4cbef1db568736361, type: 3}
       propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
       value: 21441288060928
@@ -15243,10 +15344,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: JellyFishParent
       objectReference: {fileID: 0}
-    - target: {fileID: 3689749207032140058, guid: 46e05fc571a397b45ab92407688bc4ee, type: 3}
-      propertyPath: speed
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 3689749207032140059, guid: 46e05fc571a397b45ab92407688bc4ee, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -15312,6 +15409,10 @@ PrefabInstance:
       propertyPath: AllTankController
       value: 
       objectReference: {fileID: 61868425}
+    - target: {fileID: 5355837106367182519, guid: effea9768646c1c4cbef1db568736361, type: 3}
+      propertyPath: playerThimblesController
+      value: 
+      objectReference: {fileID: 576906268}
     - target: {fileID: 5355837106367182519, guid: effea9768646c1c4cbef1db568736361, type: 3}
       propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
       value: 21441288060928

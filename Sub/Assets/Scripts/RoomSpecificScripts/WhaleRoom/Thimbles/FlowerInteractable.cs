@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class FlowerInteractable : InteractionParent
 {
-    [SerializeField] GameObject parentFlower;
     [SerializeField] PlayerThimblesController playerThimblesController;
     public override void ActivateInteractable()
     {

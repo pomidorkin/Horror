@@ -3739,7 +3739,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c568f39bf50034a4cb6ace4f6f541c80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 2
   jellyFishSpawner: {fileID: 0}
   particleSystem: {fileID: 8714275156660030272}
   jellyFishMesh: {fileID: 3689189241335144496}

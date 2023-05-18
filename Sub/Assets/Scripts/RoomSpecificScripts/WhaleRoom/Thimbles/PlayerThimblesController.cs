@@ -10,9 +10,13 @@ public class PlayerThimblesController : MonoBehaviour
     private bool fanPicked = false;
     private bool flowerPicked = false;
     [SerializeField] GameObject fanObject;
+    [SerializeField] GameObject flowerObject;
     public void SetFlowerPicked()
     {
+        Debug.Log("SetFlowerPicked");
         objectPicked = true;
+        flowerPicked = true;
+        flowerObject.SetActive(true);
         //senseiInteractable.enabled = false;
         senseiInteractable.MakeUninteractable();
     }
@@ -51,6 +55,21 @@ public class PlayerThimblesController : MonoBehaviour
     public bool GetFanPicked()
     {
         return fanPicked;
+    }
+
+    public bool GetFlowerPicked()
+    {
+        return flowerPicked;
+    }
+
+    public void FlowerPicked(bool val)
+    {
+        if (val == false)
+        {
+            MakeSenseiInteractable();
+            flowerObject.SetActive(false);
+        }
+        flowerPicked = val;
     }
 
     public void FanPicked(bool val)
