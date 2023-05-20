@@ -6,6 +6,7 @@ public class PlayerThimblesController : MonoBehaviour
 {
     [SerializeField] ThimblesController thimblesController;
     [SerializeField] SenseiInteractable senseiInteractable;
+    [SerializeField] AllTankController allTankController;
     private bool objectPicked = false;
     private bool fanPicked = false;
     private bool flowerPicked = false;
@@ -66,7 +67,10 @@ public class PlayerThimblesController : MonoBehaviour
     {
         if (val == false)
         {
-            MakeSenseiInteractable();
+            if (!allTankController.allTanskDeactivated)
+            {
+                MakeSenseiInteractable();
+            }
             flowerObject.SetActive(false);
         }
         flowerPicked = val;

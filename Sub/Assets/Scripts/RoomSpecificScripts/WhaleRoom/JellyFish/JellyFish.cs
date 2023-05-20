@@ -8,12 +8,30 @@ public class JellyFish : MonoBehaviour
     [SerializeField] JellyFishSpawner jellyFishSpawner;
     [SerializeField] ParticleSystem particleSystem;
     [SerializeField] GameObject jellyFishMesh;
+    private AllTankController allTankController;
     private Transform target;
     private bool canMove = true;
 
-    private void Start()
+    private void OnEnable()
     {
         jellyFishSpawner = FindObjectOfType<JellyFishSpawner>();
+        allTankController = jellyFishSpawner.GetAllTankController();
+        allTankController.OnAllTanksDisabled += AllTanksDisabledHandler;
+    }
+
+    private void OnDisable()
+    {
+        allTankController.OnAllTanksDisabled -= AllTanksDisabledHandler;
+    }
+
+    private void AllTanksDisabledHandler()
+    {
+        JellyfishDieSequence();
+    }
+
+    private void Start()
+    {
+        //jellyFishSpawner = FindObjectOfType<JellyFishSpawner>();
         this.target = jellyFishSpawner.target;
     }
 
@@ -29,11 +47,16 @@ public class JellyFish : MonoBehaviour
         }
         else
         {
-            canMove = false;
-            particleSystem.gameObject.SetActive(true);
-            jellyFishMesh.SetActive(false);
-            StartCoroutine(DestroyThisObject());
+            JellyfishDieSequence();
         }
+    }
+
+    private void JellyfishDieSequence()
+    {
+        canMove = false;
+        particleSystem.gameObject.SetActive(true);
+        jellyFishMesh.SetActive(false);
+        StartCoroutine(DestroyThisObject());
     }
 
     private IEnumerator DestroyThisObject()

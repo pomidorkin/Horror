@@ -5,7 +5,14 @@ using System.Collections.Generic;
 
 public class AllTankController : MonoBehaviour
 {
+    //[SerializeField] JellyFishSpawner jellyFishSpawner;
+    [SerializeField] SenseiInteractable senseiInteractable;
     private List<TankManager> tanks = new List<TankManager>();
+    public bool allTanskDeactivated = false;
+
+    public delegate void AllTanksDisabledAction();
+    public event AllTanksDisabledAction OnAllTanksDisabled;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +45,9 @@ public class AllTankController : MonoBehaviour
                 return false;
             }
         }
+        allTanskDeactivated = true;
+        OnAllTanksDisabled();
+        senseiInteractable.MakeUninteractable();
         return allDeactivated;
     }
 }

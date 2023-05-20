@@ -5,7 +5,7 @@ using System;
 
 public class NoiseMeter : MonoBehaviour
 {
-    public bool noiseMeterEnabled = false;
+    public bool noiseMeterEnabled = true;
     private float noiseValue = 0f;
     private float currentNoiseValue = 0f;
     [SerializeField] float maxNoiseValue = 100f;
@@ -23,12 +23,15 @@ public class NoiseMeter : MonoBehaviour
 
     private void Start()
     {
-        noiseMeterEnabled = true;
+        //noiseMeterEnabled = true;
     }
 
     public void NoiseMade()
     {
-        noiseValue = currentNoiseValue + noiseIncrementValue;
+        if (noiseValue < (maxNoiseValue + maxNoiseValue / 10f))
+        {
+            noiseValue = currentNoiseValue + noiseIncrementValue;
+        }
         Debug.Log("noiseValue: " + noiseValue);
         timeInterpolator = 0f;
         if (noiseValue >= maxNoiseValue)
