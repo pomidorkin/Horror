@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,27 @@ public class PlayerThimblesController : MonoBehaviour
     private bool flowerPicked = false;
     [SerializeField] GameObject fanObject;
     [SerializeField] GameObject flowerObject;
+    [SerializeField] WhalseSceneRespawnManager whalseSceneRespawnManager;
+
+    private void OnEnable()
+    {
+        whalseSceneRespawnManager.OnRespawnAction += Reset;
+    }
+
+    private void OnDisable()
+    {
+        whalseSceneRespawnManager.OnRespawnAction -= Reset;
+    }
+
+    private void Reset()
+    {
+        objectPicked = false;
+        fanPicked = false;
+        flowerPicked = false;
+        fanObject.SetActive(false);
+        flowerObject.SetActive(false);
+    }
+
     public void SetFlowerPicked()
     {
         Debug.Log("SetFlowerPicked");

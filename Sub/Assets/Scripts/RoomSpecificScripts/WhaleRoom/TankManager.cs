@@ -36,4 +36,9 @@ public class TankManager : MonoBehaviour
     {
         return deactivated;
     }
+
+    public void Reset()
+    {
+        SetTankAimingEnabled(true);
+    }
 }

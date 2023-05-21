@@ -10,6 +10,7 @@ public class JellyFishSpawner : MonoBehaviour
     [SerializeField] public Transform target;
     [SerializeField] AllTankController allTankController;
     [SerializeField] GameObject portal;
+    [SerializeField] WhalseSceneRespawnManager whalseSceneRespawnManager;
     private float intervalCounter = 0;
     private float intervalLength = 20f;
     private float jellyFishInterval = 0;
@@ -19,14 +20,26 @@ public class JellyFishSpawner : MonoBehaviour
     private int jellyFishCounter = 0;
     private int jellyFishBatch = 3;
 
+
     private void OnEnable()
     {
         allTankController.OnAllTanksDisabled += OnTanksDisabledHandler;
+        whalseSceneRespawnManager.OnRespawnAction += Respawn;
+    }
+
+    private void Respawn()
+    {
+        spawningAllowed = true;
+        intervalCounter = 0;
+        jellyFishInterval = 0;
+        jellyFishCounter = 0;
+        portal.SetActive(true);
     }
 
     private void OnDisable()
     {
         allTankController.OnAllTanksDisabled -= OnTanksDisabledHandler;
+        whalseSceneRespawnManager.OnRespawnAction -= Respawn;
     }
 
     private void OnTanksDisabledHandler()

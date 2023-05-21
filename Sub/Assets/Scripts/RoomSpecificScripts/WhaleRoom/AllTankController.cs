@@ -2,27 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Collections.Generic;
+using System;
 
 public class AllTankController : MonoBehaviour
 {
     //[SerializeField] JellyFishSpawner jellyFishSpawner;
     [SerializeField] SenseiInteractable senseiInteractable;
+    [SerializeField] WhalseSceneRespawnManager whalseSceneRespawnManager;
     private List<TankManager> tanks = new List<TankManager>();
     public bool allTanskDeactivated = false;
 
     public delegate void AllTanksDisabledAction();
     public event AllTanksDisabledAction OnAllTanksDisabled;
 
-    // Start is called before the first frame update
-    void Start()
+    private void OnEnable()
     {
-        
+        whalseSceneRespawnManager.OnRespawnAction += Respawn;
+    }
+    private void OnDisable()
+    {
+        whalseSceneRespawnManager.OnRespawnAction -= Respawn;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Respawn()
     {
-        
+        allTanskDeactivated = false;
+        foreach (TankManager tank in tanks)
+        {
+            tank.Reset();
+        }
     }
 
     public void AddTankToList(TankManager tank)
