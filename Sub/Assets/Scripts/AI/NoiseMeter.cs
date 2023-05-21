@@ -2,62 +2,45 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 public class NoiseMeter : MonoBehaviour
 {
     public bool noiseMeterEnabled = true;
     private float noiseValue = 0f;
-    private float currentNoiseValue = 0f;
     [SerializeField] float maxNoiseValue = 100f;
     [SerializeField] float noiseIncrementValue = 25f;
-    [SerializeField] float decrementValue = 5f;
-
-    [SerializeField] float decrementSpeed = 1f;
-
-
-    // TEST
-    float timeInterpolator = 0f;
+    [SerializeField] float decrementValue = 1f;
+    [SerializeField] Slider noiseSlider;
 
     public delegate void NoiceMadeAction();
     public event NoiceMadeAction OnVoiceMade;
 
     private void Start()
     {
-        //noiseMeterEnabled = true;
+        noiseSlider.value = 0;
     }
 
     public void NoiseMade()
     {
-        if (noiseValue < (maxNoiseValue + maxNoiseValue / 10f))
+        if ((noiseValue + noiseIncrementValue) < maxNoiseValue && noiseMeterEnabled)
         {
-            noiseValue = currentNoiseValue + noiseIncrementValue;
+            noiseValue += noiseIncrementValue;
         }
-        Debug.Log("noiseValue: " + noiseValue);
-        timeInterpolator = 0f;
-        if (noiseValue >= maxNoiseValue)
+        else
         {
+            noiseValue = maxNoiseValue;
+            noiseSlider.value = noiseValue;
             OnVoiceMade();
-            Debug.Log("OnVoiceMade();");
         }
     }
 
     private void Update()
     {
-
-        if (noiseValue > 0f)
+        if (noiseValue > 0 && noiseMeterEnabled)
         {
-            if (timeInterpolator < 1f)
-            {
-                currentNoiseValue = Mathf.Lerp(noiseValue, 0f, timeInterpolator);
-                timeInterpolator += (1f / (noiseValue / decrementValue)) * Time.deltaTime;
-            }
-            else
-            {
-                timeInterpolator = 0f;
-                noiseValue = 0f;
-                currentNoiseValue = 0f;
-            }
-            Debug.Log(currentNoiseValue);
+            noiseValue -= decrementValue * Time.deltaTime;
+            noiseSlider.value = noiseValue;
         }
     }
 }

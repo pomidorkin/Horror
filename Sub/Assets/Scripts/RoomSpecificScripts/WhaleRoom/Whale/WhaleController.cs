@@ -12,7 +12,7 @@ public class WhaleController : MonoBehaviour
     private float step = 0;
     private float whaleMaxHealth = 1000;
     private float whaleCurrentHealth;
-    private float healthDecrementValue = 20;
+    private float healthDecrementValue = 0;
     private bool receivingDamage = true;
     // Start is called before the first frame update
     void Start()

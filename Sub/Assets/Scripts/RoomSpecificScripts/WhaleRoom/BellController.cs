@@ -7,6 +7,7 @@ public class BellController : MonoBehaviour
 {
     [SerializeField] NoiseMeter noiseMeter;
     [SerializeField] Animator animator;
+    private bool animIsPlaying = false;
 
     private void OnEnable()
     {
@@ -20,6 +21,19 @@ public class BellController : MonoBehaviour
 
     private void PlayRingAnim()
     {
-        animator.Play("Ring");
+        Debug.Log("PlayRingAnim");
+        //Debug.Log("animIsPlaying: " + animIsPlaying);
+        if (!animIsPlaying)
+        {
+            animIsPlaying = true;
+            animator.Play("Ring");
+            StartCoroutine(SetAnimFinished());
+        }
+    }
+
+    private IEnumerator SetAnimFinished()
+    {
+        yield return new WaitForSeconds(2f);
+        animIsPlaying = false;
     }
 }

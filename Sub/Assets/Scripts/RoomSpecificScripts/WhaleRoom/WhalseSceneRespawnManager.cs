@@ -12,6 +12,8 @@ public class WhalseSceneRespawnManager : MonoBehaviour
     [SerializeField] ScreamerLookTarget lookTarget;
     [SerializeField] GameObject respawnUI;
     [SerializeField] GameObject WakeUPUI;
+    //[SerializeField] GameObject geishaCutscene;
+    //[SerializeField] GameObject geishaObject;
     public void TriggerRespawnEvent()
     {
         OnRespawnAction();
@@ -23,6 +25,8 @@ public class WhalseSceneRespawnManager : MonoBehaviour
         gameManager.DisablePlayerActions();
         player.transform.position = respawnPosition.position;
         player.transform.rotation = respawnPosition.rotation;
+        //geishaCutscene.SetActive(false);
+        //geishaObject.SetActive(true);
         PlayWakeUPAnim();
     }
 

@@ -54,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
 
     // Noise Measuring Logic
     [SerializeField] NoiseMeter noiseMeter;
-    [SerializeField] float maxNoiseMeterTime = 1f;
+    [SerializeField] float maxNoiseMeterTime = 3f;
     private float noiseMeaterTimer;
 
 
@@ -157,11 +157,14 @@ public class PlayerMovement : MonoBehaviour
 
             // Noise Measuring Logic
             // Do not make noise when the player is moving slowly (while pressing alt)
-            noiseMeaterTimer += Time.deltaTime;
-            if (noiseMeter.enabled && controller.velocity.x != 0f && noiseMeaterTimer >= maxNoiseMeterTime)
+            if (noiseMeter.enabled && controller.velocity.x != 0f /*&& noiseMeaterTimer >= maxNoiseMeterTime*/)
             {
-                noiseMeter.NoiseMade();
-                noiseMeaterTimer = 0f;
+                noiseMeaterTimer += Time.deltaTime;
+                if (noiseMeaterTimer >= maxNoiseMeterTime)
+                {
+                    noiseMeter.NoiseMade();
+                    noiseMeaterTimer = 0f;
+                }
             }
             // Noise Measuring Logic End
 

@@ -9,6 +9,7 @@ public class AllTankController : MonoBehaviour
     //[SerializeField] JellyFishSpawner jellyFishSpawner;
     [SerializeField] SenseiInteractable senseiInteractable;
     [SerializeField] WhalseSceneRespawnManager whalseSceneRespawnManager;
+    [SerializeField] GameObject samuraiCutscene;
     private List<TankManager> tanks = new List<TankManager>();
     public bool allTanskDeactivated = false;
 
@@ -55,6 +56,7 @@ public class AllTankController : MonoBehaviour
         }
         allTanskDeactivated = true;
         OnAllTanksDisabled();
+        samuraiCutscene.SetActive(true);
         senseiInteractable.MakeUninteractable();
         return allDeactivated;
     }
