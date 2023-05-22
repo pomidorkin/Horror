@@ -1,23 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class SamuraiController : MonoBehaviour
 {
     private float speed = 2f;
     [SerializeField] Transform[] targetPositions;
     [SerializeField] Transform playerPosition;
-    private Vector3 target;
+    [SerializeField] NavMeshAgent navMeshAgent;
     [SerializeField] NoiseMeter noiseMeter;
+    [SerializeField] WhalseSceneRespawnManager whalseSceneRespawnManager;
     private bool canMove = true;
     private Animator animator;
     private bool isAttacking = false;
     private int lastRnd = 0;
+    [SerializeField] BoxCollider attackCollider;
+    [SerializeField] float couchSpeed = 5.4f;
+    [SerializeField] float runSpeed = 9.2f;
     // Start is called before the first frame update
 
     private void OnEnable()
     {
         noiseMeter.OnVoiceMade += SetPlayerTarget;
+        navMeshAgent.speed = couchSpeed;
     }
 
     private void OnDisable()
@@ -27,12 +33,18 @@ public class SamuraiController : MonoBehaviour
 
     private void SetPlayerTarget()
     {
-        target = new Vector3(playerPosition.position.x, 0, playerPosition.position.z);
+        if (canMove)
+        {
+            navMeshAgent.SetDestination(new Vector3(playerPosition.position.x, 0, playerPosition.position.z));
+            animator.SetTrigger("NoticedPlayer");
+            navMeshAgent.speed = runSpeed;
+        }
+        
     }
 
     void Start()
     {
-        target = targetPositions[0].position;
+        navMeshAgent.SetDestination(targetPositions[0].position);
         animator = GetComponent<Animator>();
     }
 
@@ -40,11 +52,9 @@ public class SamuraiController : MonoBehaviour
     void Update()
     {
         var step = speed * Time.deltaTime;
-        if (Vector3.Distance(transform.position, target) > 2f && canMove)
+        if (navMeshAgent.remainingDistance > 3.2f && canMove)
         {
-            Vector3 targetDirection = target - transform.position;
-            Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, step, 0.0f);
-            transform.rotation = Quaternion.LookRotation(newDirection);
+            Debug.Log("remainingDistance: " + navMeshAgent.remainingDistance);
         }
         else
         {
@@ -54,10 +64,24 @@ public class SamuraiController : MonoBehaviour
                 Attack();
             }
         }
+        if (!canMove && !isAttacking)
+        {
+            canMove = true;
+        }
+    }
+
+    public void DisableAttackCollider()
+    {
+        attackCollider.enabled = false;
+    }
+    public void EnableAttackCollider()
+    {
+        attackCollider.enabled = true;
     }
 
     public void EnableMoving()
     {
+        DisableAttackCollider();
         canMove = true;
         isAttacking = false;
         int rnd;
@@ -65,13 +89,22 @@ public class SamuraiController : MonoBehaviour
         {
             rnd = Random.Range(0, targetPositions.Length);
         } while (lastRnd == rnd) ;
-        target = targetPositions[rnd].position;
+        navMeshAgent.SetDestination(targetPositions[rnd].position);
     }
 
     private void Attack()
     {
+        navMeshAgent.speed = couchSpeed;
         isAttacking = true;
         int randomNumber = Random.Range(1, 3);
         animator.SetTrigger("Attack_" + randomNumber);
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            whalseSceneRespawnManager.TriggerRespawnEvent();
+        }
     }
 }

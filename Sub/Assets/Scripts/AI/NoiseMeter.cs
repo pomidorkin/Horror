@@ -23,15 +23,18 @@ public class NoiseMeter : MonoBehaviour
 
     public void NoiseMade()
     {
-        if ((noiseValue + noiseIncrementValue) < maxNoiseValue && noiseMeterEnabled)
+        if (noiseMeterEnabled)
         {
-            noiseValue += noiseIncrementValue;
-        }
-        else
-        {
-            noiseValue = maxNoiseValue;
-            noiseSlider.value = noiseValue;
-            OnVoiceMade();
+            if ((noiseValue + noiseIncrementValue) < maxNoiseValue)
+            {
+                noiseValue += noiseIncrementValue;
+            }
+            else
+            {
+                noiseValue = maxNoiseValue;
+                noiseSlider.value = noiseValue;
+                OnVoiceMade();
+            }
         }
     }
 
