@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Collections;
 using System.Linq;
 using TMPro;
 
@@ -15,24 +14,93 @@ public class PicturePuzzle : MonoBehaviour
     [SerializeField] TMP_Text[] storyTexts;
     [SerializeField] MakeActiveInteractable picture;
     [SerializeField] GameObject plushBear;
+    [SerializeField] InputManager inputManager;
+    [SerializeField] ImageScrollScript[] imageScrollElements;
+    [SerializeField] PlayerMovement playerMovement;
+    PlyerInputActions plyerInputActions;
     StageManager stageManager;
-    GameManagerScript gameManager;
+    //GameManagerScript gameManager;
+    private int selectedElement = 0;
 
     private void Start()
     {
         playerComblination = new int[correctCombination.Length];
         stageManager = FindObjectOfType<StageManager>();
-        gameManager = FindObjectOfType<GameManagerScript>();
+        ActivateElementSelection();
+        //gameManager = FindObjectOfType<GameManagerScript>();
     }
 
     private void OnEnable()
     {
+        plyerInputActions = playerMovement.GetPlayerInputActions();
+        inputManager.EnableInputActionMap(false, "MythMinigame");
         puzzleManager.OnPuzzleInteractedAction += UpdateCombinations;
+        plyerInputActions.MythMinigame.Left.performed += OnLeftHandler;
+        plyerInputActions.MythMinigame.Right.performed += OnRightHandler;
+        plyerInputActions.MythMinigame.Up.performed += OnUpHandler;
+        plyerInputActions.MythMinigame.Down.performed += OnDownHandler;
+        plyerInputActions.MythMinigame.Close.performed += OnCloseHandler;
     }
 
     private void OnDisable()
     {
         puzzleManager.OnPuzzleInteractedAction -= UpdateCombinations;
+        plyerInputActions.MythMinigame.Left.performed -= OnLeftHandler;
+        plyerInputActions.MythMinigame.Right.performed -= OnRightHandler;
+        plyerInputActions.MythMinigame.Up.performed -= OnUpHandler;
+        plyerInputActions.MythMinigame.Down.performed -= OnDownHandler;
+        plyerInputActions.MythMinigame.Close.performed -= OnCloseHandler;
+    }
+
+    private void OnCloseHandler(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        ClosePuzzle();
+    }
+
+    private void OnDownHandler(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        imageScrollElements[selectedElement].ActivateNextImage(false);
+    }
+
+    private void OnUpHandler(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        imageScrollElements[selectedElement].ActivateNextImage(true);
+    }
+
+    private void OnLeftHandler(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        if (selectedElement > 0)
+        {
+            selectedElement--;
+        }
+        else
+        {
+            selectedElement = imageScrollElements.Length - 1;
+        }
+
+        ActivateElementSelection();
+    }
+
+    private void ActivateElementSelection()
+    {
+        foreach (ImageScrollScript imageScroll in imageScrollElements)
+        {
+            imageScroll.MakeSelectionActive(false);
+        }
+        imageScrollElements[selectedElement].MakeSelectionActive(true);
+    }
+
+    private void OnRightHandler(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        if (selectedElement >= imageScrollElements.Length - 1)
+        {
+            selectedElement = 0;
+        }
+        else
+        {
+            selectedElement++;
+        }
+        ActivateElementSelection();
     }
 
     private void UpdateCombinations(object source, PuzzleManager.PuzzleInteractedEventArgs args)
@@ -44,8 +112,8 @@ public class PicturePuzzle : MonoBehaviour
     public void ClosePuzzle()
     {
         CompareCombination();
+        inputManager.EnableInputActionMap(true, "MythMinigame");
         gameObject.SetActive(false);
-        gameManager.EnablePlayerActions();
     }
 
     private void CompareCombination()

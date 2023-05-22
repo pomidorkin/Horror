@@ -360,6 +360,145 @@ public partial class @PlyerInputActions : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""MythMinigame"",
+            ""id"": ""a12207e5-61b8-4630-b9f9-5c28b9f3cd3f"",
+            ""actions"": [
+                {
+                    ""name"": ""Left"",
+                    ""type"": ""Button"",
+                    ""id"": ""f07506b6-0e1c-4c02-b979-ba4a81d7d295"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Right"",
+                    ""type"": ""Button"",
+                    ""id"": ""2df53032-aa56-4c75-89ab-80977c339f86"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Up"",
+                    ""type"": ""Button"",
+                    ""id"": ""c0e682c0-edf4-487c-abd4-5db8822bd635"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Down"",
+                    ""type"": ""Button"",
+                    ""id"": ""3ffebcc4-369d-408e-9ff0-f781c06dab55"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Select"",
+                    ""type"": ""Button"",
+                    ""id"": ""62bcdd0e-4839-44ee-a30e-5356e6b8f3e3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Close"",
+                    ""type"": ""Button"",
+                    ""id"": ""3203f994-2d88-4324-a098-fffaa97ac102"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""7d208fb1-5315-4f2a-a86d-c9e5ea50c0f5"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""140a65f2-1dde-48d2-9605-ed9bc890fcd8"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cc90f674-eda9-489b-a435-b933cd8a40ef"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7e8d3129-8257-47b0-a636-4f200ad29082"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5804474e-e181-4fb0-8d1c-4ff18ff8c860"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Select"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""762bdc61-9d92-4f3b-87ad-06a43664db62"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Select"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ceaf7680-ba3d-4f3e-8bae-dcb0440ae22b"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Close"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -417,6 +556,14 @@ public partial class @PlyerInputActions : IInputActionCollection2, IDisposable
         // MazeMiniGame
         m_MazeMiniGame = asset.FindActionMap("MazeMiniGame", throwIfNotFound: true);
         m_MazeMiniGame_Movement = m_MazeMiniGame.FindAction("Movement", throwIfNotFound: true);
+        // MythMinigame
+        m_MythMinigame = asset.FindActionMap("MythMinigame", throwIfNotFound: true);
+        m_MythMinigame_Left = m_MythMinigame.FindAction("Left", throwIfNotFound: true);
+        m_MythMinigame_Right = m_MythMinigame.FindAction("Right", throwIfNotFound: true);
+        m_MythMinigame_Up = m_MythMinigame.FindAction("Up", throwIfNotFound: true);
+        m_MythMinigame_Down = m_MythMinigame.FindAction("Down", throwIfNotFound: true);
+        m_MythMinigame_Select = m_MythMinigame.FindAction("Select", throwIfNotFound: true);
+        m_MythMinigame_Close = m_MythMinigame.FindAction("Close", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -611,6 +758,79 @@ public partial class @PlyerInputActions : IInputActionCollection2, IDisposable
         }
     }
     public MazeMiniGameActions @MazeMiniGame => new MazeMiniGameActions(this);
+
+    // MythMinigame
+    private readonly InputActionMap m_MythMinigame;
+    private IMythMinigameActions m_MythMinigameActionsCallbackInterface;
+    private readonly InputAction m_MythMinigame_Left;
+    private readonly InputAction m_MythMinigame_Right;
+    private readonly InputAction m_MythMinigame_Up;
+    private readonly InputAction m_MythMinigame_Down;
+    private readonly InputAction m_MythMinigame_Select;
+    private readonly InputAction m_MythMinigame_Close;
+    public struct MythMinigameActions
+    {
+        private @PlyerInputActions m_Wrapper;
+        public MythMinigameActions(@PlyerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Left => m_Wrapper.m_MythMinigame_Left;
+        public InputAction @Right => m_Wrapper.m_MythMinigame_Right;
+        public InputAction @Up => m_Wrapper.m_MythMinigame_Up;
+        public InputAction @Down => m_Wrapper.m_MythMinigame_Down;
+        public InputAction @Select => m_Wrapper.m_MythMinigame_Select;
+        public InputAction @Close => m_Wrapper.m_MythMinigame_Close;
+        public InputActionMap Get() { return m_Wrapper.m_MythMinigame; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MythMinigameActions set) { return set.Get(); }
+        public void SetCallbacks(IMythMinigameActions instance)
+        {
+            if (m_Wrapper.m_MythMinigameActionsCallbackInterface != null)
+            {
+                @Left.started -= m_Wrapper.m_MythMinigameActionsCallbackInterface.OnLeft;
+                @Left.performed -= m_Wrapper.m_MythMinigameActionsCallbackInterface.OnLeft;
+                @Left.canceled -= m_Wrapper.m_MythMinigameActionsCallbackInterface.OnLeft;
+                @Right.started -= m_Wrapper.m_MythMinigameActionsCallbackInterface.OnRight;
+                @Right.performed -= m_Wrapper.m_MythMinigameActionsCallbackInterface.OnRight;
+                @Right.canceled -= m_Wrapper.m_MythMinigameActionsCallbackInterface.OnRight;
+                @Up.started -= m_Wrapper.m_MythMinigameActionsCallbackInterface.OnUp;
+                @Up.performed -= m_Wrapper.m_MythMinigameActionsCallbackInterface.OnUp;
+                @Up.canceled -= m_Wrapper.m_MythMinigameActionsCallbackInterface.OnUp;
+                @Down.started -= m_Wrapper.m_MythMinigameActionsCallbackInterface.OnDown;
+                @Down.performed -= m_Wrapper.m_MythMinigameActionsCallbackInterface.OnDown;
+                @Down.canceled -= m_Wrapper.m_MythMinigameActionsCallbackInterface.OnDown;
+                @Select.started -= m_Wrapper.m_MythMinigameActionsCallbackInterface.OnSelect;
+                @Select.performed -= m_Wrapper.m_MythMinigameActionsCallbackInterface.OnSelect;
+                @Select.canceled -= m_Wrapper.m_MythMinigameActionsCallbackInterface.OnSelect;
+                @Close.started -= m_Wrapper.m_MythMinigameActionsCallbackInterface.OnClose;
+                @Close.performed -= m_Wrapper.m_MythMinigameActionsCallbackInterface.OnClose;
+                @Close.canceled -= m_Wrapper.m_MythMinigameActionsCallbackInterface.OnClose;
+            }
+            m_Wrapper.m_MythMinigameActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Left.started += instance.OnLeft;
+                @Left.performed += instance.OnLeft;
+                @Left.canceled += instance.OnLeft;
+                @Right.started += instance.OnRight;
+                @Right.performed += instance.OnRight;
+                @Right.canceled += instance.OnRight;
+                @Up.started += instance.OnUp;
+                @Up.performed += instance.OnUp;
+                @Up.canceled += instance.OnUp;
+                @Down.started += instance.OnDown;
+                @Down.performed += instance.OnDown;
+                @Down.canceled += instance.OnDown;
+                @Select.started += instance.OnSelect;
+                @Select.performed += instance.OnSelect;
+                @Select.canceled += instance.OnSelect;
+                @Close.started += instance.OnClose;
+                @Close.performed += instance.OnClose;
+                @Close.canceled += instance.OnClose;
+            }
+        }
+    }
+    public MythMinigameActions @MythMinigame => new MythMinigameActions(this);
     private int m_KeyboardSchemeIndex = -1;
     public InputControlScheme KeyboardScheme
     {
@@ -654,5 +874,14 @@ public partial class @PlyerInputActions : IInputActionCollection2, IDisposable
     public interface IMazeMiniGameActions
     {
         void OnMovement(InputAction.CallbackContext context);
+    }
+    public interface IMythMinigameActions
+    {
+        void OnLeft(InputAction.CallbackContext context);
+        void OnRight(InputAction.CallbackContext context);
+        void OnUp(InputAction.CallbackContext context);
+        void OnDown(InputAction.CallbackContext context);
+        void OnSelect(InputAction.CallbackContext context);
+        void OnClose(InputAction.CallbackContext context);
     }
 }

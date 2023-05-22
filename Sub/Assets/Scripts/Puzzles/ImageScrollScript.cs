@@ -7,8 +7,9 @@ using System;
 
 public class ImageScrollScript : MonoBehaviour
 {
-    [SerializeField] PuzzleElement[] pictures;
+    [SerializeField] public PuzzleElement[] pictures;
     [SerializeField] int myId;
+    [SerializeField] GameObject selection;
     private int counter = 0;
     private PuzzleManager puzzleManager;
 
@@ -23,27 +24,57 @@ public class ImageScrollScript : MonoBehaviour
         pictures[counter].gameObject.SetActive(true);
     }
 
-    public void ActivateNextImage()
+    public void MakeSelectionActive(bool val)
+    {
+        selection.SetActive(val);
+    }
+
+    public void ActivateNextImage(bool up)
     {
         Debug.Log("counter: " + counter + " pictures.Length: " + pictures.Length);
-        if (counter < (pictures.Length - 1))
+        if (up)
         {
-            counter++;
-            foreach (PuzzleElement picture in pictures)
+            if (counter < (pictures.Length - 1))
             {
-                picture.gameObject.SetActive(false);
+                counter++;
+                foreach (PuzzleElement picture in pictures)
+                {
+                    picture.gameObject.SetActive(false);
+                }
             }
+            else
+            {
+                foreach (PuzzleElement picture in pictures)
+                {
+                    picture.gameObject.SetActive(false);
+                }
+                counter = 0;
+            }
+            pictures[counter].gameObject.SetActive(true);
+            Debug.Log("counter: " + counter + " pictures.Length: " + pictures.Length);
         }
         else
         {
-            foreach (PuzzleElement picture in pictures)
+            if (counter > 0)
             {
-                picture.gameObject.SetActive(false);
+                counter--;
+                foreach (PuzzleElement picture in pictures)
+                {
+                    picture.gameObject.SetActive(false);
+                }
             }
-            counter = 0;
+            else
+            {
+                foreach (PuzzleElement picture in pictures)
+                {
+                    picture.gameObject.SetActive(false);
+                }
+                counter = pictures.Length - 1;
+            }
+            pictures[counter].gameObject.SetActive(true);
+            Debug.Log("counter: " + counter + " pictures.Length: " + pictures.Length);
         }
-        pictures[counter].gameObject.SetActive(true);
-        Debug.Log("counter: " + counter + " pictures.Length: " + pictures.Length);
+        
 
         puzzleManager.PuzzleInteracted(myId, counter, pictures[counter].storyText);
     }

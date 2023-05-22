@@ -11,6 +11,8 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] GameObject pauseMenuUI;
     [SerializeField] FMODHighBypass bypassEffect;
     PlyerInputActions plyerInputActions;
+    //[SerializeField] InputManager inputManager;
+    [SerializeField] PlayerMovement playerMovement;
 
     public class GamePausedEventArgs : EventArgs
     {
@@ -23,14 +25,16 @@ public class PauseMenu : MonoBehaviour
 
     private void Awake()
     {
-        plyerInputActions = new PlyerInputActions();
-        plyerInputActions.Player.Enable();
+        //plyerInputActions = new PlyerInputActions();
+        //plyerInputActions.Player.Enable();
+
         /// Player -> Action Map; Jump, Movement -> Actions; performed -> state
     }
 
 
     private void OnEnable()
     {
+        plyerInputActions = playerMovement.GetPlayerInputActions();
         plyerInputActions.Player.Pause.performed += TogglePauseMenu;
     }
 
@@ -41,16 +45,20 @@ public class PauseMenu : MonoBehaviour
 
     private void TogglePauseMenu(InputAction.CallbackContext obj)
     {
-        OnGamePausedAction(this, new GamePausedEventArgs() { IsPaused = gameIsPaused });
-        bypassEffect.PlayBypassEffect(!gameIsPaused);
-        if (gameIsPaused)
+        if (plyerInputActions.Player.enabled)
         {
-            Resume();
+            OnGamePausedAction(this, new GamePausedEventArgs() { IsPaused = gameIsPaused });
+            bypassEffect.PlayBypassEffect(!gameIsPaused);
+            if (gameIsPaused)
+            {
+                Resume();
+            }
+            else
+            {
+                Pause();
+            }
         }
-        else
-        {
-            Pause();
-        }
+        
     }
 
 
