@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerGeishaController : MonoBehaviour
 {
     [SerializeField] GameObject bellObject;
+    [SerializeField] GeishaInteractable geishaInteractable;
     private bool bellPicked = false;
     [SerializeField] WhalseSceneRespawnManager whalseSceneRespawnManager;
 
@@ -27,6 +28,14 @@ public class PlayerGeishaController : MonoBehaviour
     public void SetBellPicked(bool val)
     {
         bellObject.SetActive(val);
+        if (val)
+        {
+            geishaInteractable.EnableGeishaInteraction();
+        }
+        else
+        {
+            geishaInteractable.DisableGeishaInteraction();
+        }
         bellPicked = val;
     }
 }

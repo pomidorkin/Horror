@@ -10,6 +10,21 @@ public class GeishaInteractable : InteractionParent
     [SerializeField] NoiseMeter noiseMeter;
     [SerializeField] GameObject samurai;
 
+    private void Start()
+    {
+        MakeUninteractable();
+    }
+
+    public void EnableGeishaInteraction()
+    {
+        MakeInteractable();
+    }
+
+    public void DisableGeishaInteraction()
+    {
+        MakeUninteractable();
+    }
+
     public override void ActivateInteractable()
     {
         cusScene.SetActive(true);

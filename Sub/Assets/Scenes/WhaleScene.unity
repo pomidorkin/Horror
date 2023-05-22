@@ -2674,7 +2674,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 187164, guid: 278fbc8682262ca4fa2ece1a816e7f66, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400366, guid: 278fbc8682262ca4fa2ece1a816e7f66, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5416,7 +5416,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.3697271, y: 1}
+    m_SensorSize: {x: 1.8599033, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -5712,6 +5712,7 @@ MonoBehaviour:
   playerPosition: {fileID: 2145946202}
   navMeshAgent: {fileID: 293163178}
   noiseMeter: {fileID: 1821868619}
+  noiseSlider: {fileID: 449073707}
   whalseSceneRespawnManager: {fileID: 21265071}
   attackCollider: {fileID: 293163180}
   couchSpeed: 5.4
@@ -5813,7 +5814,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.3697271, y: 1}
+    m_SensorSize: {x: 1.8599033, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -11464,7 +11465,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &449073708
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17055,8 +17056,8 @@ RectTransform:
   m_Father: {fileID: 2046675058}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -17840,6 +17841,8 @@ PlayableDirector:
     value: {fileID: 355835831}
   - key: {fileID: 2211974950685054641, guid: 894e8094501217445910492909459745, type: 2}
     value: {fileID: 1955040414}
+  - key: {fileID: 8255904581727510166, guid: 894e8094501217445910492909459745, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References:
     - 79e174b4a80d72e468f919623c630c97: {fileID: 1470430479}
@@ -30186,7 +30189,7 @@ PrefabInstance:
       objectReference: {fileID: 449073709}
     - target: {fileID: 4242514912726253518, guid: 1b416810cb0907c4dae92655af6098df, type: 3}
       propertyPath: noiseMeterEnabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4242514912726253519, guid: 1b416810cb0907c4dae92655af6098df, type: 3}
       propertyPath: m_RootOrder
@@ -30363,7 +30366,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -30545,7 +30548,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.3697271, y: 1}
+    m_SensorSize: {x: 1.8599033, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -40190,6 +40193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bellObject: {fileID: 260389591}
+  geishaInteractable: {fileID: 17411996}
   whalseSceneRespawnManager: {fileID: 21265071}
 --- !u!1001 &1766205342
 PrefabInstance:
@@ -43583,6 +43587,7 @@ MonoBehaviour:
   samurai: {fileID: 293163174}
   noiseMeter: {fileID: 1821868619}
   noiseSlider: {fileID: 449073707}
+  playerGeishaController: {fileID: 1755728593}
 --- !u!4 &1955040416
 Transform:
   m_ObjectHideFlags: 0

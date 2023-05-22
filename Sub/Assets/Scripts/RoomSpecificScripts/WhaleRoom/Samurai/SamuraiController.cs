@@ -10,6 +10,7 @@ public class SamuraiController : MonoBehaviour
     [SerializeField] Transform playerPosition;
     [SerializeField] NavMeshAgent navMeshAgent;
     [SerializeField] NoiseMeter noiseMeter;
+    [SerializeField] GameObject noiseSlider;
     [SerializeField] WhalseSceneRespawnManager whalseSceneRespawnManager;
     private bool canMove = true;
     private Animator animator;
@@ -18,17 +19,30 @@ public class SamuraiController : MonoBehaviour
     [SerializeField] BoxCollider attackCollider;
     [SerializeField] float couchSpeed = 5.4f;
     [SerializeField] float runSpeed = 9.2f;
+    private Vector3 initialPos;
     // Start is called before the first frame update
 
     private void OnEnable()
     {
         noiseMeter.OnVoiceMade += SetPlayerTarget;
         navMeshAgent.speed = couchSpeed;
+        if (initialPos == null)
+        {
+            initialPos = transform.position;
+        }
     }
 
     private void OnDisable()
     {
         noiseMeter.OnVoiceMade -= SetPlayerTarget;
+    }
+
+    private void ResetSamurai()
+    {
+        transform.position = initialPos;
+        isAttacking = false;
+        canMove = true;
+        gameObject.SetActive(false);
     }
 
     private void SetPlayerTarget()
@@ -105,6 +119,9 @@ public class SamuraiController : MonoBehaviour
         if (other.tag == "Player")
         {
             whalseSceneRespawnManager.TriggerRespawnEvent();
+            noiseMeter.enabled = false;
+            noiseSlider.SetActive(false);
+            ResetSamurai();
         }
     }
 }
