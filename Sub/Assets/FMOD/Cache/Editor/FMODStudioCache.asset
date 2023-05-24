@@ -1,5 +1,32 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8418507883445305319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/MantraDrums
+  m_EditorClassIdentifier: 
+  Path: event:/Music/MantraDrums
+  Guid:
+    Data1: 1425055490
+    Data2: 1136313020
+    Data3: 547175319
+    Data4: 641023436
+  Banks:
+  - {fileID: -1499487012314171898}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 188801
 --- !u!114 &-8404524497606278206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42,11 +69,38 @@ MonoBehaviour:
   Path: FMOD_Horror_Prototype/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638199319408606942
+  lastModified: 638205576448615647
   FileSizes:
   - Name: Desktop
-    Value: 1532
+    Value: 1622
   Exists: 1
+--- !u!114 &-7788674457631916121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/MantraTheme
+  m_EditorClassIdentifier: 
+  Path: event:/Music/MantraTheme
+  Guid:
+    Data1: 745213547
+    Data2: 1189226761
+    Data3: 1412430732
+    Data4: 2135354677
+  Banks:
+  - {fileID: -1499487012314171898}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 188801
 --- !u!114 &-6649801373924764852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,10 +250,10 @@ MonoBehaviour:
   Path: FMOD_Horror_Prototype/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638199319408596967
+  lastModified: 638205576448595705
   FileSizes:
   - Name: Desktop
-    Value: 6894336
+    Value: 11521024
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -226,12 +280,14 @@ MonoBehaviour:
   - {fileID: -8404524497606278206}
   - {fileID: 4062795633723020522}
   - {fileID: -5922477628590221170}
+  - {fileID: -8418507883445305319}
+  - {fileID: -7788674457631916121}
   EditorParameters: []
   MasterBanks:
   - {fileID: -1499487012314171898}
   StringsBanks:
   - {fileID: -7989928531807606700}
-  cacheTime: 638199319408606942
+  cacheTime: 638205576448615647
   cacheVersion: 131591
 --- !u!114 &1500224720344565338
 MonoBehaviour:

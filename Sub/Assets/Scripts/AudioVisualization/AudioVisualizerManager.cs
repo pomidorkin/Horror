@@ -10,7 +10,7 @@ public class AudioVisualizerManager : MonoBehaviour
     private GameManagerScript gameManager;
     [SerializeField] private MMFeedbacks MMFeedbacks;
     float elapsedTime;
-    float timeLimit = 0.1f;
+    [SerializeField] float timeLimit = 0.1f;
 
     public delegate void PeakReachedAction();
     public event PeakReachedAction OnPeakReachedAction;
