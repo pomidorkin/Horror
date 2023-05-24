@@ -7,6 +7,7 @@ public class RespawnRoomLeavingCenter : MonoBehaviour
     [SerializeField] GameObject respawnRoom;
     [SerializeField] AllDoorController allDoorController;
     [SerializeField] GameManagerScript gameManager;
+    [SerializeField] StageManager stageManager;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
@@ -15,6 +16,7 @@ public class RespawnRoomLeavingCenter : MonoBehaviour
             gameManager.SetRespawningStage(false);
             this.gameObject.SetActive(false);
             respawnRoom.SetActive(false);
+            stageManager.currentStage.stageGoal.PlayerLeftRoom();
             Debug.Log("RespawnRoomLeavingSensor Has Been Triggered");
         }
     }

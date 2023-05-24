@@ -16423,7 +16423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb246570dbce751469eccf1be995077d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myStageType: 1
+  myStageType: 3
   stageManager: {fileID: 822073215}
   childRoom: {fileID: 738893540}
   doorManager: {fileID: 822073216}
@@ -43631,6 +43631,14 @@ PrefabInstance:
       propertyPath: playerActions
       value: 
       objectReference: {fileID: 1028167401}
+    - target: {fileID: 3157405490895645002, guid: a20ab0ed8cf9111459adc65f89927346, type: 3}
+      propertyPath: localizedInteractionText.m_TableEntryReference.m_KeyId
+      value: 21982944673792
+      objectReference: {fileID: 0}
+    - target: {fileID: 3157405490895645002, guid: a20ab0ed8cf9111459adc65f89927346, type: 3}
+      propertyPath: localizedInteractionText.m_TableReference.m_TableCollectionName
+      value: GUID:4c009285ed8c68a49be616db04ab2bc3
+      objectReference: {fileID: 0}
     - target: {fileID: 3157405491164771549, guid: a20ab0ed8cf9111459adc65f89927346, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -43649,7 +43657,7 @@ PrefabInstance:
       objectReference: {fileID: 822073216}
     - target: {fileID: 3157405491841771020, guid: a20ab0ed8cf9111459adc65f89927346, type: 3}
       propertyPath: myStageType
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3157405491841771020, guid: a20ab0ed8cf9111459adc65f89927346, type: 3}
       propertyPath: stageManager
@@ -61596,7 +61604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c1215d159fafdb45b6aa298115a971a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myStageType: 2
+  myStageType: 6
   stageManager: {fileID: 822073215}
   childCorridorObject: {fileID: 885407211}
 --- !u!1 &2112990457 stripped
@@ -63177,7 +63185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb246570dbce751469eccf1be995077d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myStageType: 6
+  myStageType: 2
   stageManager: {fileID: 822073215}
   childRoom: {fileID: 191969767226052246}
   doorManager: {fileID: 822073216}
@@ -67783,6 +67791,7 @@ MonoBehaviour:
   respawnRoom: {fileID: 3157405490863788392}
   allDoorController: {fileID: 1072533455}
   gameManager: {fileID: 1691485524}
+  stageManager: {fileID: 822073215}
 --- !u!1 &3157405491767310560
 GameObject:
   m_ObjectHideFlags: 0

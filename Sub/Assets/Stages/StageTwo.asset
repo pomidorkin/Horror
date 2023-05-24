@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentStage: 2
   goalType: 3
-  stageLocationType: 1
+  stageLocationType: 0
   stageGoal:
     stage: {fileID: 11400000}
-    requiredAmount: 10
+    requiredAmount: 0
     currentAmount: 0
-    requiredDoorsInteractionNumber: 5
+    requiredDoorsInteractionNumber: 0
     currentDoorsInteractionNumber: 0
     wasInteracted: 0
     playerLeftTheRoom: 0
