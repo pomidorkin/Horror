@@ -39,6 +39,6 @@ public class SceneProgressTransfer : MonoBehaviour
     {
         Debug.Log("SceneManager.sceneLoaded");
         stageManager.currentStage.stageGoal.MarkAsInteracted();
-        Destroy(gameObject);
+        Destroy(this.gameObject);
     }
 }

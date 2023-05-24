@@ -52,8 +52,7 @@ public class StageManager : MonoBehaviour
         }
 
         // Returning from another scene logic
-        //SceneProgressTransfer sceneProgressTransfer = FindObjectOfType<SceneProgressTransfer>();
-        SceneProgressTransfer sceneProgressTransfer = gameManager.saveManager.gameObject.GetComponentInParent<Transform>().GetComponentInChildren<SceneProgressTransfer>();
+        SceneProgressTransfer sceneProgressTransfer = FindObjectOfType<SceneProgressTransfer>();
         if (sceneProgressTransfer != null)
         {
             sceneProgressTransfer.SetGoalReached(this);
