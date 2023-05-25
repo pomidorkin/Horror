@@ -7,6 +7,7 @@ public class LibraryAudioVisulizer : MonoBehaviour
     [SerializeField] AudioVisualizerManager audioVisualizerManager;
     [SerializeField] GameObject positiveGroupParent;
     [SerializeField] GameObject negativeGroupParent;
+    [SerializeField] SwitchObjectsTrigger switchObjectsTrigger;
     private bool switched = false;
     private void OnEnable()
     {
@@ -25,12 +26,14 @@ public class LibraryAudioVisulizer : MonoBehaviour
             switched = false;
             positiveGroupParent.SetActive(true);
             negativeGroupParent.SetActive(false);
+            switchObjectsTrigger.TriggerChange(true);
         }
         else
         {
             switched = true;
             negativeGroupParent.SetActive(true);
             positiveGroupParent.SetActive(false);
+            switchObjectsTrigger.TriggerChange(false);
         }
         Debug.Log("Peak reached");
     }

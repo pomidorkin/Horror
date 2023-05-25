@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,14 +9,51 @@ public class SadakoGeneralController : MonoBehaviour
     [SerializeField] GameObject[] sadakoSkins;
     [SerializeField] TVSpawner TVSpawner;
     [SerializeField] GameObject explosionVFX;
+    private bool switchedOff = true;
+    private SkinnedMeshRenderer skinnedMeshRenderer;
+    private bool enemySpawned = false;
 
     private void Start()
     {
         TVSpawnerParent = FindObjectOfType<TVSpawnerParent>();
+        TVSpawnerParent.audioVisualizerManager.OnPeakReachedAction += SwitchVisibility;
     }
+
+    private void OnDisable()
+    {
+        TVSpawnerParent.audioVisualizerManager.OnPeakReachedAction -= SwitchVisibility;
+    }
+
+    private void SwitchVisibility()
+    {
+        if (switchedOff)
+            {
+            if (enemySpawned)
+            {
+                skinnedMeshRenderer.enabled = true;
+            }
+                switchedOff = false;
+        }
+        else
+        {
+            if (enemySpawned)
+            {
+                skinnedMeshRenderer.enabled = false;
+            }
+                switchedOff = true;
+        }
+    }
+
     public void ActivateSadakoSkin(int i)
     {
-        sadakoSkins[i].SetActive(true);
+        skinnedMeshRenderer = sadakoSkins[i].GetComponent<SkinnedMeshRenderer>();
+        
+            sadakoSkins[i].SetActive(true);
+        if (switchedOff)
+        {
+            skinnedMeshRenderer.enabled = false;
+        }
+        enemySpawned = true;
     }
 
     public void Attack()

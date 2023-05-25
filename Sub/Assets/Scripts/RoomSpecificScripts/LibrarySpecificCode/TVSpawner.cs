@@ -25,14 +25,42 @@ public class TVSpawner : MonoBehaviour
     float counter = 0;
     int sadakoSkinId = 0;
 
+
+    private bool switchedOff = true;
+    private SkinnedMeshRenderer skinnedMeshRenderer;
+    private bool enemySpawned = false;
+
+
     private void OnEnable()
     {
         TVSpawnerParent.OnCrossPlaced += OnCrossPlacedHandler;
+        TVSpawnerParent.audioVisualizerManager.OnPeakReachedAction += SwitchVisibility;
     }
 
     private void OnDisable()
     {
         TVSpawnerParent.OnCrossPlaced -= OnCrossPlacedHandler;
+        TVSpawnerParent.audioVisualizerManager.OnPeakReachedAction -= SwitchVisibility;
+    }
+
+    private void SwitchVisibility()
+    {
+        if (switchedOff)
+        {
+            if (enemySpawned)
+            {
+                skinnedMeshRenderer.enabled = true;
+            }
+            switchedOff = false;
+        }
+        else
+        {
+            if (enemySpawned)
+            {
+                skinnedMeshRenderer.enabled = false;
+            }
+            switchedOff = true;
+        }
     }
 
     private void OnCrossPlacedHandler(object source, TVSpawnerParent.CrossPlacedEventArgs args)
@@ -80,7 +108,13 @@ public class TVSpawner : MonoBehaviour
             //sadakoSkins[UnityEngine.Random.Range(0, sadakoSkins.Length)].SetActive(true);
             sadakoSkinId = UnityEngine.Random.Range(0, sadakoSkins.Length);
             sadakoSkins[sadakoSkinId].SetActive(true);
-            
+            skinnedMeshRenderer = sadakoSkins[sadakoSkinId].GetComponent<SkinnedMeshRenderer>();
+            if (switchedOff)
+            {
+                skinnedMeshRenderer.enabled = false;
+            }
+            enemySpawned = true;
+
         }
     }
 
