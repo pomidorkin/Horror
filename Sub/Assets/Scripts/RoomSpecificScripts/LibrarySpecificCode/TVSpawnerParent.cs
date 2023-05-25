@@ -14,6 +14,9 @@ public class TVSpawnerParent : MonoBehaviour
     float nextTime = 6f;
     float counter = 0;
     private bool spawningAllowed = false;
+    public bool crossPicked = false;
+
+    public bool switchedOff = true;
 
     public class CrossPlacedEventArgs : EventArgs
     {
@@ -25,6 +28,9 @@ public class TVSpawnerParent : MonoBehaviour
 
     public delegate void DamageDealt();
     public event DamageDealt OnDamageDealt;
+
+    public delegate void BroadcastPeakAction();
+    public event BroadcastPeakAction OnBroadcastPeak;
     private void OnEnable()
     {
         audioVisualizerManager.OnPeakReachedAction += EnableSpawning;
@@ -37,6 +43,16 @@ public class TVSpawnerParent : MonoBehaviour
 
     private void EnableSpawning()
     {
+        if (switchedOff)
+        {
+            switchedOff = false;
+        }
+        else
+        {
+            switchedOff = true;
+        }
+        OnBroadcastPeak();
+
         if (!spawningAllowed)
         {
             spawningAllowed = true;

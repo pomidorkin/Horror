@@ -6144,7 +6144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7601670436553164833, guid: 4c4549e7bdbf7234192e3125b390572b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7601670436553164834, guid: 4c4549e7bdbf7234192e3125b390572b, type: 3}
       propertyPath: EventReference.Path
@@ -45004,6 +45004,7 @@ MonoBehaviour:
   band: 1
   animTriggerValue: 5
   MMFeedbacks: {fileID: 0}
+  timeLimit: 0.1
 --- !u!1001 &2051089254
 PrefabInstance:
   m_ObjectHideFlags: 0

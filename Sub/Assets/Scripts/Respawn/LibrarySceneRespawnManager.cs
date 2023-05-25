@@ -67,6 +67,7 @@ public class LibrarySceneRespawnManager : MonoBehaviour, IRespawnManager
     {
         yield return new WaitForFixedUpdate();
         gameManager.EnablePlayerActionsAndDisableVirtualCamera();
+        gameManager.SetRespawningStage(false);
     }
 
     public void RespawnRoom()

@@ -26,7 +26,7 @@ public class TVSpawner : MonoBehaviour
     int sadakoSkinId = 0;
 
 
-    private bool switchedOff = true;
+    public bool switchedOff = true;
     private SkinnedMeshRenderer skinnedMeshRenderer;
     private bool enemySpawned = false;
 
@@ -34,32 +34,35 @@ public class TVSpawner : MonoBehaviour
     private void OnEnable()
     {
         TVSpawnerParent.OnCrossPlaced += OnCrossPlacedHandler;
-        TVSpawnerParent.audioVisualizerManager.OnPeakReachedAction += SwitchVisibility;
+        TVSpawnerParent.OnBroadcastPeak += SwitchVisibility;
     }
 
     private void OnDisable()
     {
         TVSpawnerParent.OnCrossPlaced -= OnCrossPlacedHandler;
-        TVSpawnerParent.audioVisualizerManager.OnPeakReachedAction -= SwitchVisibility;
+        //TVSpawnerParent.audioVisualizerManager.OnPeakReachedAction -= SwitchVisibility;
+        TVSpawnerParent.OnBroadcastPeak -= SwitchVisibility;
     }
 
     private void SwitchVisibility()
     {
-        if (switchedOff)
+        if (/*switchedOff*/TVSpawnerParent.switchedOff)
         {
             if (enemySpawned)
             {
-                skinnedMeshRenderer.enabled = true;
+                //skinnedMeshRenderer.enabled = true;
+                skinnedMeshRenderer.enabled = false;
             }
-            switchedOff = false;
+            //switchedOff = false;
         }
         else
         {
             if (enemySpawned)
             {
-                skinnedMeshRenderer.enabled = false;
+                //skinnedMeshRenderer.enabled = false;
+                skinnedMeshRenderer.enabled = true;
             }
-            switchedOff = true;
+            //switchedOff = true;
         }
     }
 
@@ -109,7 +112,7 @@ public class TVSpawner : MonoBehaviour
             sadakoSkinId = UnityEngine.Random.Range(0, sadakoSkins.Length);
             sadakoSkins[sadakoSkinId].SetActive(true);
             skinnedMeshRenderer = sadakoSkins[sadakoSkinId].GetComponent<SkinnedMeshRenderer>();
-            if (switchedOff)
+            if (/*switchedOff*/TVSpawnerParent.switchedOff)
             {
                 skinnedMeshRenderer.enabled = false;
             }

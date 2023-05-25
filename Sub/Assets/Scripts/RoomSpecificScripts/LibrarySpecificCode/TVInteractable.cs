@@ -11,10 +11,13 @@ public class TVInteractable : InteractionParent
 
     public override void ActivateInteractable()
     {
-        cross.gameObject.SetActive(true);
-        TVSpawner.crossIsPlaced = true;
-        TVSpawner.TVSpawnerParent.CrossPaced(true);
-        playerCross.gameObject.SetActive(false);
+        if (TVSpawner.TVSpawnerParent.crossPicked)
+        {
+            cross.gameObject.SetActive(true);
+            TVSpawner.crossIsPlaced = true;
+            TVSpawner.TVSpawnerParent.CrossPaced(true);
+            playerCross.gameObject.SetActive(false);
+        }
     }
 
     public void MakeUninteractable()
