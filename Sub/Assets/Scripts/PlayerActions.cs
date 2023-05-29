@@ -11,7 +11,7 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] private float playerInteractDistance = 3f;
     [SerializeField] private GameObject dialogueElement;
     [SerializeField] GameManagerScript gameManager;
-    [SerializeField] MouseListener mouseListener;
+    [SerializeField] MouseInterface mouseListener;
     public GameObject lastLookedAtObject = null;
     bool active = false;
     PlyerInputActions plyerInputActions;

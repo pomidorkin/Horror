@@ -17,6 +17,7 @@ public class AiAgent : MonoBehaviour
     [SerializeField] public WanderType wanderType;
     [SerializeField] public GameObject modelRotator;
     [SerializeField] public GameObject characterModel;
+    [SerializeField] public Animator animator;
     public AiAgentConfig config;
     public bool transitionAnimationCompleted = false; // Crabwalk enemy
     //public Ragdoll ragdoll;
@@ -25,6 +26,8 @@ public class AiAgent : MonoBehaviour
     public float defaultSpeed;
 
     public Transform[] followPositions;
+    //TV Monster
+    public Vector3 tagertPosition;
 
 
     public enum EnemyType { Crabwalk, EvilGirl, Wanderer, Other};
@@ -53,6 +56,8 @@ public class AiAgent : MonoBehaviour
         stateMachine.RegisterState(new AiWanderState());
         stateMachine.RegisterState(new AiFollowTargetState());
         stateMachine.RegisterState(new AiAttackState());
+        stateMachine.RegisterState(new AiObeyState());
+        stateMachine.RegisterState(new AiObeyAttackState());
         stateMachine.ChangeState(initialState);
 
         defaultSpeed = navMeshAgent.speed;
