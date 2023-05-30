@@ -17,7 +17,8 @@ public class AiObeyState : AiState
             agent.sensor.enabled = false;
         }
         agent.navMeshAgent.destination = agent.GetTargetPosition();
-        agent.navMeshAgent.speed = 5;
+        //agent.navMeshAgent.speed = 5;
+        agent.navMeshAgent.speed = agent.defaultSpeed;
         agent.navMeshAgent.isStopped = false;
         //agent.animator.SetTrigger("Walk");
     }

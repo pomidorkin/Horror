@@ -40,6 +40,8 @@ public class AiAgent : MonoBehaviour
         this.jumpScare = jumpScare;
     }
 
+
+
     public Vector3 GetTargetPosition()
     {
         return targetPosition;
@@ -55,6 +57,7 @@ public class AiAgent : MonoBehaviour
     {
         //ragdoll = GetComponent<Ragdoll>();
         navMeshAgent = GetComponent<NavMeshAgent>();
+        defaultSpeed = navMeshAgent.speed;
         sensor = GetComponent<AiSensor>();
 
         stateMachine = new AiStateMachine(this);
@@ -69,8 +72,6 @@ public class AiAgent : MonoBehaviour
         stateMachine.RegisterState(new AiObeyState());
         stateMachine.RegisterState(new AiObeyAttackState());
         stateMachine.ChangeState(initialState);
-
-        defaultSpeed = navMeshAgent.speed;
     }
 
     // Update is called once per frame

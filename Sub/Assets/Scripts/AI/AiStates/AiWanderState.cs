@@ -11,7 +11,8 @@ public class AiWanderState : AiState
     private int positionCounter = 0;
     public void Enter(AiAgent agent)
     {
-        agent.navMeshAgent.speed = 0.5f;
+        //agent.navMeshAgent.speed = 0.5f;
+        agent.navMeshAgent.speed = agent.defaultSpeed;
         positionCounter = 0;
         // TODO: Somehow reset the target and movement anim
         agent.navMeshAgent.destination = agent.followPositions[positionCounter].position;

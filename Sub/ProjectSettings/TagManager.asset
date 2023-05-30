@@ -16,6 +16,7 @@ TagManager:
   - 2DJumpscare
   - JellyFish
   - Cone
+  - TVMonster
   layers:
   - Default
   - TransparentFX
