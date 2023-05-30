@@ -20,12 +20,12 @@ public class LibrarySceneRespawnManager : MonoBehaviour, IRespawnManager
         Respawn();
 
         // Enemies
-        AiAgent agent = enemy.gameObject.GetComponent<AiAgent>();
-        agent.stateMachine.ChangeState(AiStateId.Wander);
-        agent.noticedPlayer = false;
-        enemy.gameObject.GetComponent<AiSensor>().enabled = true; // Not going to work with the blind enemy and other types of enemies
-        enemy.animator.SetBool("Follow", false);
-        enemy.animator.SetBool("Reset", true); // Тут тоже какая-то хуета
+        //AiAgent agent = enemy.gameObject.GetComponent<AiAgent>();
+        //agent.stateMachine.ChangeState(AiStateId.Wander);
+        //agent.noticedPlayer = false;
+        //enemy.gameObject.GetComponent<AiSensor>().enabled = true; // Not going to work with the blind enemy and other types of enemies
+        //enemy.animator.SetBool("Follow", false);
+        //enemy.animator.SetBool("Reset", true); // Тут тоже какая-то хуета
         respawnEvenrBroadcaster.InvokeRespawnAction();
 
         lookTarget.Respawn();

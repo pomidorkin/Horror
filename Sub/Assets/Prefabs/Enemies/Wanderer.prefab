@@ -17,13 +17,15 @@ GameObject:
   - component: {fileID: 7416554824784097571}
   - component: {fileID: 7416554824784097568}
   - component: {fileID: 7416554824784097576}
+  - component: {fileID: 7416554825883924425}
+  - component: {fileID: 7416554825883924427}
   m_Layer: 0
   m_Name: Wanderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7416554824784097577
 Transform:
   m_ObjectHideFlags: 0
@@ -157,10 +159,12 @@ MonoBehaviour:
   wanderType: 1
   modelRotator: {fileID: 0}
   characterModel: {fileID: 7415408532234081944}
+  animator: {fileID: 0}
   config: {fileID: 11400000, guid: e28a3fa530dc48d429ee8c18c6c13aaa, type: 2}
   transitionAnimationCompleted: 0
   sensor: {fileID: 7416554824784097571}
   noticedPlayer: 0
+  defaultSpeed: 0
   followPositions:
   - {fileID: 0}
   - {fileID: 0}
@@ -189,6 +193,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   animator: {fileID: 7416554824784097581}
+  enemyCopy: {fileID: 0}
 --- !u!114 &7416554824784097568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,6 +224,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 7416554824784097581}
   jumpScare: {fileID: 0}
+  respawnManager: {fileID: 0}
+--- !u!114 &7416554825883924425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7416554824784097569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a231f0e718f0009499e9464ec71a5c30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 7416554824784097569}
+  isWanderer: 1
+  navMeshAgent: {fileID: 7416554824784097582}
+  respawnEvenrBroadcaster: {fileID: 0}
+  respawnPositions: []
+  aiSensor: {fileID: 7416554824784097571}
+  agent: {fileID: 7416554824784097570}
+--- !u!114 &7416554825883924427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7416554824784097569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ea4cb512f736ff4ca294bf62c74fd32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventsBroadcaster: {fileID: 0}
+  agent: {fileID: 7416554824784097570}
+  aiScreamerController: {fileID: 7416554824784097576}
 --- !u!1 &7416554824923896246
 GameObject:
   m_ObjectHideFlags: 0

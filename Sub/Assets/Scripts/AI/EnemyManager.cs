@@ -13,6 +13,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private RespawnEvenrBroadcaster respawnEvenrBroadcaster;
     [SerializeField] Transform[] respawnPositions;
     [SerializeField] AiSensor aiSensor;
+    [SerializeField] AiAgent agent;
 
     private void OnEnable()
     {
@@ -80,13 +81,24 @@ public class EnemyManager : MonoBehaviour
                 // Right Enemy
                 enemy.transform.position = respawnPositions[0].position;
             }
+            enemy.transform.eulerAngles = initialSpawnRotation;
+            navMeshAgent.enabled = true;
         }
         else
         {
             enemy.transform.position = initialSpawnPosition;
+            enemy.transform.eulerAngles = initialSpawnRotation;
+            navMeshAgent.enabled = true;
+            agent.noticedPlayer = false;
+            agent.sensor.enabled = true;
+            agent.animator.SetBool("Follow", false);
+            agent.animator.SetBool("Reset", true); // Тут тоже какая-то хуета
+            if (agent.stateMachine.currentState != AiStateId.Wander)
+            {
+                agent.stateMachine.ChangeState(AiStateId.Wander);
+            }
         }
         //enemy.transform.position = initialSpawnPosition;
-        enemy.transform.eulerAngles = initialSpawnRotation;
-        navMeshAgent.enabled = true;
+        
     }
 }

@@ -27,7 +27,7 @@ public class AiAgent : MonoBehaviour
 
     public Transform[] followPositions;
     //TV Monster
-    public Vector3 tagertPosition;
+    private Vector3 targetPosition;
 
 
     public enum EnemyType { Crabwalk, EvilGirl, Wanderer, Other};
@@ -38,6 +38,16 @@ public class AiAgent : MonoBehaviour
         this.followObject = followObject;
         eyesForNpc = followObject;
         this.jumpScare = jumpScare;
+    }
+
+    public Vector3 GetTargetPosition()
+    {
+        return targetPosition;
+    }
+
+    public void SetTargetPosition(Vector3 newPosition)
+    {
+        targetPosition = newPosition;
     }
 
     // Start is called before the first frame update

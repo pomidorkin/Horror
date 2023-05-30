@@ -18,14 +18,40 @@ public class PlayerTVMonsterController : MonoBehaviour
     private PlyerInputActions playerInputActions;
     private bool setDestinationMode = true;
     private bool remoteControlPicked = true;
+    private bool firstObey = true;
+    [SerializeField] Light remoteControlLight;
+    [SerializeField] Color colorRed;
+    [SerializeField] Color colorGreen;
+    [SerializeField] RespawnEvenrBroadcaster respawnEvenrBroadcaster;
     private void OnEnable()
     {
+        respawnEvenrBroadcaster.OnRespawnTriggeredAction += Reset;
         playerInputActions = playerMovement.GetPlayerInputActions();
         playerInputActions.Player.Interaction.performed += ChangeRemoteControlMode;
+        tvMonsterAiAgent.animator.SetTrigger("Walk");
     }
+
+    /*private void OnDrawGizmos()
+    {
+        Gizmos.DrawRay(cam.position, cam.transform.TransformDirection(Vector3.forward) * 5);
+    }*/
     private void OnDisable()
     {
+        respawnEvenrBroadcaster.OnRespawnTriggeredAction -= Reset;
         playerInputActions.Player.Interaction.performed -= ChangeRemoteControlMode;
+    }
+
+    private void Reset()
+    {
+        setDestinationMode = true; // true for testing, should be false in production
+        remoteControlPicked = true;
+        firstObey = true;
+        remoteControlLight.color = colorGreen;
+        if (tvMonsterAiAgent.stateMachine.currentState != AiStateId.Obey || tvMonsterAiAgent.stateMachine.currentState != AiStateId.ChasePlayer)
+        {
+            tvMonsterAiAgent.animator.SetTrigger("Walk");
+        }
+        //tvMonsterAiAgent.sensor.enabled = true;
     }
 
     private void ChangeRemoteControlMode(InputAction.CallbackContext obj)
@@ -33,6 +59,14 @@ public class PlayerTVMonsterController : MonoBehaviour
         if (remoteControlPicked)
         {
             setDestinationMode = !setDestinationMode;
+            if (setDestinationMode)
+            {
+                remoteControlLight.color = colorGreen;
+            }
+            else
+            {
+                remoteControlLight.color = colorRed;
+            }
         }
     }
 
@@ -42,31 +76,29 @@ public class PlayerTVMonsterController : MonoBehaviour
         {
             if (setDestinationMode)
             {
+                tvMonsterAiAgent.navMeshAgent.isStopped = false;
+                //tvMonsterAiAgent.animator.SetTrigger("Walk");
+                Debug.Log("MouseClickedHandler");
                 SetFollowOrder();
             }
             else
             {
-                // Trigger Attack
-                Debug.Log("Attacking");
+                //tvMonsterAiAgent.navMeshAgent.isStopped = true;
+                tvMonsterAiAgent.stateMachine.ChangeState(AiStateId.ObeyAttackState);
+                //tvMonsterAiAgent.animator.SetTrigger("Attack");
             }
         }
     }
 
     public void SetFollowOrder()
     {
-        if (raycastAllowed)
+        Debug.Log("SetFollowOrder");
+        if (Physics.Raycast(cam.position, cam.TransformDirection(Vector3.forward), out hit, raycastDistance, groundLayer))
         {
-            active = Physics.Raycast(cam.position, cam.transform.TransformDirection(Vector3.forward), out hit, raycastDistance);
-        }
-        if (hit.collider != null)
-        {
-            if (hit.transform.gameObject.layer == 7)
-            {
-                laserParticle.SetActive(true);
-                SetNewFollowDestination();
-                Debug.Log("Raycast hit position: " + hit.point.x);
-                StartCoroutine(DisableLaserCoroutine());
-            }
+            laserParticle.SetActive(true);
+            SetNewFollowDestination();
+            Debug.Log("Raycast hit position: " + hit.point.x);
+            StartCoroutine(DisableLaserCoroutine());
         }
     }
 
@@ -78,10 +110,22 @@ public class PlayerTVMonsterController : MonoBehaviour
 
     private void SetNewFollowDestination()
     {
+        tvMonsterAiAgent.SetTargetPosition(new Vector3(hit.point.x, 0, hit.point.z));
         if (tvMonsterAiAgent.stateMachine.currentState != AiStateId.Obey)
         {
+            //tvMonsterAiAgent.animator.SetTrigger("Walk");
+            if (firstObey)
+            {
+                firstObey = false;
+            }
+            else
+            {
+                if (tvMonsterAiAgent.stateMachine.currentState != AiStateId.Obey)
+                {
+                    tvMonsterAiAgent.animator.SetTrigger("Walk");
+                }
+            }
             tvMonsterAiAgent.stateMachine.ChangeState(AiStateId.Obey);
         }
-        tvMonsterAiAgent.tagertPosition = new Vector3(hit.point.x, 0, hit.point.z);
     }
 }

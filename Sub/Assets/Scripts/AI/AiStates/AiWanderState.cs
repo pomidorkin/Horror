@@ -60,7 +60,6 @@ public class AiWanderState : AiState
             {
                 if (positionCounter < agent.followPositions.Length)
                 {
-                    Debug.Log("positionCounter: " + positionCounter);
                     agent.navMeshAgent.destination = agent.followPositions[positionCounter].position;
                     positionCounter++;
                 }

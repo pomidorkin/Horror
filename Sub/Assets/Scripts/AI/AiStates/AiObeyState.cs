@@ -16,12 +16,14 @@ public class AiObeyState : AiState
         {
             agent.sensor.enabled = false;
         }
-        agent.navMeshAgent.destination = agent.tagertPosition;
+        agent.navMeshAgent.destination = agent.GetTargetPosition();
         agent.navMeshAgent.speed = 5;
         agent.navMeshAgent.isStopped = false;
+        //agent.animator.SetTrigger("Walk");
     }
     public void Update(AiAgent agent)
     {
+        //Debug.Log("agent.navMeshAgent.destination: " + agent.navMeshAgent.destination);
         if (!agent.enabled)
         {
 
@@ -32,18 +34,21 @@ public class AiObeyState : AiState
         if (!agent.navMeshAgent.hasPath)
         {
 
-            agent.navMeshAgent.destination = agent.tagertPosition;
+            agent.navMeshAgent.destination = agent.GetTargetPosition();
         }
 
         if (timer < 0.0f)
         {
-            /*Vector3 direction = (agent.followObject.position - agent.navMeshAgent.destination);
-            direction.y = 0;*/
-            float distance = Vector3.Distance(agent.tagertPosition, agent.gameObject.transform.position);
-            if (0.1f >= distance)
+            agent.navMeshAgent.destination = agent.GetTargetPosition();
+            Vector3 direction = (agent.GetTargetPosition() - agent.navMeshAgent.destination);
+            direction.y = 0;
+            float distance = Vector3.Distance(agent.GetTargetPosition(), agent.gameObject.transform.position);
+            Debug.Log("distance: " + distance);
+            if (2f >= distance)
             {
                 agent.navMeshAgent.speed = 0;
                 agent.navMeshAgent.isStopped = true;
+                Debug.Log("Obey Target Reached");
                 agent.stateMachine.ChangeState(AiStateId.Idle);
             }
 

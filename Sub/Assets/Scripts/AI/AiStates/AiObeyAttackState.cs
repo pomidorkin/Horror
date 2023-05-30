@@ -8,6 +8,8 @@ public class AiObeyAttackState : AiState
     private float timer = 0f;
     public void Enter(AiAgent agent)
     {
+        agent.navMeshAgent.isStopped = true;
+        //agent.navMeshAgent.destination = agent.transform.position;
         agent.animator.SetTrigger("Attack");
     }
 
@@ -19,6 +21,7 @@ public class AiObeyAttackState : AiState
             if (timer >= 3.0f)
             {
                 timer = 0;
+                //agent.animator.SetTrigger("Idle");
                 agent.stateMachine.ChangeState(AiStateId.Idle);
             }
         }
