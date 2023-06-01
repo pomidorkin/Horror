@@ -23,6 +23,9 @@ public class PlayerTVMonsterController : MonoBehaviour
     [SerializeField] Color colorRed;
     [SerializeField] Color colorGreen;
     [SerializeField] RespawnEvenrBroadcaster respawnEvenrBroadcaster;
+    [SerializeField] RemoteControlAnimationController remoteControlAnimationController;
+    private float timer = 0;
+    private bool commandAllowed = false;
     private void OnEnable()
     {
         respawnEvenrBroadcaster.OnRespawnTriggeredAction += Reset;
@@ -54,38 +57,58 @@ public class PlayerTVMonsterController : MonoBehaviour
         //tvMonsterAiAgent.sensor.enabled = true;
     }
 
+    private void Update()
+    {
+        if (timer < 2f && !commandAllowed)
+        {
+            timer += Time.deltaTime;
+        }
+        else
+        {
+            timer = 0;
+            commandAllowed = true;
+        }
+    }
+
     private void ChangeRemoteControlMode(InputAction.CallbackContext obj)
     {
         if (remoteControlPicked)
         {
-            setDestinationMode = !setDestinationMode;
-            if (setDestinationMode)
-            {
-                remoteControlLight.color = colorGreen;
-            }
-            else
-            {
-                remoteControlLight.color = colorRed;
-            }
+                setDestinationMode = !setDestinationMode;
+                if (setDestinationMode)
+                {
+                    remoteControlLight.color = colorGreen;
+                }
+                else
+                {
+                    remoteControlLight.color = colorRed;
+                }
+            
         }
     }
 
     public void MouseClickedHandler()
     {
-        if (remoteControlPicked)
+
+        if (commandAllowed)
         {
-            if (setDestinationMode)
+            commandAllowed = false;
+            remoteControlAnimationController.PlayITweenAnim();
+            if (remoteControlPicked)
             {
-                tvMonsterAiAgent.navMeshAgent.isStopped = false;
-                //tvMonsterAiAgent.animator.SetTrigger("Walk");
-                Debug.Log("MouseClickedHandler");
-                SetFollowOrder();
-            }
-            else
-            {
-                //tvMonsterAiAgent.navMeshAgent.isStopped = true;
-                tvMonsterAiAgent.stateMachine.ChangeState(AiStateId.ObeyAttackState);
-                //tvMonsterAiAgent.animator.SetTrigger("Attack");
+                if (setDestinationMode)
+                {
+                    tvMonsterAiAgent.navMeshAgent.isStopped = false;
+                    //tvMonsterAiAgent.animator.SetTrigger("Walk");
+                    Debug.Log("MouseClickedHandler");
+                    SetFollowOrder();
+                }
+                else
+                {
+                    //tvMonsterAiAgent.navMeshAgent.isStopped = true;
+                    tvMonsterAiAgent.stateMachine.ChangeState(AiStateId.ObeyAttackState);
+                    //tvMonsterAiAgent.animator.SetTrigger("Attack");
+                }
             }
         }
     }

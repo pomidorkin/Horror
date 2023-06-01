@@ -44,12 +44,12 @@ public class AiObeyState : AiState
             Vector3 direction = (agent.GetTargetPosition() - agent.navMeshAgent.destination);
             direction.y = 0;
             float distance = Vector3.Distance(agent.GetTargetPosition(), agent.gameObject.transform.position);
-            Debug.Log("distance: " + distance);
+            //Debug.Log("distance: " + distance);
             if (2f >= distance)
             {
                 agent.navMeshAgent.speed = 0;
                 agent.navMeshAgent.isStopped = true;
-                Debug.Log("Obey Target Reached");
+                //Debug.Log("Obey Target Reached");
                 agent.stateMachine.ChangeState(AiStateId.Idle);
             }
 

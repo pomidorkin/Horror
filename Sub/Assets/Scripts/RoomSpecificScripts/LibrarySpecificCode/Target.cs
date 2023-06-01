@@ -31,6 +31,12 @@ public class Target : MonoBehaviour
         Debug.Log(targetHealth);
     }
 
+    public void HealTarget(int healAmount)
+    {
+        targetHealth += healAmount;
+        targetHealthSlider.value = (float)(targetHealth / 100f);
+    }
+
     public void DealDamage(int value)
     {
         if ((targetHealth - damageAmount) > 0)
